@@ -4,11 +4,13 @@ import './App.css';
 import Homeview from './modules/homeview';
 import WizardForm from './modules/WizardForm.js';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 
 class App extends React.Component {
   render() {
     return (
-      <MuiThemeProvider>
+      <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
         <div className="App">
           <header className="App-header">
             <h1 className="App-title">D & K's Big Bad Database of Scary Doom</h1>

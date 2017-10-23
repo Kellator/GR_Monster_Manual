@@ -3,23 +3,25 @@ import { Field, reduxForm } from 'redux-form';
 import validate from './validate';
 import renderField from './renderField';
 import RaisedButton from 'material-ui/RaisedButton';
+import SelectField from 'material-ui/SelectField';
+import MonsterSelect from './MonsterSelect.js';
 
 const monster_types = [ 'Animal', 'Elemental', 'Fae', 'Giant', 'Goblinoid', 'Human', 'Humanoid', 'Undead' ];
 const monster_levels = [ 'Low', 'Mid', 'High' ];
 
-const renderMonsterTypeSelector = ({ input, meta: { touched, error } }) => (
-    <div>
-      <select {...input}>
-        <option value="">Select a Monster Type...</option>
-        {monster_types.map(val => (
-          <option value={val} key={val}>
-            {val}
-          </option>
-        ))}
-      </select>
-      {touched && error && <span>{error}</span>}
-    </div>
-  )
+// const renderMonsterTypeSelector = ({ input, meta: { touched, error } }) => (
+//     <div>
+//       <select {...input}>
+//         <option value="">Select a Monster Type...</option>
+//         {monster_types.map(val => (
+//           <option value={val} key={val}>
+//             {val}
+//           </option>
+//         ))}
+//       </select>
+//       {touched && error && <span>{error}</span>}
+//     </div>
+//   )
 
 const renderMonsterLevelSelector = ({ input, meta: { touched, error } }) => (
     <div>
@@ -35,6 +37,7 @@ const renderMonsterLevelSelector = ({ input, meta: { touched, error } }) => (
     </div>
   )
 
+
 const WizardFormFirstPage = props => {
   const { handleSubmit } = props
   return (
@@ -46,25 +49,15 @@ const WizardFormFirstPage = props => {
             component={renderField}
             label="Monster Name"
         />
-        <div>
-            <label>Monster Type</label>
-            <p>Choose one type of monster (required).</p>
-            <div>
-                    <Field
-                        name="monster_type"
-                        component={renderMonsterTypeSelector}
-                    />
-            </div>
-        <div>
+        <MonsterSelect />
             <label>Monster Level</label>
             <p>Choose level of monster (required).</p>
             <div>
-                <Field
+                <SelectField
                     name="monster_level"
                     component={renderMonsterLevelSelector}
                 />
             </div>
-        </div>
         <p>Enter the body points (required) and armor points for the monster, if applicable.</p>
         <p>Use only numbers.</p>
             <Field
@@ -95,7 +88,6 @@ const WizardFormFirstPage = props => {
             Next
             </RaisedButton>
         </div>
-    </div>
     </form>
   )
 }
