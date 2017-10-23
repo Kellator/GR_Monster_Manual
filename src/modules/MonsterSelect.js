@@ -16,7 +16,7 @@ export default class MonsterSelect extends React.Component {
                 <div>
                     <SelectField
                         name="monster_type"
-                        floatingLabelText="Frequency"
+                        floatingLabelText="Type"
                         value={this.state.value}
                         onChange={this.handleChange}
                     >

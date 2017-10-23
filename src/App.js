@@ -6,11 +6,12 @@ import WizardForm from './modules/WizardForm.js';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
+import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 
 class App extends React.Component {
   render() {
     return (
-      <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
+      <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
         <div className="App">
           <header className="App-header">
             <h1 className="App-title">D & K's Big Bad Database of Scary Doom</h1>

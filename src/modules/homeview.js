@@ -1,4 +1,13 @@
 import React from 'react';
+import RaisedButton from 'material-ui/RaisedButton';
+import {
+    Checkbox,
+    RadioButtonGroup,
+    SelectField,
+    TextField,
+    Toggle,
+    DatePicker
+} from 'redux-form-material-ui';
 
 // div with search or enter
 const HomeView = () => (
@@ -12,13 +21,13 @@ const HomeView = () => (
     <div>
         <div>
             <h2>Search by name or type of creature.</h2>
-            <input placeholder="Wight"></input><button>Submit</button><br></br>
+            <TextField placeholder="Wight"></TextField><RaisedButton>Submit</RaisedButton><br></br>
             {/* buttons should send to route with advanced search for name & type & level */}
-            <button>Advanced Search</button>
+            <RaisedButton>Advanced Search</RaisedButton>
         </div>
         <div>
             {/* button should sent to route with input for new monster card */}
-            <button>Enter New Monster</button>
+            <RaisedButton>Enter New Monster</RaisedButton>
         </div>
     </div>
 );
