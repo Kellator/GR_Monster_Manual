@@ -17,7 +17,7 @@ const MonsterInput = props => {
                         />
                     </div>
                 </div>
-
+            {/* These options are one method of searching in the database. */}
                 <div>
                     <p>Choose the type of creature.</p>
                     <label>Type</label>
@@ -77,29 +77,35 @@ const MonsterInput = props => {
                     <p>Choose skills for Monster.  Be sure to include number of times skill may be used if applicable.</p>
                     <label>Skills</label>
                     <div>
-                        <Field
-                            name="monster_abilities"
+                        <label htmlFor="monster_abilities_weapons">Monster Weapon Skills</label>
+                        <fieldset
+                            name="monster_abilities_weapons"
                             component="select"
                         >
-                        {/* use unordered list of checkbox inputs */}
-                        <option >One Handed Weapon</option>
-                        <option >Two Weapons</option>
-                        <option >Shield</option>
-                        <option >Two Handed Weapon</option>
-                        {/* Weapon profs then slay? */}
-                        <option >Slay</option>
-                        <option >Backstab</option>
-                        <option >Alchemy</option>
-                        {/* Magic Schools need to add section for column */}
-                        <option >Celestial Magic</option>
-                        <option >Earth Magic</option>
-                        <option >Harmonic Magic</option>
-                        </Field>
+                        <ul>
+                            <li><Field 
+                            name="ma_one_weapon"
+                            component="input"
+                            type="checkbox"/>One Handed Weapon</li>
+                            <li><Field 
+                            name="ma_two_weapons"
+                            component="input"
+                            type="checkbox"/>Two Weapons</li>
+                            <li><Field 
+                            name="ma_two_handed_weapon"
+                            component="input"
+                            type="checkbox"/>Two Handed Weapon</li>
+                            <li><Field 
+                            name="ma_shield"
+                            component="input"
+                            type="checkbox"/>Shield</li>
+                        </ul>
+                        </fieldset>
                     </div>
                 </div>
 
                 <div>
-                    <p>Input Monster Defenes.  Be sure to include number of times defenses may be used.</p>
+                    <p>Input Monster Defense.  Be sure to include number of times defenses may be used.</p>
                     <label>Defenses</label>
                     <div>
                         <Field

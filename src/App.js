@@ -3,6 +3,7 @@ import green_monster from './green_monster.jpg';
 import './App.css';
 import Homeview from './modules/homeview';
 import MonsterInput from './modules/monster_input';
+import WizardForm from './modules/WizardForm.js';
 
 class App extends React.Component {
   render() {
@@ -13,7 +14,7 @@ class App extends React.Component {
           <img src={green_monster} className="App-logo" alt="logo" />
         </header>
         <Homeview />
-        <MonsterInput />
+        <WizardForm />
       </div>
     );
   }
