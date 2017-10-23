@@ -1,7 +1,8 @@
-import React from 'react'
-import { Field, reduxForm } from 'redux-form'
-import validate from './validate'
-import renderField from './renderField'
+import React from 'react';
+import { Field, reduxForm } from 'redux-form';
+import validate from './validate';
+import renderField from './renderField';
+import RaisedButton from 'material-ui/RaisedButton';
 
 const monster_types = [ 'Animal', 'Elemental', 'Fae', 'Giant', 'Goblinoid', 'Human', 'Humanoid', 'Undead' ];
 const monster_levels = [ 'Low', 'Mid', 'High' ];
@@ -90,9 +91,9 @@ const WizardFormFirstPage = props => {
                 maxLength="200"
             />
         <div>
-            <button type="submit" className="next">
+            <RaisedButton type="submit" className="next">
             Next
-            </button>
+            </RaisedButton>
         </div>
     </div>
     </form>

@@ -8,21 +8,20 @@ const WizardFormFifthPage = props => {
     return (
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="employed">Employed</label>
+          <label>Special Instructions/Descriptions</label>
+          <p>Use this section to describe any monster specific qualities.  For example, 'reduced damage from normal weapons'.</p>
           <div>
-            <Field
-              name="employed"
-              id="employed"
-              component="input"
-              type="checkbox"
-            />
+            <Field name="special_instructions" component="textarea" />
           </div>
         </div>
         <div>
-          <label>Notes</label>
-          <div>
-            <Field name="notes" component="textarea" placeholder="Notes" />
-          </div>
+            <label>Standard Treasure</label>
+            <p>Enter a standard amount of treasure this creature would have on it.</p>
+            <p>Treasure may be coin, weaponry (or alchemy), armor, production items, spell components, or magic items.</p>
+            {/* Eventually this should be a checkbox section with input for amounts. */}
+            <div>
+            <Field name="special_instructions" component="textarea" />
+            </div>
         </div>
         <div>
           <button type="button" className="previous" onClick={previousPage}>
