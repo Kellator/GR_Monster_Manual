@@ -4,15 +4,17 @@ import { dispatch } from 'react-redux';
 import { connect } from 'react-redux';
 import green_monster from './green_monster.jpg';
 import './App.css';
-import Homeview from './modules/homeview';
-import WizardForm from './modules/WizardForm.js';
+import ViewContainer from './modules/ViewContainer';
+
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
+
+import * as actions from './redux/actions/index';
 
 class App extends React.Component {
   render() {
+    console.log(this.props);
     return (
       <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
         <div className="App">
@@ -20,19 +22,25 @@ class App extends React.Component {
             <h1 className="App-title">D & K's Big Bad Database of Scary Doom</h1>
             <img src={green_monster} className="App-logo" alt="logo" />
           </header>
-          <Homeview />
-          <WizardForm />
+          <ViewContainer props={this.props}/>
         </div>
       </MuiThemeProvider>
     );
   }
 }
-// const mapStateToProps = (state, props) => ({
-//   current_view: home
-// })
-// const mapDispatchToProps = (dispatch, ownProps) => {
-//   showEntryForm : () => {
-//     dispatch(showEntryForm())
-//   }
-// }
-export default App;
+const mapStateToProps = (state, props) => ({
+  view: state.view
+});
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    showCreateView : () => {
+      console.log("button clicked");
+      dispatch(actions.ViewActions.showCreateView());
+    },
+    showSearchView : () => {
+      console.log("other button clicked");
+      dispatch(actions.ViewActions.showSearchView());
+    }
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(App);

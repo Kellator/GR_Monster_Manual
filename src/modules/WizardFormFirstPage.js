@@ -9,38 +9,6 @@ import MonsterLevel from './MonsterLevel.js';
 
 import { TextField } from 'redux-form-material-ui';
 
-// const monster_types = [ 'Animal', 'Elemental', 'Fae', 'Giant', 'Goblinoid', 'Human', 'Humanoid', 'Undead' ];
-// const monster_levels = [ 'Low', 'Mid', 'High' ];
-
-// const renderMonsterTypeSelector = ({ input, meta: { touched, error } }) => (
-//     <div>
-//       <select {...input}>
-//         <option value="">Select a Monster Type...</option>
-//         {monster_types.map(val => (
-//           <option value={val} key={val}>
-//             {val}
-//           </option>
-//         ))}
-//       </select>
-//       {touched && error && <span>{error}</span>}
-//     </div>
-//   )
-
-// const renderMonsterLevelSelector = ({ input, meta: { touched, error } }) => (
-//     <div>
-//       <select {...input}>
-//         <option value="">Select a toughness level...</option>
-//         {monster_levels.map(val => (
-//           <option value={val} key={val}>
-//             {val}
-//           </option>
-//         ))}
-//       </select>
-//       {touched && error && <span>{error}</span>}
-//     </div>
-//   )
-
-
 const WizardFormFirstPage = props => {
   const { handleSubmit } = props
   return (
@@ -54,14 +22,6 @@ const WizardFormFirstPage = props => {
         />
         <MonsterSelect />
         <MonsterLevel />
-            {/* <label>Monster Level</label>
-            <p>Choose level of monster (required).</p>
-            <div>
-                <SelectField
-                    name="monster_level"
-                    component={renderMonsterLevelSelector}
-                />
-            </div> */}
         <p>Enter the body points (required) and armor points for the monster, if applicable.</p>
         <p>Use only numbers.</p>
             <label>
