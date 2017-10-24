@@ -1,13 +1,6 @@
 import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
-import {
-    Checkbox,
-    RadioButtonGroup,
-    SelectField,
-    TextField,
-    Toggle,
-    DatePicker
-} from 'redux-form-material-ui';
+import { TextField } from 'redux-form-material-ui';
 
 // div with search or enter
 const HomeView = () => (

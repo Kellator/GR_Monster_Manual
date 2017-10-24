@@ -7,14 +7,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import MonsterSelect from './MonsterSelect.js';
 import MonsterLevel from './MonsterLevel.js';
 
-import {
-    Checkbox,
-    RadioButtonGroup,
-    SelectField,
-    TextField,
-    Toggle,
-    DatePicker
-} from 'redux-form-material-ui';
+import { TextField } from 'redux-form-material-ui';
 
 // const monster_types = [ 'Animal', 'Elemental', 'Fae', 'Giant', 'Goblinoid', 'Human', 'Humanoid', 'Undead' ];
 // const monster_levels = [ 'Low', 'Mid', 'High' ];
@@ -53,10 +46,10 @@ const WizardFormFirstPage = props => {
   return (
     <form onSubmit={handleSubmit}>
     <p>Enter name of new monster (required).</p>
-        <TextField
+        <Field
             name="monster_name"
             type="text"
-            component={renderField}
+            component={TextField}
             label="Monster Name"
         />
         <MonsterSelect />
@@ -73,19 +66,19 @@ const WizardFormFirstPage = props => {
         <p>Use only numbers.</p>
             <label>
             Body Points {' '}
-            <TextField
+            <Field
                 name="monster_body_points"
                 type="number"
-                component={renderField}
+                component={TextField}
                 >
-            </TextField>
+            </Field>
             </label><br/>
             <label>
                 Armor Points {' '}
-            <TextField
+            <Field
                 name="monster_armor_points"
                 type="number"
-                component={renderField}
+                component={TextField}
                 label="Armor Points"
             />           
             </label>
@@ -93,10 +86,10 @@ const WizardFormFirstPage = props => {
             <p>This description should include the visible appearance of the monster.</p>
             <p>Inlcude brief makeup and costuming instructions if applicable.</p>
             <p>Limit of 200 characters.</p>
-            <TextField
+            <Field
                 name="monster_description"
-                type="textarea"
-                component={renderField}
+                type="TextArea"
+                component={TextField}
                 label="Physical Description"
                 maxLength="200"
             />

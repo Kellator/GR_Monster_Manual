@@ -1,4 +1,7 @@
 import React from 'react';
+import { bindActionCreators } from 'redux';
+import { dispatch } from 'react-redux';
+import { connect } from 'react-redux';
 import green_monster from './green_monster.jpg';
 import './App.css';
 import Homeview from './modules/homeview';
@@ -24,5 +27,12 @@ class App extends React.Component {
     );
   }
 }
-
+// const mapStateToProps = (state, props) => ({
+//   current_view: home
+// })
+// const mapDispatchToProps = (dispatch, ownProps) => {
+//   showEntryForm : () => {
+//     dispatch(showEntryForm())
+//   }
+// }
 export default App;

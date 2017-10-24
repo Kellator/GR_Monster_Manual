@@ -1,12 +1,12 @@
 import { compose, createStore, applyMiddleware } from 'redux';
 import createHistory from 'history/createBrowserHistory';
 import { routerMiddleware, push } from 'react-router-redux';
-import logger from 'redux-logger';
+import { createLogger } from 'redux-logger';
 import rootReducer from './reducers';
 import thunk from 'redux-thunk';
 
 const history = createHistory();
-const devLogger = logger();
+// const devLogger = logger();
 
 // const middleware = [
 //     logger(),
@@ -15,7 +15,7 @@ const devLogger = logger();
 // ];
 const middleware = routerMiddleware(
     history,
-    devLogger,
+    createLogger,
     thunk
 );
 

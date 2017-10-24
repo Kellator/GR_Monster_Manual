@@ -1,7 +1,9 @@
-import React from 'react'
-import { Field, reduxForm } from 'redux-form'
-import validate from './validate'
-import renderField from './renderField'
+import React from 'react';
+import { Field, reduxForm } from 'redux-form';
+import { Checkbox } from 'redux-form-material-ui';
+import RaisedButton from 'material-ui/RaisedButton';
+import validate from './validate';
+import renderField from './renderField';
 
 const renderError = ({ meta: { touched, error } }) =>
 touched && error ? <span>{error}</span> : false
@@ -18,54 +20,54 @@ const { handleSubmit, previousPage } = props
           <Field
             name="weapons_one_handed"
             type="checkbox"
-            component={renderField}
+            component={Checkbox}
             label="One Handed Weapon"
           />
           <Field
             name="weapons_two_handed"
             type="checkbox"
-            component={renderField}
+            component={Checkbox}
             label="Two Handed Weapon"
           />
           <Field
             name="weapons_two_weapons"
             type="checkbox"
-            component={renderField}
+            component={Checkbox}
             label="Two Weapons"
           />
           <Field
             name="weapons_shield"
             type="checkbox"
-            component={renderField}
+            component={Checkbox}
             label="Shield"
           />
           <Field
             name="weapons_claws"
             type="checkbox"
-            component={renderField}
+            component={Checkbox}
             label="Claws"
           />
           <Field
             name="weapons_long_claws"
             type="checkbox"
-            component={renderField}
+            component={Checkbox}
             label="Long Claws"
           />
           <Field
             name="weapons_bite"
             type="checkbox"
-            component={renderField}
+            component={Checkbox}
             label="Bite"
           />
         </div>
         </div>
         <div>
-          <button type="button" className="previous" onClick={previousPage}>
+          <RaisedButton type="button" className="previous" onClick={previousPage}>
               Previous
-            </button>
-          <button type="submit" className="next">
+            </RaisedButton>
+          <RaisedButton type="submit" className="next">
             Next
-          </button>
+          </RaisedButton>
         </div>
     </form>
   )

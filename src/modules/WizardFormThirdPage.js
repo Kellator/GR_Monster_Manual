@@ -1,7 +1,12 @@
-import React from 'react'
+import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import validate from './validate'
-import renderField from './renderField'
+import validate from './validate';
+import renderField from './renderField';
+import MenuItem from 'material-ui/MenuItem';
+import { RadioButton } from 'material-ui/RadioButton';
+import RaisedButton from 'material-ui/RaisedButton';
+import { Checkbox } from 'redux-form-material-ui';
+
 
 const WizardFormThirdPage = props => {
     const { handleSubmit, pristine, previousPage, submitting } = props
@@ -16,42 +21,42 @@ const WizardFormThirdPage = props => {
                 <Field
                     name="alchemy"
                     type="checkbox"
-                    component={renderField}
+                    component={Checkbox}
                     label="Alchemy"
                 />
                 <Field
                     name="celestial_magic"
                     type="checkbox"
-                    component={renderField}
+                    component={Checkbox}
                     label="Celestial Magic"
                 />
                 <Field
                     name="earth_magic"
                     type="checkbox"
-                    component={renderField}
+                    component={Checkbox}
                     label="Earth Magic"
                 />
                 <Field
                     name="elemental_magic"
                     type="checkbox"
-                    component={renderField}
-                    label="Elementatl Magic"
+                    component={Checkbox}
+                    label="Elemental Magic"
                 />
                 <Field
                     name="harmonic_magic"
                     type="checkbox"
-                    component={renderField}
+                    component={Checkbox}
                     label="Harmonic Magic"
                 />
             </div>
         </div>
         <div>
-          <button type="button" className="previous" onClick={previousPage}>
+          <RaisedButton type="button" className="previous" onClick={previousPage}>
             Previous
-          </button>
-          <button type="submit" disabled={pristine || submitting}>
+          </RaisedButton>
+          <RaisedButton type="submit" disabled={pristine || submitting}>
             Submit
-          </button>
+          </RaisedButton>
         </div>
       </form>
     )

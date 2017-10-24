@@ -1,7 +1,9 @@
-import React from 'react'
+import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import validate from './validate'
-import renderField from './renderField'
+import RaisedButton from 'material-ui/RaisedButton';
+import { Checkbox } from 'redux-form-material-ui';
+import validate from './validate';
+import renderField from './renderField';
 
 const WizardFormFourthPage = props => {
     const { handleSubmit, pristine, previousPage, submitting } = props
@@ -15,7 +17,7 @@ const WizardFormFourthPage = props => {
                 <label>
                     <Field
                     name="physical_parry"
-                    component="input"
+                    component={ Checkbox }
                     type="checkbox"
                     />{' '}
                     Parry
@@ -23,7 +25,7 @@ const WizardFormFourthPage = props => {
                 <label>
                     <Field
                     name="physical_dodge"
-                    component="input"
+                    component={ Checkbox }
                     type="checkbox"
                     />{' '}
                     Dodge
@@ -31,7 +33,7 @@ const WizardFormFourthPage = props => {
                 <label>
                     <Field
                     name="physical_bane"
-                    component="input"
+                    component={ Checkbox }
                     type="checkbox"
                     />{' '}
                     Bane Physical
@@ -39,7 +41,7 @@ const WizardFormFourthPage = props => {
                 <label>
                     <Field
                     name="physical_phase"
-                    component="input"
+                    component={ Checkbox }
                     type="checkbox"
                     />
                     {' '}
@@ -48,7 +50,7 @@ const WizardFormFourthPage = props => {
                 <label>
                     <Field
                     name="physical_resist"
-                    component="input"
+                    component={ Checkbox }
                     type="checkbox"
                     />
                     {' '}
@@ -57,7 +59,7 @@ const WizardFormFourthPage = props => {
                 <label>
                     <Field
                     name="physical_threshold"
-                    component="input"
+                    component={ Checkbox }
                     type="checkbox"
                     />{' '}
                     Physical Threshold
@@ -70,7 +72,7 @@ const WizardFormFourthPage = props => {
                 <label>
                     <Field
                     name="magic_bane"
-                    component="input"
+                    component={ Checkbox }
                     type="checkbox"
                     />{' '}
                     Bane
@@ -78,7 +80,7 @@ const WizardFormFourthPage = props => {
                 <label>
                     <Field
                     name="magic_cloak"
-                    component="input"
+                    component={ Checkbox }
                     type="checkbox"
                     />{' '}
                     Cloak
@@ -86,7 +88,7 @@ const WizardFormFourthPage = props => {
                 <label>
                     <Field
                     name="magic_reflect"
-                    component="input"
+                    component={ Checkbox }
                     type="checkbox"
                     />{' '}
                     Reflect
@@ -94,7 +96,7 @@ const WizardFormFourthPage = props => {
                 <label>
                     <Field
                     name="magic_phase"
-                    component="input"
+                    component={ Checkbox }
                     type="checkbox"
                     />{' '}
                     Phase
@@ -102,7 +104,7 @@ const WizardFormFourthPage = props => {
                 <label>
                     <Field
                     name="magic_resist"
-                    component="input"
+                    component={ Checkbox }
                     type="checkbox"
                     />{' '}
                     Resist
@@ -116,7 +118,7 @@ const WizardFormFourthPage = props => {
                 <label>
                     <Field
                     name="racial_resist_charm"
-                    component="input"
+                    component={ Checkbox }
                     type="checkbox"
                     />{' '}
                     Resist Charm
@@ -124,7 +126,7 @@ const WizardFormFourthPage = props => {
                 <label>
                     <Field
                     name="racial_resist_sleep"
-                    component="input"
+                    component={ Checkbox }
                     type="checkbox"
                     />{' '}
                     Resist Sleep
@@ -132,7 +134,7 @@ const WizardFormFourthPage = props => {
                 <label>
                     <Field
                     name="racial_resist_poison"
-                    component="input"
+                    component={ Checkbox }
                     type="checkbox"
                     />{' '}
                     Resist Poison
@@ -140,7 +142,7 @@ const WizardFormFourthPage = props => {
                 <label>
                     <Field
                     name="racial_dodge"
-                    component="input"
+                    component={ Checkbox }
                     type="checkbox"
                     />{' '}
                     Dodge
@@ -148,12 +150,12 @@ const WizardFormFourthPage = props => {
             </div>
 
             <div>
-            <button type="button" className="previous" onClick={previousPage}>
+            <RaisedButton type="button" className="previous" onClick={previousPage}>
                 Previous
-            </button>
-            <button type="submit" disabled={pristine || submitting}>
+            </RaisedButton>
+            <RaisedButton type="submit" disabled={pristine || submitting}>
                 Submit
-            </button>
+            </RaisedButton>
             </div>
         </div>
       </form>
