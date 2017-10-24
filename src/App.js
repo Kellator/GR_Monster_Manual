@@ -1,21 +1,46 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React from 'react';
+import { bindActionCreators } from 'redux';
+import { dispatch } from 'react-redux';
+import { connect } from 'react-redux';
+import green_monster from './green_monster.jpg';
 import './App.css';
+import ViewContainer from './modules/ViewContainer';
 
-class App extends Component {
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
+
+import * as actions from './redux/actions/index';
+
+class App extends React.Component {
   render() {
+    console.log(this.props);
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to GR Monster Manual</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
+        <div className="App">
+          <header className="App-header">
+            <h1 className="App-title">D & K's Big Bad Database of Scary Doom</h1>
+            <img src={green_monster} className="App-logo" alt="logo" />
+          </header>
+          <ViewContainer props={this.props}/>
+        </div>
+      </MuiThemeProvider>
     );
   }
 }
-
-export default App;
+const mapStateToProps = (state, props) => ({
+  view: state.view
+});
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    showCreateView : () => {
+      console.log("button clicked");
+      dispatch(actions.ViewActions.showCreateView());
+    },
+    showSearchView : () => {
+      console.log("other button clicked");
+      dispatch(actions.ViewActions.showSearchView());
+    }
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(App);
