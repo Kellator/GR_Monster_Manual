@@ -39,3 +39,8 @@ if (require.main === module) {
 
 exports.app = app;
 exports.runServer = runServer;
+
+app.get('/', function(request, response) {
+    console.log('app.get fired for /');
+    return response.sendStatus(200);
+});
