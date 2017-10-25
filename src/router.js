@@ -37,3 +37,20 @@ router.get('/search', function(request, response) {
         });
     }
 });
+
+// creates new document for monster collection
+router.post('/create', function(request, response) {
+    console.log('creating new document');
+    let monster = request.body;
+    Monster.create(monster, function(err, monster) {
+        if (err || !monster) {
+            console.error('Argh!  Cannot create new monster.');
+            console.log(err);
+            return response.status(500).json({
+                message: 'Argh! Internal Server Error.'
+            });
+        }
+        console.log('Created New Monster Card : ' + monster._id);
+        response.status(201).json(monster);
+    });
+});
