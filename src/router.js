@@ -43,6 +43,19 @@ router.post('/create', function(request, response) {
     console.log('creating new document');
     let monster = request.body;
     Monster.create(monster, function(err, monster) {
+        let name = monster.name;
+        let category = monster.category;
+        let level = monster.level;
+        let body = monster.body;
+        let armor = monster.armor;
+        let description = monster.description;
+        let weaponSkills = monster.weaponSkills;
+        let scholarlySkills = monster.scholarlySkills;
+        let physicalDefenses = monster.physicalDefenses;
+        let spellDefenses = monster.spellDefenses;
+        let racialDefenses = monster.RacialDefenses;
+        let special = monster.special;
+        let treasure = monster.treasure;
         if (err || !monster) {
             console.error('Argh!  Cannot create new monster.');
             console.log(err);
