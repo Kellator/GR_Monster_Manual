@@ -7,6 +7,7 @@ import renderField from './renderField';
 
 const WizardFormFourthPage = props => {
     const { handleSubmit, pristine, previousPage, submitting } = props
+    console.log(props)
     return (
       <form onSubmit={handleSubmit}>
         <div>            
@@ -153,8 +154,8 @@ const WizardFormFourthPage = props => {
             <RaisedButton type="button" className="previous" onClick={previousPage}>
                 Previous
             </RaisedButton>
-            <RaisedButton type="submit" disabled={pristine || submitting}>
-                Submit
+            <RaisedButton type="submit" className="next">
+                Next
             </RaisedButton>
             </div>
         </div>

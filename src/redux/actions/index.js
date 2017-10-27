@@ -1,3 +1,4 @@
 import * as ViewActions from './ViewActions';
+import * as DatabaseActions from './DatabaseActions';
 
-export { ViewActions };
+export { DatabaseActions, ViewActions };

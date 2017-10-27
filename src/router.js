@@ -67,3 +67,16 @@ router.post('/create', function(request, response) {
         response.status(201).json(monster);
     });
 });
+// deletes a monster card from the database
+router.delete('/delete/:card_id', function(request, response) {
+    let card_id = request.params.card_id;
+    Monster.findByIdAndRemove(card_id, function(err, monster) {
+        if (err) {
+            console.log(err);
+            console.error('Darn! Could not delete monster card.');
+        }
+        console.log('Monster Card Deleted');
+        return response.status(204).end();
+    });
+});
+// edits specific aspect of monster card based on active fields?
