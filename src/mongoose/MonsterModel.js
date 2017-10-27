@@ -6,9 +6,9 @@ var MonsterSchema = new mongoose.Schema({
         type: String,
         required: [ true, 'Name required for searchable entry.' ]
     },
-    species: {
+    category: {
         type: String,
-        required: [ true, 'Species or type of creature is required for searchable entry.' ]
+        required: [ true, 'Category or type of creature is required for searchable entry.' ]
 
     },
     level: {
