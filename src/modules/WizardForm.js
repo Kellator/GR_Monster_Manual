@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import WizardFormFirstPage from './WizardFormFirstPage'
-import WizardFormSecondPage from './WizardFormSecondPage'
-import WizardFormThirdPage from './WizardFormThirdPage'
-import WizardFormFourthPage from './WizardFormFourthPage'
-import WizardFormFifthPage from './WizardFormFifthPage'
+import React, { Component } from 'react';
+// import PropTypes from 'prop-types'
+import WizardFormFirstPage from './WizardFormFirstPage';
+import WizardFormSecondPage from './WizardFormSecondPage';
+import WizardFormThirdPage from './WizardFormThirdPage';
+import WizardFormFourthPage from './WizardFormFourthPage';
+import WizardFormFifthPage from './WizardFormFifthPage';
 
 class WizardForm extends Component {
   constructor(props) {
@@ -24,6 +24,7 @@ class WizardForm extends Component {
   }
 
   render() {
+    console.log(this.props);
     const { onSubmit } = this.props
     const { page } = this.state
     return (
@@ -50,7 +51,7 @@ class WizardForm extends Component {
         {page === 5 && (
           <WizardFormFifthPage
             previousPage={this.previousPage}
-            onSubmit={onSubmit}
+            onSubmit={this.props.createCardSubmit}
           />
         )}
       </div>

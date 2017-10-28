@@ -1,6 +1,4 @@
 import React from 'react';
-import { bindActionCreators } from 'redux';
-import { dispatch } from 'react-redux';
 import { connect } from 'react-redux';
 import green_monster from './green_monster.jpg';
 import './App.css';

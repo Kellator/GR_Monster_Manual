@@ -1,6 +1,7 @@
 'use strict';
 import axios from 'axios';
-let url; //how to switch between dev and prod?
+let url = 'http://localhost:5252'
+
 
 export const FETCHING = 'FETCHING';
 export const fetching = () => ({
@@ -57,18 +58,33 @@ export const loadFail = (error) => ({
 });
 // action to dispatch to create new monster card
 export const createNewCard = (data) => {
-    return dispatch => {
-        dispatch(loading());
-        axios.post(url + "create/", data)
-        .then(response => {
-            console.log(response.data);
-            let newMonster = response.data;
-            dispatch(loadSuccess(newMonster));
-            console.log(response.status);
-        })
-        .catch(error => {
-            console.log(error);
-            dispatch(loadFail(error));
-        });
+        dispatch => {
+        dispatch(loading())
+        // return axios.post(url + "create/", data)
+        // .then(response => {
+        //     console.log(response.data);
+        //     let newMonster = response.data;
+        //     dispatch(loadSuccess(newMonster));
+        //     console.log(response.status);
+        // })
+        // .catch(error => {
+        //     console.log(error);
+        //     dispatch(loadFail(error));
+        // });
     }
 };
+// export const createNewCard = (data) => {
+//     return dispatch => {
+//         dispatch(loading())
+//         return axios.post(url + 'create/', {
+//             data
+//         })
+//         .then(response => {
+//             console.log(response.data)
+//             let newMonster = response.datal
+//             dispatch(loadSuccess(newMonster));
+//             console.log(response.status);
+//         })
+//         .catch(error => console.log({error}));
+//     }
+// }

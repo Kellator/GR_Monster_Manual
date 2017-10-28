@@ -2,7 +2,6 @@ import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import { TextField } from 'redux-form-material-ui';
 
-import WizardForm from './WizardForm.js';
 // div with search or enter
 class HomeView extends React.Component {
     render() {
