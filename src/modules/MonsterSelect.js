@@ -11,11 +11,11 @@ export default class MonsterSelect extends React.Component {
     render () {
         return (
             <div>
-                <label>Monster Type</label>
+                <label>Monster Category</label>
                 <p>Choose one type of monster (required).</p>
                 <div>
                     <SelectField
-                        name="monster_type"
+                        name="monster_category"
                         floatingLabelText="Type"
                         value={this.state.value}
                         onChange={this.handleChange}

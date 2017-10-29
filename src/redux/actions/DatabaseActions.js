@@ -1,6 +1,6 @@
 'use strict';
 import axios from 'axios';
-let url = 'http://localhost:5252'
+let url = 'http://localhost:5252/';
 
 
 export const FETCHING = 'FETCHING';
@@ -18,12 +18,13 @@ export const fetchFail = (error) => ({
     error
 });
 
-export const searchDatabase = (value) => {
+export const searchDatabase = (term) => {
+    console.log(term);
     return dispatch => {
         dispatch(fetching());
-        axios.get(url + "monsters", {
+        axios.get(url + "monster", {
             params: {
-                term: value
+                term: term
             }
         })
         .then(response => {
@@ -58,19 +59,20 @@ export const loadFail = (error) => ({
 });
 // action to dispatch to create new monster card
 export const createNewCard = (data) => {
-        dispatch => {
-        dispatch(loading())
-        // return axios.post(url + "create/", data)
-        // .then(response => {
-        //     console.log(response.data);
-        //     let newMonster = response.data;
-        //     dispatch(loadSuccess(newMonster));
-        //     console.log(response.status);
-        // })
-        // .catch(error => {
-        //     console.log(error);
-        //     dispatch(loadFail(error));
-        // });
+    console.log(data);
+    return dispatch => {
+        dispatch(loading());
+        axios.post(url + "monster", data)
+        .then(response => {
+            console.log(response.data);
+            let newMonster = response.data;
+            dispatch(loadSuccess(newMonster));
+            console.log(response.status);
+        })
+        .catch(error => {
+            console.log(error);
+            dispatch(loadFail(error));
+        });
     }
 };
 // export const createNewCard = (data) => {

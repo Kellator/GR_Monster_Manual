@@ -12,8 +12,9 @@ class ViewContainer extends React.Component {
         let searchSubmit = this.props.props.showSearchView;
         let createSubmit = this.props.props.showCreateView;
         let createCardSubmit = this.props.props.createNewCard;
+        let searchDatabase = this.props.props.searchDatabase;
         if (homeView == true) {
-            currentView = <HomeView createSubmit={ createSubmit } searchSubmit={ searchSubmit }/>
+            currentView = <HomeView createSubmit={ createSubmit } searchSubmit={ searchSubmit } searchDatabaseSubmit={ searchDatabase }/>
         }
         if (createView == true) {
             currentView = <WizardForm createCardSubmit={ createCardSubmit }/>

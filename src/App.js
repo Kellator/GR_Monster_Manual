@@ -41,10 +41,12 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     },
     searchDatabase : (value) => {
       console.log("search function initiated");
+      console.log(value);
       dispatch(actions.DatabaseActions.searchDatabase(value));
     },
     createNewCard : (values) => {
       console.log("add new card function initiated");
+      console.log(values);
       dispatch(actions.DatabaseActions.createNewCard(values));
     }
   }

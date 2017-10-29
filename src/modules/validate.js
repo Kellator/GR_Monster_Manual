@@ -3,7 +3,7 @@ const validate = values => {
     if (!values.monster_name) {
       errors.monster_name = 'Required'
     }
-    if (!values.monster_type) {
+    if (!values.monster_category) {
       errors.monster_type = 'Required'
     }
     if (!values.monster_level) {

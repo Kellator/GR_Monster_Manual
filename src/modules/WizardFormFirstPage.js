@@ -3,25 +3,44 @@ import { Field, reduxForm } from 'redux-form';
 import validate from './validate';
 import renderField from './renderField';
 import RaisedButton from 'material-ui/RaisedButton';
-// import SelectField from 'material-ui/SelectField';
-import MonsterSelect from './MonsterSelect.js';
-import MonsterLevel from './MonsterLevel.js';
 
-import { TextField } from 'redux-form-material-ui';
+import { TextField, SelectField,  } from 'redux-form-material-ui';
+import MenuItem from 'material-ui/MenuItem';
 
 const WizardFormFirstPage = props => {
   const { handleSubmit } = props
   return (
     <form onSubmit={handleSubmit}>
-    <p>Enter name of new monster (required).</p>
+        <p>Enter name of new monster (required).</p>
         <Field
             name="monster_name"
             type="text"
             component={TextField}
             label="Monster Name"
         />
-        <MonsterSelect />
-        <MonsterLevel />
+        <p>Choose one type of monster (required).</p>
+            <Field 
+            name="monster_category"
+            label="Monster Category"
+            component={SelectField}>
+                <MenuItem value={"Animal"} primaryText="Animal" />
+                <MenuItem value={"Elemental"} primaryText="Elemental" />
+                <MenuItem value={"Fae"} primaryText="Fae" />
+                <MenuItem value={"Giant"} primaryText="Giant" />
+                <MenuItem value={"Goblinoid"} primaryText="Goblinoid" />
+                <MenuItem value={"Human"} primaryText="Human" />
+                <MenuItem value={"Humanoid"} primaryText="Humanoid" />
+                <MenuItem value={"Undead"} primaryText="Undead" />
+            </Field>
+        <p>Choose monster level of difficulty (required).</p>
+            <Field
+            name="monster_level"
+            label="Monster Level"
+            component={SelectField}>
+                <MenuItem value={"Low"} primaryText="Low" />
+                <MenuItem value={"Mid"} primaryText="Mid" />
+                <MenuItem value={"High"} primaryText="High" />
+            </Field>
         <p>Enter the body points (required) and armor points for the monster, if applicable.</p>
         <p>Use only numbers.</p>
             <label>

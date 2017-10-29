@@ -7,10 +7,12 @@ var http = require('http');
 var cors = require('cors');
 
 var config = require('./config');
-
+var router = require('./router.js');
+var Monster = require('./mongoose/MonsterModel');
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
+app.use('/', router);
 
 const server = http.Server(app);
 

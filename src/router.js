@@ -3,13 +3,16 @@ var config = require('./config');
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
-var Monster = mongoose.model('Monster');
+// var Monster = mongoose.model('Monster');
+var Monster = require('./mongoose/MonsterModel');
 
 // searches db specific to criteria entered in search
-router.get('/search', function(request, response) {
+router.get('/monster', function(request, response) {
     // initial search criteria (e.g. search by name of creature OR categorization of creature) 
     // available on primary search function
+    console.log(request.query);
     var primarySearchCrit = request.query.primarySearchCrit;
+    console.log(primarySearchCrit);
     // secondary search criteria initiated in advanced search function
     // var secondarySearchCrit = request.query.secondarySearchCrit;
     if (primarySearchCrit == '') {
@@ -39,23 +42,27 @@ router.get('/search', function(request, response) {
 });
 
 // creates new document for monster collection
-router.post('/create', function(request, response) {
+router.post('/monster', function(request, response) {
     console.log('creating new document');
-    let monster = request.body;
+    let monster = {
+        name : request.body.monster_name,
+        category : request.body.monster_category,
+        level : request.body.monster_level,
+        body : request.body.monster_body_points,
+        armor : request.body.monster_armor_points,
+        description : request.body.monster_description,
+        weaponSkills : request.body.weaponSkills,
+        // scholarlySkills : request.body.scholarlySkills,
+        // physicalDefenses : request.body.physicalDefenses,
+        // spellDefenses : request.body.spellDefenses,
+        // racialDefenses : request.body.RacialDefenses,
+        treasure : request.body.standard_treasure,
+        special : request.body.special_instructions
+    };
+    console.log(monster);
+    console.log(request.body)
     Monster.create(monster, function(err, monster) {
-        let name = monster.name;
-        let category = monster.category;
-        let level = monster.level;
-        let body = monster.body;
-        let armor = monster.armor;
-        let description = monster.description;
-        let weaponSkills = monster.weaponSkills;
-        let scholarlySkills = monster.scholarlySkills;
-        let physicalDefenses = monster.physicalDefenses;
-        let spellDefenses = monster.spellDefenses;
-        let racialDefenses = monster.RacialDefenses;
-        let special = monster.special;
-        let treasure = monster.treasure;
+        console.log(monster);
         if (err || !monster) {
             console.error('Argh!  Cannot create new monster.');
             console.log(err);
@@ -64,6 +71,7 @@ router.post('/create', function(request, response) {
             });
         }
         console.log('Created New Monster Card : ' + monster._id);
+        console.log(monster);
         response.status(201).json(monster);
     });
 });
@@ -80,3 +88,5 @@ router.delete('/delete/:card_id', function(request, response) {
     });
 });
 // edits specific aspect of monster card based on active fields?
+
+module.exports = router;
