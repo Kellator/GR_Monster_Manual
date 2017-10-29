@@ -1,17 +1,16 @@
 import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
-import { TextField } from 'redux-form-material-ui';
+import BasicSearch from './BasicSearch.js';
 
 // div with search or enter
 class HomeView extends React.Component {
     render() {
+        console.log(this.props);
         return (
             <div>
                 <div>
                     <h2>Search by name or type of creature.</h2>
-                    <TextField placeholder="Wight"></TextField><RaisedButton >Submit</RaisedButton><br></br>
-                    {/* buttons should send to route with advanced search for name & type & level */}
-                    <RaisedButton onClick={ this.props.searchSubmit }>Advanced Search</RaisedButton>
+                    <BasicSearch onSubmit={ this.props.searchDatabaseSubmit }/>
                 </div>
                 <div>
                     {/* button should sent to route with input for new monster card */}

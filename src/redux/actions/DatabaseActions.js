@@ -18,12 +18,13 @@ export const fetchFail = (error) => ({
     error
 });
 
-export const searchDatabase = (value) => {
+export const searchDatabase = (term) => {
+    console.log(term);
     return dispatch => {
         dispatch(fetching());
-        axios.get(url + "monsters", {
+        axios.get(url + "monster", {
             params: {
-                term: value
+                term: term
             }
         })
         .then(response => {
