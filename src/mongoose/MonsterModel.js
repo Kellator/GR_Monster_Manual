@@ -9,14 +9,13 @@ var MonsterSchema = new mongoose.Schema({
     category: {
         type: String,
         required: [ true, 'Category or type of creature is required for searchable entry.' ]
-
     },
     level: {
         type: String,
         required: [ true, 'Monster level is required ']
     },
     body: {
-        type: Number,
+        type: String,
         required: [ true, 'Body points are required for monster creation.' ]
     },
     armor: {
@@ -25,27 +24,28 @@ var MonsterSchema = new mongoose.Schema({
     description: {
         type: String
     },
-    weaponSkills: {
-        type: Array
-    },
-    scholarlySkills: {
-        type: Array
-    },
-    physicalDefenses: {
-        type: Array
-    },
-    spellDefenses: {
-        type: Array
-    },
-    racialDefenses: {
+    // weaponSkills: {
+    //     type: Array
+    // },
+    // scholarlySkills: {
+    //     type: Array
+    // },
+    // physicalDefenses: {
+    //     type: Array
+    // },
+    // spellDefenses: {
+    //     type: Array
+    // },
+    // racialDefenses: {
+    //     type: Array
+    // },
+    treasure: {
         type: Array
     },
     special: {
         type: String
-    },
-    treasure: {
-        type: Array
     }
+
 });
 
 MonsterSchema.plugin(timestamps);

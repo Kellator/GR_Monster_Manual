@@ -45,6 +45,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     },
     createNewCard : (values) => {
       console.log("add new card function initiated");
+      console.log(values);
       dispatch(actions.DatabaseActions.createNewCard(values));
     }
   }
