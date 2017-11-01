@@ -3,10 +3,7 @@ import { Field, reduxForm } from 'redux-form';
 import { Checkbox } from 'redux-form-material-ui';
 import RaisedButton from 'material-ui/RaisedButton';
 import validate from './validate';
-import renderField from './renderField';
-
-const renderError = ({ meta: { touched, error } }) =>
-touched && error ? <span>{error}</span> : false
+// import renderField from './renderField';
 
 const WizardFormSecondPage = props => {
 const { handleSubmit, previousPage } = props
