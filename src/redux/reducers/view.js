@@ -12,21 +12,32 @@ export default function view(state = initialState, action) {
                 ...state,
                 homeView: true,
                 searchView: false,
-                createView: false
+                createView: false,
+                newCardView: false
             };
         case 'SEARCHVIEW' :
             return {
                 ...state,
                 homeView: false,
                 searchView: true,
-                createView: false
+                createView: false,
+                newCardView: false
             };
         case 'CREATEVIEW' :
             return {
                 ...state,
                 homeView: false,
                 searchView: false,
-                createView: true
+                createView: true,
+                newCardView: false
+            };
+        case 'NEWCARDVIEW' :
+            return {
+                ...state,
+                homeView: false,
+                searchView: false,
+                createView: false,
+                newCardView: true
             };
         default :
             return state;

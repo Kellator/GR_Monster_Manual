@@ -11,7 +11,8 @@ router.get('/monster', function(request, response) {
     // initial search criteria (e.g. search by name of creature OR categorization of creature) 
     // available on primary search function
     console.log(request.query);
-    var primarySearchCrit = request.query.primarySearchCrit;
+    var req = request.query.term;
+    var primarySearchCrit = req.toUpperCase();
     console.log(primarySearchCrit);
     // secondary search criteria initiated in advanced search function
     // var secondarySearchCrit = request.query.secondarySearchCrit;
@@ -44,9 +45,11 @@ router.get('/monster', function(request, response) {
 // creates new document for monster collection
 router.post('/monster', function(request, response) {
     console.log('creating new document');
+    let monsterName = (request.body.monster_name).toUpperCase();
+    let monsterCategory = (request.body.monster_category).toUpperCase();
     let monster = {
-        name : request.body.monster_name,
-        category : request.body.monster_category,
+        name : monsterName,
+        category : monsterCategory,
         level : request.body.monster_level,
         body : request.body.monster_body_points,
         armor : request.body.monster_armor_points,

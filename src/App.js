@@ -39,6 +39,14 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       console.log("other button clicked");
       dispatch(actions.ViewActions.showSearchView());
     },
+    showNewCardView : () => {
+      console.log("to show new card created");
+      dispatch(actions.ViewActions.showNewCardView());
+    },
+    showHomeView : () => {
+      console.log("Show the home view");
+      dispatch(actions.ViewActions.showHomeView());
+    },
     searchDatabase : (value) => {
       console.log("search function initiated");
       console.log(value);

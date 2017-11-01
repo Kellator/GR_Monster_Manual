@@ -1,5 +1,5 @@
-'use strict';
 import axios from 'axios';
+import * as ViewActions from './ViewActions.js';
 let url = 'http://localhost:5252/';
 
 
@@ -18,20 +18,20 @@ export const fetchFail = (error) => ({
     error
 });
 
-export const searchDatabase = (term) => {
-    console.log(term);
+export const searchDatabase = (query) => {
+    console.log(query);
     return dispatch => {
         dispatch(fetching());
         axios.get(url + "monster", {
             params: {
-                term: term
+                term: query.basic_search_input
             }
         })
         .then(response => {
             console.log(response);
             console.log(response.data);
             console.log(response.status);
-            if(response.status == 200) {
+            if(response.status === 200) {
                 dispatch(fetchSuccess(response.data));
                 console.log("Search was successful");
             }
@@ -67,6 +67,7 @@ export const createNewCard = (data) => {
             console.log(response.data);
             let newMonster = response.data;
             dispatch(loadSuccess(newMonster));
+            dispatch(ViewActions.showNewCardView());
             console.log(response.status);
         })
         .catch(error => {

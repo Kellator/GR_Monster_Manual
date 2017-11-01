@@ -3,7 +3,7 @@ import { Field, reduxForm } from 'redux-form';
 import RaisedButton from 'material-ui/RaisedButton';
 import { Checkbox } from 'redux-form-material-ui';
 import validate from './validate';
-import renderField from './renderField';
+// import renderField from './renderField';
 
 const WizardFormFourthPage = props => {
     const { handleSubmit, pristine, previousPage, submitting } = props
