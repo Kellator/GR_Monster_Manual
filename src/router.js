@@ -11,7 +11,8 @@ router.get('/monster', function(request, response) {
     // initial search criteria (e.g. search by name of creature OR categorization of creature) 
     // available on primary search function
     console.log(request.query);
-    var primarySearchCrit = request.query.primarySearchCrit;
+    var req = request.query.term;
+    var primarySearchCrit = req;
     console.log(primarySearchCrit);
     // secondary search criteria initiated in advanced search function
     // var secondarySearchCrit = request.query.secondarySearchCrit;
