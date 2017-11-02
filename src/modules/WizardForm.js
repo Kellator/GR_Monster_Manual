@@ -5,6 +5,9 @@ import WizardFormSecondPage from './WizardFormSecondPage';
 import WizardFormThirdPage from './WizardFormThirdPage';
 import WizardFormFourthPage from './WizardFormFourthPage';
 import WizardFormFifthPage from './WizardFormFifthPage';
+import WizardFormSixthPage from './WizardFormSixthPage';
+import WizardFormSeventhPage from './WizardFormSeventhPage';
+
 
 class WizardForm extends Component {
   constructor(props) {
@@ -41,7 +44,7 @@ class WizardForm extends Component {
             previousPage={this.previousPage}
             onSubmit={this.nextPage}
           />
-        )}
+        )}        
         {page === 4 && (
           <WizardFormFourthPage
             previousPage={this.previousPage}
@@ -50,6 +53,18 @@ class WizardForm extends Component {
         )}
         {page === 5 && (
           <WizardFormFifthPage
+            previousPage={this.previousPage}
+            onSubmit={this.nextPage}
+          />
+        )}
+        {page === 6 && (
+          <WizardFormSixthPage
+            previousPage={this.previousPage}
+            onSubmit={this.nextPage}
+          />
+        )}
+        {page === 7 && (
+          <WizardFormSeventhPage
             previousPage={this.previousPage}
             onSubmit={this.props.createCardSubmit}
           />
