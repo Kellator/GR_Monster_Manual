@@ -27,9 +27,80 @@ var MonsterSchema = new mongoose.Schema({
     weaponSkills: {
         type: Array
     },
-    // scholarlySkills: {
-    //     type: Array
-    // },
+    scholarlySkills: {
+        alchemy: {
+            hasAlchemy: {type: Boolean},
+            levelsOfAlchemy: {type: Number}
+        },
+        celestial: {
+            hasCelestialMagic: {type: Boolean},
+            battleMagic: {
+                levelOne: {type: Number},
+                levelTwo: {type: Number},
+                levelThree: {type: Number},
+                levelFour: {type: Number},
+                levelFive: {type: Number},
+                levelSix: {type: Number},
+                levelSeven: {type: Number},
+                levelEight: {type: Number},
+                levelNine: {type: Number}
+            },
+            formalMagic: {
+                numOfLevels: {type: Number}
+            }
+        },
+        earth: {
+            hasEarthMagic: {type: Boolean},
+            battleMagic: {
+                levelOne: {type: Number},
+                levelTwo: {type: Number},
+                levelThree: {type: Number},
+                levelFour: {type: Number},
+                levelFive: {type: Number},
+                levelSix: {type: Number},
+                levelSeven: {type: Number},
+                levelEight: {type: Number},
+                levelNine: {type: Number}
+            },
+            formalMagic: {
+                numOfLevels: {type: Number}
+            }
+        },
+        elemental: {
+            hasElementalMagic: {type: Boolean},
+            battleMagic: {
+                levelOne: {type: Number},
+                levelTwo: {type: Number},
+                levelThree: {type: Number},
+                levelFour: {type: Number},
+                levelFive: {type: Number},
+                levelSix: {type: Number},
+                levelSeven: {type: Number},
+                levelEight: {type: Number},
+                levelNine: {type: Number}
+            },
+            formalMagic: {
+                numOfLevels: {type: Number}
+            }
+        },
+        harmonic: {
+            hasHarmoniclMagic: {type: Boolean},
+            battleMagic: {
+                levelOne: {type: Number},
+                levelTwo: {type: Number},
+                levelThree: {type: Number},
+                levelFour: {type: Number},
+                levelFive: {type: Number},
+                levelSix: {type: Number},
+                levelSeven: {type: Number},
+                levelEight: {type: Number},
+                levelNine: {type: Number}
+            },
+            formalMagic: {
+                numOfLevels: {type: Number}
+            }
+        }
+    },
     physicalDefenses: {
         parry: {
             hasPhysicalParry: {type: Boolean},
@@ -52,12 +123,46 @@ var MonsterSchema = new mongoose.Schema({
             resistPerDay: {type: Number}
         }
     },
-    // spellDefenses: {
-    //     type: Array
-    // },
-    // racialDefenses: {
-    //     type: Array
-    // },
+    spellDefenses: {
+        bane: {
+            hasMagicalBane: {type: Boolean},
+            banePerDay: {type: Number}
+        },
+        cloak: {
+            hasMagicalCloak: {type: Boolean},
+            cloakPerDay: {type: Number}
+        },
+        reflect: {
+            hasMagicalReflect: {type: Boolean},
+            reflectPerDay: {type: Number}
+        },
+        phase: {
+            hasMagicalPhase: {type: Boolean},
+            phasePerDay: {type: Number}
+        },
+        resist: {
+            hasMagicalResist: {type: Boolean},
+            resistPerDay: {type: Number}
+        }
+    },
+    racialDefenses: {
+        charm: {
+            hasRacialCharm: {type: Boolean},
+            charmPerDay: {type: Number}
+        },
+        sleep: {
+            hasRacialSleep: {type: Boolean},
+            sleepPerDay: {type: Number}
+        },
+        poison: {
+            hasRacialPoison: {type: Boolean},
+            poisonPerDay: {type: Number}
+        },
+        dodge: {
+            hasPhysicalDodge: {type: Boolean},
+            dodgePerDay: {type: Number}
+        }
+    },
     treasure: {
         type: Array
     },
