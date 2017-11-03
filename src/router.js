@@ -54,18 +54,38 @@ router.post('/monster', function(request, response) {
         body : request.body.monster_body_points,
         armor : request.body.monster_armor_points,
         description : request.body.monster_description,
-        weaponSkills : request.body.weaponSkills,
+        // weaponSkills : request.body.weaponSkills,
         // scholarlySkills : request.body.scholarlySkills,
-        // physicalDefenses : request.body.physicalDefenses,
+        physicalDefenses: [
+            {
+                hasPhysicalParry: request.body.has_physical_parry,
+                parryPerDay: request.body.physical_parry
+            },
+            {
+                hasPhysicalDodge: request.body.has_physical_dodge,
+                dodgePerDay: request.body.physical_dodge
+            },
+            {
+                hasPhysicalBane: request.body.has_physical_bane,
+                banePerDay: request.body.physical_bane
+            },
+            {
+                hasPhysicalPhase: request.body.has_physical_phase,
+                phasePerDay: request.body.physical_phase
+            },
+            {
+                hasPhysicalResist: request.body.has_physical_resist,
+                resistPerDay: request.body.physical_resist
+            }
+        ],
         // spellDefenses : request.body.spellDefenses,
         // racialDefenses : request.body.RacialDefenses,
         treasure : request.body.standard_treasure,
         special : request.body.special_instructions
     };
+    console.log(request.body);
     console.log(monster);
-    console.log(request.body)
     Monster.create(monster, function(err, monster) {
-        console.log(monster);
         if (err || !monster) {
             console.error('Argh!  Cannot create new monster.');
             console.log(err);
@@ -74,7 +94,6 @@ router.post('/monster', function(request, response) {
             });
         }
         console.log('Created New Monster Card : ' + monster._id);
-        console.log(monster);
         response.status(201).json(monster);
     });
 });

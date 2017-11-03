@@ -24,15 +24,15 @@ var MonsterSchema = new mongoose.Schema({
     description: {
         type: String
     },
-    // weaponSkills: {
-    //     type: Array
-    // },
+    weaponSkills: {
+        type: Array
+    },
     // scholarlySkills: {
     //     type: Array
     // },
-    // physicalDefenses: {
-    //     type: Array
-    // },
+    physicalDefenses: {
+        type: Array
+    },
     // spellDefenses: {
     //     type: Array
     // },
