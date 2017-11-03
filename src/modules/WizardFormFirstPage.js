@@ -4,10 +4,10 @@ import validate from './validate';
 // import renderField from './renderField';
 import RaisedButton from 'material-ui/RaisedButton';
 
-import { TextField, SelectField,  } from 'redux-form-material-ui';
+import { TextField, SelectField } from 'redux-form-material-ui';
 import MenuItem from 'material-ui/MenuItem';
 
-const WizardFormFirstPage = props => {
+let WizardFormFirstPage = props => {
   const { handleSubmit } = props
   return (
     <form onSubmit={handleSubmit}>
