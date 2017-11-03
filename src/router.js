@@ -56,28 +56,28 @@ router.post('/monster', function(request, response) {
         description : request.body.monster_description,
         // weaponSkills : request.body.weaponSkills,
         // scholarlySkills : request.body.scholarlySkills,
-        physicalDefenses: [
-            {
+        physicalDefenses: {
+            parry: {
                 hasPhysicalParry: request.body.has_physical_parry,
                 parryPerDay: request.body.physical_parry
             },
-            {
+            dodge: {
                 hasPhysicalDodge: request.body.has_physical_dodge,
                 dodgePerDay: request.body.physical_dodge
             },
-            {
+            bane: {
                 hasPhysicalBane: request.body.has_physical_bane,
                 banePerDay: request.body.physical_bane
             },
-            {
+            phase: {
                 hasPhysicalPhase: request.body.has_physical_phase,
                 phasePerDay: request.body.physical_phase
             },
-            {
+            resist: {
                 hasPhysicalResist: request.body.has_physical_resist,
                 resistPerDay: request.body.physical_resist
             }
-        ],
+        },
         // spellDefenses : request.body.spellDefenses,
         // racialDefenses : request.body.RacialDefenses,
         treasure : request.body.standard_treasure,

@@ -31,7 +31,26 @@ var MonsterSchema = new mongoose.Schema({
     //     type: Array
     // },
     physicalDefenses: {
-        type: Array
+        parry: {
+            hasPhysicalParry: {type: Boolean},
+            parryPerDay: {type: Number}
+        },
+        dodge: {
+            hasPhysicalDodge: {type: Boolean},
+            dodgePerDay: {type: Number}
+        },
+        bane: {
+            hasPhysicalBane: {type: Boolean},
+            banePerDay: {type: Number}
+        },
+        phase: {
+            hasPhysicalPhase: {type: Boolean},
+            phasePerDay: {type: Number}
+        },
+        resist: {
+            hasPhysicalResist: {type: Boolean},
+            resistPerDay: {type: Number}
+        }
     },
     // spellDefenses: {
     //     type: Array
