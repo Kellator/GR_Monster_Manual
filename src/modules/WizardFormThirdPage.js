@@ -14,9 +14,8 @@ const WizardFormThirdPage = props => {
       <form onSubmit={handleSubmit}>
         <div>
             <label>Scholarly Skills</label>
-            <p>Choose if your monster has any scholarly or non-weapon skills.</p>
-            <p>Be sure to add the number of levels of each skill.</p>
             <p>This section includes innate magically delivered or elementally delivered attacks.</p>
+{/* add checkbox input for if monster has scholarly skills - hide other inputs until checkbox checked. */}
             <div>
                 <Field
                     name="alchemy"

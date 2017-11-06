@@ -54,18 +54,129 @@ router.post('/monster', function(request, response) {
         body : request.body.monster_body_points,
         armor : request.body.monster_armor_points,
         description : request.body.monster_description,
-        weaponSkills : request.body.weaponSkills,
-        // scholarlySkills : request.body.scholarlySkills,
-        // physicalDefenses : request.body.physicalDefenses,
+        weaponSkills : {
+            basicWeaponSkills : {
+                hasBasicWeaponSkills: request.body.has_basic_weapon_skills,
+                weaponType: request.body.weapon_type
+            }, 
+            advancedWeaponSkills : {
+                hasAdvancedWeaponSkills: request.body.has_advanced_weapon_skills,
+                slays : {
+                    hasSlays : request.body.has_slays,
+                    numberOfSlays: request.body.nummber_of_slays
+                },
+                assassinates: {
+                    hasAssassinates : request.body.has_assassinates,
+                    numberOfAssassinates: request.body.number_of_assassinates
+                }
+            },
+
+        },
+//need to update scholarly skills component before activating this section 
+
+        // scholarlySkills : {
+        //     alchemy: {
+        //         hasAlchemy: request.body.,
+        //         levelsOfAlchemy: request.body.
+        //     },
+        //     celestial: {
+        //         hasCelestialMagic: request.body.,
+        //         battleMagic: {
+        //             levelOne: request.body.,
+        //             levelTwo: request.body.,
+        //             levelThree: request.body.,
+        //             levelFour: request.body.,
+        //             levelFive: request.body.,
+        //             levelSix: request.body.,
+        //             levelSeven: request.body.,
+        //             levelEight: request.body.,
+        //             levelNine: request.body.
+        //         },
+        //         formalMagic: {
+        //             numOfLevels: request.body.
+        //         }
+        //     },
+        //     earth: {
+        //         hasEarthMagic: request.body.,
+        //         battleMagic: {
+        //             levelOne: request.body.,
+        //             levelTwo: request.body.,
+        //             levelThree: request.body.,
+        //             levelFour: request.body.,
+        //             levelFive: request.body.,
+        //             levelSix: request.body.,
+        //             levelSeven: request.body.,
+        //             levelEight: request.body.,
+        //             levelNine: request.body.
+        //         },
+        //         formalMagic: {
+        //             numOfLevels: request.body.
+        //         }
+        //     },
+        //     elemental: {
+        //         hasElementalMagic: request.body.,
+        //         battleMagic: {
+        //             levelOne: request.body.,
+        //             levelTwo: request.body.,
+        //             levelThree: request.body.,
+        //             levelFour: request.body.,
+        //             levelFive: request.body.,
+        //             levelSix: request.body.,
+        //             levelSeven: request.body.,
+        //             levelEight: request.body.,
+        //             levelNine: request.body.
+        //         },
+        //         formalMagic: {
+        //             numOfLevels: request.body.
+        //         }
+        //     },
+        //     harmonic: {
+        //         hasHarmoniclMagic: request.body.,
+        //         battleMagic: {
+        //             levelOne: request.body.,
+        //             levelTwo: request.body.,
+        //             levelThree: request.body.,
+        //             levelFour: request.body.,
+        //             levelFive: request.body.,
+        //             levelSix: request.body.,
+        //             levelSeven: request.body.,
+        //             levelEight: request.body.,
+        //             levelNine: request.body.
+        //         },
+        //         formalMagic: {
+        //             numOfLevels: request.body.
+        //         }
+        //     }
+        // },
+        physicalDefenses: {
+            parry: {
+                hasPhysicalParry: request.body.has_physical_parry,
+                parryPerDay: request.body.physical_parry
+            },
+            dodge: {
+                hasPhysicalDodge: request.body.has_physical_dodge,
+                dodgePerDay: request.body.physical_dodge
+            },
+            bane: {
+                hasPhysicalBane: request.body.has_physical_bane,
+                banePerDay: request.body.physical_bane
+            },
+            phase: {
+                hasPhysicalPhase: request.body.has_physical_phase,
+                phasePerDay: request.body.physical_phase
+            },
+            resist: {
+                hasPhysicalResist: request.body.has_physical_resist,
+                resistPerDay: request.body.physical_resist
+            }
+        },
         // spellDefenses : request.body.spellDefenses,
         // racialDefenses : request.body.RacialDefenses,
         treasure : request.body.standard_treasure,
         special : request.body.special_instructions
     };
-    console.log(monster);
-    console.log(request.body)
+    console.log(request.body);
     Monster.create(monster, function(err, monster) {
-        console.log(monster);
         if (err || !monster) {
             console.error('Argh!  Cannot create new monster.');
             console.log(err);
@@ -74,7 +185,6 @@ router.post('/monster', function(request, response) {
             });
         }
         console.log('Created New Monster Card : ' + monster._id);
-        console.log(monster);
         response.status(201).json(monster);
     });
 });
