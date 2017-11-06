@@ -24,18 +24,21 @@ var MonsterSchema = new mongoose.Schema({
     description: {
         type: String
     },
-    weaponSkills: {
-        hasWeaponSkills: {type: Boolean},
-        weaponSkills: {
-            type: Array
-        },
-        slay: {
-            hasSlays: {type: Boolean},
-            numberOfSlays: {type: Number}
-        },
-        assissinate: {
-            hasAssassinate: {type: Boolean},
-            numberOfAssassinates: {type: Number}
+    weaponSkills : {
+        basicWeaponSkills : {
+            hasBasicWeaponSkills: { type: Boolean },
+            weaponType: { type: String }
+        }, 
+        advancedWeaponSkills : {
+            hasAdvancedWeaponSkills: { type: Boolean },
+            slays : {
+                hasSlays : { type: Boolean },
+                numberOfSlays: { type: String }
+            },
+            assassinates: {
+                hasAssassinates : { type: Boolean },
+                numberOfAssassinates: { type: String }
+            }
         }
     },
     scholarlySkills: {

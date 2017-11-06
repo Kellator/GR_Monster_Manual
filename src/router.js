@@ -54,8 +54,24 @@ router.post('/monster', function(request, response) {
         body : request.body.monster_body_points,
         armor : request.body.monster_armor_points,
         description : request.body.monster_description,
-        // weaponSkills : request.body.weaponSkills,
+        weaponSkills : {
+            basicWeaponSkills : {
+                hasBasicWeaponSkills: request.body.has_basic_weapon_skills,
+                weaponType: request.body.weapon_type
+            }, 
+            advancedWeaponSkills : {
+                hasAdvancedWeaponSkills: request.body.has_advanced_weapon_skills,
+                slays : {
+                    hasSlays : request.body.has_slays,
+                    numberOfSlays: request.body.nummber_of_slays
+                },
+                assassinates: {
+                    hasAssassinates : request.body.has_assassinates,
+                    numberOfAssassinates: request.body.number_of_assassinates
+                }
+            },
 
+        },
 //need to update scholarly skills component before activating this section 
 
         // scholarlySkills : {
@@ -160,7 +176,6 @@ router.post('/monster', function(request, response) {
         special : request.body.special_instructions
     };
     console.log(request.body);
-    console.log(monster);
     Monster.create(monster, function(err, monster) {
         if (err || !monster) {
             console.error('Argh!  Cannot create new monster.');
