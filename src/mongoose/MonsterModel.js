@@ -19,7 +19,7 @@ var MonsterSchema = new mongoose.Schema({
         required: [ true, 'Body points are required for monster creation.' ]
     },
     armor: {
-        type: Number
+        type: String
     },
     description: {
         type: String
