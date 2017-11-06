@@ -45,76 +45,26 @@ var MonsterSchema = new mongoose.Schema({
         hasScholarlySkills: {type: Boolean},
         alchemy: {
             hasAlchemy: {type: Boolean},
-            levelsOfAlchemy: {type: Number}
+            levelsOfAlchemy: { type: String }
         },
-        celestial: {
-            hasCelestialMagic: {type: Boolean},
-            battleMagic: {
-                levelOne: {type: Number},
-                levelTwo: {type: Number},
-                levelThree: {type: Number},
-                levelFour: {type: Number},
-                levelFive: {type: Number},
-                levelSix: {type: Number},
-                levelSeven: {type: Number},
-                levelEight: {type: Number},
-                levelNine: {type: Number}
+        magic: {
+            hasMagic: {type: Boolean},
+            school: { type: String},
+            column: {
+                levelOne: { type: String },
+                levelTwo: { type: String },
+                levelThree: { type: String },
+                levelFour: { type: String },
+                levelFive: { type: String },
+                levelSix: { type: String },
+                levelSeven: { type: String },
+                levelEight: { type: String },
+                levelNine: { type: String }
             },
             formalMagic: {
-                numOfLevels: {type: Number}
+                numOfLevels: { type: String }
             }
         },
-        earth: {
-            hasEarthMagic: {type: Boolean},
-            battleMagic: {
-                levelOne: {type: Number},
-                levelTwo: {type: Number},
-                levelThree: {type: Number},
-                levelFour: {type: Number},
-                levelFive: {type: Number},
-                levelSix: {type: Number},
-                levelSeven: {type: Number},
-                levelEight: {type: Number},
-                levelNine: {type: Number}
-            },
-            formalMagic: {
-                numOfLevels: {type: Number}
-            }
-        },
-        elemental: {
-            hasElementalMagic: {type: Boolean},
-            battleMagic: {
-                levelOne: {type: Number},
-                levelTwo: {type: Number},
-                levelThree: {type: Number},
-                levelFour: {type: Number},
-                levelFive: {type: Number},
-                levelSix: {type: Number},
-                levelSeven: {type: Number},
-                levelEight: {type: Number},
-                levelNine: {type: Number}
-            },
-            formalMagic: {
-                numOfLevels: {type: Number}
-            }
-        },
-        harmonic: {
-            hasHarmoniclMagic: {type: Boolean},
-            battleMagic: {
-                levelOne: {type: Number},
-                levelTwo: {type: Number},
-                levelThree: {type: Number},
-                levelFour: {type: Number},
-                levelFive: {type: Number},
-                levelSix: {type: Number},
-                levelSeven: {type: Number},
-                levelEight: {type: Number},
-                levelNine: {type: Number}
-            },
-            formalMagic: {
-                numOfLevels: {type: Number}
-            }
-        }
     },
     physicalDefenses: {
         parry: {
