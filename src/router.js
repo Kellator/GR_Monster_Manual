@@ -50,7 +50,7 @@ router.post('/monster', function(request, response) {
     let monster = {
         name : monsterName,
         category : monsterCategory,
-        level : request.body.monster_level,
+        level : (request.body.monster_level).toUpperCase(),
         body : request.body.monster_body_points,
         armor : request.body.monster_armor_points,
         description : request.body.monster_description,

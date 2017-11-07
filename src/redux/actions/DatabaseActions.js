@@ -33,6 +33,7 @@ export const searchDatabase = (query) => {
             console.log(response.status);
             if(response.status === 200) {
                 dispatch(fetchSuccess(response.data));
+                dispatch(ViewActions.showResultsListView());
                 console.log("Search was successful");
             }
         })
