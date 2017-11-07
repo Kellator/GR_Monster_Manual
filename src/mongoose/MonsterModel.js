@@ -49,8 +49,9 @@ var MonsterSchema = new mongoose.Schema({
         },
         magic: {
             hasMagic: {type: Boolean},
-            school: { type: String},
-            column: {
+            hasFormal: { type: Boolean },
+            primarySchool: { type: String},
+            primaryColumn: {
                 levelOne: { type: String },
                 levelTwo: { type: String },
                 levelThree: { type: String },
@@ -61,9 +62,25 @@ var MonsterSchema = new mongoose.Schema({
                 levelEight: { type: String },
                 levelNine: { type: String }
             },
-            formalMagic: {
+            primaryFormalMagic: {
                 numOfLevels: { type: String }
-            }
+            },
+            secondarySchool: { type: String },
+            secondaryColumn: {
+                levelOne: { type: String },
+                levelTwo: { type: String },
+                levelThree: { type: String },
+                levelFour: { type: String },
+                levelFive: { type: String },
+                levelSix: { type: String },
+                levelSeven: { type: String },
+                levelEight: { type: String },
+                levelNine: { type: String }
+            },
+            secondaryFormalMagic: {
+                numOfLevels: { type: String }
+            },
+            magicSpecialInstructions : { type: String }
         },
     },
     physicalDefenses: {

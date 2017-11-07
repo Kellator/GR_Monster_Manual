@@ -70,84 +70,50 @@ router.post('/monster', function(request, response) {
                     numberOfAssassinates: request.body.number_of_assassinates
                 }
             },
-
         },
 //need to update scholarly skills component before activating this section 
-
-        // scholarlySkills : {
-        //     alchemy: {
-        //         hasAlchemy: request.body.,
-        //         levelsOfAlchemy: request.body.
-        //     },
-        //     celestial: {
-        //         hasCelestialMagic: request.body.,
-        //         battleMagic: {
-        //             levelOne: request.body.,
-        //             levelTwo: request.body.,
-        //             levelThree: request.body.,
-        //             levelFour: request.body.,
-        //             levelFive: request.body.,
-        //             levelSix: request.body.,
-        //             levelSeven: request.body.,
-        //             levelEight: request.body.,
-        //             levelNine: request.body.
-        //         },
-        //         formalMagic: {
-        //             numOfLevels: request.body.
-        //         }
-        //     },
-        //     earth: {
-        //         hasEarthMagic: request.body.,
-        //         battleMagic: {
-        //             levelOne: request.body.,
-        //             levelTwo: request.body.,
-        //             levelThree: request.body.,
-        //             levelFour: request.body.,
-        //             levelFive: request.body.,
-        //             levelSix: request.body.,
-        //             levelSeven: request.body.,
-        //             levelEight: request.body.,
-        //             levelNine: request.body.
-        //         },
-        //         formalMagic: {
-        //             numOfLevels: request.body.
-        //         }
-        //     },
-        //     elemental: {
-        //         hasElementalMagic: request.body.,
-        //         battleMagic: {
-        //             levelOne: request.body.,
-        //             levelTwo: request.body.,
-        //             levelThree: request.body.,
-        //             levelFour: request.body.,
-        //             levelFive: request.body.,
-        //             levelSix: request.body.,
-        //             levelSeven: request.body.,
-        //             levelEight: request.body.,
-        //             levelNine: request.body.
-        //         },
-        //         formalMagic: {
-        //             numOfLevels: request.body.
-        //         }
-        //     },
-        //     harmonic: {
-        //         hasHarmoniclMagic: request.body.,
-        //         battleMagic: {
-        //             levelOne: request.body.,
-        //             levelTwo: request.body.,
-        //             levelThree: request.body.,
-        //             levelFour: request.body.,
-        //             levelFive: request.body.,
-        //             levelSix: request.body.,
-        //             levelSeven: request.body.,
-        //             levelEight: request.body.,
-        //             levelNine: request.body.
-        //         },
-        //         formalMagic: {
-        //             numOfLevels: request.body.
-        //         }
-        //     }
-        // },
+        scholarlySkills: {
+            hasScholarlySkills: request.body,
+            alchemy: {
+                hasAlchemy: {type: Boolean},
+                levelsOfAlchemy: { type: String }
+            },
+            magic: {
+                hasMagic: {type: Boolean},
+                hasFormal: { type: Boolean },
+                primarySchool: { type: String},
+                primaryColumn: {
+                    levelOne: { type: String },
+                    levelTwo: { type: String },
+                    levelThree: { type: String },
+                    levelFour: { type: String },
+                    levelFive: { type: String },
+                    levelSix: { type: String },
+                    levelSeven: { type: String },
+                    levelEight: { type: String },
+                    levelNine: { type: String }
+                },
+                primaryFormalMagic: {
+                    numOfLevels: { type: String }
+                },
+                secondarySchool: { type: String },
+                secondaryColumn: {
+                    levelOne: { type: String },
+                    levelTwo: { type: String },
+                    levelThree: { type: String },
+                    levelFour: { type: String },
+                    levelFive: { type: String },
+                    levelSix: { type: String },
+                    levelSeven: { type: String },
+                    levelEight: { type: String },
+                    levelNine: { type: String }
+                },
+                secondaryFormalMagic: {
+                    numOfLevels: { type: String }
+                },
+                magicSpecialInstructions : { type: String }
+            },
+        },
         physicalDefenses: {
             parry: {
                 hasPhysicalParry: request.body.has_physical_parry,
