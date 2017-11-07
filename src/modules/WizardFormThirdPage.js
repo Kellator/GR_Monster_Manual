@@ -1,5 +1,6 @@
 import React from 'react';
 import { Field, reduxForm, formValueSelector } from 'redux-form';
+import { connect } from 'react-redux';
 import validate from './validate';
 // import renderField from './renderField';
 import MenuItem from 'material-ui/MenuItem';
@@ -173,16 +174,16 @@ let WizardFormThirdPage = props => {
                 </div>
             )}
             <div>
-                <label>Formal Magic</label>
+                <label>Secondary Formal Magic</label>
                 <div>
                     <Field
-                        name="has_formal_magic"
+                        name="has_secondary_formal_magic"
                         component={ Checkbox }
                         type="checkbox"
                     />
                 </div>
             </div>
-            {hasSecondaryFormalMagic && (
+            {hasSecondaryFormalMagicValue && (
                 <div>
                     <label>Secondary Formal Magic Levels</label>
                     <div>
@@ -223,13 +224,13 @@ let WizardFormThirdPage = props => {
     validate
   })(WizardFormThirdPage)
 
-  const selector = formValueSElector('wizard');
+  const selector = formValueSelector('wizard');
   WizardFormThirdPage = connect(state => {
     const hasAlchemyValue = selector(state, 'has_alchemy');
     const hasMagicValue = selector(state, 'has_magic');
     const hasSecondaryMagicValue = selector(state, 'has_secondary_magic');
     const hasFormalMagicValue = selector(state, 'has_formal_magic');
-    const hasSecondayFormalMagicValue = selector(state, 'has_secondary_formal_magic');
+    const hasSecondaryFormalMagicValue = selector(state, 'has_secondary_formal_magic');
     return {
         hasAlchemyValue,
         hasMagicValue,

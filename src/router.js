@@ -73,45 +73,30 @@ router.post('/monster', function(request, response) {
         },
 //need to update scholarly skills component before activating this section 
         scholarlySkills: {
-            hasScholarlySkills: request.body,
+            // hasScholarlySkills: request.body,
             alchemy: {
-                hasAlchemy: {type: Boolean},
-                levelsOfAlchemy: { type: String }
+                hasAlchemy: request.body.has_alchemy,
+                levelsOfAlchemy: request.body.levels_of_alchemy
             },
             magic: {
-                hasMagic: {type: Boolean},
-                hasFormal: { type: Boolean },
-                primarySchool: { type: String},
-                primaryColumn: {
-                    levelOne: { type: String },
-                    levelTwo: { type: String },
-                    levelThree: { type: String },
-                    levelFour: { type: String },
-                    levelFive: { type: String },
-                    levelSix: { type: String },
-                    levelSeven: { type: String },
-                    levelEight: { type: String },
-                    levelNine: { type: String }
+                hasMagic: request.body.has_magic,               
+                primarySchool: {
+                    primarySchool: request.body.primary_school_of_magic,
+                    primaryColumn: request.body.primary_column,
+                    formalMagic: {
+                        hasFormal: request.body.has_formal_magic,
+                        primaryFormalLevels: request.body.primary_formal_magic_levels
+                    }, 
                 },
-                primaryFormalMagic: {
-                    numOfLevels: { type: String }
-                },
-                secondarySchool: { type: String },
-                secondaryColumn: {
-                    levelOne: { type: String },
-                    levelTwo: { type: String },
-                    levelThree: { type: String },
-                    levelFour: { type: String },
-                    levelFive: { type: String },
-                    levelSix: { type: String },
-                    levelSeven: { type: String },
-                    levelEight: { type: String },
-                    levelNine: { type: String }
-                },
-                secondaryFormalMagic: {
-                    numOfLevels: { type: String }
-                },
-                magicSpecialInstructions : { type: String }
+                secondarySchool: {
+                    secondarySchool: request.body.secondary_school_of_magic,
+                    secondaryColumn: request.body.secondary_column,
+                    secondaryFormal: {
+                        hasSecondaryFormal: request.body.has_secondary_formal_magic,
+                        secondaryFormalLevels: request.body.secondary_formal_magic_levels
+                    }
+                }, 
+                magicSpecialInstructions : request.body.magic_special
             },
         },
         physicalDefenses: {
