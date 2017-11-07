@@ -76,18 +76,3 @@ export const createNewCard = (data) => {
         });
     }
 };
-// export const createNewCard = (data) => {
-//     return dispatch => {
-//         dispatch(loading())
-//         return axios.post(url + 'create/', {
-//             data
-//         })
-//         .then(response => {
-//             console.log(response.data)
-//             let newMonster = response.datal
-//             dispatch(loadSuccess(newMonster));
-//             console.log(response.status);
-//         })
-//         .catch(error => console.log({error}));
-//     }
-// }

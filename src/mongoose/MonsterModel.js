@@ -26,7 +26,7 @@ var MonsterSchema = new mongoose.Schema({
     },
     weaponSkills : {
         basicWeaponSkills : {
-            hasBasicWeaponSkills: { type: Boolean },
+            // hasBasicWeaponSkills: { type: Boolean },
             weaponType: { type: String }
         }, 
         advancedWeaponSkills : {
@@ -48,38 +48,23 @@ var MonsterSchema = new mongoose.Schema({
             levelsOfAlchemy: { type: String }
         },
         magic: {
-            hasMagic: {type: Boolean},
-            hasFormal: { type: Boolean },
-            primarySchool: { type: String},
-            primaryColumn: {
-                levelOne: { type: String },
-                levelTwo: { type: String },
-                levelThree: { type: String },
-                levelFour: { type: String },
-                levelFive: { type: String },
-                levelSix: { type: String },
-                levelSeven: { type: String },
-                levelEight: { type: String },
-                levelNine: { type: String }
+            hasMagic: {type: Boolean},               
+            primarySchool: {
+                primarySchool: { type: String },
+                primaryColumn: { type: String },
+                formalMagic: {
+                    hasFormal: {type: Boolean},
+                    primaryFormalLevels: { type: String }
+                }, 
             },
-            primaryFormalMagic: {
-                numOfLevels: { type: String }
-            },
-            secondarySchool: { type: String },
-            secondaryColumn: {
-                levelOne: { type: String },
-                levelTwo: { type: String },
-                levelThree: { type: String },
-                levelFour: { type: String },
-                levelFive: { type: String },
-                levelSix: { type: String },
-                levelSeven: { type: String },
-                levelEight: { type: String },
-                levelNine: { type: String }
-            },
-            secondaryFormalMagic: {
-                numOfLevels: { type: String }
-            },
+            secondarySchool: {
+                secondarySchool: { type: String },
+                secondaryColumn: { type: String },
+                secondaryFormal: {
+                    hasSecondaryFormal: {type: Boolean},
+                    secondaryFormalLevels: { type: String }
+                }
+            }, 
             magicSpecialInstructions : { type: String }
         },
     },

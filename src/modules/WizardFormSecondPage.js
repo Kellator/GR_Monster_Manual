@@ -11,7 +11,7 @@ let WizardFormSecondPage = props => {
   const { 
     handleSubmit, 
     previousPage,
-    hasBasicWeaponSkillsValue,
+    // hasBasicWeaponSkillsValue,
     hasAdvancedWeaponSkillsValue,
     hasSlaysValue,
     hasAssassinatesValue
@@ -22,7 +22,7 @@ let WizardFormSecondPage = props => {
         <p>Click the box to view weapon skill options.  Choose basic weapon skills, if applicable.</p>
         <p>This section includes body weaponry like claws and bite.</p>
         <p>If monster has no weaponskills, click the next button.</p>
-        <div>
+        {/* <div>
           <label>Basic Weapon Skills</label>
           <div>
             <Field
@@ -49,7 +49,22 @@ let WizardFormSecondPage = props => {
             </Field>
           </div>
         </div>
-      )}
+      )} */}
+        <div>
+          <label>Basic Weapon Skills/Type</label>
+          <div>
+            <Field 
+              name="weapon_type"
+              component={ SelectField }
+              type="selectfield">
+                <MenuItem value={"No Weapons"} primaryText="No Weapons" />
+                <MenuItem value={"Weapon of Choice"} primaryText="Weapon of Choice" />
+                <MenuItem value={"Claws"} primaryText="Claws" />
+                <MenuItem value={"Long Claws"} primaryText="Long Claws" />
+                <MenuItem value={"Bite"} primaryText="Bite" />      
+            </Field>
+          </div>
+        </div>
       <div>
         <h3>Advanced Weapons Skills</h3>
         <p>Click the box to view advanced weapon skills.</p>
@@ -137,12 +152,12 @@ WizardFormSecondPage = reduxForm({
 
 const selector = formValueSelector('wizard');
 WizardFormSecondPage = connect(state => {
-  const hasBasicWeaponSkillsValue = selector(state, 'has_basic_weapon_skills');
+  // const hasBasicWeaponSkillsValue = selector(state, 'has_basic_weapon_skills');
   const hasAdvancedWeaponSkillsValue = selector(state, 'has_advanced_weapon_skills');
   const hasSlaysValue = selector(state, 'has_slays');
   const hasAssassinatesValue = selector(state, 'has_assassinates');
   return {
-    hasBasicWeaponSkillsValue,
+    // hasBasicWeaponSkillsValue,
     hasAdvancedWeaponSkillsValue,
     hasSlaysValue,
     hasAssassinatesValue

@@ -56,7 +56,7 @@ router.post('/monster', function(request, response) {
         description : request.body.monster_description,
         weaponSkills : {
             basicWeaponSkills : {
-                hasBasicWeaponSkills: request.body.has_basic_weapon_skills,
+                // hasBasicWeaponSkills: request.body.has_basic_weapon_skills,
                 weaponType: request.body.weapon_type
             }, 
             advancedWeaponSkills : {
