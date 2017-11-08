@@ -1,10 +1,19 @@
 import React from 'react';
-import CreatureCard from './CreatureCard.js';
+import SearchResult from './SearchResult.js';
+import {List, ListItem} from 'material-ui/List';
 
 class SearchResultList extends React.Component {
     render() {
+        console.log(this.props);
+        const results = (this.props.resultsList) ? this.props.resultsList.map((result, index) => {
+            return <SearchResult key={ index } result={ result } showCardView={ this.props.showCardView }/>
+        }) : undefined;
         return(
-            <p>hi</p>
+            <div>
+                <List >
+                    { results }
+                </List>
+            </div>
         )
     }
 }

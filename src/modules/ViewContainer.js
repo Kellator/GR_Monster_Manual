@@ -2,6 +2,8 @@ import React from 'react';
 import WizardForm from './WizardForm.js';
 import HomeView from './homeview.js';
 import CardCreated from './cardCreated.js';
+import SearchResult from './SearchResult.js';
+import CreatureCard from './CreatureCard.js';
 import SearchResultContainer from './SearchResultContainer';
 
 class ViewContainer extends React.Component {
@@ -14,6 +16,7 @@ class ViewContainer extends React.Component {
         let createView = this.props.props.view.createView;
         let newCardView = this.props.props.view.newCardView;
         let resultsListView = this.props.props.view.resultsListView;
+        let cardView = this.props.props.view.cardView;
         // button onClick to show search page
         let searchSubmit = this.props.props.showSearchView;
         // button onClick to show create new card form wizard
@@ -24,6 +27,9 @@ class ViewContainer extends React.Component {
         let createCardSubmit = this.props.props.createNewCard;
         // onClick to perform database search
         let searchDatabase = this.props.props.searchDatabase;
+        // onClick to show creature card
+        let showCardView = this.props.props.showCardView;
+        let monster;
         if (homeView === true) {
             currentView = <HomeView createSubmit={ createSubmit } searchSubmit={ searchSubmit } searchDatabaseSubmit={ searchDatabase }/>
         }
@@ -35,7 +41,10 @@ class ViewContainer extends React.Component {
         }
         if (resultsListView === true) {
             currentView = <SearchResultContainer  createSubmit={ createSubmit } searchDatabaseSubmit={ searchDatabase } 
-                showHomeView={ showHomeView }/>
+                showHomeView={ showHomeView } showCardView={ showCardView }/>
+        }
+        if (cardView === true) {
+            currentView = <CreatureCard showHomeView={ showHomeView } />
         }
         return (
             <div>{ currentView }</div>            

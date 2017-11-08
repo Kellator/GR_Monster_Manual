@@ -14,7 +14,7 @@ class SearchResultContainer extends React.Component {
             />
         }
         return(
-            <SearchResultList resultsList={ this.props.resultsList }/>
+            <SearchResultList resultsList={ this.props.resultsList } showCardView={ this.props.showCardView }/>
         )
     }
 }
