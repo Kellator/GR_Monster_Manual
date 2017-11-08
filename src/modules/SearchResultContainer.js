@@ -9,7 +9,9 @@ class SearchResultContainer extends React.Component {
         let resultArray = this.props.resultsList;
         console.log(resultArray);
         if (resultArray.length === 0) {
-            return <NoResults />
+            return <NoResults 
+            searchDatabaseSubmit={ this.props.searchDatabaseSubmit } showHomeView={ this.props.showHomeView }
+            />
         }
         return(
             <SearchResultList resultsList={ this.props.resultsList }/>

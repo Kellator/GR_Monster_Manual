@@ -7,8 +7,9 @@ class NoResults extends React.Component {
         console.log(this.props);
         return(
             <div>
-                <h3>Sorry!  Your search has returned no results.  Try again using a different name or category.</h3>
-                <BasicSearch />
+                <h3>Sorry!  Your search has returned no results.  Check your spelling or try again using a different name or category.</h3>
+                <BasicSearch onSubmit={ this.props.searchDatabaseSubmit }/>
+                <RaisedButton onClick={ this.props.showHomeView }>Home</RaisedButton>
             </div>
         )
     }

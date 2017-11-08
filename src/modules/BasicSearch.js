@@ -6,6 +6,7 @@ import { Field, reduxForm } from 'redux-form';
 const BasicSearch = props => {
     const {handleSubmit, pristine, reset, submitting } = props
     console.log(props);
+    console.log(this.props)
     return (
         <form onSubmit={ handleSubmit(props.onSubmit) }>
             <div>

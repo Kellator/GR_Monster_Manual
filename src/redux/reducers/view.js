@@ -12,7 +12,8 @@ export default function view(state = initialState, action) {
                 homeView: true,
                 searchView: false,
                 createView: false,
-                newCardView: false
+                newCardView: false,
+                resultsListView: false
             };
         case 'SEARCHVIEW' :
             return {
@@ -20,7 +21,8 @@ export default function view(state = initialState, action) {
                 homeView: false,
                 searchView: true,
                 createView: false,
-                newCardView: false
+                newCardView: false,
+                resultsListView: false
             };
         case 'CREATEVIEW' :
             return {

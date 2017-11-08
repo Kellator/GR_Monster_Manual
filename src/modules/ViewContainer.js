@@ -34,7 +34,8 @@ class ViewContainer extends React.Component {
             currentView = <CardCreated createSubmit={ createSubmit } showHomeView={ showHomeView } />
         }
         if (resultsListView === true) {
-            currentView = <SearchResultContainer />
+            currentView = <SearchResultContainer  createSubmit={ createSubmit } searchDatabaseSubmit={ searchDatabase } 
+                showHomeView={ showHomeView }/>
         }
         return (
             <div>{ currentView }</div>            
