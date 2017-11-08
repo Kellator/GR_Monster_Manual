@@ -33,6 +33,7 @@ export const searchDatabase = (query) => {
             console.log(response.status);
             if(response.status === 200) {
                 dispatch(fetchSuccess(response.data));
+                dispatch(ViewActions.showResultsListView());
                 console.log("Search was successful");
             }
         })
@@ -76,18 +77,3 @@ export const createNewCard = (data) => {
         });
     }
 };
-// export const createNewCard = (data) => {
-//     return dispatch => {
-//         dispatch(loading())
-//         return axios.post(url + 'create/', {
-//             data
-//         })
-//         .then(response => {
-//             console.log(response.data)
-//             let newMonster = response.datal
-//             dispatch(loadSuccess(newMonster));
-//             console.log(response.status);
-//         })
-//         .catch(error => console.log({error}));
-//     }
-// }

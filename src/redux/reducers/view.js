@@ -1,9 +1,8 @@
-import * as action from '../actions';
-
 const initialState= {
     homeView: true,
     searchView: false,
-    createView: false
+    createView: false,
+    resultsListView: false
 }
 export default function view(state = initialState, action) {
     switch(action.type) {
@@ -13,7 +12,8 @@ export default function view(state = initialState, action) {
                 homeView: true,
                 searchView: false,
                 createView: false,
-                newCardView: false
+                newCardView: false,
+                resultsListView: false
             };
         case 'SEARCHVIEW' :
             return {
@@ -21,7 +21,8 @@ export default function view(state = initialState, action) {
                 homeView: false,
                 searchView: true,
                 createView: false,
-                newCardView: false
+                newCardView: false,
+                resultsListView: false
             };
         case 'CREATEVIEW' :
             return {
@@ -29,7 +30,8 @@ export default function view(state = initialState, action) {
                 homeView: false,
                 searchView: false,
                 createView: true,
-                newCardView: false
+                newCardView: false,
+                resultsListView: false
             };
         case 'NEWCARDVIEW' :
             return {
@@ -37,7 +39,17 @@ export default function view(state = initialState, action) {
                 homeView: false,
                 searchView: false,
                 createView: false,
-                newCardView: true
+                newCardView: true,
+                resultsListView: false
+            };
+        case 'RESULTS_LIST_VIEW' :
+            return {
+                ...state,
+                homeView: false,
+                searchView: false,
+                createView: false,
+                newCardView: false,
+                resultsListView: true
             };
         default :
             return state;

@@ -2,6 +2,7 @@ import React from 'react';
 import WizardForm from './WizardForm.js';
 import HomeView from './homeview.js';
 import CardCreated from './cardCreated.js';
+import SearchResultContainer from './SearchResultContainer';
 
 class ViewContainer extends React.Component {
     render() {
@@ -12,6 +13,7 @@ class ViewContainer extends React.Component {
         // let searchView = this.props.props.view.searchView;
         let createView = this.props.props.view.createView;
         let newCardView = this.props.props.view.newCardView;
+        let resultsListView = this.props.props.view.resultsListView;
         // button onClick to show search page
         let searchSubmit = this.props.props.showSearchView;
         // button onClick to show create new card form wizard
@@ -28,8 +30,12 @@ class ViewContainer extends React.Component {
         if (createView === true) {
             currentView = <WizardForm createCardSubmit={ createCardSubmit }/>
         }
-        if (newCardView ===true) {
+        if (newCardView === true) {
             currentView = <CardCreated createSubmit={ createSubmit } showHomeView={ showHomeView } />
+        }
+        if (resultsListView === true) {
+            currentView = <SearchResultContainer  createSubmit={ createSubmit } searchDatabaseSubmit={ searchDatabase } 
+                showHomeView={ showHomeView }/>
         }
         return (
             <div>{ currentView }</div>            

@@ -50,13 +50,13 @@ router.post('/monster', function(request, response) {
     let monster = {
         name : monsterName,
         category : monsterCategory,
-        level : request.body.monster_level,
+        level : (request.body.monster_level).toUpperCase(),
         body : request.body.monster_body_points,
         armor : request.body.monster_armor_points,
         description : request.body.monster_description,
         weaponSkills : {
             basicWeaponSkills : {
-                hasBasicWeaponSkills: request.body.has_basic_weapon_skills,
+                // hasBasicWeaponSkills: request.body.has_basic_weapon_skills,
                 weaponType: request.body.weapon_type
             }, 
             advancedWeaponSkills : {
@@ -70,84 +70,35 @@ router.post('/monster', function(request, response) {
                     numberOfAssassinates: request.body.number_of_assassinates
                 }
             },
-
         },
 //need to update scholarly skills component before activating this section 
-
-        // scholarlySkills : {
-        //     alchemy: {
-        //         hasAlchemy: request.body.,
-        //         levelsOfAlchemy: request.body.
-        //     },
-        //     celestial: {
-        //         hasCelestialMagic: request.body.,
-        //         battleMagic: {
-        //             levelOne: request.body.,
-        //             levelTwo: request.body.,
-        //             levelThree: request.body.,
-        //             levelFour: request.body.,
-        //             levelFive: request.body.,
-        //             levelSix: request.body.,
-        //             levelSeven: request.body.,
-        //             levelEight: request.body.,
-        //             levelNine: request.body.
-        //         },
-        //         formalMagic: {
-        //             numOfLevels: request.body.
-        //         }
-        //     },
-        //     earth: {
-        //         hasEarthMagic: request.body.,
-        //         battleMagic: {
-        //             levelOne: request.body.,
-        //             levelTwo: request.body.,
-        //             levelThree: request.body.,
-        //             levelFour: request.body.,
-        //             levelFive: request.body.,
-        //             levelSix: request.body.,
-        //             levelSeven: request.body.,
-        //             levelEight: request.body.,
-        //             levelNine: request.body.
-        //         },
-        //         formalMagic: {
-        //             numOfLevels: request.body.
-        //         }
-        //     },
-        //     elemental: {
-        //         hasElementalMagic: request.body.,
-        //         battleMagic: {
-        //             levelOne: request.body.,
-        //             levelTwo: request.body.,
-        //             levelThree: request.body.,
-        //             levelFour: request.body.,
-        //             levelFive: request.body.,
-        //             levelSix: request.body.,
-        //             levelSeven: request.body.,
-        //             levelEight: request.body.,
-        //             levelNine: request.body.
-        //         },
-        //         formalMagic: {
-        //             numOfLevels: request.body.
-        //         }
-        //     },
-        //     harmonic: {
-        //         hasHarmoniclMagic: request.body.,
-        //         battleMagic: {
-        //             levelOne: request.body.,
-        //             levelTwo: request.body.,
-        //             levelThree: request.body.,
-        //             levelFour: request.body.,
-        //             levelFive: request.body.,
-        //             levelSix: request.body.,
-        //             levelSeven: request.body.,
-        //             levelEight: request.body.,
-        //             levelNine: request.body.
-        //         },
-        //         formalMagic: {
-        //             numOfLevels: request.body.
-        //         }
-        //     }
-        // },
+        scholarlySkills: {
+            // hasScholarlySkills: request.body,
+            alchemy: {
+                hasAlchemy: request.body.has_alchemy,
+                levelsOfAlchemy: request.body.levels_of_alchemy
+            },
+            magic: {
+                hasMagic: request.body.has_magic,               
+                primarySchool: {
+                    primarySchool: request.body.primary_school_of_magic,
+                    primaryColumn: request.body.primary_column,
+                    formalMagic: {
+                        hasFormal: request.body.has_formal_magic,
+                        primaryFormalLevels: request.body.primary_formal_magic_levels
+                    }, 
+                },
+                secondarySchool: {
+                    secondarySchool: request.body.secondary_school_of_magic,
+                    secondaryColumn: request.body.secondary_column,
+                    secondaryFormal: {
+                        hasSecondaryFormal: request.body.has_secondary_formal_magic,
+                        secondaryFormalLevels: request.body.secondary_formal_magic_levels
+                    }
+                }, 
+                magicSpecialInstructions : request.body.magic_special
+            },
+        },
         physicalDefenses: {
             parry: {
                 hasPhysicalParry: request.body.has_physical_parry,

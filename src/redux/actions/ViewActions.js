@@ -20,6 +20,10 @@ export const showNewCardView = () => ({
     type: NEWCARDVIEW
 });
 
+export const RESULTS_LIST_VIEW = 'RESULTS_LIST_VIEW';
+export const showResultsListView = () => ({
+    type: RESULTS_LIST_VIEW
+});
 // export const SHOWHOMEVIEW = 'SHOWHOMEVIEW';
 // export const showHomeView = () => ({
 //     type: SHOWHOMEVIEW
