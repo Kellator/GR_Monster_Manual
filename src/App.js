@@ -56,6 +56,10 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       console.log("add new card function initiated");
       console.log(values);
       dispatch(actions.DatabaseActions.createNewCard(values));
+    },
+    showCardView : (monster) => {
+      console.log("show the creature card");
+      dispatch(actions.ViewActions.showCardView(monster));
     }
   }
 }

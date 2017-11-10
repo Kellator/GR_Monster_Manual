@@ -88,46 +88,54 @@ var MonsterSchema = new mongoose.Schema({
         resist: {
             hasPhysicalResist: {type: Boolean},
             resistPerDay: {type: Number}
+        },
+        return: {
+            hasReturnPhysical : {type: Boolean},
+            returnPhysicalPerDay: {type:Number}
         }
     },
     spellDefenses: {
         bane: {
-            hasMagicalBane: {type: Boolean},
-            banePerDay: {type: Number}
+            hasBaneMagic: {type: Boolean},
+            baneMagicPerDay: {type: Number}
         },
         cloak: {
-            hasMagicalCloak: {type: Boolean},
-            cloakPerDay: {type: Number}
+            hasCloakMagic: {type: Boolean},
+            cloakMagicPerDay: {type: Number}
         },
         reflect: {
-            hasMagicalReflect: {type: Boolean},
-            reflectPerDay: {type: Number}
+            hasReflectMagic: {type: Boolean},
+            reflectMagicPerDay: {type: Number}
         },
         phase: {
-            hasMagicalPhase: {type: Boolean},
-            phasePerDay: {type: Number}
+            hasPhaseMagic: {type: Boolean},
+            phaseMagicPerDay: {type: Number}
         },
         resist: {
-            hasMagicalResist: {type: Boolean},
-            resistPerDay: {type: Number}
+            hasResistMagic: {type: Boolean},
+            resistMagicPerDay: {type: Number}
+        },
+        return: {
+            hasReturnMagic : {type: Boolean},
+            returnMagicPerDay: {type:Number}
         }
     },
     racialDefenses: {
-        charm: {
-            hasRacialCharm: {type: Boolean},
-            charmPerDay: {type: Number}
+        resistCharm: {
+            hasResistCharm: {type: Boolean},
+            resistCharmPerDay: {type: Number}
         },
-        sleep: {
-            hasRacialSleep: {type: Boolean},
-            sleepPerDay: {type: Number}
+        resistSleep: {
+            hasResistSleep: {type: Boolean},
+            resistSleepPerDay: {type: Number}
         },
-        poison: {
-            hasRacialPoison: {type: Boolean},
-            poisonPerDay: {type: Number}
+        resistPoison: {
+            hasResistPoison: {type: Boolean},
+            resistPoisonPerDay: {type: Number}
         },
-        dodge: {
-            hasPhysicalDodge: {type: Boolean},
-            dodgePerDay: {type: Number}
+        racialDodge: {
+            hasRaciallDodge: {type: Boolean},
+            racialDodgePerDay: {type: Number}
         }
     },
     treasure: {

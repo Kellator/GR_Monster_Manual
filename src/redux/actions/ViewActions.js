@@ -24,6 +24,11 @@ export const RESULTS_LIST_VIEW = 'RESULTS_LIST_VIEW';
 export const showResultsListView = () => ({
     type: RESULTS_LIST_VIEW
 });
+export const CARDVIEW = 'CARDVIEW';
+export const showCardView = (monster) => ({
+    type: CARDVIEW,
+    monster
+});
 // export const SHOWHOMEVIEW = 'SHOWHOMEVIEW';
 // export const showHomeView = () => ({
 //     type: SHOWHOMEVIEW

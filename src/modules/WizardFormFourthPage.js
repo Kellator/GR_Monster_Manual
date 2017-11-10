@@ -16,7 +16,8 @@ let WizardFormFourthPage = props => {
         hasPhysicalDodgeValue,
         hasPhysicalBaneValue,
         hasPhysicalPhaseValue,
-        hasPhysicalResistValue 
+        hasPhysicalResistValue,
+        hasReturnPhysicalValue 
     } = props
     console.log(props)
     return (
@@ -140,6 +141,29 @@ let WizardFormFourthPage = props => {
                 </div>
             )}
         <div>
+            <label>Return Physical</label>
+            <div>             
+                <Field
+                    name="has_return_physical"
+                    component={ Checkbox }
+                    type="checkbox"
+                />
+            </div>
+        </div>
+            {hasReturnPhysicalValue && (
+                <div>
+                    <p>Enter number of times per day that skill may be used.</p>
+                    <label>Times per day</label>
+                    <div>
+                        <Field
+                        name="return_physical"
+                        component={ TextField }
+                        type="number"
+                        />
+                    </div>                       
+                </div>
+            )}
+        <div>
             <RaisedButton type="button" className="previous" onClick={previousPage}>
                 Previous
             </RaisedButton>
@@ -164,12 +188,14 @@ let WizardFormFourthPage = props => {
       const hasPhysicalBaneValue = selector(state, 'has_physical_bane');
       const hasPhysicalPhaseValue = selector(state, 'has_physical_phase');
       const hasPhysicalResistValue = selector(state, 'has_physical_resist');
+      const hasReturnPhysicalValue = selector(state, 'has_return_physical');
       return {
           hasPhysicalParryValue,
           hasPhysicalDodgeValue,
           hasPhysicalBaneValue,
           hasPhysicalPhaseValue,
-          hasPhysicalResistValue
+          hasPhysicalResistValue,
+          hasReturnPhysicalValue
       }
   })(WizardFormFourthPage);
   export default WizardFormFourthPage;

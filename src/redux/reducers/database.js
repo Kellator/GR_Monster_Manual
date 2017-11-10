@@ -24,6 +24,11 @@ export default function database(state = initialState, action) {
                 cardLoaded: false,
                 error: action.error
             };
+        case 'CARDVIEW' :
+            return {
+                ...state,
+                cardView: action.monster
+            }
         default :
             return state;
     }
