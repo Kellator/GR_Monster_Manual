@@ -30,6 +30,7 @@ let WizardFormFirstPage = props => {
                 <MenuItem value={"Goblinoid"} primaryText="Goblinoid" />
                 <MenuItem value={"Human"} primaryText="Human" />
                 <MenuItem value={"Humanoid"} primaryText="Humanoid" />
+                <MenuItem value={"Magical Creature"} primaryText="Magical Creature" />
                 <MenuItem value={"Undead"} primaryText="Undead" />
             </Field>
         <p>Choose monster level of difficulty (required).</p>

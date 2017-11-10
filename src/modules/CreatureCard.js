@@ -1,11 +1,17 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 class CreatureCard extends React.Component {
     render() {
         console.log(this.props)
         return( 
-            <p>creature card here</p>
+            <div>
+                <p>Here is the creature card.</p>
+            </div>
         )
     }
 }
-export default CreatureCard;
+const mapStateToProps = (state, props) => ({
+    creature: state.database.cardView
+});
+export default connect(mapStateToProps)(CreatureCard);

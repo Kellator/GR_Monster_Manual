@@ -119,10 +119,56 @@ router.post('/monster', function(request, response) {
             resist: {
                 hasPhysicalResist: request.body.has_physical_resist,
                 resistPerDay: request.body.physical_resist
+            },
+            return: {
+                hasReturnPhysical: request.body.has_return_physical,
+                returnPhysicalPerDay: request.body.return_physical
             }
         },
-        // spellDefenses : request.body.spellDefenses,
-        // racialDefenses : request.body.RacialDefenses,
+        spellDefenses : {
+            bane: {
+                hasBaneMagic: request.body.has_bane_magic,
+                baneMagicPerDay: request.body.bane_magic
+            },
+            cloak: {
+                hasCloakMagic: request.body.has_cloak_magic,
+                cloakMagicPerDay: request.body.cloak_magic
+            },
+            reflect: {
+                hasReflectMagic: request.body.has_reflect_magic,
+                reflectMagicPerDay: request.body.reflect_magic
+            },
+            phase: {
+                hasPhaseMagic: request.body.has_phase_magic,
+                phaseMagicPerDay: request.body.phase_magic
+            },
+            resist: {
+                hasResistMagic: request.body.has_resist_magic,
+                resistMagicPerDay: request.body.resist_magic
+            },
+            return: {
+                hasReturnMagic : request.body.has_return_magic,
+                returnMagicPerDay: request.body.return_magic
+            }
+        },
+        racialDefenses : {
+            resistCharm: {
+                hasResistCharm: request.body.has_resist_charm,
+                resistCharmPerDay: request.body.resist_charm
+            },
+            resistSleep: {
+                hasResistSleep: request.body.has_resist_sleep,
+                resistSleepPerDay: request.body.resist_sleep
+            },
+            resistPoison: {
+                hasResistPoison: request.body.has_resist_poison,
+                resistPoisonPerDay: request.body.resist_poison
+            },
+            racialDodge: {
+                hasRaciallDodge: request.body.has_racial_dodge,
+                racialDodgePerDay: request.body.racial_dodge
+            },
+        },
         treasure : request.body.standard_treasure,
         special : request.body.special_instructions
     };
