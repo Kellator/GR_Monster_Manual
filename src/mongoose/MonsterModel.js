@@ -29,6 +29,10 @@ var MonsterSchema = new mongoose.Schema({
             // hasBasicWeaponSkills: { type: Boolean },
             weaponType: { type: String }
         }, 
+        plusStrength : {
+            // hasPlusStrength : { type:  Boolean },
+            level: { type: String }
+        },
         advancedWeaponSkills : {
             hasAdvancedWeaponSkills: { type: Boolean },
             slays : {
