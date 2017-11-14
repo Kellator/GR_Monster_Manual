@@ -11,7 +11,7 @@ let WizardFormSecondPage = props => {
   const { 
     handleSubmit, 
     previousPage,
-    hasPlusStrengthValue,
+    // hasPlusStrengthValue,
     hasAdvancedWeaponSkillsValue,
     hasSlaysValue,
     hasAssassinatesValue
