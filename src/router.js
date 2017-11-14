@@ -10,31 +10,34 @@ var Monster = require('./mongoose/MonsterModel');
 router.get('/monster', function(request, response) {
     // initial search criteria (e.g. search by name of creature OR categorization of creature) 
     // available on primary search function
-    console.log(request.query);
+    // console.log(request);
+    console.log("request.query  " + request.query);
     var req = request.query.term;
-    var primarySearchCrit = req.toUpperCase();
-    console.log(primarySearchCrit);
+
+    // console.log("primary search  " + primarySearchCrit);
+    // console.log("req " + req);
     // secondary search criteria initiated in advanced search function
     // var secondarySearchCrit = request.query.secondarySearchCrit;
-    if (primarySearchCrit == '') {
-        Monster.find().exec(function(err, monsters) {
+    if (typeof req === 'string' ) {
+        var primarySearchCrit = req.toUpperCase();
+        // uses specified search criteria to search in name of creature or category of creature and returns all matches
+        Monster.find( { $or: [ {'name': {$regex: primarySearchCrit} }, { 'category': primarySearchCrit } ] } ).exec(function(err, monsters) {
             if (err) {
                 console.log(err);
+                console.log('search criteria not valid');
                 return response.status(500).json({
-                    message: 'Crumbs! Internal Server Error!'
+                    message: 'Criminey! Internal Server Error!' 
                 });
             }
             response.json(monsters);
         });
     }
     else {
-        // uses specified search criteria to search in name of creature or category of creature and returns all matches
-        Monster.find( { $or: [ {'name': primarySearchCrit }, { 'category': primarySearchCrit } ] } ).exec(function(err, monsters) {
+        Monster.find().exec(function(err, monsters) {
             if (err) {
                 console.log(err);
-                console.log('search criteria not valid');
                 return response.status(500).json({
-                    message: 'Criminey! Internal Server Error!' 
+                    message: 'Crumbs! Internal Server Error!'
                 });
             }
             response.json(monsters);
@@ -59,6 +62,10 @@ router.post('/monster', function(request, response) {
                 // hasBasicWeaponSkills: request.body.has_basic_weapon_skills,
                 weaponType: request.body.weapon_type
             }, 
+            plusStrength : {
+                // hasPlusStrength : request.body.has_plus_strength,
+                level: request.body.plus_strength_level
+            },
             advancedWeaponSkills : {
                 hasAdvancedWeaponSkills: request.body.has_advanced_weapon_skills,
                 slays : {

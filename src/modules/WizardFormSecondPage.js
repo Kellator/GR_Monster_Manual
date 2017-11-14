@@ -11,7 +11,7 @@ let WizardFormSecondPage = props => {
   const { 
     handleSubmit, 
     previousPage,
-    // hasBasicWeaponSkillsValue,
+    // hasPlusStrengthValue,
     hasAdvancedWeaponSkillsValue,
     hasSlaysValue,
     hasAssassinatesValue
@@ -22,34 +22,6 @@ let WizardFormSecondPage = props => {
         <p>Click the box to view weapon skill options.  Choose basic weapon skills, if applicable.</p>
         <p>This section includes body weaponry like claws and bite.</p>
         <p>If monster has no weaponskills, click the next button.</p>
-        {/* <div>
-          <label>Basic Weapon Skills</label>
-          <div>
-            <Field
-              name="has_basic_weapon_skills"
-              component= { Checkbox }
-              type="checkbox"
-            />
-          </div>
-        </div>
-
-      {hasBasicWeaponSkillsValue && (
-        <div>
-          <label>Weapon Type</label>
-          <div>
-            <Field 
-              name="weapon_type"
-              component={ SelectField }
-              type="selectfield">
-                <MenuItem value={"No Weapons"} primaryText="No Weapons" />
-                <MenuItem value={"Weapon of Choice"} primaryText="Weapon of Choice" />
-                <MenuItem value={"Claws"} primaryText="Claws" />
-                <MenuItem value={"Long Claws"} primaryText="Long Claws" />
-                <MenuItem value={"Bite"} primaryText="Bite" />      
-            </Field>
-          </div>
-        </div>
-      )} */}
         <div>
           <label>Basic Weapon Skills/Type</label>
           <div>
@@ -65,6 +37,52 @@ let WizardFormSecondPage = props => {
             </Field>
           </div>
         </div>
+        <div>
+          <label>Plus Strength</label>
+          <div>
+            <Field 
+              name="plus_strength_level"
+              component= { SelectField }
+              type="selectfield">
+                <MenuItem value={"Normal Strength (+0)"} primaryText="Normal Strength (+0)" />
+                <MenuItem value={"Plus 2 Strength (+2)"} primaryText="Plus 2 Strength (+2)" />
+                <MenuItem value={"Plus 4 Strength (+4)"} primaryText="Plus 4 Strength (+4)" />
+                <MenuItem value={"Plus 6 Strength (+6)"} primaryText="Plus 6 Strength (+6)" />
+                <MenuItem value={"Plus 8 Strength (+8)"} primaryText="Plus 8 Strength (+8)" />
+                <MenuItem value={"Plus 10 Strength (+10)"} primaryText="Plus 10 Strength (+10)" />      
+            </Field>
+          </div>
+        </div>
+        {/* <div>
+          <label>Plus Strength</label>
+          <div>
+            <Field 
+              name="has_plus_strength"
+              component= { Checkbox }
+              type="checkbox"
+            />
+          </div>
+        </div> */}
+        {/* {hasPlusStrengthValue && (
+          <div>
+            <div>
+              <label>Plus Strength Level</label>
+              <div>
+                <Field 
+                  name="plus_strength_level"
+                  component= { SelectField }
+                  type="selectfield">
+                    <MenuItem value={"Normal Strength (+0)"} primaryText="Normal Strength (+0)" />
+                    <MenuItem value={"Plus 2 Strength (+2)"} primaryText="Plus 2 Strength (+2)" />
+                    <MenuItem value={"Plus 4 Strength (+4)"} primaryText="Plus 4 Strength (+4)" />
+                    <MenuItem value={"Plus 6 Strength (+6)"} primaryText="Plus 6 Strength (+6)" />
+                    <MenuItem value={"Plus 8 Strength (+8)"} primaryText="Plus 8 Strength (+8)" />
+                    <MenuItem value={"Plus 10 Strength (+10)"} primaryText="Plus 10 Strength (+10)" />      
+                </Field>
+              </div>
+            </div>
+          </div>
+        )} */}
       <div>
         <h3>Advanced Weapons Skills</h3>
         <p>Click the box to view advanced weapon skills.</p>
@@ -152,12 +170,12 @@ WizardFormSecondPage = reduxForm({
 
 const selector = formValueSelector('wizard');
 WizardFormSecondPage = connect(state => {
-  // const hasBasicWeaponSkillsValue = selector(state, 'has_basic_weapon_skills');
+  // const hasPlusStrengthValue = selector(state, 'has_plus_strength');
   const hasAdvancedWeaponSkillsValue = selector(state, 'has_advanced_weapon_skills');
   const hasSlaysValue = selector(state, 'has_slays');
   const hasAssassinatesValue = selector(state, 'has_assassinates');
   return {
-    // hasBasicWeaponSkillsValue,
+    // hasPlusStrengthValue,
     hasAdvancedWeaponSkillsValue,
     hasSlaysValue,
     hasAssassinatesValue
