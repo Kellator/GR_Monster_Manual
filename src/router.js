@@ -29,7 +29,7 @@ router.get('/monster', function(request, response) {
     }
     else {
         // uses specified search criteria to search in name of creature or category of creature and returns all matches
-        Monster.find( { $or: [ {'name': primarySearchCrit }, { 'category': primarySearchCrit } ] } ).exec(function(err, monsters) {
+        Monster.find( { $or: [ {'name': {$regex: primarySearchCrit} }, { 'category': primarySearchCrit } ] } ).exec(function(err, monsters) {
             if (err) {
                 console.log(err);
                 console.log('search criteria not valid');
