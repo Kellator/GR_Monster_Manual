@@ -28,9 +28,6 @@ export const searchDatabase = (query) => {
             }
         })
         .then(response => {
-            console.log(response);
-            console.log(response.data);
-            console.log(response.status);
             if(response.status === 200) {
                 dispatch(fetchSuccess(response.data));
                 dispatch(ViewActions.showResultsListView());
@@ -38,7 +35,6 @@ export const searchDatabase = (query) => {
             }
         })
         .catch(error => {
-            console.log(error);
             dispatch(fetchFail(error));
         });
     }

@@ -13,7 +13,6 @@ class HomeView extends React.Component {
                     <BasicSearch onSubmit={ this.props.searchDatabaseSubmit }/>
                 </div>
                 <div>
-                    {/* button should sent to route with input for new monster card */}
                     <RaisedButton onClick={ this.props.createSubmit }>Enter New Monster</RaisedButton>
                 </div>
             </div>
