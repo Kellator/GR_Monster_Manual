@@ -13,23 +13,65 @@ class WeaponStats extends React.Component {
             }
         let slays;
         let hasSlays;
-        let advancedWeaponSkills;
+        let assassinates;
+        let hasAssassinates;
+        // let advancedWeaponSkills;
+        let advancedWeaponSkills = stats.advancedWeaponSkills;
         let hasAdvancedWeaponSkills = stats.advancedWeaponSkills.hasAdvancedWeaponSkills;
-        console.log(stats.advancedWeaponSkills.hasAdvancedWeaponSkills)
-            if (hasAdvancedWeaponSkills) {
-               //switch case for slays and assassinates
-               advancedWeaponSkills = <div><p>"has skills"</p></div> 
-            }
-            else {
-                advancedWeaponSkills = "CREATURE DOES NOT HAVE ADVANCED WEAPONS SKILLS";
-            }
+        console.log(Object.keys(advancedWeaponSkills));
+        switch (hasAdvancedWeaponSkills) {
+            case true:
+                console.log('hello');
+                hasSlays = stats.advancedWeaponSkills.slays.hasSlays;
+                hasAssassinates = stats.advancedWeaponSkills.assassinates.hasAssassinates;
+                switch (hasSlays) {
+                    case true:
+                        console.log('hasSlays');
+                        let numOfSlays = stats.advancedWeaponSkills.slays.numberOfSlays;
+                        slays = <div><p><span>Slays: {numOfSlays}</span></p></div>
+                        break;
+                    case false:
+                        console.log('has no slays');
+                        break;
+                    default:
+                        console.log('default slay result');
+                }
+                switch (hasAssassinates) {
+                    case true:
+                        console.log('assassinates');
+                        let numOfAssassinates = stats.advancedWeaponSkills.assassinates.numberOfAssassinates;
+                        assassinates = <div><p><span>Assassinates: {numOfAssassinates}</span></p></div>
+                        break;   
+                    case false:
+                        console.log('no assassinates');
+                        break;
+                    default :
+                        console.log('default assassinate');                     
+                }
+                break;
+            case false:
+                console.log('result is false');
+                break;
+            default:
+                console.log('default result');                
+        }
+
+        // console.log(stats.advancedWeaponSkills.assassinates)
+            // if (hasAdvancedWeaponSkills) {
+            //    //switch case for slays and assassinates
+            //    advancedWeaponSkills = <div><p>"has skills"</p></div> 
+            // }
+            // else {
+            //     advancedWeaponSkills = "CREATURE DOES NOT HAVE ADVANCED WEAPONS SKILLS";
+            // }
         return (
             <div>
                 <h3>Weapons Stats</h3>
-                <p><span>Weapons Type:  {weaponType}</span></p>
+                <p><span>Weapons Type:  { weaponType }</span></p>
                 <div>
                     <h4>Advanced Weapons Skills</h4>
-                    <div>{ advancedWeaponSkills }</div>
+                    <div>{ slays }</div>
+
                 </div>
             </div>
         )

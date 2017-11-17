@@ -60,7 +60,7 @@ router.post('/monster', function(request, response) {
                 hasAdvancedWeaponSkills: request.body.has_advanced_weapon_skills,
                 slays : {
                     hasSlays : request.body.has_slays,
-                    numberOfSlays: request.body.nummber_of_slays
+                    numberOfSlays: request.body.number_of_slays
                 },
                 assassinates: {
                     hasAssassinates : request.body.has_assassinates,
