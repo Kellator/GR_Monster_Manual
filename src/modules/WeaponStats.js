@@ -55,15 +55,6 @@ class WeaponStats extends React.Component {
             default:
                 console.log('default result');                
         }
-
-        // console.log(stats.advancedWeaponSkills.assassinates)
-            // if (hasAdvancedWeaponSkills) {
-            //    //switch case for slays and assassinates
-            //    advancedWeaponSkills = <div><p>"has skills"</p></div> 
-            // }
-            // else {
-            //     advancedWeaponSkills = "CREATURE DOES NOT HAVE ADVANCED WEAPONS SKILLS";
-            // }
         return (
             <div>
                 <h3>Weapons Stats</h3>
@@ -71,7 +62,7 @@ class WeaponStats extends React.Component {
                 <div>
                     <h4>Advanced Weapons Skills</h4>
                     <div>{ slays }</div>
-
+                    <div>{ assassinates }</div>
                 </div>
             </div>
         )
