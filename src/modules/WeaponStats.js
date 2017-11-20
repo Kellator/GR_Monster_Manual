@@ -28,11 +28,12 @@ class WeaponStats extends React.Component {
                 <p><span>{plusStrength}</span></p>
             </div>
         }
+        // displays slay and/or assassinate times per day
         if (Object.keys(stats).includes("advancedWeaponSkills")) {
             advancedWeaponSkills = stats.advancedWeaponSkills;
-            console.log(advancedWeaponSkills);
+            // if both keys are included, below code executes to display x/day for both
             if (Object.keys(advancedWeaponSkills).includes("assassinates") && 
-            Object.keys(advancedWeaponSkills).includes("assassinates")) {
+            Object.keys(advancedWeaponSkills).includes("slays")) {
                 assassinates = advancedWeaponSkills.assassinates;
                 slays = advancedWeaponSkills.slays;
                 let numOfAssassinates = assassinates.numberOfAssassinates;
@@ -43,10 +44,10 @@ class WeaponStats extends React.Component {
                     <p><span>Slays per day:  {numOfSlays}</span></p>
                 </div>
             }
+            // if only one or the other key is present, below code executes to display applicable skill
             else if (Object.keys(advancedWeaponSkills).includes("assassinates")) {
                 assassinates = advancedWeaponSkills.assassinates;
                 let numOfAssassinates = assassinates.numberOfAssassinates;
-                console.log(assassinates);
                 compToRender =
                     <div>
                         <p><span>Assassinates per day:  {numOfAssassinates}</span></p>
@@ -55,7 +56,6 @@ class WeaponStats extends React.Component {
             else if (Object.keys(advancedWeaponSkills).includes("slays")) {
                 slays = advancedWeaponSkills.slays;
                 let numOfSlays = slays.numberOfSlays;
-                console.log(slays);
                 compToRender = 
                     <div>
                         <p><span>Slays per day:  {numOfSlays}</span></p>
