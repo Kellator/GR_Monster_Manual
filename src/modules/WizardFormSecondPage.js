@@ -53,36 +53,6 @@ let WizardFormSecondPage = props => {
             </Field>
           </div>
         </div>
-        {/* <div>
-          <label>Plus Strength</label>
-          <div>
-            <Field 
-              name="has_plus_strength"
-              component= { Checkbox }
-              type="checkbox"
-            />
-          </div>
-        </div> */}
-        {/* {hasPlusStrengthValue && (
-          <div>
-            <div>
-              <label>Plus Strength Level</label>
-              <div>
-                <Field 
-                  name="plus_strength_level"
-                  component= { SelectField }
-                  type="selectfield">
-                    <MenuItem value={"Normal Strength (+0)"} primaryText="Normal Strength (+0)" />
-                    <MenuItem value={"Plus 2 Strength (+2)"} primaryText="Plus 2 Strength (+2)" />
-                    <MenuItem value={"Plus 4 Strength (+4)"} primaryText="Plus 4 Strength (+4)" />
-                    <MenuItem value={"Plus 6 Strength (+6)"} primaryText="Plus 6 Strength (+6)" />
-                    <MenuItem value={"Plus 8 Strength (+8)"} primaryText="Plus 8 Strength (+8)" />
-                    <MenuItem value={"Plus 10 Strength (+10)"} primaryText="Plus 10 Strength (+10)" />      
-                </Field>
-              </div>
-            </div>
-          </div>
-        )} */}
       <div>
         <h3>Advanced Weapons Skills</h3>
         <p>Click the box to view advanced weapon skills.</p>

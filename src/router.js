@@ -48,14 +48,8 @@ router.post('/monster', function(request, response) {
         armor : request.body.monster_armor_points,
         description : request.body.monster_description,
         weaponSkills : {
-            basicWeaponSkills : {
-                // hasBasicWeaponSkills: request.body.has_basic_weapon_skills,
-                weaponType: request.body.weapon_type
-            }, 
-            plusStrength : {
-                // hasPlusStrength : request.body.has_plus_strength,
-                level: request.body.plus_strength_level
-            },
+            basicWeaponSkills : request.body.weapon_type, 
+            plusStrength : request.body.plus_strength_level,
             advancedWeaponSkills : {
                 hasAdvancedWeaponSkills: request.body.has_advanced_weapon_skills,
                 slays : {

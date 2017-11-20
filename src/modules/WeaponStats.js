@@ -5,65 +5,74 @@ class WeaponStats extends React.Component {
         console.log(this.props)
         let stats = this.props.stats;
         let weaponType;
-            if (!stats.basicWeaponSkills.weaponType) {
+            if (!stats.basicWeaponSkills) {
                 weaponType = "NO BASIC WEAPON SKILLS"
             }
             else {
-                weaponType = stats.basicWeaponSkills.weaponType
+                weaponType = stats.basicWeaponSkills
             }
         let slays;
-        let hasSlays;
+        
         let assassinates;
-        let hasAssassinates;
-        // let advancedWeaponSkills;
-        let advancedWeaponSkills = stats.advancedWeaponSkills;
-        let hasAdvancedWeaponSkills = stats.advancedWeaponSkills.hasAdvancedWeaponSkills;
-        console.log(Object.keys(advancedWeaponSkills));
-        switch (hasAdvancedWeaponSkills) {
-            case true:
-                console.log('hello');
-                hasSlays = stats.advancedWeaponSkills.slays.hasSlays;
-                hasAssassinates = stats.advancedWeaponSkills.assassinates.hasAssassinates;
-                switch (hasSlays) {
-                    case true:
-                        console.log('hasSlays');
-                        let numOfSlays = stats.advancedWeaponSkills.slays.numberOfSlays;
-                        slays = <div><p><span>Slays: {numOfSlays}</span></p></div>
-                        break;
-                    case false:
-                        console.log('has no slays');
-                        break;
-                    default:
-                        console.log('default slay result');
-                }
-                switch (hasAssassinates) {
-                    case true:
-                        console.log('assassinates');
-                        let numOfAssassinates = stats.advancedWeaponSkills.assassinates.numberOfAssassinates;
-                        assassinates = <div><p><span>Assassinates: {numOfAssassinates}</span></p></div>
-                        break;   
-                    case false:
-                        console.log('no assassinates');
-                        break;
-                    default :
-                        console.log('default assassinate');                     
-                }
-                break;
-            case false:
-                console.log('result is false');
-                break;
-            default:
-                console.log('default result');                
+        
+        let advancedWeaponSkills;
+
+        let compToRender;
+        let plusStrength;
+        let strengthCompToRender;
+        // logic to control returned element if Object Key is present
+        if (Object.keys(stats).includes("plusStrength")) {
+            plusStrength = stats.plusStrength;
+            strengthCompToRender =
+            <div>
+                <p><span>{plusStrength}</span></p>
+            </div>
         }
+        if (Object.keys(stats).includes("advancedWeaponSkills")) {
+            advancedWeaponSkills = stats.advancedWeaponSkills;
+            console.log(advancedWeaponSkills);
+            if (Object.keys(advancedWeaponSkills).includes("assassinates") && 
+            Object.keys(advancedWeaponSkills).includes("assassinates")) {
+                assassinates = advancedWeaponSkills.assassinates;
+                slays = advancedWeaponSkills.slays;
+                let numOfAssassinates = assassinates.numberOfAssassinates;
+                let numOfSlays = slays.numberOfSlays;
+                compToRender =
+                <div>
+                    <p><span>Assassinates per day:  {numOfAssassinates}</span></p>
+                    <p><span>Slays per day:  {numOfSlays}</span></p>
+                </div>
+            }
+            else if (Object.keys(advancedWeaponSkills).includes("assassinates")) {
+                assassinates = advancedWeaponSkills.assassinates;
+                let numOfAssassinates = assassinates.numberOfAssassinates;
+                console.log(assassinates);
+                compToRender =
+                    <div>
+                        <p><span>Assassinates per day:  {numOfAssassinates}</span></p>
+                    </div>
+            }
+            else if (Object.keys(advancedWeaponSkills).includes("slays")) {
+                slays = advancedWeaponSkills.slays;
+                let numOfSlays = slays.numberOfSlays;
+                console.log(slays);
+                compToRender = 
+                    <div>
+                        <p><span>Slays per day:  {numOfSlays}</span></p>
+                    </div>                    
+            }
+        }
+        // console.log(Object.keys(stats));
+        const mapStats = Object.keys(stats).forEach(function(stat) {
+            console.log('stats ', stat, ': ' , stats[stat]);
+        });
+
         return (
             <div>
                 <h3>Weapons Stats</h3>
                 <p><span>Weapons Type:  { weaponType }</span></p>
-                <div>
-                    <h4>Advanced Weapons Skills</h4>
-                    <div>{ slays }</div>
-                    <div>{ assassinates }</div>
-                </div>
+                {compToRender}
+                {strengthCompToRender}
             </div>
         )
     }
