@@ -10,15 +10,25 @@ class ScholarStats extends React.Component {
         let alchemyCompToRender;
         let primaryFormalCompToRender;
         let secondaryFormalCompToRender;
+        let alchemyComponentTotRender;
+
+        // determins if creature has alchemy
+        if (Object.keys(stats).includes("alchemy")) {
+            let levelsOfAlchemy = stats.alchemy.levelsOfAlchemy;
+            alchemyComponentTotRender = 
+            <div>
+                <p><span>Levels of Alchemy:  {levelsOfAlchemy}</span></p>
+            </div>
+        }
+
         // determines if creature has magical skills
         if (Object.keys(stats).includes("magic")) {
             let magic = stats.magic;
             console.log(magic)
-
             // determines if creature has multiple schools of magic
             // currently only 2 spell schools are available at a time
             if (Object.keys(magic).includes("primarySchool") && Object.keys(magic).includes("secondarySchool")) {
-                // sets display tags for formal magic skills
+                // sets display tags for formal magic skills if present
                 if (Object.keys(magic.primarySchool).includes("formalMagic") && Object.keys(magic.secondarySchool).includes("secondaryFormal")) {
                     let primaryFormalLevels = magic.primarySchool.formalMagic.primaryFormalLevels;
                     let secondaryFormalLevels = magic.secondarySchool.secondaryFormal.secondaryFormalLevels;
@@ -27,11 +37,18 @@ class ScholarStats extends React.Component {
                     secondaryFormalCompToRender =
                         <p><span>Levels of Formal:  {secondaryFormalLevels}</span></p>
                 }
+                // sets display tag if only primary formal school is present
+                else if (Object.keys(magic.primarySchool).includes("formalMagic")) {
+                    let primaryFormalLevels = magic.primarySchool.formalMagic.primaryFormalLevels;
+                    primaryFormalCompToRender = 
+                    <p><span>Levels of Formal:  {primaryFormalLevels}</span></p>
+                }
+                // sets display for primary and secondary schools of magic when both are present
+                // incorporates formal magic as applicable
                 primarySchool = magic.primarySchool.primarySchool;
                 let primaryColumn = magic.primarySchool.primaryColumn;
                 secondarySchool = magic.secondarySchool.secondarySchool;
                 let secondaryColumn = magic.secondarySchool.secondaryColumn;
-
                 magicCompToRender = 
                     <div>
                         <div>
@@ -46,6 +63,8 @@ class ScholarStats extends React.Component {
                         </div>
                     </div>
             }
+            // sets display if only one school of magic is present
+            // includes logic to display formal magic, if present
             else if (Object.keys(magic).includes("primarySchool")) {
                 if (Object.keys(magic.primarySchool).includes("formalMagic")) {
                     let primaryFormalLevels = magic.primarySchool.formalMagic.primaryFormalLevels;
@@ -65,6 +84,7 @@ class ScholarStats extends React.Component {
         return(
             <div>
                 <h3>Scholarly Skills</h3>
+                {alchemyComponentTotRender}
                 {magicCompToRender}
             </div>
         )

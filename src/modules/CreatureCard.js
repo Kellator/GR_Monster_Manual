@@ -7,6 +7,8 @@ import ScholarStats from './ScholarStats.js';
 class CreatureCard extends React.Component {
     render() {
         console.log(this.props)
+        let weaponComponentToRender;
+        let scholarlyComponentToRender;
         let creature = this.props.creature;
 
         let basicStats = {
@@ -20,16 +22,22 @@ class CreatureCard extends React.Component {
 
         let scholarStats = creature.scholarlySkills;
         let weaponStats = creature.weaponSkills;
+        if (Object.keys(creature).includes("weaponSkills")) {
+            weaponComponentToRender = <WeaponStats stats={ weaponStats } />
+        }
+        if (Object.keys(creature).includes("scholarlySkills")) {
+            scholarlyComponentToRender = <ScholarStats stats={ scholarStats } />
+        }
         return( 
             <div>
                 <div>
                     <BasicStats stats={ basicStats }/>
                 </div>
                 <div>
-                    <WeaponStats stats={ weaponStats } />
+                    {weaponComponentToRender}
                 </div>
                 <div>
-                    <ScholarStats stats={ scholarStats } />
+                    {scholarlyComponentToRender}
                 </div>
             </div>
         )
