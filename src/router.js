@@ -112,7 +112,7 @@ router.post('/monster', function(request, response) {
             },
             return: {
                 hasReturnPhysical: request.body.has_return_physical,
-                returnPhysicalPerDay: request.body.return_physical
+                returnPerDay: request.body.return_physical
             }
         },
         spellDefenses : {

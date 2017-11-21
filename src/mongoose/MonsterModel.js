@@ -89,7 +89,7 @@ var MonsterSchema = new mongoose.Schema({
         },
         return: {
             hasReturnPhysical : {type: Boolean},
-            returnPhysicalPerDay: {type:Number}
+            returnPerDay: {type:Number}
         }
     },
     spellDefenses: {
