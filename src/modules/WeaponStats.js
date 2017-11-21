@@ -11,12 +11,9 @@ class WeaponStats extends React.Component {
             else {
                 weaponType = stats.basicWeaponSkills
             }
-        let slays;
-        
-        let assassinates;
-        
+        let slays;        
+        let assassinates;        
         let advancedWeaponSkills;
-
         let compToRender;
         let plusStrength;
         let strengthCompToRender;
