@@ -63,8 +63,8 @@ var MonsterSchema = new mongoose.Schema({
                     secondaryFormalLevels: { type: String }
                 }
             }, 
-            magicSpecialInstructions : { type: String }
         },
+        magicSpecialInstructions : { type: String },
     },
     physicalDefenses: {
         parry: {

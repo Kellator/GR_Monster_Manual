@@ -23,8 +23,8 @@ class ScholarStats extends React.Component {
             </div>
         }
         // special instruction text display
-        if (Object.keys(stats.magic).includes("magicSpecialInstructions")) {
-            text = stats.magic.magicSpecialInstructions;
+        if (Object.keys(stats).includes("magicSpecialInstructions")) {
+            text = stats.magicSpecialInstructions;
             textComponentToRender = 
             <div>
                 <p><span>Special Instructions:  {text}</span></p>

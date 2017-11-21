@@ -86,8 +86,8 @@ router.post('/monster', function(request, response) {
                         secondaryFormalLevels: request.body.secondary_formal_magic_levels
                     }
                 }, 
-                magicSpecialInstructions : request.body.magic_special
             },
+            magicSpecialInstructions : request.body.magic_special,
         },
         physicalDefenses: {
             parry: {
