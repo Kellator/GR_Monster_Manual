@@ -4,6 +4,8 @@ import BasicStats from './BasicStats.js';
 import WeaponStats from './WeaponStats.js';
 import ScholarStats from './ScholarStats.js';
 import PhysicalDefenses from './PhysicalDefenses.js';
+import SpellDefenses from './SpellDefenses.js';
+import RacialDefenses from './RacialDefenses.js';
 
 class CreatureCard extends React.Component {
     render() {
@@ -11,6 +13,8 @@ class CreatureCard extends React.Component {
         let weaponComponentToRender;
         let scholarlyComponentToRender;
         let physicalDefenseComponentToRender;
+        let spellDefenseComponentToRender;
+        let racialDefenseComponentToRender;
         let creature = this.props.creature;
 
         let basicStats = {
@@ -25,6 +29,8 @@ class CreatureCard extends React.Component {
         let scholarStats = creature.scholarlySkills;
         let weaponStats = creature.weaponSkills;
         let physicalDefenses = creature.physicalDefenses;
+        let spellDefenses = creature.spellDefenses;
+        let racialDefenses = creature.racialDefenses;
         if (Object.keys(creature).includes("weaponSkills")) {
             weaponComponentToRender = <WeaponStats stats={ weaponStats } />
         }
@@ -33,6 +39,12 @@ class CreatureCard extends React.Component {
         }
         if (Object.keys(creature).includes("physicalDefenses")) {
             physicalDefenseComponentToRender = <PhysicalDefenses stats={ physicalDefenses } />
+        }
+        if (Object.keys(creature).includes("spellDefenses")) {
+            spellDefenseComponentToRender = <SpellDefenses stats={ spellDefenses } />
+        }
+        if (Object.keys(creature).includes("racialDefenses")) {
+            racialDefenseComponentToRender = <RacialDefenses stats={ racialDefenses } />
         }
         return( 
             <div>
@@ -47,6 +59,12 @@ class CreatureCard extends React.Component {
                 </div>
                 <div>
                     {physicalDefenseComponentToRender}
+                </div>
+                <div>
+                    {spellDefenseComponentToRender}
+                </div>
+                <div>
+                    {racialDefenseComponentToRender}
                 </div>
             </div>
         )
