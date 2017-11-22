@@ -159,7 +159,7 @@ router.post('/monster', function(request, response) {
                 racialDodgePerDay: request.body.racial_dodge
             },
         },
-        treasure : request.body.standard_treasure,
+        treasure : request.body.standard_treasure.split(" "),
         special : request.body.special_instructions
     };
     Monster.create(monster, function(err, monster) {

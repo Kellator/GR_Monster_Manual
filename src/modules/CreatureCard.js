@@ -6,6 +6,7 @@ import ScholarStats from './ScholarStats.js';
 import PhysicalDefenses from './PhysicalDefenses.js';
 import SpellDefenses from './SpellDefenses.js';
 import RacialDefenses from './RacialDefenses.js';
+import Treasure from './Treasure.js';
 
 class CreatureCard extends React.Component {
     render() {
@@ -15,6 +16,7 @@ class CreatureCard extends React.Component {
         let physicalDefenseComponentToRender;
         let spellDefenseComponentToRender;
         let racialDefenseComponentToRender;
+        let treasureComponentToRender;
         let creature = this.props.creature;
 
         let basicStats = {
@@ -31,6 +33,7 @@ class CreatureCard extends React.Component {
         let physicalDefenses = creature.physicalDefenses;
         let spellDefenses = creature.spellDefenses;
         let racialDefenses = creature.racialDefenses;
+        let treasure = creature.treasure;
         if (Object.keys(creature).includes("weaponSkills")) {
             weaponComponentToRender = <WeaponStats stats={ weaponStats } />
         }
@@ -45,6 +48,9 @@ class CreatureCard extends React.Component {
         }
         if (Object.keys(creature).includes("racialDefenses")) {
             racialDefenseComponentToRender = <RacialDefenses stats={ racialDefenses } />
+        }
+        if (Object.keys(creature).includes("treasure")) {
+            treasureComponentToRender = <Treasure stats={ treasure } />
         }
         return( 
             <div>
@@ -65,6 +71,9 @@ class CreatureCard extends React.Component {
                 </div>
                 <div>
                     {racialDefenseComponentToRender}
+                </div>
+                <div>
+                    {treasureComponentToRender}
                 </div>
             </div>
         )
