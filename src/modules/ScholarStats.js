@@ -11,8 +11,10 @@ class ScholarStats extends React.Component {
         let primaryFormalCompToRender;
         let secondaryFormalCompToRender;
         let alchemyComponentTotRender;
+        let text;
+        let textComponentToRender;
 
-        // determins if creature has alchemy
+        // determines if creature has alchemy
         if (Object.keys(stats).includes("alchemy")) {
             let levelsOfAlchemy = stats.alchemy.levelsOfAlchemy;
             alchemyComponentTotRender = 
@@ -20,7 +22,14 @@ class ScholarStats extends React.Component {
                 <p><span>Levels of Alchemy:  {levelsOfAlchemy}</span></p>
             </div>
         }
-
+        // special instruction text display
+        if (Object.keys(stats).includes("magicSpecialInstructions")) {
+            text = stats.magicSpecialInstructions;
+            textComponentToRender = 
+            <div>
+                <p><span>Special Instructions:  {text}</span></p>
+            </div>
+        }
         // determines if creature has magical skills
         if (Object.keys(stats).includes("magic")) {
             let magic = stats.magic;
@@ -77,7 +86,7 @@ class ScholarStats extends React.Component {
                     <div>
                         <p><span>Primary School of Magic:  {primarySchool}</span></p>
                         <p><span>{primaryColumn}</span></p>
-                        {primaryFormalCompToRender}
+                        {primaryFormalCompToRender}                        
                     </div>
             }
         }
@@ -86,6 +95,7 @@ class ScholarStats extends React.Component {
                 <h3>Scholarly Skills</h3>
                 {alchemyComponentTotRender}
                 {magicCompToRender}
+                {textComponentToRender}
             </div>
         )
     }

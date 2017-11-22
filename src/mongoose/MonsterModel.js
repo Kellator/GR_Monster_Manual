@@ -63,8 +63,8 @@ var MonsterSchema = new mongoose.Schema({
                     secondaryFormalLevels: { type: String }
                 }
             }, 
-            magicSpecialInstructions : { type: String }
         },
+        magicSpecialInstructions : { type: String },
     },
     physicalDefenses: {
         parry: {
@@ -89,7 +89,7 @@ var MonsterSchema = new mongoose.Schema({
         },
         return: {
             hasReturnPhysical : {type: Boolean},
-            returnPhysicalPerDay: {type:Number}
+            returnPerDay: {type:Number}
         }
     },
     spellDefenses: {
