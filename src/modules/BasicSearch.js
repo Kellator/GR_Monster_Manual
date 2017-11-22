@@ -10,7 +10,7 @@ const BasicSearch = props => {
         <form onSubmit={ handleSubmit(props.onSubmit) }>
             <div>
                 <Field 
-                    placeholder="Wight" 
+                    placeholder="search" 
                     name="basic_search_input" 
                     component={ TextField }
                 />
