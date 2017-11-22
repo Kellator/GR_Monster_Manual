@@ -7,6 +7,7 @@ import PhysicalDefenses from './PhysicalDefenses.js';
 import SpellDefenses from './SpellDefenses.js';
 import RacialDefenses from './RacialDefenses.js';
 import Treasure from './Treasure.js';
+import Notes from './Notes.js';
 
 class CreatureCard extends React.Component {
     render() {
@@ -17,6 +18,8 @@ class CreatureCard extends React.Component {
         let spellDefenseComponentToRender;
         let racialDefenseComponentToRender;
         let treasureComponentToRender;
+        let notesComponentToRender;
+
         let creature = this.props.creature;
 
         let basicStats = {
@@ -34,6 +37,8 @@ class CreatureCard extends React.Component {
         let spellDefenses = creature.spellDefenses;
         let racialDefenses = creature.racialDefenses;
         let treasure = creature.treasure;
+        let notes = creature.special;
+
         if (Object.keys(creature).includes("weaponSkills")) {
             weaponComponentToRender = <WeaponStats stats={ weaponStats } />
         }
@@ -50,7 +55,10 @@ class CreatureCard extends React.Component {
             racialDefenseComponentToRender = <RacialDefenses stats={ racialDefenses } />
         }
         if (Object.keys(creature).includes("treasure")) {
-            treasureComponentToRender = <Treasure stats={ treasure } />
+            treasureComponentToRender = <Treasure treasure={ treasure } />
+        }
+        if (Object.keys(creature).includes("special")) {
+            notesComponentToRender = <Notes notes={ notes } />
         }
         return( 
             <div>
@@ -74,6 +82,9 @@ class CreatureCard extends React.Component {
                 </div>
                 <div>
                     {treasureComponentToRender}
+                </div>
+                <div>
+                    {notesComponentToRender}
                 </div>
             </div>
         )

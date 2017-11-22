@@ -2,7 +2,7 @@ import React from 'react';
 
 class Item extends React.Component {
     render() {
-        console.log(this.props);
+        // dictates style of individual item component
         let item = this.props.item;
         function ucFirst(item) {
             return item.charAt(0).toUpperCase() + item.slice(1);

@@ -3,11 +3,9 @@ import Item from './Item.js';
 
 class Treasure extends React.Component {
     render() {
-        console.log(this.props);
-        let itemList = this.props.stats;
-        console.log(itemList);
+        let itemList = this.props.treasure;
+        // maps over array of treasure items and returns individual component for each item
         let componentToRender = itemList.map(function(item, index){
-            console.log(item);
             return (
                 <Item item={item} key={index} />
             )
