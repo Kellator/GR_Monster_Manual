@@ -4,6 +4,10 @@ import BasicStats from './BasicStats.js';
 import WeaponStats from './WeaponStats.js';
 import ScholarStats from './ScholarStats.js';
 import PhysicalDefenses from './PhysicalDefenses.js';
+import SpellDefenses from './SpellDefenses.js';
+import RacialDefenses from './RacialDefenses.js';
+import Treasure from './Treasure.js';
+import Notes from './Notes.js';
 
 class CreatureCard extends React.Component {
     render() {
@@ -11,6 +15,11 @@ class CreatureCard extends React.Component {
         let weaponComponentToRender;
         let scholarlyComponentToRender;
         let physicalDefenseComponentToRender;
+        let spellDefenseComponentToRender;
+        let racialDefenseComponentToRender;
+        let treasureComponentToRender;
+        let notesComponentToRender;
+
         let creature = this.props.creature;
 
         let basicStats = {
@@ -25,6 +34,11 @@ class CreatureCard extends React.Component {
         let scholarStats = creature.scholarlySkills;
         let weaponStats = creature.weaponSkills;
         let physicalDefenses = creature.physicalDefenses;
+        let spellDefenses = creature.spellDefenses;
+        let racialDefenses = creature.racialDefenses;
+        let treasure = creature.treasure;
+        let notes = creature.special;
+
         if (Object.keys(creature).includes("weaponSkills")) {
             weaponComponentToRender = <WeaponStats stats={ weaponStats } />
         }
@@ -33,6 +47,18 @@ class CreatureCard extends React.Component {
         }
         if (Object.keys(creature).includes("physicalDefenses")) {
             physicalDefenseComponentToRender = <PhysicalDefenses stats={ physicalDefenses } />
+        }
+        if (Object.keys(creature).includes("spellDefenses")) {
+            spellDefenseComponentToRender = <SpellDefenses stats={ spellDefenses } />
+        }
+        if (Object.keys(creature).includes("racialDefenses")) {
+            racialDefenseComponentToRender = <RacialDefenses stats={ racialDefenses } />
+        }
+        if (Object.keys(creature).includes("treasure")) {
+            treasureComponentToRender = <Treasure treasure={ treasure } />
+        }
+        if (Object.keys(creature).includes("special")) {
+            notesComponentToRender = <Notes notes={ notes } />
         }
         return( 
             <div>
@@ -47,6 +73,18 @@ class CreatureCard extends React.Component {
                 </div>
                 <div>
                     {physicalDefenseComponentToRender}
+                </div>
+                <div>
+                    {spellDefenseComponentToRender}
+                </div>
+                <div>
+                    {racialDefenseComponentToRender}
+                </div>
+                <div>
+                    {treasureComponentToRender}
+                </div>
+                <div>
+                    {notesComponentToRender}
                 </div>
             </div>
         )
