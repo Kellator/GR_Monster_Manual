@@ -13,7 +13,7 @@ class HomeView extends React.Component {
                     <BasicSearch onSubmit={ this.props.searchDatabaseSubmit }/>
                 </div>
                 <div>
-                    <RaisedButton onClick={ this.props.createSubmit }>Enter New Monster</RaisedButton>
+                    <RaisedButton onClick={ this.props.createSubmit }>Create New Creature Card</RaisedButton>
                 </div>
             </div>
         )

@@ -4,7 +4,7 @@ const validate = values => {
       errors.monster_name = 'Required'
     }
     if (!values.monster_category) {
-      errors.monster_type = 'Required'
+      errors.monster_category = 'Required'
     }
     if (!values.monster_level) {
       errors.monster_level = 'Required'
