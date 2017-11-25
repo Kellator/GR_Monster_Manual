@@ -171,13 +171,37 @@ router.post('/monster', function(request, response) {
         response.status(201).json(monster);
     });
 });
+// edits specific creature card document
+// router.put('/edit',function(request, response) {
+//     let card_id = request.params.card_id;
+//     let key; //set to equal the Object key (form input name?)
+//     let value; // set to equal the object key's value
+//     // for query - find by card_id, then find the object key - if object key
+//     console.log(card_id);
+//     Monster.findOneAndUpdate(card_id,  {key: value }, function(err, monster) {
+//         console.log("edit pushed")
+//         if (err) {
+//             console.log(err);
+//             console.error('Crumbs!  Could not edit creature card.');
+//             return response.status(500).json({
+//                 message: 'Crumbs! Internal Server Error.'
+//             });
+//         }
+//         console.log('Creature card edited');
+//         return response.status(200).end();
+//     })
+// })
 // deletes a monster card from the database
-router.delete('/delete/:card_id', function(request, response) {
-    let card_id = request.params.card_id;
+router.delete('/delete', function(request, response) {
+    let card_id = request.body.card_id;
+    console.log(request.body.card_id);
     Monster.findByIdAndRemove(card_id, function(err, monster) {
         if (err) {
             console.log(err);
             console.error('Darn! Could not delete monster card.');
+            return response.status(500).json({
+                message: 'Nuts.  Internal Server Error.'
+            });
         }
         console.log('Monster Card Deleted');
         return response.status(204).end();

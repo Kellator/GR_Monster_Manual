@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import RaisedButton from 'material-ui/RaisedButton';
 import BasicStats from './BasicStats.js';
 import WeaponStats from './WeaponStats.js';
 import ScholarStats from './ScholarStats.js';
@@ -8,6 +9,7 @@ import SpellDefenses from './SpellDefenses.js';
 import RacialDefenses from './RacialDefenses.js';
 import Treasure from './Treasure.js';
 import Notes from './Notes.js';
+import DeleteDialog from './Dialog.js';
 
 class CreatureCard extends React.Component {
     render() {
@@ -21,6 +23,9 @@ class CreatureCard extends React.Component {
         let notesComponentToRender;
 
         let creature = this.props.creature;
+        let card_id = creature._id;
+        let deleteCard = this.props.deleteCard;
+        let editCard = this.props.editCard;
 
         let basicStats = {
             name: creature.name,
@@ -86,6 +91,8 @@ class CreatureCard extends React.Component {
                 <div>
                     {notesComponentToRender}
                 </div>
+                {/* <RaisedButton card_id={ card_id } onClick={ this.props.editCard }>Edit</RaisedButton> */}
+                <DeleteDialog deleteCard={ deleteCard } card_id={ card_id }/>
             </div>
         )
     }

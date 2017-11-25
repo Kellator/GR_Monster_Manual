@@ -5,6 +5,7 @@ import CardCreated from './cardCreated.js';
 import SearchResult from './SearchResult.js';
 import CreatureCard from './CreatureCard.js';
 import SearchResultContainer from './SearchResultContainer';
+import '../Flex.css';
 
 class ViewContainer extends React.Component {
     render() {
@@ -29,7 +30,12 @@ class ViewContainer extends React.Component {
         let searchDatabase = this.props.props.searchDatabase;
         // onClick to show creature card
         let showCardView = this.props.props.showCardView;
+        // onClick to edit existing card
+        let editCard = this.props.props.editCard;
+        // onClick to delete current card
+        let deleteCard = this.props.props.deleteCard;
         let monster;
+        // determines which component is displayed as main app components
         if (homeView === true) {
             currentView = <HomeView createSubmit={ createSubmit } searchSubmit={ searchSubmit } searchDatabaseSubmit={ searchDatabase }/>
         }
@@ -44,10 +50,21 @@ class ViewContainer extends React.Component {
                 showHomeView={ showHomeView } showCardView={ showCardView }/>
         }
         if (cardView === true) {
-            currentView = <CreatureCard showHomeView={ showHomeView } />
+            currentView = <CreatureCard showHomeView={ showHomeView } editCard={ editCard } deleteCard={ deleteCard }/>
         }
+        // determines the tool text in instruction div
+        // user state to determine instructions based on current view = switch
+        let instruction = 
+            <div>
+                <h3>Instructions</h3>
+            </div>
+        
         return (
-            <div>{ currentView }</div>            
+            <div className="flex-container">
+                <div className="flex-aside">{ instruction }</div>
+                <div className="flex-main">{ currentView }</div>
+            </div>
+                        
         )
     }
 }

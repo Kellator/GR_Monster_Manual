@@ -1,0 +1,17 @@
+
+/*flex controls */
+.flex-container {
+    display: flex;
+    flex-flow: row;
+  }
+  .flex-aside {
+    flex: 1 6 20%;
+    order: 1;
+    background-color: pink;
+    min-height: 100vh; 
+  }
+  .flex-main {
+    flex: 3 1 60%;
+    order: 2;
+    min-height: 100vh; 
+  }

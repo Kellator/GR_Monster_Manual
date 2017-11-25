@@ -32,7 +32,7 @@ class App extends React.Component {
                 targetOrigin={{horizontal: 'right', vertical: 'top'}}
                 >
                 <MenuItem primaryText="Home" onClick={ this.props.showHomeView } />
-                <MenuItem primaryText="Create New Creature Card" onClick={ this.props.showCreateView } />
+                <MenuItem primaryText="Create New" onClick={ this.props.showCreateView } />
                 <MenuItem primaryText="Help" />
                 <MenuItem primaryText="Sign out" />
               </IconMenu>
@@ -42,7 +42,7 @@ class App extends React.Component {
             <h1 className="App-title">D & K's Big Bad Database of Scary Doom</h1>
             <img src={green_monster} className="App-logo" alt="logo" />
           </header> */}
-          <ViewContainer props={this.props}/>
+          <ViewContainer className="flex-container"props={this.props}/>
         </div>
       </MuiThemeProvider>
     );
@@ -84,6 +84,14 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     showCardView : (monster) => {
       console.log("show the creature card");
       dispatch(actions.ViewActions.showCardView(monster));
+    },
+    editCard : (card_id) => {
+      console.log("edit the existing card");
+      dispatch(actions.DatabaseActions.editCard(card_id));
+    },
+    deleteCard : (card_id) => {
+      console.log("Card Deleted");
+      dispatch(actions.DatabaseActions.deleteCard(card_id));
     }
   }
 }
