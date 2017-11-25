@@ -5,6 +5,7 @@ import CardCreated from './cardCreated.js';
 import SearchResult from './SearchResult.js';
 import CreatureCard from './CreatureCard.js';
 import SearchResultContainer from './SearchResultContainer';
+import '../Flex.css';
 
 class ViewContainer extends React.Component {
     render() {
@@ -52,11 +53,16 @@ class ViewContainer extends React.Component {
             currentView = <CreatureCard showHomeView={ showHomeView } editCard={ editCard } deleteCard={ deleteCard }/>
         }
         // determines the tool text in instruction div
-        let instruction;
-        return (
+        // user state to determine instructions based on current view = switch
+        let instruction = 
             <div>
-                <div>{ currentView }</div>
-                <div>{ instruction }</div>
+                <h3>Instructions</h3>
+            </div>
+        
+        return (
+            <div className="flex-container">
+                <div className="flex-aside">{ instruction }</div>
+                <div className="flex-main">{ currentView }</div>
             </div>
                         
         )

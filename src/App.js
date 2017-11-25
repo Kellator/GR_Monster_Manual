@@ -42,7 +42,7 @@ class App extends React.Component {
             <h1 className="App-title">D & K's Big Bad Database of Scary Doom</h1>
             <img src={green_monster} className="App-logo" alt="logo" />
           </header> */}
-          <ViewContainer props={this.props}/>
+          <ViewContainer className="flex-container"props={this.props}/>
         </div>
       </MuiThemeProvider>
     );

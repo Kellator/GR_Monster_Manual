@@ -24,8 +24,8 @@ class CreatureCard extends React.Component {
 
         let creature = this.props.creature;
         let card_id = creature._id;
-        console.log(this.props.deleteCard);
-        let deleteCard = this.props.deleteCard
+        let deleteCard = this.props.deleteCard;
+        let editCard = this.props.editCard;
 
         let basicStats = {
             name: creature.name,
