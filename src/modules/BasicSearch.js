@@ -1,6 +1,6 @@
 import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
-import { TextField } from 'redux-form-material-ui';
+import { TextField, MenuItem, SelectField } from 'redux-form-material-ui';
 import { Field, reduxForm } from 'redux-form';
 
 const BasicSearch = props => {

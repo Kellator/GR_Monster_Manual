@@ -6,6 +6,8 @@ import SearchResult from './SearchResult.js';
 import CreatureCard from './CreatureCard.js';
 import SearchResultContainer from './SearchResultContainer';
 import '../Flex.css';
+import instructions from './InstructionText.js';
+console.log(instructions);
 
 class ViewContainer extends React.Component {
     render() {
@@ -35,9 +37,22 @@ class ViewContainer extends React.Component {
         // onClick to delete current card
         let deleteCard = this.props.props.deleteCard;
         let monster;
+        let instructionDiv;
         // determines which component is displayed as main app components
         if (homeView === true) {
             currentView = <HomeView createSubmit={ createSubmit } searchSubmit={ searchSubmit } searchDatabaseSubmit={ searchDatabase }/>
+            instructionDiv = 
+            <div>
+                <p>{instructions.homeView.lineOne}</p>
+                <p>{instructions.homeView.lineTwo}</p>
+                <ul >
+                    {
+                        instructions.homeView.categoryList.map(function(category, i) {
+                            return <li key={i}>{category}</li>
+                        })
+                    }
+                </ul>
+            </div>
         }
         if (createView === true) {
             currentView = <WizardForm createCardSubmit={ createCardSubmit }/>
@@ -56,7 +71,7 @@ class ViewContainer extends React.Component {
         // user state to determine instructions based on current view = switch
         let instruction = 
             <div>
-                <h3>Instructions</h3>
+                {instructionDiv}
             </div>
         
         return (

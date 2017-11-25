@@ -7,7 +7,9 @@ import ViewContainer from './modules/ViewContainer';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import muiThemeable from 'material-ui/styles/muiThemeable';
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
+import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import AppBar from 'material-ui/AppBar';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
@@ -38,10 +40,6 @@ class App extends React.Component {
               </IconMenu>
             }
           />
-          {/* <header className="App-header">
-            <h1 className="App-title">D & K's Big Bad Database of Scary Doom</h1>
-            <img src={green_monster} className="App-logo" alt="logo" />
-          </header> */}
           <ViewContainer className="flex-container"props={this.props}/>
         </div>
       </MuiThemeProvider>

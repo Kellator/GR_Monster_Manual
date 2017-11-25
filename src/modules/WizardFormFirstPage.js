@@ -18,7 +18,7 @@ let WizardFormFirstPage = props => {
             component={TextField}
             label="Monster Name"
         />
-        <p>Choose one type of monster (required).</p>
+        <p>Choose one category of monster (required).</p>
             <Field 
             name="monster_category"
             label="Monster Category"
