@@ -171,9 +171,15 @@ router.post('/monster', function(request, response) {
         response.status(201).json(monster);
     });
 });
-// deletes a monster card from the database
-router.delete('/delete/:card_id', function(request, response) {
+// edits specific creature card document
+router.put('/edit',function(request, response) {
     let card_id = request.params.card_id;
+    console.log(card_id);
+})
+// deletes a monster card from the database
+router.delete('/delete', function(request, response) {
+    let card_id = request.body.card_id;
+    console.log(request.body.card_id);
     Monster.findByIdAndRemove(card_id, function(err, monster) {
         if (err) {
             console.log(err);

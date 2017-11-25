@@ -29,7 +29,12 @@ class ViewContainer extends React.Component {
         let searchDatabase = this.props.props.searchDatabase;
         // onClick to show creature card
         let showCardView = this.props.props.showCardView;
+        // onClick to edit existing card
+        let editCard = this.props.props.editCard;
+        // onClick to delete current card
+        let deleteCard = this.props.props.deleteCard;
         let monster;
+        // determines which component is displayed as main app components
         if (homeView === true) {
             currentView = <HomeView createSubmit={ createSubmit } searchSubmit={ searchSubmit } searchDatabaseSubmit={ searchDatabase }/>
         }
@@ -44,10 +49,16 @@ class ViewContainer extends React.Component {
                 showHomeView={ showHomeView } showCardView={ showCardView }/>
         }
         if (cardView === true) {
-            currentView = <CreatureCard showHomeView={ showHomeView } />
+            currentView = <CreatureCard showHomeView={ showHomeView } editCard={ editCard } deleteCard={ deleteCard }/>
         }
+        // determines the tool text in instruction div
+        let instruction;
         return (
-            <div>{ currentView }</div>            
+            <div>
+                <div>{ currentView }</div>
+                <div>{ instruction }</div>
+            </div>
+                        
         )
     }
 }
