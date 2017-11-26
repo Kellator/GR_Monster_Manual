@@ -47,7 +47,8 @@ class App extends React.Component {
   }
 }
 const mapStateToProps = (state, props) => ({
-  view: state.view
+  view: state.view,
+  form: state.form
 });
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
@@ -90,7 +91,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     deleteCard : (card_id) => {
       console.log("Card Deleted");
       dispatch(actions.DatabaseActions.deleteCard(card_id));
-    }
+    },
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(App);

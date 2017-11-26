@@ -29,7 +29,13 @@ export const showCardView = (monster) => ({
     type: CARDVIEW,
     monster
 });
-// export const SHOWHOMEVIEW = 'SHOWHOMEVIEW';
-// export const showHomeView = () => ({
-//     type: SHOWHOMEVIEW
-// });
+export const PAGEFORWARD = 'PAGEFORWARD';
+export const pageForward = (page) => ({
+    type: PAGEFORWARD,
+    page
+});
+export const PAGEBACK = 'PAGEBACK';
+export const pageBack = (page) => ({
+    type: PAGEBACK,
+    page
+});
