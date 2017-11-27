@@ -88,6 +88,15 @@ class ViewContainer extends React.Component {
                 })
                 instructionDiv = <div>{ componentToRender }</div>;
             }
+            else if(Object.keys(wizardFields).includes('has_alchemy')) {
+                let texts = instructions.createView.pageThree;
+                let componentToRender = Object.keys(texts).map(function(text, index) {
+                    console.log(texts[text]);
+                    console.log(text);
+                    return <p key={index}>{texts[text]}</p>
+                })
+                instructionDiv = <div>{ componentToRender }</div>;
+            }
         }
         if (newCardView === true) {
             currentView = <CardCreated createSubmit={ createSubmit } showHomeView={ showHomeView } />
@@ -108,7 +117,10 @@ class ViewContainer extends React.Component {
         
         return (
             <div className="flex-container">
-                <div className="flex-aside">{ instruction }</div>
+                <div className="flex-aside">
+                <h3>Demo Tips</h3>
+                { instruction }
+                </div>
                 <div className="flex-main">{ currentView }</div>
             </div>
                         
