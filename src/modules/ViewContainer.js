@@ -82,8 +82,6 @@ class ViewContainer extends React.Component {
             else if(Object.keys(wizardFields).includes('weapon_type')) {
                 let texts = instructions.createView.pageTwo;
                 let componentToRender = Object.keys(texts).map(function(text, index) {
-                    console.log(texts[text]);
-                    console.log(text);
                     return <p key={index}>{texts[text]}</p>
                 })
                 instructionDiv = <div>{ componentToRender }</div>;
@@ -91,8 +89,34 @@ class ViewContainer extends React.Component {
             else if(Object.keys(wizardFields).includes('has_alchemy')) {
                 let texts = instructions.createView.pageThree;
                 let componentToRender = Object.keys(texts).map(function(text, index) {
-                    console.log(texts[text]);
-                    console.log(text);
+                    return <p key={index}>{texts[text]}</p>
+                })
+                instructionDiv = <div>{ componentToRender }</div>;
+            }
+            else if(Object.keys(wizardFields).includes('has_physical_bane')) {
+                let texts = instructions.createView.pageFour;
+                let componentToRender = Object.keys(texts).map(function(text, index) {
+                    return <p key={index}>{texts[text]}</p>
+                })
+                instructionDiv = <div>{ componentToRender }</div>;
+            }
+            else if(Object.keys(wizardFields).includes('has_bane_magic')) {
+                let texts = instructions.createView.pageFive;
+                let componentToRender = Object.keys(texts).map(function(text, index) {
+                    return <p key={index}>{texts[text]}</p>
+                })
+                instructionDiv = <div>{ componentToRender }</div>;
+            }
+            else if(Object.keys(wizardFields).includes('has_resist_charm')) {
+                let texts = instructions.createView.pageSix;
+                let componentToRender = Object.keys(texts).map(function(text, index) {
+                    return <p key={index}>{texts[text]}</p>
+                })
+                instructionDiv = <div>{ componentToRender }</div>;
+            }
+            else if(Object.keys(wizardFields).includes('standard_treasure')) {
+                let texts = instructions.createView.pageSeven;
+                let componentToRender = Object.keys(texts).map(function(text, index) {
                     return <p key={index}>{texts[text]}</p>
                 })
                 instructionDiv = <div>{ componentToRender }</div>;
@@ -100,13 +124,26 @@ class ViewContainer extends React.Component {
         }
         if (newCardView === true) {
             currentView = <CardCreated createSubmit={ createSubmit } showHomeView={ showHomeView } />
+            let texts = instructions.newCardView
+            let componentToRender = <p>{texts}</p>
+            instructionDiv = <div>{componentToRender}</div>
         }
         if (resultsListView === true) {
             currentView = <SearchResultContainer  createSubmit={ createSubmit } searchDatabaseSubmit={ searchDatabase } 
                 showHomeView={ showHomeView } showCardView={ showCardView }/>
+            let texts = instructions.resultsListView;
+            let componentToRender = Object.keys(texts).map(function(text, index) {
+                return <p key={index}>{texts[text]}</p>
+            })
+            instructionDiv = <div>{ componentToRender }</div>;
         }
         if (cardView === true) {
             currentView = <CreatureCard showHomeView={ showHomeView } editCard={ editCard } deleteCard={ deleteCard }/>
+            let texts = instructions.cardView;
+            let componentToRender = Object.keys(texts).map(function(text, index) {
+                return <p key={index}>{texts[text]}</p>
+            })
+            instructionDiv = <div>{ componentToRender }</div>;
         }
         // determines the tool text in instruction div
         // user state to determine instructions based on current view = switch
