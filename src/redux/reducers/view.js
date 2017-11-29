@@ -1,13 +1,24 @@
 const initialState= {
-    homeView: true,
+    loginView: true,
+    homeView: false,
     searchView: false,
     createView: false,
     resultsListView: false,
-    cardView: false,
-    wizardPage: 0
+    cardView: false
 }
 export default function view(state = initialState, action) {
     switch(action.type) {
+        case 'SHOW_LOGIN' :
+            return {
+                ...state,
+                loginView: true,
+                homeView: false,
+                searchView: false,
+                createView: false,
+                newCardView: false,
+                resultsListView: false,
+                cardView: false,
+            };
         case 'HOMEVIEW' :
             return {
                 ...state,
@@ -16,8 +27,7 @@ export default function view(state = initialState, action) {
                 createView: false,
                 newCardView: false,
                 resultsListView: false,
-                cardView: false,
-                wizardPage: 0
+                cardView: false
             };
         case 'SEARCHVIEW' :
             return {
@@ -27,8 +37,7 @@ export default function view(state = initialState, action) {
                 createView: false,
                 newCardView: false,
                 resultsListView: false,
-                cardView: false,
-                wizardPage: 0
+                cardView: false
             };
         case 'CREATEVIEW' :
             return {
@@ -38,8 +47,7 @@ export default function view(state = initialState, action) {
                 createView: true,
                 newCardView: false,
                 resultsListView: false,
-                cardView: false,
-                wizardPage: 0
+                cardView: false
             };
         case 'NEWCARDVIEW' :
             return {
@@ -49,8 +57,7 @@ export default function view(state = initialState, action) {
                 createView: false,
                 newCardView: true,
                 resultsListView: false,
-                cardView: false,
-                wizardPage: 0
+                cardView: false
             };
         case 'RESULTS_LIST_VIEW' :
             return {
@@ -60,8 +67,7 @@ export default function view(state = initialState, action) {
                 createView: false,
                 newCardView: false,
                 resultsListView: true,
-                cardView: false,
-                wizardPage: 0
+                cardView: false
             };
         case 'CARDVIEW' :
             return {
@@ -71,30 +77,7 @@ export default function view(state = initialState, action) {
                 createView: false,
                 newCardView: false,
                 resultsListView: false,
-                cardView: true,
-                wizardPage: 0   
-            };
-        case 'PAGEFORWARD' :
-            return {
-                ...state,
-                homeView: false,
-                searchView: false,
-                createView: false,
-                newCardView: false,
-                resultsListView: false,
-                cardView: true,
-                wizardPage: action.page
-            };
-        case 'PAGEBACK' :
-            return {
-                ...state,
-                homeView: false,
-                searchView: false,
-                createView: false,
-                newCardView: false,
-                resultsListView: false,
-                cardView: true,
-                wizardPage: action.page
+                cardView: true  
             };
         default :
             return state;

@@ -1,5 +1,8 @@
-// to display different views of app including Advanced Search, Monster Creation, and Homeview
-// Needs Search Display and Monster Card views included
+export const LOGIN = 'SHOW_LOGIN';
+export const showLogin = () => ({
+    type: SHOW_LOGIN
+});
+
 export const HOMEVIEW = 'HOMEVIEW';
 export const showHomeView = () => ({
     type: HOMEVIEW
@@ -28,14 +31,4 @@ export const CARDVIEW = 'CARDVIEW';
 export const showCardView = (monster) => ({
     type: CARDVIEW,
     monster
-});
-export const PAGEFORWARD = 'PAGEFORWARD';
-export const pageForward = (page) => ({
-    type: PAGEFORWARD,
-    page
-});
-export const PAGEBACK = 'PAGEBACK';
-export const pageBack = (page) => ({
-    type: PAGEBACK,
-    page
 });
