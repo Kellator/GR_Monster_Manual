@@ -1,4 +1,4 @@
-export const LOGIN = 'SHOW_LOGIN';
+export const SHOW_LOGIN = 'SHOW_LOGIN';
 export const showLogin = () => ({
     type: SHOW_LOGIN
 });

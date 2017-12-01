@@ -1,4 +1,5 @@
 import React from 'react';
+import Login from './Login.js';
 import WizardForm from './WizardForm.js';
 import HomeView from './homeview.js';
 import CardCreated from './cardCreated.js';
@@ -14,12 +15,16 @@ class ViewContainer extends React.Component {
         console.log(this.props);
         let currentView;
         // views
+        let loginView = this.props.props.view.loginView;
         let homeView = this.props.props.view.homeView;
-        // let searchView = this.props.props.view.searchView;
         let createView = this.props.props.view.createView;
         let newCardView = this.props.props.view.newCardView;
         let resultsListView = this.props.props.view.resultsListView;
         let cardView = this.props.props.view.cardView;
+        // onClick to submit user login
+        let loginSubmit = this.props.props.login;
+        // onClick to submit user logout
+        let logoutSubmit = this.props.props.logout;
         // button onClick to show search page
         let searchSubmit = this.props.props.showSearchView;
         // button onClick to show create new card form wizard
@@ -42,6 +47,10 @@ class ViewContainer extends React.Component {
         let instructionDiv;
         let wizardFields;
         // determines which component is displayed as main app components
+        if(loginView === true) {
+            currentView = <Login onSubmit={ loginSubmit } />
+        }
+
         if (homeView === true) {
             currentView = <HomeView createSubmit={ createSubmit } searchSubmit={ searchSubmit } searchDatabaseSubmit={ searchDatabase }/>
             instructionDiv = 

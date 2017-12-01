@@ -52,6 +52,18 @@ const mapStateToProps = (state, props) => ({
 });
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
+    showLoginView : () => {
+      console.log("login clicked");
+    },
+    login : (values) => {
+      console.log("logging in");
+      console.log(values)
+      dispatch(actions.LoginActions.checkLogin(values));
+    },
+    logout : () => {
+      console.log("logging out");
+      dispatch(actions.LoginActions.requestLogout());
+    },
     showCreateView : () => {
       console.log("button clicked");
       dispatch(actions.ViewActions.showCreateView());

@@ -33,31 +33,29 @@ function loginError(message) {
         message
     }
 };
-export const loginUser = (username, password) => {
+export const checkLogin = (username, password) => {
     return dispatch => {
+        let credentials = {
+            username: username,
+            password: password
+        }
         dispatch(requestLogin(credentials))
         axios({
             method: 'post',
-            url: url + 'login',
-            data: {
-                username: username,
-                password: password  
-            }
+            url: url + 'login', 
+            data: credentials
         })
-        .then(response =>
-            response.json().then(user => ({ user, response }))
-        ).then(({ user, response}) => {
-            if(!response.ok) {
-                dispatch(loginError(user.message))
-            } else {
-                localStorage.setItem('id_token', user.id_token) // does this web token only come back if using the fetch API?
-                localStorage.setItem('id_token', user.access_token)
-                dispatch(receiveLogin(user))
+        .then(response => {
+            console.log(response);
+            let user;
+            if(response.status === 200) {
+                dispatch(receiveLogin(user));
+                dispatch(ViewActions.showHomeView());
             }
         })
         .catch(error => {
-            dispatch(loginError(user.message))
             console.log(error);
+            dispatch(loginError(error));
         });
     }
 }
@@ -84,9 +82,68 @@ function receiveLogout() {
 
 function logoutUser() {
     return dispatch => {
-        dispatch(requestLougout())
+        dispatch(requestLogout())
         localStorage.removeItem('id_token')
         localStorage.removeItem('access_token')
         dispatch(receiveLogout())
+    }
+}
+
+export const NEW_USER_REQUEST = 'NEW_USER_REQUEST';
+export const NEW_USER_SUCCESS = 'NEW_USER_SUCCESS';
+export const NEW_USER_FAILURE = 'NEW_USER_FAILURE';
+
+function requestNewUser(credentials) {
+    return {
+        type: NEW_USER_REQUEST,
+        isFetching: true,
+        isAuthenticated: false,
+        credentials
+    }
+};
+
+function receiveNewUser(user) {
+    return {
+        type: NEW_USER_SUCCESS,
+        isFetching: false,
+        isAuthenticated: true,
+        id_token: user.id_token
+    }
+};
+
+function newUserError(message) {
+    return {
+        type: NEW_USER_FAILURE,
+        isFetching: false,
+        isAuthenticated: false,
+        message
+    }
+};
+export const createLogin = (username, email, password) => {
+    return dispatch => {
+        let credentials = {
+            username: username,
+            email: email,
+            password: password
+        }
+        dispatch(requestNewUser(credentials))
+        axios({
+            method: 'post',
+            url: url + 'register', 
+            data: credentials
+        })
+        .then(response => {
+            console.log(response);
+            let user;
+            if(response.status === 200) {
+                dispatch(receiveNewUser(user));
+                // needs to show a created new user page or message  - add messages to demo?
+                dispatch(ViewActions.showHomeView());
+            }
+        })
+        .catch(error => {
+            console.log(error);
+            dispatch(newUserError(error));
+        });
     }
 }

@@ -208,5 +208,102 @@ router.delete('/delete', function(request, response) {
     });
 });
 // edits specific aspect of monster card based on active fields?
-
+// creates new user credentials
+router.get('/register', function (request, response) {
+    console.log(request.body);
+    if(!request.body) {
+        return response.status(400).json({
+            message: "No Request Body"
+        });
+    }
+    if(!('username' in request.body)) {
+        return response.status(422).json({
+            message: "Missing Field: username"
+        });
+    }
+    if(!('email' in request.body)) {
+        return response.status(422).json({
+            message: "Missing Field: email"
+        });
+    }
+    let username = request.body.username;
+    if(typeof username !== 'string') {
+        return response.status(422).json({
+            message: "Incorrect Field Type: username"
+        });
+    }
+    username = username.trim();
+    if(username === '') {
+        return response.status(422).json({
+            message: "Incorrect Field Length: username"
+        });
+    }
+    let email = request.body.email;
+    if(typeof email !== 'string') {
+        return response.status(422).json({
+            message: "Incorrect Field Type: email"
+        });
+    }
+    email = email.trim();
+    if(email === '') {
+        return response.status(422).json({
+            message: "Incorrect Field Length: email"
+        });
+    }
+    let password = request.body.password;
+    if(typeof password !== 'string') {
+        return response.status(422).json({
+            message: "Incorrect Field Type: password"
+        });
+    }
+    password = password.trim();
+    if(password === '') {
+        return response.status(422).json({
+            message: "Incorrect Field Length: password"
+        });        
+    }
+    bcrypt.hash(password, salt, function(error, hash) {
+        if(error) {
+            console.log(error);
+            return response.status(500).json({
+                message: "Internal Server Error"
+            });
+        }
+        let user = new user({
+            username: username,
+            email: email,
+            password: hash
+        });
+        user.save(function(error) {
+            if(error) {
+                console.log(error);
+                return reset.status(500).json({
+                    message: "Internal Server Error"
+                });
+            }
+            console.log(user.updatedAt);
+            return response.status(201).json({
+                status: 'Registration Successful!',
+                username: user.username,
+                email: user.email,
+                password: password
+            });
+        });
+    });
+});
+// checks user credentials
+router.post('/login', passport.authenticate('local'),
+    function(request, response) {
+        console.log(response.request);
+        let username = response.request.user.username;
+        let email = response.request.user.email;
+        let id = response.request.user._id;
+        return response.status(200).json({
+            status: 'Login Successful',
+            username: username,
+            email: email,
+            id: id
+        });
+    }
+)
 module.exports = router;
