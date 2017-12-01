@@ -4,7 +4,49 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 var Monster = require('./mongoose/MonsterModel');
+var bcrypt = require('bcryptjs');
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 
+// passport authentication strategy
+passport.use(new LocalStrategy(
+    function(username, password, done) {
+        User.findByUsername(username, function(err, user) {
+            if (err) {
+                return done(err);
+            }
+            if (!user) {
+                return done(null, false, {
+                    message: 'Incorrect username.'
+                });
+            }
+            user.validatePassword(password, function(err, isValid) {
+                if(err || !isValid) { return done(null, false, {
+                    message: 'Incorrect Password.'
+                });
+            }
+                return done(null, user);
+            });
+        });
+    }
+));
+//authenticated session persistance
+passport.serializeUser(function(user, callback) {
+    console.log("serialize");
+    callback(null, user.id);
+});
+passport.deserializeUser(function(id, callback) {
+    console.log("deserialize");
+    User.findById(id, function(err, user) {
+        if (err) {
+            return callback(err);
+        }
+        callback(null, user);
+    });
+});
+// passport.use(strategy);
+router.use(passport.initialize());
+router.use(passport.session());
 // searches db specific to criteria entered in search
 router.get('/monster', function(request, response) {
     // initial search criteria (e.g. search by name of creature OR categorization of creature) 
