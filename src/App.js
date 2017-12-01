@@ -54,6 +54,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     showLoginView : () => {
       console.log("login clicked");
+      dispatch(actions.ViewActions.showLogin());
     },
     login : (values) => {
       console.log("logging in");
@@ -63,6 +64,15 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     logout : () => {
       console.log("logging out");
       dispatch(actions.LoginActions.requestLogout());
+    },
+    showRegisterView : () => {
+      console.log("registration clicked");
+      dispatch(actions.ViewActions.showRegisterView());
+    },
+    register : (values) => {
+      console.log("new login");
+      console.log(values)
+      dispatch(actions.LoginActions.createLogin(values));
     },
     showCreateView : () => {
       console.log("button clicked");

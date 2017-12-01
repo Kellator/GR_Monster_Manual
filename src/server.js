@@ -8,11 +8,15 @@ var cors = require('cors');
 
 var config = require('./config');
 var router = require('./router.js');
+var userRouter = require('./userRouter.js');
 var Monster = require('./mongoose/MonsterModel');
 const app = express();
+var morgan = require('morgan')
 app.use(bodyParser.json());
 app.use(cors());
 app.use('/', router);
+app.use('/user', userRouter);
+
 
 const server = http.Server(app);
 

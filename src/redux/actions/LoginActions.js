@@ -35,15 +35,15 @@ function loginError(message) {
 };
 export const checkLogin = (username, password) => {
     return dispatch => {
-        let credentials = {
-            username: username,
-            password: password
-        }
-        dispatch(requestLogin(credentials))
+        console.log("checking the user");
+        // dispatch(requestLogin(username, password))
         axios({
             method: 'post',
-            url: url + 'login', 
-            data: credentials
+            url: url + 'user/login', 
+            data: {
+                username: username,
+                password: password
+            }
         })
         .then(response => {
             console.log(response);
@@ -119,17 +119,17 @@ function newUserError(message) {
         message
     }
 };
-export const createLogin = (username, email, password) => {
+export const createLogin = (values) => {
     return dispatch => {
         let credentials = {
-            username: username,
-            email: email,
-            password: password
+            username: values.username,
+            email: values.email,
+            password: values.password
         }
         dispatch(requestNewUser(credentials))
         axios({
             method: 'post',
-            url: url + 'register', 
+            url: url + 'user/', 
             data: credentials
         })
         .then(response => {

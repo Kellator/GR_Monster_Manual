@@ -8,8 +8,7 @@ const Register = props => {
     const { errorMessage, handleSubmit, pristine, reset, submitting } = props
     return (
         <div>
-            <h3>Register</h3>
-            <form onSubmit={ handleSubmit(props.onSubmit) }>
+            <form onSubmit={ handleSubmit(props.registerSubmit) }>
                 <Field
                     label="username"
                     placeholder="username"
@@ -30,11 +29,11 @@ const Register = props => {
                     component={ TextField }
                     type="password"
                 />
-                <RaisedButton type="submit">REGISTER</RaisedButton>
+                <RaisedButton type="submit" primary={ true }>SUBMIT</RaisedButton>
             </form>
             <div>
                 <h3>Already Registered? Go to Log In.</h3>
-                <RaisedButton type="submit">LOGIN</RaisedButton>
+                <RaisedButton onClick={ handleSubmit(props.showLogin) }>LOGIN</RaisedButton>
             </div>
         </div>
     )

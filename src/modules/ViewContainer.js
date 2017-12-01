@@ -1,5 +1,6 @@
 import React from 'react';
 import Login from './Login.js';
+import Register from './Register.js';
 import WizardForm from './WizardForm.js';
 import HomeView from './homeview.js';
 import CardCreated from './cardCreated.js';
@@ -16,15 +17,22 @@ class ViewContainer extends React.Component {
         let currentView;
         // views
         let loginView = this.props.props.view.loginView;
+        let registerView = this.props.props.view.registerView;
         let homeView = this.props.props.view.homeView;
         let createView = this.props.props.view.createView;
         let newCardView = this.props.props.view.newCardView;
         let resultsListView = this.props.props.view.resultsListView;
         let cardView = this.props.props.view.cardView;
+        // onClick to show login view
+        let showLoginView = this.props.props.showLoginView;
         // onClick to submit user login
         let loginSubmit = this.props.props.login;
         // onClick to submit user logout
         let logoutSubmit = this.props.props.logout;
+        // onClick to change view to registration page
+        let showRegisterSubmit = this.props.props.showRegisterView;
+        // onSubmit to register new users
+        let register = this.props.props.register
         // button onClick to show search page
         let searchSubmit = this.props.props.showSearchView;
         // button onClick to show create new card form wizard
@@ -48,9 +56,11 @@ class ViewContainer extends React.Component {
         let wizardFields;
         // determines which component is displayed as main app components
         if(loginView === true) {
-            currentView = <Login onSubmit={ loginSubmit } />
+            currentView = <Login loginSubmit={ loginSubmit } showRegisterSubmit={ showRegisterSubmit }/>
         }
-
+        if(registerView === true) {
+            currentView = <Register registerSubmit={ register } showLogin={ showLoginView }/>
+        }
         if (homeView === true) {
             currentView = <HomeView createSubmit={ createSubmit } searchSubmit={ searchSubmit } searchDatabaseSubmit={ searchDatabase }/>
             instructionDiv = 
