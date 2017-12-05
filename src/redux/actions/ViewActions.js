@@ -1,6 +1,11 @@
-export const LOGIN = 'SHOW_LOGIN';
+export const SHOW_LOGIN = 'SHOW_LOGIN';
 export const showLogin = () => ({
     type: SHOW_LOGIN
+});
+
+export const SHOW_REGISTER = 'SHOW_REGISTER';
+export const showRegisterView = () => ({
+    type: SHOW_REGISTER
 });
 
 export const HOMEVIEW = 'HOMEVIEW';

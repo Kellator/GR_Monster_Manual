@@ -36,7 +36,7 @@ class App extends React.Component {
                 <MenuItem primaryText="Home" onClick={ this.props.showHomeView } />
                 <MenuItem primaryText="Create New" onClick={ this.props.showCreateView } />
                 <MenuItem primaryText="Help" />
-                <MenuItem primaryText="Sign out" />
+                <MenuItem primaryText="Sign out" onClick={ this.props.logout }/>
               </IconMenu>
             }
           />
@@ -52,6 +52,28 @@ const mapStateToProps = (state, props) => ({
 });
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
+    showLoginView : () => {
+      console.log("login clicked");
+      dispatch(actions.ViewActions.showLogin());
+    },
+    login : (values) => {
+      console.log("logging in");
+      console.log(values)
+      dispatch(actions.LoginActions.checkLogin(values));
+    },
+    logout : () => {
+      console.log("logging out");
+      dispatch(actions.LoginActions.logoutUser());
+    },
+    showRegisterView : () => {
+      console.log("registration clicked");
+      dispatch(actions.ViewActions.showRegisterView());
+    },
+    register : (values) => {
+      console.log("new login");
+      console.log(values)
+      dispatch(actions.LoginActions.createLogin(values));
+    },
     showCreateView : () => {
       console.log("button clicked");
       dispatch(actions.ViewActions.showCreateView());

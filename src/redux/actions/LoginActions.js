@@ -21,7 +21,7 @@ function receiveLogin(user) {
         type: LOGIN_SUCCESS,
         isFetching: false,
         isAuthenticated: true,
-        id_token: user.id_token
+        // id_token: user.id_token
     }
 };
 
@@ -33,31 +33,31 @@ function loginError(message) {
         message
     }
 };
-export const loginUser = (username, password) => {
+export const checkLogin = (values) => {
     return dispatch => {
-        dispatch(requestLogin(credentials))
+        console.log("checking the user");
+        // dispatch(requestLogin(username, password))
+        let username = values.username;
+        let password = values.password;
         axios({
             method: 'post',
-            url: url + 'login',
+            url: url + 'user/login', 
             data: {
-                username: username,
-                password: password  
+                username,
+                password
             }
         })
-        .then(response =>
-            response.json().then(user => ({ user, response }))
-        ).then(({ user, response}) => {
-            if(!response.ok) {
-                dispatch(loginError(user.message))
-            } else {
-                localStorage.setItem('id_token', user.id_token) // does this web token only come back if using the fetch API?
-                localStorage.setItem('id_token', user.access_token)
-                dispatch(receiveLogin(user))
+        .then(response => {
+            console.log(response);
+            let user;
+            if(response.status === 200) {
+                dispatch(receiveLogin(user));
+                dispatch(ViewActions.showHomeView());
             }
         })
         .catch(error => {
-            dispatch(loginError(user.message))
             console.log(error);
+            dispatch(loginError(error));
         });
     }
 }
@@ -82,11 +82,71 @@ function receiveLogout() {
     }
 }
 
-function logoutUser() {
+export const logoutUser = () => {
     return dispatch => {
-        dispatch(requestLougout())
+        dispatch(requestLogout())
         localStorage.removeItem('id_token')
         localStorage.removeItem('access_token')
         dispatch(receiveLogout())
+        dispatch(ViewActions.showLogin());
+    }
+}
+
+export const NEW_USER_REQUEST = 'NEW_USER_REQUEST';
+export const NEW_USER_SUCCESS = 'NEW_USER_SUCCESS';
+export const NEW_USER_FAILURE = 'NEW_USER_FAILURE';
+
+function requestNewUser(credentials) {
+    return {
+        type: NEW_USER_REQUEST,
+        isFetching: true,
+        isAuthenticated: false,
+        credentials
+    }
+};
+
+function receiveNewUser(user) {
+    return {
+        type: NEW_USER_SUCCESS,
+        isFetching: false,
+        isAuthenticated: true,
+        id_token: user.id_token
+    }
+};
+
+function newUserError(message) {
+    return {
+        type: NEW_USER_FAILURE,
+        isFetching: false,
+        isAuthenticated: false,
+        message
+    }
+};
+export const createLogin = (values) => {
+    return dispatch => {
+        let credentials = {
+            username: values.username,
+            email: values.email,
+            password: values.password
+        }
+        dispatch(requestNewUser(credentials))
+        axios({
+            method: 'post',
+            url: url + 'user/', 
+            data: credentials
+        })
+        .then(response => {
+            console.log(response);
+            let user;
+            if(response.status === 200) {
+                dispatch(receiveNewUser(user));
+                // needs to show a created new user page or message  - add messages to demo?
+                dispatch(ViewActions.showHomeView());
+            }
+        })
+        .catch(error => {
+            console.log(error);
+            dispatch(newUserError(error));
+        });
     }
 }
