@@ -36,7 +36,7 @@ class App extends React.Component {
                 <MenuItem primaryText="Home" onClick={ this.props.showHomeView } />
                 <MenuItem primaryText="Create New" onClick={ this.props.showCreateView } />
                 <MenuItem primaryText="Help" />
-                <MenuItem primaryText="Sign out" />
+                <MenuItem primaryText="Sign out" onClick={ this.props.logout }/>
               </IconMenu>
             }
           />
@@ -63,7 +63,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     },
     logout : () => {
       console.log("logging out");
-      dispatch(actions.LoginActions.requestLogout());
+      dispatch(actions.LoginActions.logoutUser());
     },
     showRegisterView : () => {
       console.log("registration clicked");

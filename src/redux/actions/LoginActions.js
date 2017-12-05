@@ -21,7 +21,7 @@ function receiveLogin(user) {
         type: LOGIN_SUCCESS,
         isFetching: false,
         isAuthenticated: true,
-        id_token: user.id_token
+        // id_token: user.id_token
     }
 };
 
@@ -33,16 +33,18 @@ function loginError(message) {
         message
     }
 };
-export const checkLogin = (username, password) => {
+export const checkLogin = (values) => {
     return dispatch => {
         console.log("checking the user");
         // dispatch(requestLogin(username, password))
+        let username = values.username;
+        let password = values.password;
         axios({
             method: 'post',
             url: url + 'user/login', 
             data: {
-                username: username,
-                password: password
+                username,
+                password
             }
         })
         .then(response => {
@@ -80,12 +82,13 @@ function receiveLogout() {
     }
 }
 
-function logoutUser() {
+export const logoutUser = () => {
     return dispatch => {
         dispatch(requestLogout())
         localStorage.removeItem('id_token')
         localStorage.removeItem('access_token')
         dispatch(receiveLogout())
+        dispatch(ViewActions.showLogin());
     }
 }
 

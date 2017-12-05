@@ -3,11 +3,18 @@ var config = require('./config');
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
+var session = require('express-session');
+var bodyParser = require('body-parser');
 var bcrypt = require('bcryptjs');
 var passport = require('passport');
-var session = require('express-session');
+var cors = require('cors');
+
 var LocalStrategy = require('passport-local').Strategy;
 var User = require('./mongoose/UserModel');
+
+router.use(bodyParser.json());
+router.use(session(config.SESSION_KEY));
+router.use(cors());
 
 // passport authentication strategy
 passport.use(new LocalStrategy(
@@ -46,6 +53,7 @@ passport.deserializeUser(function(id, callback) {
         callback(null, user);
     });
 });
+
 // passport.use(strategy);
 router.use(passport.initialize());
 router.use(passport.session());
@@ -141,16 +149,13 @@ router.post('/', function (request, response) {
     });
 });
 // checks user credentials
-router.post('/login', passport.authenticate('local'),
-    function(request, response) {
+router.post('/login', passport.authenticate('local'), function(req, res) {
         console.log("this is the login request");
-        console.log(response.request);
-        let username = response.request.user.username;
-        return response.status(200).json({
+        console.log(res.req);
+        let username = res.req.user.username;
+        return res.status(200).json({
             status: 'Login Successful',
-            username: username,
-            email: email,
-            id: id
+            username: username
         });
     }
 )
