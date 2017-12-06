@@ -1,5 +1,6 @@
 const initialState= {
-    loginView: true,
+    landingView: true,
+    loginView: false,
     registerView: false,
     homeView: false,
     searchView: false,
@@ -12,6 +13,7 @@ export default function view(state = initialState, action) {
         case 'SHOW_LOGIN' :
             return {
                 ...state,
+                landingView: false,
                 loginView: true,
                 registerView: false,
                 homeView: false,
@@ -24,6 +26,7 @@ export default function view(state = initialState, action) {
         case 'SHOW_REGISTER' :
             return {
                 ...state,
+                landingView: false,
                 loginView: false,
                 registerView: true,
                 homeView: false,
@@ -36,6 +39,7 @@ export default function view(state = initialState, action) {
         case 'HOMEVIEW' :
             return {
                 ...state,
+                landingView: false,
                 loginView: false,
                 registerView: false,
                 homeView: true,
@@ -48,6 +52,7 @@ export default function view(state = initialState, action) {
         case 'SEARCHVIEW' :
             return {
                 ...state,
+                landingView: false,
                 loginView: false,
                 registerView: false,
                 loginView: false,
@@ -62,6 +67,7 @@ export default function view(state = initialState, action) {
         case 'CREATEVIEW' :
             return {
                 ...state,
+                landingView: false,
                 loginView: false,
                 registerView: false,
                 homeView: false,
@@ -74,6 +80,7 @@ export default function view(state = initialState, action) {
         case 'NEWCARDVIEW' :
             return {
                 ...state,
+                landingView: false,
                 loginView: false,
                 registerView: false,
                 homeView: false,
@@ -86,6 +93,7 @@ export default function view(state = initialState, action) {
         case 'RESULTS_LIST_VIEW' :
             return {
                 ...state,
+                landingView: false,
                 loginView: false,
                 registerView: false,
                 homeView: false,
@@ -98,6 +106,7 @@ export default function view(state = initialState, action) {
         case 'CARDVIEW' :
             return {
                 ...state,
+                landingView: false,
                 loginView: false,
                 registerView: false,
                 homeView: false,

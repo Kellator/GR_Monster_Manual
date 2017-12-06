@@ -6,3 +6,4 @@ exports.SESSION_KEY = {secret: 'Sw33tMcG33!',
                         resave: false,
                         saveUninitialized: true,
                         cookie: {secure: true}};
+exports.jwtSecret = "$2a$10$TUf.FlWMfAfCRkwApcaRNe/ZksU5FMJg51/jFvZDML9pWmiuCfLay";

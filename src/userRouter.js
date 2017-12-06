@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 var bcrypt = require('bcryptjs');
 var passport = require('passport');
 var cors = require('cors');
+var jwt = require('jsonwebtoken');
 
 var LocalStrategy = require('passport-local').Strategy;
 var User = require('./mongoose/UserModel');
@@ -29,20 +30,28 @@ passport.use(new LocalStrategy(
                     message: 'Incorrect username.'
                 });
             }
+            // const payload = {
+            //     sub: user._id
+            // }
             user.validatePassword(password, function(err, isValid) {
+                // const token = jwt.sign(payload, config.jwtSecret);
                 if(err || !isValid) { return done(null, false, {
                     message: 'Incorrect Password.'
                 });
             }
-                return done(null, user);
+            console.log(user);
+            // console.log(payload);
+                return done(null,  user);
             });
         });
     }
 ));
+// console.log(user);
 //authenticated session persistance
 passport.serializeUser(function(user, callback) {
     console.log("serialize");
-    callback(null, user.id);
+    console.log(user);
+    callback(null, user._id);
 });
 passport.deserializeUser(function(id, callback) {
     console.log("deserialize");
@@ -151,11 +160,13 @@ router.post('/', function (request, response) {
 // checks user credentials
 router.post('/login', passport.authenticate('local'), function(req, res) {
         console.log("this is the login request");
-        console.log(res.req);
+        console.log(req.session);
+        // let id = req.session.passport.user;
         let username = res.req.user.username;
         return res.status(200).json({
             status: 'Login Successful',
-            username: username
+            username: username,
+            // id: id
         });
     }
 )
