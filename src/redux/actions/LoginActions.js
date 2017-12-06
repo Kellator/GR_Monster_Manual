@@ -21,7 +21,7 @@ function receiveLogin(user) {
         type: LOGIN_SUCCESS,
         isFetching: false,
         isAuthenticated: true,
-        // id_token: user.id_token
+        sessionID: user.sessionID
     }
 };
 
@@ -49,9 +49,13 @@ export const checkLogin = (values) => {
         })
         .then(response => {
             console.log(response);
-            let user;
+            let user = {
+                username: response.data.username,
+                sessionID: response.data.id
+            }
             if(response.status === 200) {
                 dispatch(receiveLogin(user));
+                console.log(user);
                 dispatch(ViewActions.showHomeView());
             }
         })
@@ -85,7 +89,7 @@ function receiveLogout() {
 export const logoutUser = () => {
     return dispatch => {
         dispatch(requestLogout())
-        localStorage.removeItem('id_token')
+        localStorage.removeItem('sessionID')
         localStorage.removeItem('access_token')
         dispatch(receiveLogout())
         dispatch(ViewActions.showLogin());

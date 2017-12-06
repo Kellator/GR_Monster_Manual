@@ -4,6 +4,7 @@ import {reset} from 'redux-form';
 import green_monster from './green_monster.jpg';
 import './App.css';
 import ViewContainer from './modules/ViewContainer';
+import Landing from './modules/Landing';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
@@ -21,11 +22,20 @@ import * as actions from './redux/actions/index';
 class App extends React.Component {
   render() {
     console.log(this.props);
+    let landingView = this.props.view.landingView;
+    let componentToRender;
+    let session = this.props.session;
+    if(landingView ) {
+      componentToRender = <Landing login={ this.props.showLoginView } />
+    }
+    else {
+      componentToRender = <ViewContainer className="flex-container"props={this.props}/>
+    }
     return (
       <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
         <div className="App">
           <AppBar 
-            title="D&K's Big Book of Scary Doom" 
+            title="IoC | Index of Creatures" 
             iconElementLeft={<img src={green_monster} className="App-logo" alt="logo" />}
             iconElementRight={
               <IconMenu
@@ -40,7 +50,7 @@ class App extends React.Component {
               </IconMenu>
             }
           />
-          <ViewContainer className="flex-container"props={this.props}/>
+          { componentToRender }
         </div>
       </MuiThemeProvider>
     );
@@ -48,7 +58,8 @@ class App extends React.Component {
 }
 const mapStateToProps = (state, props) => ({
   view: state.view,
-  form: state.form
+  form: state.form,
+  session: state.login.sessionID
 });
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
