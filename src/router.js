@@ -2,11 +2,12 @@
 var config = require('./config');
 var express = require('express');
 var router = express.Router();
+var passport = require('passport');
 var mongoose = require('mongoose');
 var Monster = require('./mongoose/MonsterModel');
 
 // searches db specific to criteria entered in search
-router.get('/monster', function(request, response) {
+router.get('/monster', (request, response) => {
     // initial search criteria (e.g. search by name of creature OR categorization of creature) 
     // available on primary search function
     var req = request.query.term;
@@ -25,7 +26,7 @@ router.get('/monster', function(request, response) {
         });
     }
     else {
-        Monster.find().exec(function(err, monsters) {
+        Monster.find().exec((err, monsters) => {
             if (err) {
                 return response.status(500).json({
                     message: 'Crumbs! Internal Server Error!'
@@ -37,7 +38,7 @@ router.get('/monster', function(request, response) {
 });
 
 // creates new document for monster collection
-router.post('/monster', function(request, response) {
+router.post('/monster', (request, response) => {
     let monsterName = (request.body.monster_name).toUpperCase();
     let monsterCategory = (request.body.monster_category).toUpperCase();
     let monster = {
@@ -162,7 +163,7 @@ router.post('/monster', function(request, response) {
         treasure : request.body.standard_treasure.split(" "),
         special : request.body.special_instructions
     };
-    Monster.create(monster, function(err, monster) {
+    Monster.create(monster, (err, monster) => {
         if (err || !monster) {
             return response.status(500).json({
                 message: 'Argh! Internal Server Error.'
@@ -192,10 +193,10 @@ router.post('/monster', function(request, response) {
 //     })
 // })
 // deletes a monster card from the database
-router.delete('/delete', function(request, response) {
+router.delete('/delete', (request, response) => {
     let card_id = request.body.card_id;
     console.log(request.body.card_id);
-    Monster.findByIdAndRemove(card_id, function(err, monster) {
+    Monster.findByIdAndRemove(card_id, (err, monster) => {
         if (err) {
             console.log(err);
             console.error('Darn! Could not delete monster card.');

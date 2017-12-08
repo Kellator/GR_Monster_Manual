@@ -41,7 +41,7 @@ export const checkLogin = (values) => {
         let password = values.password;
         axios({
             method: 'post',
-            url: url + 'user/login', 
+            url: url + 'auth/login', 
             data: {
                 username,
                 password

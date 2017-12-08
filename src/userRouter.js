@@ -9,7 +9,6 @@ var bcrypt = require('bcryptjs');
 var passport = require('passport');
 var cors = require('cors');
 var jwt = require('jsonwebtoken');
-
 var LocalStrategy = require('passport-local').Strategy;
 var User = require('./mongoose/UserModel');
 
@@ -17,43 +16,38 @@ router.use(bodyParser.json());
 router.use(session(config.SESSION_KEY));
 router.use(cors());
 
-// passport authentication strategy
-passport.use(new LocalStrategy(
-    function(username, password, done) {
-        console.log("login strategy");
-        User.findByUsername(username, function(err, user) {
-            if (err) {
-                return done(err);
-            }
-            if (!user) {
-                return done(null, false, {
-                    message: 'Incorrect username.'
-                });
-            }
-            // const payload = {
-            //     sub: user._id
-            // }
-            user.validatePassword(password, function(err, isValid) {
-                // const token = jwt.sign(payload, config.jwtSecret);
-                if(err || !isValid) { return done(null, false, {
-                    message: 'Incorrect Password.'
-                });
-            }
-            console.log(user);
-            // console.log(payload);
-                return done(null,  user);
-            });
-        });
-    }
-));
+
+// // passport authentication strategy
+// passport.use(new LocalStrategy(
+//     function(username, password, done) {
+//         console.log("login strategy");
+//         User.findByUsername(username, function(err, user) {
+//             if (err) {
+//                 return done(err);
+//             }
+//             if (!user) {
+//                 return done(null, false, {
+//                     message: 'Incorrect username.'
+//                 });
+//             }
+//             user.validatePassword(password, function(err, isValid) {
+//                 if(err || !isValid) { return done(null, false, {
+//                     message: 'Incorrect Password.'
+//                 });
+//             }
+//                 return done(null, user);
+//             });
+//         });
+//     }
+// ));
 // console.log(user);
 //authenticated session persistance
-passport.serializeUser(function(user, callback) {
+passport.serializeUser((user, callback) => {
     console.log("serialize");
     console.log(user);
     callback(null, user._id);
 });
-passport.deserializeUser(function(id, callback) {
+passport.deserializeUser((id, callback) => {
     console.log("deserialize");
     User.findById(id, function(err, user) {
         if (err) {
@@ -67,7 +61,7 @@ passport.deserializeUser(function(id, callback) {
 router.use(passport.initialize());
 router.use(passport.session());
 // creates new user credentials
-router.post('/', function (request, response) {
+router.post('/', (request, response) => {
     console.log(request.body);
     if(!request.body) {
         return response.status(400).json({
@@ -157,17 +151,28 @@ router.post('/', function (request, response) {
         });
     });
 });
-// checks user credentials
-router.post('/login', passport.authenticate('local'), function(req, res) {
-        console.log("this is the login request");
-        console.log(req.session);
-        // let id = req.session.passport.user;
-        let username = res.req.user.username;
-        return res.status(200).json({
-            status: 'Login Successful',
-            username: username,
-            // id: id
-        });
-    }
-)
+// // creates a signed JWT
+// const createAuthToken = user => {
+//     return jwt.sign({user}, config.JWT_SECRET, {
+//         subject: user.username,
+//         expiresIn: config.JWT_EXPIRY,
+//         algorithm: 'HS256'
+//     });
+// };
+// // checks user credentials
+// router.post('/login', passport.authenticate('local'), function(req, res) {
+//         console.log("this is the login request");
+//         const authToken = createAuthToken(req.user);
+//         // res.json({authToken});
+//         console.log(authToken);
+//         console.log(req.user);
+//         // let id = req.session.passport.user;
+//         let username = res.req.user.username;
+//         return res.status(200).json({
+//             status: 'Login Successful',
+//             username: username,
+//             authToken: authToken
+//         });
+//     }
+// )
 module.exports = router;
