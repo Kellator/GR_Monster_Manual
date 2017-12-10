@@ -59,7 +59,8 @@ class App extends React.Component {
 const mapStateToProps = (state, props) => ({
   view: state.view,
   form: state.form,
-  session: state.login.sessionID
+  authenticated: state.login.isAuthenticated,
+  token: state.login.user.authToken
 });
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
@@ -101,12 +102,13 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       console.log("Show the home view");
       dispatch(actions.ViewActions.showHomeView());
     },
-    searchDatabase : (value) => {
-      console.log("search function initiated");
-      console.log(value);
-      dispatch(actions.DatabaseActions.searchDatabase(value));
-
-    },
+    // currently handled by submit function inside component
+    // searchDatabase : (value, token) => {
+    //   console.log("search function initiated");
+    //   console.log(value);
+    //   console.log(token);
+    //   dispatch(actions.DatabaseActions.searchDatabase(value, token));
+    // },
     createNewCard : (values) => {
       console.log("add new card function initiated");
       console.log(values);

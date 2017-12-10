@@ -9,13 +9,12 @@ var bcrypt = require('bcryptjs');
 var passport = require('passport');
 var cors = require('cors');
 var jwt = require('jsonwebtoken');
-var LocalStrategy = require('passport-local').Strategy;
+// var LocalStrategy = require('passport-local').Strategy;
 var User = require('./mongoose/UserModel');
 
 router.use(bodyParser.json());
 router.use(session(config.SESSION_KEY));
 router.use(cors());
-
 
 // // passport authentication strategy
 // passport.use(new LocalStrategy(

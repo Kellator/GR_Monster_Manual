@@ -5,9 +5,10 @@ var router = express.Router();
 var passport = require('passport');
 var mongoose = require('mongoose');
 var Monster = require('./mongoose/MonsterModel');
+const jwtAuth = passport.authenticate('jwt', {session: false});
 
 // searches db specific to criteria entered in search
-router.get('/monster', (request, response) => {
+router.get('/monster', jwtAuth, (request, response) => {
     // initial search criteria (e.g. search by name of creature OR categorization of creature) 
     // available on primary search function
     var req = request.query.term;

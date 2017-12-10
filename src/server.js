@@ -5,21 +5,25 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var http = require('http');
 var cors = require('cors');
-
+var passport = require('passport');
 var config = require('./config');
 var router = require('./router.js');
 var userRouter = require('./userRouter.js');
-var authRouter = require('./auth');
+// var authRouter = require('./auth/router.js');
 var Monster = require('./mongoose/MonsterModel');
 const app = express();
 var morgan = require('morgan')
+
+const { router: authRouter, localStrategy, jwtStrategy } = require('./auth');
+
 app.use(bodyParser.json());
 app.use(cors());
 app.use('/', router);
 app.use('/user', userRouter);
 app.use('/auth', authRouter);
 
-
+passport.use(localStrategy);
+passport.use(jwtStrategy);
 const server = http.Server(app);
 
 // coordinates the connection to the database and the running of the HTTP server

@@ -18,13 +18,17 @@ export const fetchFail = (error) => ({
     error
 });
 
-export const searchDatabase = (query) => {
+export const searchDatabase = (query, token) => {
     console.log(query);
+    console.log(token);
     return dispatch => {
         dispatch(fetching());
         axios.get(url + "monster", {
             params: {
                 term: query.basic_search_input
+            },
+            headers: {
+                Authorization: "Bearer " + token 
             }
         })
         .then(response => {
