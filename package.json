@@ -1,7 +1,13 @@
 {
-  "name": "gr_monster_manual",
+  "name": "Index_of_Creatures",
   "version": "0.1.0",
   "private": true,
+  "description": "Searchable database of creatures etc for LARP.",
+  "engines": {
+    "node": "8.5.0"
+  },
+  "author": "Kelly Miller <k.macleod21@gmail.com>",
+  "license": "UNLICENSED",
   "dependencies": {
     "axios": "^0.17.0",
     "bcrypt": "^1.0.3",
@@ -45,7 +51,5 @@
     "react-scripts": "^1.0.14",
     "redux-logger": "^3.0.6"
   },
-  "engines": {
-    "node": "8.5.0"
-  }
+
 }
