@@ -43,5 +43,8 @@
     "cross-env": "^5.1.1",
     "react-scripts": "^1.0.14",
     "redux-logger": "^3.0.6"
+  },
+  "engines": {
+    "node": "8.5.0"
   }
 }
