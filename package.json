@@ -4,7 +4,8 @@
   "private": true,
   "description": "Searchable database of creatures etc for LARP.",
   "engines": {
-    "node": "8.5.0"
+    "node": "8.5.0",
+    "npm": "5.6.0"
   },
   "author": "Kelly Miller <k.macleod21@gmail.com>",
   "license": "UNLICENSED",
