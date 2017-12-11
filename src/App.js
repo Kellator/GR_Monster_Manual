@@ -115,6 +115,10 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       dispatch(actions.DatabaseActions.createNewCard(values));
       dispatch(reset('wizard'));
     },
+    showResultsList :() => {
+      console.log("back button clicked");
+      dispatch(actions.ViewActions.showResultsListView());
+    },
     showCardView : (monster) => {
       console.log("show the creature card");
       dispatch(actions.ViewActions.showCardView(monster));

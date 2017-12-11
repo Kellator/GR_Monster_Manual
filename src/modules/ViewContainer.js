@@ -25,6 +25,7 @@ class ViewContainer extends React.Component {
         let resultsListView = this.props.props.view.resultsListView;
         let cardView = this.props.props.view.cardView;
         let errorView = this.props.props.view.errorView;
+        
         // onClick to show login view
         let showLoginView = this.props.props.showLoginView;
         // onClick to submit user login
@@ -51,7 +52,8 @@ class ViewContainer extends React.Component {
         let editCard = this.props.props.editCard;
         // onClick to delete current card
         let deleteCard = this.props.props.deleteCard;
-        // 
+        // onClick to return to results list
+        let showResultsList = this.props.props.showResultsList;
         let form = this.props.props.form;
         let authenticated = this.props.props.authenticated;
         let token = this.props.props.token;
@@ -165,7 +167,7 @@ class ViewContainer extends React.Component {
             instructionDiv = <div>{ componentToRender }</div>;
         }
         if (cardView === true) {
-            currentView = <CreatureCard showHomeView={ showHomeView } editCard={ editCard } deleteCard={ deleteCard }/>
+            currentView = <CreatureCard showHomeView={ showHomeView } editCard={ editCard } deleteCard={ deleteCard } showResultsList={ showResultsList }/>
             let texts = instructions.cardView;
             let componentToRender = Object.keys(texts).map(function(text, index) {
                 return <p key={index}>{texts[text]}</p>

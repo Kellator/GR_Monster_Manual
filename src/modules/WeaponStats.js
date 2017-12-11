@@ -59,9 +59,9 @@ class WeaponStats extends React.Component {
             }
         }
         // console.log(Object.keys(stats));
-        const mapStats = Object.keys(stats).forEach(function(stat) {
-            console.log('stats ', stat, ': ' , stats[stat]);
-        });
+        // const mapStats = Object.keys(stats).forEach(function(stat) {
+        //     console.log('stats ', stat, ': ' , stats[stat]);
+        // });
 
         return (
             <div>
