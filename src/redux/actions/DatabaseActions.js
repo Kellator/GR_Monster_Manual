@@ -32,6 +32,7 @@ export const searchDatabase = (query, token) => {
             }
         })
         .then(response => {
+            console.log(response);
             if(response.status === 200) {
                 dispatch(fetchSuccess(response.data));
                 dispatch(ViewActions.showResultsListView());
@@ -39,7 +40,9 @@ export const searchDatabase = (query, token) => {
             }
         })
         .catch(error => {
+            console.log(error);
             dispatch(fetchFail(error));
+            dispatch(ViewActions.showErrorView(error));
         });
     }
 };

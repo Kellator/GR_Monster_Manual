@@ -2,7 +2,6 @@ import React from 'react';
 
 class WeaponStats extends React.Component {
     render() {
-        console.log(this.props)
         let stats = this.props.stats;
         let weaponType;
             if (!stats.basicWeaponSkills) {

@@ -37,3 +37,8 @@ export const showCardView = (monster) => ({
     type: CARDVIEW,
     monster
 });
+export const ERROR = 'ERROR';
+export const showErrorView = (error) => ({
+    type: ERROR,
+    error
+});

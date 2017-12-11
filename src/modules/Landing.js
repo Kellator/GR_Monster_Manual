@@ -3,7 +3,6 @@ import RaisedButton from 'material-ui/RaisedButton';
 
 class Landing extends React.Component {
     render() {
-        console.log(this.props);
         return (
             <div>
                 <h1>Get into game faster with the Index of Creatures!</h1>

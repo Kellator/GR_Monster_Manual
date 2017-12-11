@@ -43,7 +43,7 @@ class App extends React.Component {
                 anchorOrigin={{horizontal: 'right', vertical: 'top'}}
                 targetOrigin={{horizontal: 'right', vertical: 'top'}}
                 >
-                <MenuItem primaryText="Home" onClick={ this.props.showHomeView } />
+                <MenuItem primaryText="Search" onClick={ this.props.showHomeView } />
                 <MenuItem primaryText="Create New" onClick={ this.props.showCreateView } />
                 <MenuItem primaryText="Help" />
                 <MenuItem primaryText="Sign out" onClick={ this.props.logout }/>

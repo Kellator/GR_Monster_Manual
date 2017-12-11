@@ -5,9 +5,7 @@ import { connect } from 'react-redux';
 
 class SearchResultContainer extends React.Component {
     render() {
-        console.log(this.props);
         let resultArray = this.props.resultsList;
-        console.log(resultArray);
         if (resultArray.length === 0) {
             return <NoResults 
             searchDatabaseSubmit={ this.props.searchDatabaseSubmit } showHomeView={ this.props.showHomeView }

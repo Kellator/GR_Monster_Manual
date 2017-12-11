@@ -7,7 +7,7 @@ import CardCreated from './cardCreated.js';
 import SearchResult from './SearchResult.js';
 import CreatureCard from './CreatureCard.js';
 import SearchResultContainer from './SearchResultContainer';
-import NotAuthorized from './NotAuthorized';
+import Error from './Error';
 import '../Flex.css';
 import instructions from './InstructionText.js';
 console.log(instructions);
@@ -24,6 +24,7 @@ class ViewContainer extends React.Component {
         let newCardView = this.props.props.view.newCardView;
         let resultsListView = this.props.props.view.resultsListView;
         let cardView = this.props.props.view.cardView;
+        let errorView = this.props.props.view.errorView;
         // onClick to show login view
         let showLoginView = this.props.props.showLoginView;
         // onClick to submit user login
@@ -58,6 +59,9 @@ class ViewContainer extends React.Component {
         let instructionDiv;
         let wizardFields;
 
+        if(errorView) {
+            currentView = <Error loginSubmit={ loginSubmit } showRegisterSubmit={ showRegisterSubmit }/>
+        }
         if(loginView) {
             currentView = <Login loginSubmit={ loginSubmit } showRegisterSubmit={ showRegisterSubmit }/>
         }

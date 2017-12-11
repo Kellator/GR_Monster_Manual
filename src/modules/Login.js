@@ -4,7 +4,6 @@ import { TextField } from 'redux-form-material-ui';
 import { Field, reduxForm } from 'redux-form';
 
 const Login = props => {
-    console.log(props)
     const { errorMessage, handleSubmit, pristine, reset, submitting } = props
     return (
         <div>

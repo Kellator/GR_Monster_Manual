@@ -2,7 +2,6 @@ import React from 'react';
 
 class Notes extends React.Component {
     render() {
-        console.log(this.props);
         let notes = this.props.notes.toUpperCase();
         return (
             <div>

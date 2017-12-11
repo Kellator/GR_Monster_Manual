@@ -39,7 +39,7 @@ router.get('/monster', jwtAuth, (request, response) => {
 });
 
 // creates new document for monster collection
-router.post('/monster', (request, response) => {
+router.post('/monster', jwtAuth, (request, response) => {
     let monsterName = (request.body.monster_name).toUpperCase();
     let monsterCategory = (request.body.monster_category).toUpperCase();
     let monster = {
@@ -194,7 +194,7 @@ router.post('/monster', (request, response) => {
 //     })
 // })
 // deletes a monster card from the database
-router.delete('/delete', (request, response) => {
+router.delete('/delete', jwtAuth, (request, response) => {
     let card_id = request.body.card_id;
     console.log(request.body.card_id);
     Monster.findByIdAndRemove(card_id, (err, monster) => {

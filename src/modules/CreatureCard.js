@@ -13,7 +13,6 @@ import DeleteDialog from './Dialog.js';
 
 class CreatureCard extends React.Component {
     render() {
-        console.log(this.props)
         let weaponComponentToRender;
         let scholarlyComponentToRender;
         let physicalDefenseComponentToRender;

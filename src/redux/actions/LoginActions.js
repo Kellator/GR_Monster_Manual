@@ -26,6 +26,7 @@ function receiveLogin(user) {
 };
 
 function loginError(message) {
+    console.log(message);
     return {
         type: LOGIN_FAILURE,
         isFetching: false,
