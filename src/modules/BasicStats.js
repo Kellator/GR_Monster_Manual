@@ -4,7 +4,6 @@ import React from 'react';
 
 class BasicStats extends React.Component {
     render() {
-        console.log(this.props);
         let armor;
         let description;
         if (!this.props.stats.armor) {

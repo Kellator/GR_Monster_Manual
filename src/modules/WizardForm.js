@@ -17,7 +17,7 @@ class WizardForm extends Component {
     this.state = {
       page: 1
     }
-    console.log(props);
+    // console.log(props);
   }
   nextPage() {
     this.setState({ page: this.state.page + 1 });
@@ -31,7 +31,7 @@ class WizardForm extends Component {
     const { onSubmit } = this.props
     const { page } = this.state
     let instructionState = this.state;
-    console.log(this.props);
+    // console.log(this.props);
     return (
       <div>
         {page === 1 && <WizardFormFirstPage onSubmit={this.nextPage} instructionState={ instructionState }/>}

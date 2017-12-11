@@ -1,7 +1,10 @@
 // check for presence of JWT to see if user is autheticated
 export default function auth(state = {
     isFetching: false,
-    isAuthenticated: localStorage.getItem('sessionID') ? true : false
+    // isAuthenticated: localStorage.getItem('sessionID') ? true : false
+    user: {
+        authToken: ""
+    }
     }, action) {
         switch (action.type) {
             case 'LOGIN_REQUEST':
@@ -16,22 +19,25 @@ export default function auth(state = {
                     ...state, 
                     isFetching: false,
                     isAuthenticated: true,
-                    sessionID: action.sessionID,
-                    errorMessage: ''
+                    user: action.user,
+                    error: ''
                 }
             case 'LOGIN_FAILURE':
                 return {
                     ...state,
                     isFetching: false,
                     isAuthenticated: false,
-                    errorMessage: action.message
+                    error: action.message
                 }
             case 'LOGOUT_SUCCESS':
                 return {
                     ...state,
                     isFetching: true,
                     isAuthenticated: false,
-                    sessionID: ""
+                    user: {
+                        authToken: ""
+                    },
+                    message: "Logged Out."
                 }
             case 'NEW_USER_REQUEST':
                 return {

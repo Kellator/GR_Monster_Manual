@@ -21,11 +21,12 @@ function receiveLogin(user) {
         type: LOGIN_SUCCESS,
         isFetching: false,
         isAuthenticated: true,
-        sessionID: user.sessionID
+        user: user
     }
 };
 
 function loginError(message) {
+    console.log(message);
     return {
         type: LOGIN_FAILURE,
         isFetching: false,
@@ -41,7 +42,7 @@ export const checkLogin = (values) => {
         let password = values.password;
         axios({
             method: 'post',
-            url: url + 'user/login', 
+            url: url + 'auth/login', 
             data: {
                 username,
                 password
@@ -50,8 +51,9 @@ export const checkLogin = (values) => {
         .then(response => {
             console.log(response);
             let user = {
-                username: response.data.username,
-                sessionID: response.data.id
+                authToken: response.data.authToken,
+                email: response.data.email,
+                username: response.data.username
             }
             if(response.status === 200) {
                 dispatch(receiveLogin(user));
@@ -62,6 +64,7 @@ export const checkLogin = (values) => {
         .catch(error => {
             console.log(error);
             dispatch(loginError(error));
+            dispatch(ViewActions.showErrorView(error));
         });
     }
 }

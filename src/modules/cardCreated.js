@@ -4,7 +4,6 @@ import RaisedButton from 'material-ui/RaisedButton';
 // map state to props to display card name in <p>
 class CardCreated extends React.Component {
     render() {
-        console.log(this.props)
         return (
             <div>
                 <h1>New Monster Card added to the database.</h1>

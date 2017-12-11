@@ -9,7 +9,7 @@ import MenuItem from 'material-ui/MenuItem';
 
 let WizardFormFirstPage = props => {
   const { handleSubmit } = props
-  console.log(props);
+//   console.log(props);
   return (
     <form onSubmit={handleSubmit}>
         <p>Enter Name of New Creature (required).</p>

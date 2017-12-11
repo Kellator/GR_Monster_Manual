@@ -13,7 +13,7 @@ import DeleteDialog from './Dialog.js';
 
 class CreatureCard extends React.Component {
     render() {
-        console.log(this.props)
+        console.log(this.props);
         let weaponComponentToRender;
         let scholarlyComponentToRender;
         let physicalDefenseComponentToRender;
@@ -92,12 +92,14 @@ class CreatureCard extends React.Component {
                     {notesComponentToRender}
                 </div>
                 {/* <RaisedButton card_id={ card_id } onClick={ this.props.editCard }>Edit</RaisedButton> */}
+                <RaisedButton onClick={ this.props.showResultsList }>Back</RaisedButton>
                 <DeleteDialog deleteCard={ deleteCard } card_id={ card_id }/>
             </div>
         )
     }
 }
 const mapStateToProps = (state, props) => ({
-    creature: state.database.cardView
+    creature: state.database.cardView,
+    resultsList: state.database.resultsList
 });
 export default connect(mapStateToProps)(CreatureCard);

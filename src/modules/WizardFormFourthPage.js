@@ -19,7 +19,7 @@ let WizardFormFourthPage = props => {
         hasPhysicalResistValue,
         hasReturnPhysicalValue 
     } = props
-    console.log(props)
+    // console.log(props)
     return (
       <form onSubmit={handleSubmit}>   
         <h3>Physical Defenses</h3>

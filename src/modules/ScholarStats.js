@@ -2,7 +2,6 @@ import React from 'react';
 
 class ScholarStats extends React.Component {
     render() {
-        console.log(this.props);
         let stats = this.props.stats;
         let primarySchool;
         let secondarySchool;
@@ -33,7 +32,6 @@ class ScholarStats extends React.Component {
         // determines if creature has magical skills
         if (Object.keys(stats).includes("magic")) {
             let magic = stats.magic;
-            console.log(magic)
             // determines if creature has multiple schools of magic
             // currently only 2 spell schools are available at a time
             if (Object.keys(magic).includes("primarySchool") && Object.keys(magic).includes("secondarySchool")) {

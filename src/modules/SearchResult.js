@@ -3,9 +3,7 @@ import {List, ListItem} from 'material-ui/List';
 
 class SearchResult extends React.Component {
     render() {
-        console.log(this.props);
         let monster = this.props.result;
-        console.log(monster);
         let name = monster.name;
         let level = monster.level;
         let category = monster.category; 

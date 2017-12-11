@@ -7,6 +7,7 @@ import CardCreated from './cardCreated.js';
 import SearchResult from './SearchResult.js';
 import CreatureCard from './CreatureCard.js';
 import SearchResultContainer from './SearchResultContainer';
+import Error from './Error';
 import '../Flex.css';
 import instructions from './InstructionText.js';
 console.log(instructions);
@@ -23,6 +24,8 @@ class ViewContainer extends React.Component {
         let newCardView = this.props.props.view.newCardView;
         let resultsListView = this.props.props.view.resultsListView;
         let cardView = this.props.props.view.cardView;
+        let errorView = this.props.props.view.errorView;
+        
         // onClick to show login view
         let showLoginView = this.props.props.showLoginView;
         // onClick to submit user login
@@ -49,20 +52,26 @@ class ViewContainer extends React.Component {
         let editCard = this.props.props.editCard;
         // onClick to delete current card
         let deleteCard = this.props.props.deleteCard;
-        // 
+        // onClick to return to results list
+        let showResultsList = this.props.props.showResultsList;
         let form = this.props.props.form;
+        let authenticated = this.props.props.authenticated;
+        let token = this.props.props.token;
         let monster;
         let instructionDiv;
         let wizardFields;
-        // determines which component is displayed as main app components
-        if(loginView === true) {
+
+        if(errorView) {
+            currentView = <Error loginSubmit={ loginSubmit } showRegisterSubmit={ showRegisterSubmit }/>
+        }
+        if(loginView) {
             currentView = <Login loginSubmit={ loginSubmit } showRegisterSubmit={ showRegisterSubmit }/>
         }
-        if(registerView === true) {
+        if(registerView) {
             currentView = <Register registerSubmit={ register } showLogin={ showLoginView }/>
         }
         if (homeView === true) {
-            currentView = <HomeView createSubmit={ createSubmit } searchSubmit={ searchSubmit } searchDatabaseSubmit={ searchDatabase }/>
+            currentView = <HomeView createSubmit={ createSubmit } searchSubmit={ searchSubmit } searchDatabaseSubmit={ searchDatabase } token={ token }/>
             instructionDiv = 
             <div>
                 <p>{instructions.homeView.lineOne}</p>
@@ -81,6 +90,7 @@ class ViewContainer extends React.Component {
         }
         if (createView === true && Object.keys(form).includes('wizard')) {
             console.log("we've made it to this line")
+            console.log(form);
             wizardFields = form.wizard.registeredFields;
             console.log(wizardFields);
             console.log(form);
@@ -157,13 +167,15 @@ class ViewContainer extends React.Component {
             instructionDiv = <div>{ componentToRender }</div>;
         }
         if (cardView === true) {
-            currentView = <CreatureCard showHomeView={ showHomeView } editCard={ editCard } deleteCard={ deleteCard }/>
+            currentView = <CreatureCard showHomeView={ showHomeView } editCard={ editCard } deleteCard={ deleteCard } showResultsList={ showResultsList }/>
             let texts = instructions.cardView;
             let componentToRender = Object.keys(texts).map(function(text, index) {
                 return <p key={index}>{texts[text]}</p>
             })
             instructionDiv = <div>{ componentToRender }</div>;
         }
+
+        
         // determines the tool text in instruction div
         // user state to determine instructions based on current view = switch
         let instruction = 
@@ -174,8 +186,8 @@ class ViewContainer extends React.Component {
         return (
             <div className="flex-container">
                 <div className="flex-aside">
-                <h3>Demo Tips</h3>
-                { instruction }
+                    <h3>Demo Tips</h3>
+                    { instruction }
                 </div>
                 <div className="flex-main">{ currentView }</div>
             </div>

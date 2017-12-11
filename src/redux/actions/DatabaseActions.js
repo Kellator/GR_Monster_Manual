@@ -18,16 +18,21 @@ export const fetchFail = (error) => ({
     error
 });
 
-export const searchDatabase = (query) => {
+export const searchDatabase = (query, token) => {
     console.log(query);
+    console.log(token);
     return dispatch => {
         dispatch(fetching());
         axios.get(url + "monster", {
             params: {
                 term: query.basic_search_input
+            },
+            headers: {
+                Authorization: "Bearer " + token 
             }
         })
         .then(response => {
+            console.log(response);
             if(response.status === 200) {
                 dispatch(fetchSuccess(response.data));
                 dispatch(ViewActions.showResultsListView());
@@ -35,7 +40,9 @@ export const searchDatabase = (query) => {
             }
         })
         .catch(error => {
+            console.log(error);
             dispatch(fetchFail(error));
+            dispatch(ViewActions.showErrorView(error));
         });
     }
 };

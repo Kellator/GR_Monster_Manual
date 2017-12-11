@@ -2,7 +2,6 @@ import React from 'react';
 
 class WeaponStats extends React.Component {
     render() {
-        console.log(this.props)
         let stats = this.props.stats;
         let weaponType;
             if (!stats.basicWeaponSkills) {
@@ -60,9 +59,9 @@ class WeaponStats extends React.Component {
             }
         }
         // console.log(Object.keys(stats));
-        const mapStats = Object.keys(stats).forEach(function(stat) {
-            console.log('stats ', stat, ': ' , stats[stat]);
-        });
+        // const mapStats = Object.keys(stats).forEach(function(stat) {
+        //     console.log('stats ', stat, ': ' , stats[stat]);
+        // });
 
         return (
             <div>
