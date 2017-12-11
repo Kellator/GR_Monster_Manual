@@ -18,6 +18,14 @@ class Error extends React.Component {
                 <p>You need to be logged in to do that.</p>
             </div>
         };
+        if(login.error) {
+            errorMessage = 
+            <div>
+                <h1>HTTP Error {login.error.response.status}</h1>
+                <p>{login.error.message}</p>
+                <p>There is a problem with your login attempt.  Please try again.</p>
+            </div>
+        }
         return (
             <div>
                 { errorMessage }

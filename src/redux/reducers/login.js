@@ -20,14 +20,14 @@ export default function auth(state = {
                     isFetching: false,
                     isAuthenticated: true,
                     user: action.user,
-                    errorMessage: ''
+                    error: ''
                 }
             case 'LOGIN_FAILURE':
                 return {
                     ...state,
                     isFetching: false,
                     isAuthenticated: false,
-                    errorMessage: action.message
+                    error: action.message
                 }
             case 'LOGOUT_SUCCESS':
                 return {

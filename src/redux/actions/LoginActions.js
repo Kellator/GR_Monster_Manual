@@ -64,6 +64,7 @@ export const checkLogin = (values) => {
         .catch(error => {
             console.log(error);
             dispatch(loginError(error));
+            dispatch(ViewActions.showErrorView(error));
         });
     }
 }
