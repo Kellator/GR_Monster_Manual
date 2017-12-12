@@ -1,6 +1,9 @@
 import axios from 'axios';
 import {DatabaseActions, ViewActions} from './index';
-let url = 'http://localhost:5252/';
+var config = require('../../config');
+
+let url = config.PRODUCTION_URL;
+// 'http://localhost:5252/';
 
 // from https://auth0.com/blog/secure-your-react-and-redux-app-with-jwt-authentication/
 export const LOGIN_REQUEST = 'LOGIN_REQUEST';
