@@ -26,6 +26,12 @@ class Error extends React.Component {
                 <p>There is a problem with your login attempt.  Please try again.</p>
             </div>
         }
+        else {
+            errorMessage =
+            <div>
+                <h1>Sorry!  There is an unexpected error occurring.  Please try again.</h1>
+            </div>
+        }
         return (
             <div>
                 { errorMessage }
