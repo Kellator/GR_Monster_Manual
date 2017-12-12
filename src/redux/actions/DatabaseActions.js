@@ -128,7 +128,7 @@ export const deleteCard = (card_id) => {
             }
         })       
         .then(response => {
-            dispatch(deleteSuccess);
+            dispatch(deleteSuccess());
             dispatch(ViewActions.showHomeView());
             console.log("creature Card Deleted")
             console.log(response);
