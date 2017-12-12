@@ -11,7 +11,7 @@
   "license": "UNLICENSED",
   "dependencies": {
     "axios": "^0.17.0",
-    "bcrypt": "^1.0.3",
+    "bcrypt-nodejs": "0.0.3",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.2",
     "cors": "^2.8.4",
@@ -24,6 +24,7 @@
     "mongoose": "^4.12.4",
     "mongoose-timestamp": "^0.6.0",
     "morgan": "^1.9.0",
+    "node-pre-gyp": "^0.6.39",
     "passport": "^0.4.0",
     "passport-jwt": "^3.0.1",
     "passport-local": "^1.0.0",
@@ -44,6 +45,7 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "aws-sdk": "^2.168.0",
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-register": "^6.26.0",
