@@ -1,8 +1,8 @@
 import axios from 'axios';
 import {DatabaseActions, ViewActions} from './index';
 // var config = require('../../config');
-let url = 'http://localhost:5252/';
-// let url = config.PRODUCTION_URL;
+// let url = 'http://localhost:5252/';
+let url = "https://hidden-hamlet-10698.herokuapp.com/"
 console.log(url);
 
 
