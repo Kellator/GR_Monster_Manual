@@ -47,6 +47,7 @@ export const checkLogin = (values) => {
         axios({
             method: 'post',
             url: url + 'auth/login', 
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             data: {
                 username,
                 password
