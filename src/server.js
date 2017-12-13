@@ -21,6 +21,8 @@ app.use(cors());
 app.use('/', router);
 app.use('/user', userRouter);
 app.use('/auth', authRouter);
+// enables pre-flight accross the board
+app.options('*', cors()); 
 
 passport.use(localStrategy);
 passport.use(jwtStrategy);
