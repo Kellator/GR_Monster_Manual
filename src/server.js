@@ -21,8 +21,11 @@ app.use(cors());
 app.use('/', router);
 app.use('/user', userRouter);
 app.use('/auth', authRouter);
-// enables pre-flight accross the board
-app.options('*', cors()); 
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
 
 passport.use(localStrategy);
 passport.use(jwtStrategy);
