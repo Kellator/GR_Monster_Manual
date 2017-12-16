@@ -15,7 +15,7 @@ export default function auth(state = {
                     ...state, 
                     isFetching: false,
                     isAuthenticated: true,
-                    user: action.user,
+                    user: action.currentUser,
                     error: null
                 }
             case 'AUTH_ERROR':

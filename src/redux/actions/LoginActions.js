@@ -131,7 +131,7 @@ function registerSuccess(user) {
         type: NEW_USER_SUCCESS,
         isFetching: false,
         isAuthenticated: true,
-
+        user
     }
 };
 
@@ -155,7 +155,8 @@ export const register = (values) => {
         })
         .then(res => normalizeResponseErrors(res))
         .then(res => res.json())
-        .then(res => dispatch(ViewActions.showHomeView()))
+        .then(res => registerSuccess(res))
+        .then(res => dispatch(ViewActions.showLogin()))
         .catch(error => {
             console.log(error);
             dispatch(registerError(error));
