@@ -4,6 +4,11 @@ export default function auth(state = {
     isAuthenticated: localStorage.getItem('authToken') ? true : false
     }, action) {
         switch (action.type) {
+            case 'SET_AUTH_TOKEN':
+                return {
+                    ...state,
+                    authToken: action.authToken
+                }
             case 'AUTH_REQUEST':
                 return {
                     ...state,
@@ -15,7 +20,7 @@ export default function auth(state = {
                     ...state, 
                     isFetching: false,
                     isAuthenticated: true,
-                    user: action.currentUser,
+                    currentUser: action.currentUser,
                     error: null
                 }
             case 'AUTH_ERROR':
@@ -23,15 +28,13 @@ export default function auth(state = {
                     ...state,
                     isFetching: false,
                     isAuthenticated: false,
-                    error: action.message
+                    error: action.error
                 }
             case 'CLEAR_AUTH':
                 return {
                     ...state,
-                    isFetching: false,
-                    isAuthenticated: false,
-                    user: null,
-                    message: "Logged Out."
+                    authToken: null,
+                    currentUser: null
                 }
             case 'NEW_USER_REQUEST':
                 return {
@@ -51,7 +54,7 @@ export default function auth(state = {
                     ...state,
                     isFetching: false,
                     isAuthenticated: false,
-                    errorMessage: action.message
+                    errorMessage: action.error
                 }
             default:
                 return state;
