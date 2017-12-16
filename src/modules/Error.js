@@ -10,28 +10,28 @@ class Error extends React.Component {
         let database = this.props.database;
         let login = this.props.login;
         let errorMessage;
-        // if(database.error) {
-        //     errorMessage = 
-        //     <div>
-        //         <h1>HTTP Error {database.error.response.status}</h1>
-        //         <p>{database.error.message}</p>
-        //         <p>You need to be logged in to do that.</p>
-        //     </div>
-        // };
-        // if(login.error) {
-        //     errorMessage = 
-        //     <div>
-        //         <h1>HTTP Error {login.error.response.status}</h1>
-        //         <p>{login.error.message}</p>
-        //         <p>There is a problem with your login attempt.  Please try again.</p>
-        //     </div>
-        // }
-        // else {
-        //     errorMessage =
-        //     <div>
-        //         <h1>Sorry!  There is an unexpected error occurring.  Please try again.</h1>
-        //     </div>
-        // }
+        if(database.error) {
+            errorMessage = 
+            <div>
+                {/* <h1>HTTP Error {database.error.response.status}</h1> */}
+                <p>{database.error.message}</p>
+                <p>You need to be logged in to do that.</p>
+            </div>
+        };
+        if(login.error) {
+            errorMessage = 
+            <div>
+                {/* <h1>HTTP Error {login.error.response.status}</h1> */}
+                <p>{login.error.message}</p>
+                <p>There is a problem with your login attempt.  Please try again.</p>
+            </div>
+        }
+        else {
+            errorMessage =
+            <div>
+                <h1>Sorry!  There is an unexpected error occurring.  Please try again.</h1>
+            </div>
+        }
         return (
             <div>
                 { errorMessage }

@@ -137,7 +137,8 @@ export default function view(state = initialState, action) {
                 newCardView: false,
                 resultsListView: false,
                 cardView: false,
-                errorView: true
+                errorView: true,
+                error: action.error
             }
         default :
             return state;

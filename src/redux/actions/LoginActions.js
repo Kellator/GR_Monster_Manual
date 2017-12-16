@@ -1,8 +1,8 @@
 import axios from 'axios';
 import {DatabaseActions, ViewActions} from './index';
 // var config = require('../../config');
-// let url = 'http://localhost:5252/';
-let url = "https://hidden-hamlet-10698.herokuapp.com/"
+let url = 'http://localhost:5252/';
+// let url = "https://hidden-hamlet-10698.herokuapp.com/"
 console.log(url);
 
 
@@ -70,6 +70,22 @@ export const checkLogin = (values) => {
             dispatch(loginError(error));
             dispatch(ViewActions.showErrorView(error));
         });
+                // .then(res =>normalizeResponseErrors(res))
+        // .then(res => res.json())
+        // .then(({authToken}) => storeAuthInfo(authToken, dispatch))
+        // .catch(err => {
+        //     const {code} =err;
+        //     const message = 
+        //     code === 401
+        //     ? 'Incorrect username of password'
+        //     : 'UNable to login, please try again';
+        //     dispatch(loginError(message));
+        //     return Promise.reject(
+        //         new SubmissionError({
+        //             _error: message
+        //         })
+        //     );
+        // })
     }
 }
 
