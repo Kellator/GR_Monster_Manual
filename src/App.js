@@ -84,7 +84,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     register : (values) => {
       console.log("new login");
       console.log(values)
-      dispatch(actions.LoginActions.createLogin(values));
+      dispatch(actions.LoginActions.register(values));
     },
     showCreateView : () => {
       console.log("button clicked");

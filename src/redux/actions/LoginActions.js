@@ -109,7 +109,7 @@ export const logoutUser = () => {
     return dispatch => {
         dispatch(requestLogout());
         localStorage.removeItem('authToken');
-        dispatch(receiveLogout());
+        dispatch(logoutSuccess());
         dispatch(ViewActions.showLogin());
     }
 }
@@ -118,7 +118,7 @@ export const NEW_USER_REQUEST = 'NEW_USER_REQUEST';
 export const NEW_USER_SUCCESS = 'NEW_USER_SUCCESS';
 export const NEW_USER_FAILURE = 'NEW_USER_FAILURE';
 
-function requestNewUser() {
+function registerRequest() {
     return {
         type: NEW_USER_REQUEST,
         isFetching: true,
@@ -126,7 +126,7 @@ function requestNewUser() {
     }
 };
 
-function receiveNewUser(user) {
+function registerSuccess(user) {
     return {
         type: NEW_USER_SUCCESS,
         isFetching: false,
@@ -135,7 +135,7 @@ function receiveNewUser(user) {
     }
 };
 
-function newUserError(message) {
+function registerError(message) {
     return {
         type: NEW_USER_FAILURE,
         isFetching: false,
@@ -143,25 +143,22 @@ function newUserError(message) {
         message
     }
 };
-export const createLogin = (values) => {
+export const register = (values) => {
     return dispatch => {
-        dispatch(requestNewUser())
-        axios({
-            method: 'post',
-            url: url + 'user/', 
-            data: values
+        dispatch(registerRequest())
+        fetch(url + 'user/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(values)
         })
-        .then(res => {
-            console.log(res);
-            if(res.status === 201) {
-                dispatch(receiveNewUser());
-                // needs to show a created new user page or message  - add messages to demo?
-                dispatch(ViewActions.showHomeView());
-            }
-        })
+        .then(res => normalizeResponseErrors(res))
+        .then(res => res.json())
+        .then(res => dispatch(ViewActions.showHomeView()))
         .catch(error => {
             console.log(error);
-            dispatch(newUserError(error));
+            dispatch(registerError(error));
         });
     }
 }
