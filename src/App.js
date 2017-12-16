@@ -60,7 +60,7 @@ const mapStateToProps = (state, props) => ({
   view: state.view,
   form: state.form,
   authenticated: state.login.isAuthenticated,
-  token: state.login.user.authToken
+  // token: state.login.user.authToken || null
 });
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {

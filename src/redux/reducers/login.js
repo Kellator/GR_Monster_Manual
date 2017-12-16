@@ -1,42 +1,36 @@
 // check for presence of JWT to see if user is autheticated
 export default function auth(state = {
     isFetching: false,
-    // isAuthenticated: localStorage.getItem('sessionID') ? true : false
-    user: {
-        authToken: ""
-    }
+    isAuthenticated: localStorage.getItem('authToken') ? true : false
     }, action) {
         switch (action.type) {
-            case 'LOGIN_REQUEST':
+            case 'AUTH_REQUEST':
                 return {
                     ...state,
                     isFetching: true,
-                    isAuthenticated: false,
-                    user: action.credentials
+                    isAuthenticated: false
                 }
-            case 'LOGIN_SUCCESS':
+            case 'AUTH_SUCCESS':
                 return {
                     ...state, 
                     isFetching: false,
                     isAuthenticated: true,
                     user: action.user,
-                    error: ''
+                    error: null
                 }
-            case 'LOGIN_FAILURE':
+            case 'AUTH_ERROR':
                 return {
                     ...state,
                     isFetching: false,
                     isAuthenticated: false,
                     error: action.message
                 }
-            case 'LOGOUT_SUCCESS':
+            case 'CLEAR_AUTH':
                 return {
                     ...state,
-                    isFetching: true,
+                    isFetching: false,
                     isAuthenticated: false,
-                    user: {
-                        authToken: ""
-                    },
+                    user: null,
                     message: "Logged Out."
                 }
             case 'NEW_USER_REQUEST':
@@ -44,14 +38,13 @@ export default function auth(state = {
                     ...state,
                     isFetching: true,
                     isAuthenticated: false,
-                    user: action.credentials
                 }
             case 'NEW_USER_SUCCESS':
                 return {
                     ...state, 
                     isFetching: false,
                     isAuthenticated: true,
-                    errorMessage: ''
+                    errorMessage: null
                 }
             case 'NEW_USER_FAILURE':
                 return {
