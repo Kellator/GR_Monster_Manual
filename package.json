@@ -10,7 +10,6 @@
   "author": "Kelly Miller <k.macleod21@gmail.com>",
   "license": "UNLICENSED",
   "dependencies": {
-
     "axios": "^0.17.0",
     "bcrypt": "^1.0.3",
     "bcryptjs": "^2.4.3",
@@ -21,6 +20,7 @@
     "history": "^4.7.2",
     "http": "0.0.0",
     "jsonwebtoken": "^8.1.0",
+    "jwt-decode": "^2.2.0",
     "material-ui": "^0.19.4",
     "mongoose": "^4.12.4",
     "mongoose-timestamp": "^0.6.0",

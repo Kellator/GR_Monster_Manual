@@ -60,7 +60,7 @@ const mapStateToProps = (state, props) => ({
   view: state.view,
   form: state.form,
   authenticated: state.login.isAuthenticated,
-  token: state.login.user.authToken
+  // token: state.login.user.authToken || null
 });
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
@@ -84,7 +84,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     register : (values) => {
       console.log("new login");
       console.log(values)
-      dispatch(actions.LoginActions.createLogin(values));
+      dispatch(actions.LoginActions.register(values));
     },
     showCreateView : () => {
       console.log("button clicked");
