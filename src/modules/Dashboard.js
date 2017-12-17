@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import requiresLogin from './requires-login';
 import { fetchProtectedData } from '../redux/actions/protected-data';
+import BasicSearch from './BasicSearch';
 
 export class Dashboard extends React.Component {
     componentDidMount() {
@@ -11,16 +12,17 @@ export class Dashboard extends React.Component {
         console.log(this.props)
         return(
             <div>
-                user: {this.props.user}
+                <div>
+                    Welcome, {this.props.user.username}
+                </div>
+                <BasicSearch />
             </div>
         );
     }
 }
 const mapStateToProps = state => {
-    const { currentUser } = state.auth;
-    console.log(currentUser);
     return {
-        user: state.auth.user
+        user: state.auth.currentUser
     }
 }
 export default requiresLogin()(connect(mapStateToProps)(Dashboard));
