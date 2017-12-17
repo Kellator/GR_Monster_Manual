@@ -4,10 +4,10 @@ import {SubmissionError} from 'redux-form';
 import {saveAuthToken, clearAuthToken} from '../../local-storage';
 import jwtDecode from 'jwt-decode';
 import {normalizeResponseErrors} from './utils';
-
-let url = 'http://localhost:5252/';
-// let url = "https://hidden-hamlet-10698.herokuapp.com/"
-console.log(url);
+import { API_URL } from '../../config';
+// let url = 'http://localhost:5252/';
+// // let url = "https://hidden-hamlet-10698.herokuapp.com/"
+// console.log(url);
 
 export const SET_AUTH_TOKEN = 'SET_AUTH_TOKEN';
 export const setAuthToken = authToken => ({
@@ -48,7 +48,7 @@ export const checkLogin = (values) => {
     return dispatch => {
         console.log("checking the user");
         dispatch(authRequest());
-        fetch(url + 'auth/login', {
+        fetch(`${API_URL}auth/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -73,7 +73,7 @@ export const checkLogin = (values) => {
 export const refreshAuthToken = () => (dispatch, getState) => {
     dispatch(authRequest());
     const authToken = getState().auth.authToken;
-    return fetch(url + 'auth/refresh', {
+    return fetch(`${API_URL}auth/refresh`, {
         method: 'POST',
         headers: {
             // Provide our existing token as credentials to get a new one
@@ -146,7 +146,7 @@ function registerError(message) {
 export const register = (values) => {
     return dispatch => {
         dispatch(registerRequest())
-        fetch(url + 'user/', {
+        fetch(`${API_URL}user/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
