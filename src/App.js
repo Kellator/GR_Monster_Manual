@@ -8,6 +8,7 @@ import ViewContainer from './modules/ViewContainer';
 import Landing from './modules/Landing';
 import Login from './modules/Login';
 import Register from './modules/Register';
+import Dashboard from './modules/Dashboard';
 import {refreshAuthToken} from './redux/actions/AuthActions';
 
 //material ui design components and imports
@@ -49,6 +50,7 @@ class App extends React.Component {
     }
   }
   render() {
+    console.log(this.props)
     return (
       <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
         <div className="App">
@@ -69,6 +71,7 @@ class App extends React.Component {
             }
           />
           <Route exact path="/" component={Landing} />
+          <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
         </div>

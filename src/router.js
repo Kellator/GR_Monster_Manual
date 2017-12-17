@@ -7,6 +7,13 @@ var mongoose = require('mongoose');
 var Monster = require('./mongoose/MonsterModel');
 const jwtAuth = passport.authenticate('jwt', {session: false});
 
+// A protected endpoint which needs a valid JWT to access it
+router.get('/protected', jwtAuth, (req, res) => {
+    return res.json({
+      data: 'rosebud'
+    });
+  });
+
 // searches db specific to criteria entered in search
 router.get('/monster', jwtAuth, (request, response) => {
     // initial search criteria (e.g. search by name of creature OR categorization of creature) 

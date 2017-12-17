@@ -30,7 +30,7 @@ app.use(function(req, res, next) {
 app.use('/', router);
 app.use('/user', userRouter);
 app.use('/auth', authRouter);
-
+app.use('/protected', router);
 
 passport.use(localStrategy);
 passport.use(jwtStrategy);
