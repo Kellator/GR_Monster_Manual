@@ -3,13 +3,13 @@ import { reducer as formReducer } from 'redux-form';
 import { routerReducer } from 'react-router-redux';
 import view from './view';
 import database from './database';
-import login from './login';
+import auth from './auth';
 
 const rootReducer = combineReducers({
     routing: routerReducer,
     form: formReducer,
     view,
     database,
-    login
+    auth
 });
 export default rootReducer;
