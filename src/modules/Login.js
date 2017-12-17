@@ -2,35 +2,54 @@ import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import { TextField } from 'redux-form-material-ui';
 import { Field, reduxForm } from 'redux-form';
+import {checkLogin} from '../redux/actions/AuthActions'
 
-const Login = props => {
-    const { errorMessage, handleSubmit, pristine, reset, submitting } = props
-    return (
-        <div>
+export class Login extends React.Component {
+    // const { errorMessage, handleSubmit, pristine, reset, submitting } = props
+    onSubmit = (values) => {
+        return this.props.dispatch(checkLogin(values));
+    };
+    render() {
+        let error;
+        if(this.props.error) {
+            error = (
+                <div className="form-error">
+                    {this.props.error}
+                </div>
+            )
+        }
+        return (
             <div>
-                <form onSubmit={ handleSubmit(props.loginSubmit) }>
-                    <Field
-                        label="username"
-                        placeholder="username"
-                        name="username"
-                        component={ TextField }
-                    />
-                    <Field
-                        label="password"
-                        placeholder="password"
-                        name="password"
-                        component={ TextField }
-                        type="password"
-                    />
-                    <RaisedButton type="submit" primary={ true }>LOG IN</RaisedButton>
-                </form>
+                <div>
+                    <form 
+                        className="login-form"
+                        onSubmit={ this.props.handleSubmit(values =>
+                        this.onSubmit(values))
+                    }>
+                    {error}
+                        <Field
+                            label="username"
+                            placeholder="username"
+                            name="username"
+                            component={ TextField }
+                        />
+                        <Field
+                            label="password"
+                            placeholder="password"
+                            name="password"
+                            component={ TextField }
+                            type="password"
+                        />
+                        <RaisedButton type="submit" primary={ true }>Log in</RaisedButton>
+                    </form>
+                </div>
+                <div>
+                    <h3>Not registered yet?  Register now!</h3>
+                    <RaisedButton >Register</RaisedButton>
+                </div>
             </div>
-            <div>
-                <h3>Not registered yet?  Register now!</h3>
-                <RaisedButton onClick={props.showRegisterSubmit }>REGISTER</RaisedButton>
-            </div>
-        </div>
-    )
+        )
+    }
 }
 
 export default reduxForm({

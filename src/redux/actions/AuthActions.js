@@ -116,7 +116,7 @@ export const logoutUser = () => {
 
 export const NEW_USER_REQUEST = 'NEW_USER_REQUEST';
 export const NEW_USER_SUCCESS = 'NEW_USER_SUCCESS';
-export const NEW_USER_FAILURE = 'NEW_USER_FAILURE';
+export const NEW_USER_ERROR = 'NEW_USER_ERROR';
 
 function registerRequest() {
     return {
@@ -137,7 +137,7 @@ function registerSuccess(user) {
 
 function registerError(message) {
     return {
-        type: NEW_USER_FAILURE,
+        type: NEW_USER_ERROR,
         isFetching: false,
         isAuthenticated: false,
         message

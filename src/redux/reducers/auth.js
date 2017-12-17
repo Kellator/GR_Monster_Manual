@@ -1,4 +1,14 @@
-// check for presence of JWT to see if user is autheticated
+import {
+    SET_AUTH_TOKEN,
+    AUTH_REQUEST,
+    AUTH_SUCCESS,
+    AUTH_ERROR,
+    CLEAR_AUTH,
+    NEW_USER_REQUEST,
+    NEW_USER_SUCCESS,
+    NEW_USER_ERROR
+} from '../actions/AuthActions';
+
 const initialState = {
     authToken: null,
     currentUser: null,
@@ -45,7 +55,7 @@ export default function reducer(state = initialState, action) {
             isAuthenticated: true,
             errorMessage: null
         });
-    } else if(action.type === NEW_USER_FAILURE) {
+    } else if(action.type === NEW_USER_ERROR) {
         return Object.assign({}, state, {
             loading: false,
             isAuthenticated: false,

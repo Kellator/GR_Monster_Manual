@@ -8,6 +8,9 @@ export function Landing(props) {
     if(props.loggedIn) {
         return <Redirect to="/dashboard" />;
     }
+    let onSubmit = () => {
+        return <Redirect to="/login" />;
+    }
     return (
         <div>
             <h1>Welcome to the Index of Creatures!</h1>
@@ -32,7 +35,7 @@ export function Landing(props) {
                     Demonstration instructions throughout.
                 </p>
             </div>
-            <RaisedButton  onClick={ this.props.login } primary={ true }>Check out the IoC!</RaisedButton>
+            <RaisedButton onClick={onSubmit} primary={ true }>Log In</RaisedButton>
         </div>
     )
 }
