@@ -2,13 +2,19 @@ import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import { TextField } from 'redux-form-material-ui';
 import { Field, reduxForm } from 'redux-form';
-import {checkLogin} from '../redux/actions/AuthActions'
+import {checkLogin} from '../redux/actions/AuthActions';
+import {Link, Redirect} from 'react-router-dom';
+import {showRegisterView} from '../redux/actions/ViewActions';
 
 export class Login extends React.Component {
     // const { errorMessage, handleSubmit, pristine, reset, submitting } = props
     onSubmit = (values) => {
         return this.props.dispatch(checkLogin(values));
     };
+    viewRegistration = () => {
+        console.log("hello");
+        return this.props.dispatch(showRegisterView());
+    }
     render() {
         let error;
         if(this.props.error) {
@@ -45,7 +51,7 @@ export class Login extends React.Component {
                 </div>
                 <div>
                     <h3>Not registered yet?  Register now!</h3>
-                    <RaisedButton >Register</RaisedButton>
+                    <RaisedButton onClick={ this.props.handleSubmit(() => this.viewRegistration()) }>Register</RaisedButton>
                 </div>
             </div>
         )

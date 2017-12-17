@@ -2,15 +2,22 @@ import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import {connect} from 'react-redux';
 import {Link, Redirect} from 'react-router-dom';
+import { showLogin } from '../redux/actions/ViewActions';
+import Login from './Login';
 
 export function Landing(props) {
     // if already logged in, redirect to user's dashboard
     if(props.loggedIn) {
         return <Redirect to="/dashboard" />;
     }
-    let onSubmit = () => {
-        return <Redirect to="/login" />;
-    }
+    // if(props.view.loginView === true) {
+    //     return <Redirect to="/login" />;
+    // }
+    // let login = () => {
+    //     console.log("hello");
+    //     return props.dispatch(showLogin());
+    // }
+    // console.log(props);
     return (
         <div>
             <h1>Welcome to the Index of Creatures!</h1>
@@ -35,11 +42,13 @@ export function Landing(props) {
                     Demonstration instructions throughout.
                 </p>
             </div>
-            <RaisedButton onClick={onSubmit} primary={ true }>Log In</RaisedButton>
+            {/* <RaisedButton onClick={ () => login() } primary={ true }>Log In</RaisedButton> */}
+            <Login />
         </div>
     )
 }
 const mapStateToProps = state => ({
-    loggedIn: state.auth.currentUser !== null
+    loggedIn: state.auth.currentUser !== null,
+    // view: state.view.loginView
 });
 export default connect(mapStateToProps)(Landing);
