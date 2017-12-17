@@ -9,7 +9,8 @@ import Landing from './modules/Landing';
 import Login from './modules/Login';
 import Register from './modules/Register';
 import Dashboard from './modules/Dashboard';
-import {refreshAuthToken} from './redux/actions/AuthActions';
+import {refreshAuthToken, clearAuth} from './redux/actions/AuthActions';
+import {clearAuthToken} from './local-storage';
 
 //material ui design components and imports
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -49,6 +50,10 @@ class App extends React.Component {
       return;
     }
   }
+  logOut = () => {
+    this.props.dispatch(clearAuth());
+    clearAuthToken();
+  };
   render() {
     console.log(this.props)
     return (
@@ -66,7 +71,7 @@ class App extends React.Component {
                 <MenuItem primaryText="Search" onClick={ this.props.showHomeView } />
                 <MenuItem primaryText="Create New" onClick={ this.props.showCreateView } />
                 <MenuItem primaryText="Help" />
-                <MenuItem primaryText="Sign out" onClick={ this.props.logout }/>
+                <MenuItem primaryText="Log out" onClick={ () => this.logOut() }/>
               </IconMenu>
             }
           />
