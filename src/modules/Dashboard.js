@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import requiresLogin from './requires-login';
 import { fetchProtectedData } from '../redux/actions/protected-data';
-import BasicSearch from './BasicSearch';
+import ViewContainer from './ViewContainer';
 
 export class Dashboard extends React.Component {
     componentDidMount() {
@@ -12,10 +12,7 @@ export class Dashboard extends React.Component {
         console.log(this.props)
         return(
             <div>
-                <div>
-                    Welcome, {this.props.user.username}
-                </div>
-                <BasicSearch />
+                <ViewContainer user={this.props.user}/>
             </div>
         );
     }

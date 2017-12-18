@@ -87,10 +87,6 @@ class App extends React.Component {
 const mapStateToProps = (state, props) => ({
   hasAuthToken: state.auth.authToken !== null,
   loggedIn: state.auth.currentUser !== null
-  // view: state.view,
-  // form: state.form,
-  // authenticated: state.login.isAuthenticated,
-
 });
 export default withRouter(connect(mapStateToProps)(App));
 // const mapDispatchToProps = (dispatch, ownProps) => {
