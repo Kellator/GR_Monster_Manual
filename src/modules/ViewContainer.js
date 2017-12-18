@@ -26,6 +26,18 @@ class ViewContainer extends React.Component {
             case "create":
                 currentView = <WizardForm />
                 break;
+            case "new card":
+                currentView = <CardCreated />
+                break;
+            case "card":
+                currentView = <CreatureCard />
+                break;
+            case "results list":
+                currentView = <SearchResultContainer />
+                break;
+            case "error":
+                currentView = <Error />
+                break;
             default:
             currentView = <div>Hello</div>
         }

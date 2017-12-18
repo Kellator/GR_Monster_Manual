@@ -10,14 +10,7 @@ export function Landing(props) {
     if(props.loggedIn) {
         return <Redirect to="/dashboard" />;
     }
-    // if(props.view.loginView === true) {
-    //     return <Redirect to="/login" />;
-    // }
-    // let login = () => {
-    //     console.log("hello");
-    //     return props.dispatch(showLogin());
-    // }
-    // console.log(props);
+
     return (
         <div>
             <h1>Welcome to the Index of Creatures!</h1>
