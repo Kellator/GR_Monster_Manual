@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {reset} from 'redux-form';
 import Login from './Login.js';
 import Register from './Register.js';
 import WizardForm from './WizardForm.js';
@@ -11,6 +12,7 @@ import SearchResultContainer from './SearchResultContainer';
 import Error from './Error';
 import '../Flex.css';
 import instructions from './InstructionText.js';
+import * as actions from '../redux/actions/index';
 
 class ViewContainer extends React.Component {
     render() {
@@ -21,10 +23,10 @@ class ViewContainer extends React.Component {
         console.log(view);
         switch(view) {
             case "home":
-                currentView = <HomeView />
+                currentView = <HomeView create={ this.props.showCreateNew }/>
                 break;
             case "create":
-                currentView = <WizardForm />
+                currentView = <WizardForm submit={ this.props.createNewCard }/>
                 break;
             case "new card":
                 currentView = <CardCreated />
@@ -213,4 +215,18 @@ class ViewContainer extends React.Component {
 const mapStateToProps = (state, props) => ({
     view: state.view
   });
-export default connect(mapStateToProps)(ViewContainer);
+const mapDispatchToProps = (dispatch, ownProps) => {
+    return {
+        showCreateNew: () => {
+            dispatch(actions.ViewActions.showCreateView());
+            console.log("create view");
+        },
+        createNewCard : (values) => {
+            console.log("add new card function initiated");
+            console.log(values);
+            dispatch(actions.DatabaseActions.createNewCard(values));
+            dispatch(reset('wizard'));
+          },
+    }
+};
+export default connect(mapStateToProps, mapDispatchToProps)(ViewContainer);

@@ -3,7 +3,7 @@ var config = require('./config');
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
-var session = require('express-session');
+// var session = require('express-session');
 var bodyParser = require('body-parser');
 var bcrypt = require('bcryptjs');
 var passport = require('passport');
@@ -13,7 +13,7 @@ var jwt = require('jsonwebtoken');
 var User = require('./mongoose/UserModel');
 
 router.use(bodyParser.json());
-router.use(session(config.SESSION_KEY));
+// router.use(session(config.SESSION_KEY));
 router.use(cors());
 
 //authenticated session persistance
@@ -34,7 +34,8 @@ passport.deserializeUser((id, callback) => {
 
 // passport.use(strategy);
 router.use(passport.initialize());
-router.use(passport.session());
+// router.use(passport.session());
+
 // creates new user credentials
 router.post('/', (request, response) => {
     console.log(request.body);

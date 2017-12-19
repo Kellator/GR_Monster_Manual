@@ -1,35 +1,31 @@
+import {
+    FETCHING,
+    FETCH_SUCCESS,
+    FETCH_FAIL
+} from '../actions/DatabaseActions';
+
 const initialState = {
-    cardLoading: false,
-    cardLoaded: false
+    loading: null,
+    loaded: null
 }
-export default function database(state = initialState, action) {
-    switch(action.type) {
-        case 'FETCHING' :
-            return {
-                ...state,
-                cardLoading: true,
-                cardLoaded: false
-            }
-        case 'FETCH_SUCCESS' : 
-            return {
-                ...state,
-                cardLoading: false,
-                cardLoaded: true,
-                resultsList : action.data
-            };
-        case 'FETCH_FAIL' :
-            return {
-                ...state,
-                cardLoading: false,
-                cardLoaded: false,
-                error: action.error
-            };
-        case 'CARDVIEW' :
-            return {
-                ...state,
-                cardView: action.monster
-            }
-        default :
-            return state;
+export default function reducer(state = initialState, action) {
+    if (action.type === FETCHING) {
+        return Object.assign({}, state, {
+            loading: true
+        });
+    } else if (action.type === FETCH_SUCCESS) {
+        return Object.assign({}, state, {
+            loading: false,
+            loaded: true,
+            data: action.data,
+            error: null
+        });
+    } else if (action.type === FETCH_FAIL) {
+        return Object.assign({}, state, {
+            loading: false,
+            loaded: false,
+            error: action.error
+        });
     }
+    return state;
 }

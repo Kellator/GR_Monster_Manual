@@ -1,6 +1,7 @@
 import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import BasicSearch from './BasicSearch.js';
+import * as actions from '../redux/actions/index';
 
 // div with search or enter
 class HomeView extends React.Component {
@@ -13,7 +14,7 @@ class HomeView extends React.Component {
                     <BasicSearch />
                 </div>
                 <div>
-                    <RaisedButton onClick={ this.props.createSubmit }>Create New</RaisedButton>
+                    <RaisedButton onClick={ this.props.create }>Create New</RaisedButton>
                 </div>
             </div>
         )

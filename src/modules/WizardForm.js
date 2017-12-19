@@ -73,7 +73,7 @@ class WizardForm extends Component {
         {page === 7 && (
           <WizardFormSeventhPage
             previousPage={this.previousPage}
-            onSubmit={this.props.createCardSubmit}
+            onSubmit={this.props.submit}
             instructionState={ instructionState }
           />
         )}

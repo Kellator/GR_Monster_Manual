@@ -9,180 +9,182 @@ const jwtAuth = passport.authenticate('jwt', {session: false});
 
 // A protected endpoint which needs a valid JWT to access it
 router.get('/protected', jwtAuth, (req, res) => {
+    console.log("hello protected")
     return res.json({
       data: 'rosebud'
     });
   });
 
 // searches db specific to criteria entered in search
-router.get('/monster', jwtAuth, (request, response) => {
+router.get('/monster', jwtAuth, (req, res) => {
+    console.log("monster endpoint");
     // initial search criteria (e.g. search by name of creature OR categorization of creature) 
     // available on primary search function
-    var req = request.query.term;
+    var request = req.query.term;
     // secondary search criteria initiated in advanced search function
-    // var secondarySearchCrit = request.query.secondarySearchCrit;
-    if (typeof req === 'string' ) {
-        var primarySearchCrit = req.toUpperCase();
+    // var secondarySearchCrit = req.query.secondarySearchCrit;
+    if (typeof request === 'string' ) {
+        var primarySearchCrit = request.toUpperCase();
         // uses specified search criteria to search in name of creature or category of creature and returns all matches
         Monster.find( { $or: [ {'name': {$regex: primarySearchCrit} }, { 'category': primarySearchCrit } ] } ).exec(function(err, monsters) {
             if (err) {
-                return response.status(500).json({
+                return res.status(500).json({
                     message: 'Criminey! Internal Server Error!' 
                 });
             }
-            response.json(monsters);
+            res.json(monsters);
         });
     }
     else {
         Monster.find().exec((err, monsters) => {
             if (err) {
-                return response.status(500).json({
+                return res.status(500).json({
                     message: 'Crumbs! Internal Server Error!'
                 });
             }
-            response.json(monsters);
+            res.json(monsters);
         });
     }
 });
 
 // creates new document for monster collection
-router.post('/monster', jwtAuth, (request, response) => {
-    let monsterName = (request.body.monster_name).toUpperCase();
-    let monsterCategory = (request.body.monster_category).toUpperCase();
+router.post('/monster', jwtAuth, (req, res) => {
+    let monsterName = (req.body.monster_name).toUpperCase();
+    let monsterCategory = (req.body.monster_category).toUpperCase();
     let monster = {
         name : monsterName,
         category : monsterCategory,
-        level : (request.body.monster_level).toUpperCase(),
-        body : request.body.monster_body_points,
-        armor : request.body.monster_armor_points,
-        description : request.body.monster_description,
+        level : (req.body.monster_level).toUpperCase(),
+        body : req.body.monster_body_points,
+        armor : req.body.monster_armor_points,
+        description : req.body.monster_description,
         weaponSkills : {
-            basicWeaponSkills : request.body.weapon_type, 
-            plusStrength : request.body.plus_strength_level,
+            basicWeaponSkills : req.body.weapon_type, 
+            plusStrength : req.body.plus_strength_level,
             advancedWeaponSkills : {
-                hasAdvancedWeaponSkills: request.body.has_advanced_weapon_skills,
+                hasAdvancedWeaponSkills: req.body.has_advanced_weapon_skills,
                 slays : {
-                    hasSlays : request.body.has_slays,
-                    numberOfSlays: request.body.number_of_slays
+                    hasSlays : req.body.has_slays,
+                    numberOfSlays: req.body.number_of_slays
                 },
                 assassinates: {
-                    hasAssassinates : request.body.has_assassinates,
-                    numberOfAssassinates: request.body.number_of_assassinates
+                    hasAssassinates : req.body.has_assassinates,
+                    numberOfAssassinates: req.body.number_of_assassinates
                 }
             },
         },
         scholarlySkills: {
-            // hasScholarlySkills: request.body,
+            // hasScholarlySkills: req.body,
             alchemy: {
-                hasAlchemy: request.body.has_alchemy,
-                levelsOfAlchemy: request.body.levels_of_alchemy
+                hasAlchemy: req.body.has_alchemy,
+                levelsOfAlchemy: req.body.levels_of_alchemy
             },
             magic: {
-                hasMagic: request.body.has_magic,               
+                hasMagic: req.body.has_magic,               
                 primarySchool: {
-                    primarySchool: request.body.primary_school_of_magic,
-                    primaryColumn: request.body.primary_column,
+                    primarySchool: req.body.primary_school_of_magic,
+                    primaryColumn: req.body.primary_column,
                     formalMagic: {
-                        hasFormal: request.body.has_formal_magic,
-                        primaryFormalLevels: request.body.primary_formal_magic_levels
+                        hasFormal: req.body.has_formal_magic,
+                        primaryFormalLevels: req.body.primary_formal_magic_levels
                     }, 
                 },
                 secondarySchool: {
-                    secondarySchool: request.body.secondary_school_of_magic,
-                    secondaryColumn: request.body.secondary_column,
+                    secondarySchool: req.body.secondary_school_of_magic,
+                    secondaryColumn: req.body.secondary_column,
                     secondaryFormal: {
-                        hasSecondaryFormal: request.body.has_secondary_formal_magic,
-                        secondaryFormalLevels: request.body.secondary_formal_magic_levels
+                        hasSecondaryFormal: req.body.has_secondary_formal_magic,
+                        secondaryFormalLevels: req.body.secondary_formal_magic_levels
                     }
                 }, 
             },
-            magicSpecialInstructions : request.body.magic_special,
+            magicSpecialInstructions : req.body.magic_special,
         },
         physicalDefenses: {
             parry: {
-                hasPhysicalParry: request.body.has_physical_parry,
-                parryPerDay: request.body.physical_parry
+                hasPhysicalParry: req.body.has_physical_parry,
+                parryPerDay: req.body.physical_parry
             },
             dodge: {
-                hasPhysicalDodge: request.body.has_physical_dodge,
-                dodgePerDay: request.body.physical_dodge
+                hasPhysicalDodge: req.body.has_physical_dodge,
+                dodgePerDay: req.body.physical_dodge
             },
             bane: {
-                hasPhysicalBane: request.body.has_physical_bane,
-                banePerDay: request.body.physical_bane
+                hasPhysicalBane: req.body.has_physical_bane,
+                banePerDay: req.body.physical_bane
             },
             phase: {
-                hasPhysicalPhase: request.body.has_physical_phase,
-                phasePerDay: request.body.physical_phase
+                hasPhysicalPhase: req.body.has_physical_phase,
+                phasePerDay: req.body.physical_phase
             },
             resist: {
-                hasPhysicalResist: request.body.has_physical_resist,
-                resistPerDay: request.body.physical_resist
+                hasPhysicalResist: req.body.has_physical_resist,
+                resistPerDay: req.body.physical_resist
             },
             return: {
-                hasReturnPhysical: request.body.has_return_physical,
-                returnPerDay: request.body.return_physical
+                hasReturnPhysical: req.body.has_return_physical,
+                returnPerDay: req.body.return_physical
             }
         },
         spellDefenses : {
             bane: {
-                hasBaneMagic: request.body.has_bane_magic,
-                baneMagicPerDay: request.body.bane_magic
+                hasBaneMagic: req.body.has_bane_magic,
+                baneMagicPerDay: req.body.bane_magic
             },
             cloak: {
-                hasCloakMagic: request.body.has_cloak_magic,
-                cloakMagicPerDay: request.body.cloak_magic
+                hasCloakMagic: req.body.has_cloak_magic,
+                cloakMagicPerDay: req.body.cloak_magic
             },
             reflect: {
-                hasReflectMagic: request.body.has_reflect_magic,
-                reflectMagicPerDay: request.body.reflect_magic
+                hasReflectMagic: req.body.has_reflect_magic,
+                reflectMagicPerDay: req.body.reflect_magic
             },
             phase: {
-                hasPhaseMagic: request.body.has_phase_magic,
-                phaseMagicPerDay: request.body.phase_magic
+                hasPhaseMagic: req.body.has_phase_magic,
+                phaseMagicPerDay: req.body.phase_magic
             },
             resist: {
-                hasResistMagic: request.body.has_resist_magic,
-                resistMagicPerDay: request.body.resist_magic
+                hasResistMagic: req.body.has_resist_magic,
+                resistMagicPerDay: req.body.resist_magic
             },
             return: {
-                hasReturnMagic : request.body.has_return_magic,
-                returnMagicPerDay: request.body.return_magic
+                hasReturnMagic : req.body.has_return_magic,
+                returnMagicPerDay: req.body.return_magic
             }
         },
         racialDefenses : {
             resistCharm: {
-                hasResistCharm: request.body.has_resist_charm,
-                resistCharmPerDay: request.body.resist_charm
+                hasResistCharm: req.body.has_resist_charm,
+                resistCharmPerDay: req.body.resist_charm
             },
             resistSleep: {
-                hasResistSleep: request.body.has_resist_sleep,
-                resistSleepPerDay: request.body.resist_sleep
+                hasResistSleep: req.body.has_resist_sleep,
+                resistSleepPerDay: req.body.resist_sleep
             },
             resistPoison: {
-                hasResistPoison: request.body.has_resist_poison,
-                resistPoisonPerDay: request.body.resist_poison
+                hasResistPoison: req.body.has_resist_poison,
+                resistPoisonPerDay: req.body.resist_poison
             },
             racialDodge: {
-                hasRaciallDodge: request.body.has_racial_dodge,
-                racialDodgePerDay: request.body.racial_dodge
+                hasRaciallDodge: req.body.has_racial_dodge,
+                racialDodgePerDay: req.body.racial_dodge
             },
         },
-        treasure : request.body.standard_treasure.split(" "),
-        special : request.body.special_instructions
+        treasure : req.body.standard_treasure.split(" "),
+        special : req.body.special_instructions
     };
     Monster.create(monster, (err, monster) => {
         if (err || !monster) {
-            return response.status(500).json({
+            return res.status(500).json({
                 message: 'Argh! Internal Server Error.'
             });
         }
-        response.status(201).json(monster);
+        res.status(201).json(monster);
     });
 });
 // edits specific creature card document
-// router.put('/edit',function(request, response) {
-//     let card_id = request.params.card_id;
+// router.put('/edit',function(req, response) {
+//     let card_id = req.params.card_id;
 //     let key; //set to equal the Object key (form input name?)
 //     let value; // set to equal the object key's value
 //     // for query - find by card_id, then find the object key - if object key
@@ -201,21 +203,20 @@ router.post('/monster', jwtAuth, (request, response) => {
 //     })
 // })
 // deletes a monster card from the database
-router.delete('/delete', jwtAuth, (request, response) => {
-    let card_id = request.body.card_id;
-    console.log(request.body.card_id);
+router.delete('/delete', jwtAuth, (req, res) => {
+    let card_id = req.body.card_id;
+    console.log(req.body.card_id);
     Monster.findByIdAndRemove(card_id, (err, monster) => {
         if (err) {
             console.log(err);
             console.error('Darn! Could not delete monster card.');
-            return response.status(500).json({
+            return res.status(500).json({
                 message: 'Nuts.  Internal Server Error.'
             });
         }
         console.log('Monster Card Deleted');
-        return response.status(204).end();
+        return res.status(204).end();
     });
 });
-// edits specific aspect of monster card based on active fields?
 
 module.exports = router;

@@ -6,8 +6,7 @@ import * as actions from '../redux/actions/index';
 
 class BasicSearch extends React.Component {
     submit = (value, dispatch) => {
-        let token = this.props.authToken;
-        dispatch(actions.DatabaseActions.searchDatabase(value, token));
+        dispatch(actions.DatabaseActions.searchDatabase(value));
     };
     render() {
         const {handleSubmit, pristine, reset, submitting } = this.props

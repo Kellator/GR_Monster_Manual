@@ -30,7 +30,6 @@ app.use(function(req, res, next) {
 app.use('/', router);
 app.use('/user', userRouter);
 app.use('/auth', authRouter);
-app.use('/protected', router);
 
 passport.use(localStrategy);
 passport.use(jwtStrategy);
@@ -38,7 +37,7 @@ const server = http.Server(app);
 
 // coordinates the connection to the database and the running of the HTTP server
 const runServer = function(callback) {
-    console.log(config.DATABASE_URL);
+    // console.log(config.DATABASE_URL);
     mongoose.connect(config.DATABASE_URL, { useMongoClient: true }, function(err) {
         if (err && callback) {
             return callback(err);

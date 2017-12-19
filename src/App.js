@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {reset} from 'redux-form';
 import {Route, withRouter} from 'react-router-dom';
 import green_monster from './green_monster.jpg';
 import './App.css';
@@ -136,12 +135,12 @@ export default withRouter(connect(mapStateToProps)(App));
 //     //   console.log(token);
 //     //   dispatch(actions.DatabaseActions.searchDatabase(value, token));
 //     // },
-//     createNewCard : (values) => {
-//       console.log("add new card function initiated");
-//       console.log(values);
-//       dispatch(actions.DatabaseActions.createNewCard(values));
-//       dispatch(reset('wizard'));
-//     },
+    // createNewCard : (values) => {
+    //   console.log("add new card function initiated");
+    //   console.log(values);
+    //   dispatch(actions.DatabaseActions.createNewCard(values));
+    //   dispatch(reset('wizard'));
+    // },
 //     showResultsList :() => {
 //       console.log("back button clicked");
 //       dispatch(actions.ViewActions.showResultsListView());

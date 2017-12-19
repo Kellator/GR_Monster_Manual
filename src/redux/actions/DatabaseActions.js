@@ -1,8 +1,9 @@
 import axios from 'axios';
 import * as ViewActions from './ViewActions.js';
-// var config = require('../../config');
-// //
-let url = 'http://localhost:5252/';
+import {fetchProtectedData} from './protected-data';
+
+import { API_URL } from '../../config';
+// let url = 'http://localhost:5252/';
 // let url = "https://hidden-hamlet-10698.herokuapp.com/";
 
 
@@ -21,17 +22,15 @@ export const fetchFail = (error) => ({
     error
 });
 
-export const searchDatabase = (query, token) => {
+export const searchDatabase = (query) => (dispatch, getState) => {
     console.log(query);
-    console.log(token);
+    const authToken = getState().auth.authToken;
+    console.log(authToken);
     return dispatch => {
         dispatch(fetching());
-        axios.get(url + "monster", {
+        axios.get(API_URL + "monster", {
             params: {
                 term: query.basic_search_input
-            },
-            headers: {
-                Authorization: "Bearer " + token 
             }
         })
         .then(response => {
@@ -65,11 +64,13 @@ export const loadFail = (error) => ({
     error
 });
 // action to dispatch to create new monster card
-export const createNewCard = (data) => {
+export const createNewCard = (data) => (dispatch, getState) => {
     console.log(data);
+    const authToken = getState().auth.authToken;
+    console.log(authToken);
     return dispatch => {
         dispatch(loading());
-        axios.post(url + "monster", data)
+        axios.post(API_URL + "monster", data)
         .then(response => {
             console.log(response.data);
             let newMonster = response.data;
@@ -120,10 +121,12 @@ export const deleteFail = (error) => ({
     type: DELETE_FAIL,
     error
 });
-export const deleteCard = (card_id) => {
+export const deleteCard = (card_id) => (dispatch, getState) => {
     console.log(card_id);
+    const authToken = getState().auth.authToken;
+    console.log(authToken);
     return dispatch => {
-        axios.delete(url + "delete", {
+        axios.delete(API_URL + "delete", {
             data: {
                 card_id: card_id
             }
