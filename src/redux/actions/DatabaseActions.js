@@ -1,6 +1,7 @@
 import axios from 'axios';
 import * as ViewActions from './ViewActions.js';
 import {fetchProtectedData} from './protected-data';
+import {normalizeResponseErrors} from './utils';
 
 import { API_URL } from '../../config';
 // let url = 'http://localhost:5252/';
@@ -26,27 +27,30 @@ export const searchDatabase = (query) => (dispatch, getState) => {
     console.log(query);
     const authToken = getState().auth.authToken;
     console.log(authToken);
-    return dispatch => {
-        dispatch(fetching());
-        axios.get(API_URL + "monster", {
-            params: {
-                term: query.basic_search_input
-            }
-        })
-        .then(response => {
-            console.log(response);
-            if(response.status === 200) {
-                dispatch(fetchSuccess(response.data));
-                dispatch(ViewActions.showResultsListView());
-                console.log("Search was successful");
-            }
-        })
-        .catch(error => {
-            console.log(error);
-            dispatch(fetchFail(error));
-            dispatch(ViewActions.showErrorView(error));
-        });
-    }
+    dispatch(fetching());
+    return fetch(`${API_URL}monster`, {
+        method: 'GET',
+        params: {
+            term: query.basic_search_input
+        },
+        headers: {
+            // Provide our auth token as credentials
+            Authorization: `Bearer ${authToken}`
+        }
+    })
+    .then(response => {
+        console.log(response);
+        if(response.status === 200) {
+            dispatch(fetchSuccess(response.data));
+            dispatch(ViewActions.showResultsListView());
+            console.log("Search was successful");
+        }
+    })
+    .catch(error => {
+        console.log(error);
+        dispatch(fetchFail(error));
+        dispatch(ViewActions.showErrorView(error));
+    });
 };
 
 export const LOADING = 'LOADING';
@@ -68,22 +72,30 @@ export const createNewCard = (data) => (dispatch, getState) => {
     console.log(data);
     const authToken = getState().auth.authToken;
     console.log(authToken);
-    return dispatch => {
-        dispatch(loading());
-        axios.post(API_URL + "monster", data)
-        .then(response => {
-            console.log(response.data);
-            let newMonster = response.data;
-            dispatch(loadSuccess(newMonster));
-            dispatch(ViewActions.showNewCardView());
-            console.log(response.status);
-        })
-        .catch(error => {
-            console.log(error);
-            dispatch(loadFail(error));
-            dispatch(ViewActions.showErrorView(error));
-        });
-    }
+    dispatch(loading());
+    return fetch(`${API_URL}monster`, {
+        method: 'POST',
+        headers: {
+            // Provide our auth token as credentials
+            Authorization: `Bearer ${authToken}`,
+            'Content-Type': 'application/json'
+        
+        },
+        body: JSON.stringify(data)
+    })
+    .then(res => normalizeResponseErrors(res))
+    .then(res => res.json())
+    .then(res => {
+        console.log(res);
+        let newMonster = res;
+        dispatch(loadSuccess(newMonster));
+        dispatch(ViewActions.showNewCardView());
+    })
+    .catch(error => {
+        console.log(error);
+        dispatch(loadFail(error));
+        dispatch(ViewActions.showErrorView(error));
+    })
 };
 
 // export const EDIT_SUCCESS = 'EDIT_SUCCESS';

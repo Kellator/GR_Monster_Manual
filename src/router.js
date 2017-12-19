@@ -18,13 +18,14 @@ router.get('/protected', jwtAuth, (req, res) => {
 // searches db specific to criteria entered in search
 router.get('/monster', jwtAuth, (req, res) => {
     console.log("monster endpoint");
+    console.log(req);
     // initial search criteria (e.g. search by name of creature OR categorization of creature) 
     // available on primary search function
-    var request = req.query.term;
+    var term = req.query.term;
     // secondary search criteria initiated in advanced search function
     // var secondarySearchCrit = req.query.secondarySearchCrit;
-    if (typeof request === 'string' ) {
-        var primarySearchCrit = request.toUpperCase();
+    if (typeof term === 'string' ) {
+        var primarySearchCrit = term.toUpperCase();
         // uses specified search criteria to search in name of creature or category of creature and returns all matches
         Monster.find( { $or: [ {'name': {$regex: primarySearchCrit} }, { 'category': primarySearchCrit } ] } ).exec(function(err, monsters) {
             if (err) {

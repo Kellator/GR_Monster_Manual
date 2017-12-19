@@ -105,69 +105,7 @@ class ViewContainer extends React.Component {
         // if (createView === true) {
         //     currentView = <WizardForm createCardSubmit={ createCardSubmit } />
         // }
-        // if (createView === true && Object.keys(form).includes('wizard')) {
-        //     console.log("we've made it to this line")
-        //     console.log(form);
-        //     wizardFields = form.wizard.registeredFields;
-        //     console.log(wizardFields);
-        //     console.log(form);
-        //     if(Object.keys(wizardFields).includes('monster_name')) {
-        //         instructionDiv = 
-        //         <div>
-        //             <p>{instructions.createView.pageOne.lineOne}</p>
-        //             <ul >
-        //                 {
-        //                     instructions.createView.pageOne.requiredFields.map(function(field, i) {
-        //                         return <li key={i}>{field}</li>
-        //                     })
-        //                 }
-        //             </ul>
-        //             <p>{instructions.createView.pageOne.lineTwo}</p>
-        //         </div>;
-        //     }
-        //     else if(Object.keys(wizardFields).includes('weapon_type')) {
-        //         let texts = instructions.createView.pageTwo;
-        //         let componentToRender = Object.keys(texts).map(function(text, index) {
-        //             return <p key={index}>{texts[text]}</p>
-        //         })
-        //         instructionDiv = <div>{ componentToRender }</div>;
-        //     }
-        //     else if(Object.keys(wizardFields).includes('has_alchemy')) {
-        //         let texts = instructions.createView.pageThree;
-        //         let componentToRender = Object.keys(texts).map(function(text, index) {
-        //             return <p key={index}>{texts[text]}</p>
-        //         })
-        //         instructionDiv = <div>{ componentToRender }</div>;
-        //     }
-        //     else if(Object.keys(wizardFields).includes('has_physical_bane')) {
-        //         let texts = instructions.createView.pageFour;
-        //         let componentToRender = Object.keys(texts).map(function(text, index) {
-        //             return <p key={index}>{texts[text]}</p>
-        //         })
-        //         instructionDiv = <div>{ componentToRender }</div>;
-        //     }
-        //     else if(Object.keys(wizardFields).includes('has_bane_magic')) {
-        //         let texts = instructions.createView.pageFive;
-        //         let componentToRender = Object.keys(texts).map(function(text, index) {
-        //             return <p key={index}>{texts[text]}</p>
-        //         })
-        //         instructionDiv = <div>{ componentToRender }</div>;
-        //     }
-        //     else if(Object.keys(wizardFields).includes('has_resist_charm')) {
-        //         let texts = instructions.createView.pageSix;
-        //         let componentToRender = Object.keys(texts).map(function(text, index) {
-        //             return <p key={index}>{texts[text]}</p>
-        //         })
-        //         instructionDiv = <div>{ componentToRender }</div>;
-        //     }
-        //     else if(Object.keys(wizardFields).includes('standard_treasure')) {
-        //         let texts = instructions.createView.pageSeven;
-        //         let componentToRender = Object.keys(texts).map(function(text, index) {
-        //             return <p key={index}>{texts[text]}</p>
-        //         })
-        //         instructionDiv = <div>{ componentToRender }</div>;
-        //     }
-        // }
+
         // if (newCardView === true) {
         //     currentView = <CardCreated createSubmit={ createSubmit } showHomeView={ showHomeView } />
         //     let texts = instructions.newCardView
