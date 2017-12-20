@@ -18,8 +18,6 @@ router.get('/protected', jwtAuth, (req, res) => {
 
 // searches db specific to criteria entered in search
 router.get('/monster', jwtAuth, (req, res) => {
-    console.log("monster endpoint");
-    console.log(req);
     // initial search criteria (e.g. search by name of creature OR categorization of creature) 
     // available on primary search function
     var term = req.query.term;

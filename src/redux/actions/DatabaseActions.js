@@ -40,16 +40,6 @@ export const searchDatabase = (query) => (dispatch, getState) => {
             'Content-Type': 'application/json'
         }
     })
-    // return fetch(`${API_URL}monster`, {
-    //     q: 
-    //     method: 'GET',
-    //     headers: {
-    //         // Provide our auth token as credentials
-    //         Authorization: `Bearer ${authToken}`
-    //     }
-    // })
-    // .then(res => normalizeResponseErrors(res))
-    // .then(res => res.json())
     .then(res => {
         console.log(res);
         dispatch(fetchSuccess(res));

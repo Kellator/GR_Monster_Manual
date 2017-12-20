@@ -9,6 +9,7 @@ import Login from './modules/Login';
 import Register from './modules/Register';
 import Dashboard from './modules/Dashboard';
 import {refreshAuthToken, clearAuth} from './redux/actions/AuthActions';
+import {showCreateView} from './redux/actions/ViewActions';
 import {clearAuthToken} from './local-storage';
 
 //material ui design components and imports
@@ -53,6 +54,9 @@ class App extends React.Component {
     this.props.dispatch(clearAuth());
     clearAuthToken();
   };
+  createView = () => {
+    this.props.dispatch(showCreateView());
+  }
   render() {
     console.log(this.props)
     return (
@@ -68,7 +72,7 @@ class App extends React.Component {
                 targetOrigin={{horizontal: 'right', vertical: 'top'}}
                 >
                 <MenuItem primaryText="Search" onClick={ this.props.showHomeView } />
-                <MenuItem primaryText="Create New" onClick={ this.props.showCreateView } />
+                <MenuItem primaryText="Create New" onClick={ () => this.createView() } />
                 <MenuItem primaryText="Help" />
                 <MenuItem primaryText="Log out" onClick={ () => this.logOut() }/>
               </IconMenu>
