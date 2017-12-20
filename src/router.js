@@ -5,6 +5,7 @@ var router = express.Router();
 var passport = require('passport');
 var mongoose = require('mongoose');
 var Monster = require('./mongoose/MonsterModel');
+const jwt = require('jsonwebtoken');
 const jwtAuth = passport.authenticate('jwt', {session: false});
 
 // A protected endpoint which needs a valid JWT to access it

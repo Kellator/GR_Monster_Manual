@@ -21,62 +21,32 @@ class ViewContainer extends React.Component {
         let instructionDiv;
         let view = this.props.view.type;
         console.log(view);
-        switch(view) {
-            case "home":
-                currentView = <HomeView create={ this.props.showCreateNew }/>
-                break;
-            case "create":
-                currentView = <WizardForm submit={ this.props.createNewCard }/>
-                break;
-            case "new card":
-                currentView = <CardCreated />
-                break;
-            case "card":
-                currentView = <CreatureCard />
-                break;
-            case "results list":
-                currentView = <SearchResultContainer />
-                break;
-            case "error":
-                currentView = <Error />
-                break;
-            default:
-            currentView = <div>Hello</div>
+        if(this.props.user && view === null) {
+            currentView = <HomeView create={ this.props.showCreateNew }/>
+        } else {
+            switch(view) {
+                case "home":
+                    currentView = <HomeView create={ this.props.showCreateNew }/>
+                    break;
+                case "create":
+                    currentView = <WizardForm submit={ this.props.createNewCard }/>
+                    break;
+                case "new card":
+                    currentView = <CardCreated />
+                    break;
+                case "card":
+                    currentView = <CreatureCard />
+                    break;
+                case "results list":
+                    currentView = <SearchResultContainer />
+                    break;
+                case "error":
+                    currentView = <Error />
+                    break;
+                default:
+                currentView = <div>Hello</div>
+            }
         }
-        // // onClick to show login view
-        // let showLoginView = this.props.props.showLoginView;
-        // // onClick to submit user login
-        // let loginSubmit = this.props.props.login;
-        // // onClick to submit user logout
-        // let logoutSubmit = this.props.props.logout;
-        // // onClick to change view to registration page
-        // let showRegisterSubmit = this.props.props.showRegisterView;
-        // // onSubmit to register new users
-        // let register = this.props.props.register
-        // // button onClick to show search page
-        // let searchSubmit = this.props.props.showSearchView;
-        // // button onClick to show create new card form wizard
-        // let createSubmit = this.props.props.showCreateView;
-        // // onClick to return to homeview
-        // let showHomeView = this.props.props.showHomeView;
-        // // Wizard form onSubmit to create new card document in database
-        // let createCardSubmit = this.props.props.createNewCard;
-        // // onClick to perform database search
-        // let searchDatabase = this.props.props.searchDatabase;
-        // // onClick to show creature card
-        // let showCardView = this.props.props.showCardView;
-        // // onClick to edit existing card
-        // let editCard = this.props.props.editCard;
-        // // onClick to delete current card
-        // let deleteCard = this.props.props.deleteCard;
-        // // onClick to return to results list
-        // let showResultsList = this.props.props.showResultsList;
-        // let form = this.props.props.form;
-        // let authenticated = this.props.props.authenticated;
-        // let token = this.props.props.token;
-        // let monster;
-        // let instructionDiv;
-        // let wizardFields;
 
         // if(errorView) {
         //     currentView = <Error loginSubmit={ loginSubmit } showRegisterSubmit={ showRegisterSubmit }/>
@@ -151,7 +121,8 @@ class ViewContainer extends React.Component {
     }
 }
 const mapStateToProps = (state, props) => ({
-    view: state.view
+    view: state.view,
+    db: state.database
   });
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {

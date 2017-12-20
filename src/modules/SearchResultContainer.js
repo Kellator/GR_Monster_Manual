@@ -5,18 +5,20 @@ import { connect } from 'react-redux';
 
 class SearchResultContainer extends React.Component {
     render() {
-        let resultArray = this.props.resultsList;
-        if (resultArray.length === 0) {
-            return <NoResults 
-            searchDatabaseSubmit={ this.props.searchDatabaseSubmit } showHomeView={ this.props.showHomeView }
-            />
+        console.log(this.props);
+        let data = this.props.data;
+        if (data.length === 0) {
+            console.log("zero")
+            return <NoResults />
         }
         return(
-            <SearchResultList resultsList={ this.props.resultsList } showCardView={ this.props.showCardView }/>
+            <div>
+                <SearchResultList data={ data }/>
+            </div>
         )
     }
 }
 const mapStateToProps = (state, props) => ({
-    resultsList: state.database.resultsList
+    data: state.database.data.data
 });
 export default connect(mapStateToProps)(SearchResultContainer);
