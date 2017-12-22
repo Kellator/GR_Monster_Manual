@@ -33,7 +33,11 @@ export const cardFetchFail = (error) => ({
     type: CARD_FETCH_FAIL,
     error
 });
-
+export const TEST = 'TEST';
+export const test = (id) => ({
+    type: TEST,
+    id
+});
 export const retrieve = (id) => (dispatch, getState) => {
     const authToken = getState().auth.authToken;
     dispatch(fetching());
@@ -141,14 +145,14 @@ export const deleteFail = (error) => ({
     type: DELETE_FAIL,
     error
 });
-export const deleteCard = (card_id) => (dispatch, getState) => {
-    console.log(card_id);
+export const deleteCard = () => (dispatch, getState) => {
     const authToken = getState().auth.authToken;
-    console.log(authToken);
+    const card = getState().database.currentCard._id;
+    console.log(card);
     return dispatch => {
         axios.delete(API_URL + "delete", {
             data: {
-                card_id: card_id
+                id: card
             }
         })       
         .then(response => {
