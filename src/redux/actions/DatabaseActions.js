@@ -1,8 +1,11 @@
 import axios from 'axios';
 import * as ViewActions from './ViewActions.js';
-// var config = require('../../config');
-// //
-let url = 'http://localhost:5252/';
+import {fetchProtectedData} from './protected-data';
+import {normalizeResponseErrors} from './utils';
+
+import { API_URL } from '../../config';
+const withQuery = require('with-query');
+// let url = 'http://localhost:5252/';
 // let url = "https://hidden-hamlet-10698.herokuapp.com/";
 
 
@@ -20,97 +23,115 @@ export const fetchFail = (error) => ({
     type: FETCH_FAIL,
     error
 });
-
-export const searchDatabase = (query, token) => {
-    console.log(query);
-    console.log(token);
-    return dispatch => {
-        dispatch(fetching());
-        axios.get(url + "monster", {
-            params: {
-                term: query.basic_search_input
-            },
-            headers: {
-                Authorization: "Bearer " + token 
-            }
-        })
-        .then(response => {
-            console.log(response);
-            if(response.status === 200) {
-                dispatch(fetchSuccess(response.data));
-                dispatch(ViewActions.showResultsListView());
-                console.log("Search was successful");
-            }
-        })
-        .catch(error => {
-            console.log(error);
-            dispatch(fetchFail(error));
-            dispatch(ViewActions.showErrorView(error));
-        });
-    }
-};
-
-export const LOADING = 'LOADING';
-export const loading = () => ({
-    type: LOADING
-});
-export const LOAD_SUCCESS = 'LOAD_SUCCESS';
-export const loadSuccess = (data) => ({
-    type: LOAD_SUCCESS,
+export const CARD_FETCH_SUCCESS = 'CARD_FETCH_SUCCESS';
+export const cardFetchSuccess = (data) => ({
+    type: CARD_FETCH_SUCCESS,
     data
 });
-export const LOAD_FAIL ='LOAD_FAIL';
-export const loadFail = (error) => ({
-    type: LOAD_FAIL,
+export const CARD_FETCH_FAIL = 'CARD_FETCH_FAIL';
+export const cardFetchFail = (error) => ({
+    type: CARD_FETCH_FAIL,
+    error
+});
+
+export const retrieve = (id) => (dispatch, getState) => {
+    const authToken = getState().auth.authToken;
+    dispatch(fetching());
+    axios.get(API_URL + "monster/card", {
+        params: {
+            term: id
+        },
+        headers: {
+            Authorization: `Bearer ${authToken}`,
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(res => {
+        console.log(res);
+        dispatch(cardFetchSuccess(res));
+        dispatch(ViewActions.showCardView());
+        console.log("card fetch successful");
+    })
+    .catch(error => {
+        console.log(error);
+        dispatch(cardFetchFail(error));
+        dispatch(ViewActions.showErrorView(error));
+    });
+}
+export const searchDatabase = (query) => (dispatch, getState) => {
+    console.log(query);
+    const authToken = getState().auth.authToken;
+    const searchInput = query.basic_search_input;
+    console.log(searchInput);
+    console.log(authToken);
+    dispatch(fetching());
+    axios.get(API_URL + "monster", {
+        params: {
+            term: searchInput
+        },
+        headers: {
+            Authorization: `Bearer ${authToken}`,
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(res => {
+        console.log(res);
+        dispatch(fetchSuccess(res));
+        dispatch(ViewActions.showResultsListView());
+        console.log("Search was successful");
+    })
+    .catch(error => {
+        console.log(error);
+        dispatch(fetchFail(error));
+        dispatch(ViewActions.showErrorView(error));
+    });
+};
+
+export const CREATING = 'CREATING';
+export const creating = () => ({
+    type: CREATING
+});
+export const CREATE_SUCCESS = 'CREATE_SUCCESS';
+export const createSuccess = (data) => ({
+    type: CREATE_SUCCESS,
+    data
+});
+export const CREATE_FAIL ='CREATE_FAIL';
+export const createFail = (error) => ({
+    type: CREATE_FAIL,
     error
 });
 // action to dispatch to create new monster card
-export const createNewCard = (data) => {
+export const createNewCard = (data) => (dispatch, getState) => {
     console.log(data);
-    return dispatch => {
-        dispatch(loading());
-        axios.post(url + "monster", data)
-        .then(response => {
-            console.log(response.data);
-            let newMonster = response.data;
-            dispatch(loadSuccess(newMonster));
-            dispatch(ViewActions.showNewCardView());
-            console.log(response.status);
-        })
-        .catch(error => {
-            console.log(error);
-            dispatch(loadFail(error));
-            dispatch(ViewActions.showErrorView(error));
-        });
-    }
+    const authToken = getState().auth.authToken;
+    console.log(authToken);
+    dispatch(creating());
+    return fetch(`${API_URL}monster`, {
+        method: 'POST',
+        headers: {
+            // Provide our auth token as credentials
+            Authorization: `Bearer ${authToken}`,
+            'Content-Type': 'application/json'
+        
+        },
+        body: JSON.stringify(data)
+    })
+    .then(res => normalizeResponseErrors(res))
+    .then(res => res.json())
+    .then(res => {
+        console.log(res);
+        let newMonster = res;
+        dispatch(createSuccess(newMonster));
+        dispatch(ViewActions.showNewCardView());
+    })
+    .catch(err => {
+        console.log(err);
+        dispatch(createFail(err));
+        dispatch(ViewActions.showErrorView(err));
+    })
 };
 
-// export const EDIT_SUCCESS = 'EDIT_SUCCESS';
-// export const editSuccess = (edit) => ({
-//     type: EDIT_SUCCESS,
-//     edit
-// });
-// export const EDIT_FAIL = 'EDIT_FAIL';
-// export const editFail = (error) => ({
-//     type: EDIT_FAIL,
-//     error
-// });
-// // action to dispatch to edit existing creature card
-// export const editCard = (card_id) => {
-//     console.log(card_id);
-//     return dispatch => {
-//         axios.put(url + "edit", card_id)
-//         .then(response => {
-//             console.log(response);
-            
-//             // dispatch(editSuccess(edit))
-//         })
-//         .catch(error => {
-//             console.log(error);
-//             dispatch(editFail(error));
-//         });
-//     }
-// };
 export const DELETE_SUCCESS = 'DELETE_SUCCESS';
 export const deleteSuccess = () => ({
     type: DELETE_SUCCESS
@@ -120,10 +141,12 @@ export const deleteFail = (error) => ({
     type: DELETE_FAIL,
     error
 });
-export const deleteCard = (card_id) => {
+export const deleteCard = (card_id) => (dispatch, getState) => {
     console.log(card_id);
+    const authToken = getState().auth.authToken;
+    console.log(authToken);
     return dispatch => {
-        axios.delete(url + "delete", {
+        axios.delete(API_URL + "delete", {
             data: {
                 card_id: card_id
             }

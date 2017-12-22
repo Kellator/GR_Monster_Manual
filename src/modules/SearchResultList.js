@@ -4,8 +4,9 @@ import {List, ListItem} from 'material-ui/List';
 
 class SearchResultList extends React.Component {
     render() {
-        const results = (this.props.resultsList) ? this.props.resultsList.map((result, index) => {
-            return <SearchResult key={ index } result={ result } showCardView={ this.props.showCardView }/>
+        console.log(this.props);
+        const results = (this.props.data) ? this.props.data.map((result, index) => {
+            return <SearchResult showCard={ this.props.showCard } key={ index } index={ index } result={ result } />
         }) : undefined;
         return(
             <div>

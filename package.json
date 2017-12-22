@@ -33,11 +33,13 @@
     "react-dom": "^16.0.0",
     "react-redux": "^5.0.6",
     "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
     "react-router-redux": "^5.0.0-alpha.7",
     "redux": "^3.7.2",
     "redux-form": "^7.1.1",
     "redux-form-material-ui": "^4.3.0",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "with-query": "^1.0.2"
   },
   "scripts": {
     "start": "react-scripts start",

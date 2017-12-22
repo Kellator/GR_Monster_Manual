@@ -1,17 +1,13 @@
 import { compose, createStore, applyMiddleware } from 'redux';
 import createHistory from 'history/createBrowserHistory';
+import {loadAuthToken} from '../local-storage';
+import {setAuthToken, refreshAuthToken} from '../redux/actions/AuthActions';
 // import { routerMiddleware } from 'react-router-redux';
 import logger from 'redux-logger';
 import rootReducer from './reducers';
 import thunk from 'redux-thunk';
 
 const history = createHistory();
-
-// const middleware = routerMiddleware(
-//     history,
-//     createLogger,
-//     thunk
-// );
 
 const middleware = [
     logger,
@@ -32,7 +28,11 @@ const store = createStore(
     rootReducer,
     enhancers
 );
-
-
+const authToken = loadAuthToken();
+if (authToken) {
+    const token = authToken;
+    store.dispatch(setAuthToken(token));
+    store.dispatch(refreshAuthToken());
+}
 
 export { store };

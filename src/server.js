@@ -20,7 +20,7 @@ app.use(bodyParser.json());
 // app.use(cors());
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
     res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
     if (req.method === "OPTIONS") {
         return res.status(200).end();
@@ -31,14 +31,13 @@ app.use('/', router);
 app.use('/user', userRouter);
 app.use('/auth', authRouter);
 
-
 passport.use(localStrategy);
 passport.use(jwtStrategy);
 const server = http.Server(app);
 
 // coordinates the connection to the database and the running of the HTTP server
 const runServer = function(callback) {
-    console.log(config.DATABASE_URL);
+    // console.log(config.DATABASE_URL);
     mongoose.connect(config.DATABASE_URL, { useMongoClient: true }, function(err) {
         if (err && callback) {
             return callback(err);

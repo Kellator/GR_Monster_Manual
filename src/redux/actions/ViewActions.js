@@ -8,34 +8,34 @@ export const showRegisterView = () => ({
     type: SHOW_REGISTER
 });
 
-export const HOMEVIEW = 'HOMEVIEW';
+export const HOME_VIEW = 'HOME_VIEW';
 export const showHomeView = () => ({
-    type: HOMEVIEW
+    type: HOME_VIEW
 });
 
-export const SEARCHVIEW = 'SEARCHVIEW';
+export const SEARCH_VIEW = 'SEARCH_VIEW';
 export const showSearchView = () => ({
-    type: SEARCHVIEW
+    type: SEARCH_VIEW
 });
 
-export const CREATEVIEW = 'CREATEVIEW';
+export const CREATE_VIEW = 'CREATE_VIEW';
 export const showCreateView = () => ({
-    type: CREATEVIEW
+    type: CREATE_VIEW
 });
 
-export const NEWCARDVIEW = 'NEWCARDVIEW';
+export const NEW_CARD_VIEW = 'NEW_CARD_VIEW';
 export const showNewCardView = () => ({
-    type: NEWCARDVIEW
+    type: NEW_CARD_VIEW
 });
 
 export const RESULTS_LIST_VIEW = 'RESULTS_LIST_VIEW';
 export const showResultsListView = () => ({
     type: RESULTS_LIST_VIEW
 });
-export const CARDVIEW = 'CARDVIEW';
-export const showCardView = (monster) => ({
-    type: CARDVIEW,
-    monster
+export const CARD_VIEW = 'CARD_VIEW';
+export const showCardView = (result) => ({
+    type: CARD_VIEW,
+    result
 });
 export const ERROR = 'ERROR';
 export const showErrorView = (error) => ({
