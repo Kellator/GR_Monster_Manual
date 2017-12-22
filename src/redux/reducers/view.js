@@ -44,7 +44,8 @@ export default function reducer(state = initialState, action) {
         });
     } else if (action.type === CARD_VIEW) {
         return Object.assign({}, state, {
-            type: 'card'
+            type: 'card',
+            currentCard: action.result
         });
     } else if (action.type === ERROR) {
         return Object.assign({}, state, {

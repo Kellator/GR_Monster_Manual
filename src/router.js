@@ -15,7 +15,20 @@ router.get('/protected', jwtAuth, (req, res) => {
       data: 'rosebud'
     });
   });
-
+router.get('/monster/card', jwtAuth, (req, res) => {
+    var id = req.query.term;
+    console.log("I made it here  " + id);
+    Monster.findById(id, (err, monster) => {
+        if (err) {
+            console.log(err);
+            console.error('Darn! No Monster Here');
+            return res.status(500).json({
+                message: 'Nuts.  Internal Server Error.'
+            });
+        }  
+        res.json(monster);  
+    })
+})
 // searches db specific to criteria entered in search
 router.get('/monster', jwtAuth, (req, res) => {
     // initial search criteria (e.g. search by name of creature OR categorization of creature) 

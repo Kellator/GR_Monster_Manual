@@ -33,9 +33,9 @@ export const showResultsListView = () => ({
     type: RESULTS_LIST_VIEW
 });
 export const CARD_VIEW = 'CARD_VIEW';
-export const showCardView = (monster) => ({
+export const showCardView = (result) => ({
     type: CARD_VIEW,
-    monster
+    result
 });
 export const ERROR = 'ERROR';
 export const showErrorView = (error) => ({

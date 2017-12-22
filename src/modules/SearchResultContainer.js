@@ -2,7 +2,7 @@ import React from 'react';
 import SearchResultList from './SearchResultList.js'
 import NoResults from './NoResults.js';
 import { connect } from 'react-redux';
-import {showCardView} from '../redux/actions/ViewActions';
+
 
 class SearchResultContainer extends React.Component {
     render() {
@@ -14,7 +14,7 @@ class SearchResultContainer extends React.Component {
         }
         return(
             <div>
-                <SearchResultList data={ data } showCard={ this.props.showCard }/>
+                <SearchResultList data={ data } />
             </div>
         )
     }
@@ -22,11 +22,4 @@ class SearchResultContainer extends React.Component {
 const mapStateToProps = (state, props) => ({
     data: state.database.data.data
 });
-const mapDispatchToProps = (dispatch, ownProps) => {
-    return {
-        showCard: () => {
-            dispatch(showCardView())
-        }
-    }
-}
-export default connect(mapStateToProps, mapDispatchToProps)(SearchResultContainer);
+export default connect(mapStateToProps)(SearchResultContainer);

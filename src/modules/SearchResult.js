@@ -1,21 +1,21 @@
 import React from 'react';
-
 import {List, ListItem} from 'material-ui/List';
+import { connect } from 'react-redux';
+import { retrieve } from '../redux/actions/DatabaseActions';
 
 
 class SearchResult extends React.Component {
     render() {
         console.log(this.props)
-        let monster = this.props.result;
-        let name = monster.name;
-        let level = monster.level;
-        let category = monster.category; 
-        // let func = () => {
-        //     this.props.showCardView(monster);
-        // }
+        console.log(this.props.index);
+        let creature = this.props.result;
+        let index = this.props.index;
+        let name = creature.name;
+        let level = creature.level;
+        let category = creature.category; 
         return (
             <div>
-                <ListItem onClick={ this.props.showCard }
+                <ListItem onClick={ this.props.showCard } 
                         primaryText={ name + " (" + level + ")"}
                         secondaryText={ category }
                 />
@@ -23,14 +23,21 @@ class SearchResult extends React.Component {
         )
     }
 }
-// const mapStateToProps = (state, props) => ({
-//     data: state.data
-// })
-// const mapDispatchToProps = (dispatch, ownProps) => {
-//     return {
-//         showCard: () => {
-//             dispatch(showCardView())
-//         }
-//     }
-// }
-export default SearchResult;
+const mapStateToProps = (state, props) => ({
+
+})
+const mapDispatchToProps = (dispatch, ownProps) => {
+    console.log(ownProps);
+    let result = ownProps.result;
+    let id = result._id
+    console.log(result);
+    return {
+        showCard: () => {
+            console.log("show card clicked");
+            dispatch(retrieve(id));
+            }
+    }
+
+
+}
+export default connect(mapStateToProps, mapDispatchToProps)(SearchResult);

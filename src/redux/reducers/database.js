@@ -2,6 +2,8 @@ import {
     FETCHING,
     FETCH_SUCCESS,
     FETCH_FAIL,
+    CARD_FETCH_SUCCESS,
+    CARD_FETCH_FAIL,
     CREATING,
     CREATE_SUCCESS,
     CREATE_FAIL
@@ -29,6 +31,19 @@ export default function reducer(state = initialState, action) {
             loaded: false,
             error: action.error
         });
+    } else if (action.type === CARD_FETCH_SUCCESS) {
+        return Object.assign({}, state, {
+            loading: false,
+            loaded: true,
+            currentCard: action.data,
+            error: null
+        });
+    } else if (action.type === CARD_FETCH_FAIL) {
+        return Object.assign({}, state, {
+            loading: false,
+            loaded: false,
+            error: action.error
+        });
     } else if (action.type === CREATING) {
         return Object.assign({}, state, {
             loading: true
@@ -47,5 +62,6 @@ export default function reducer(state = initialState, action) {
             error: action.error
         });
     }
+    
     return state;
 }

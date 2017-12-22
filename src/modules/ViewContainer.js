@@ -20,7 +20,7 @@ class ViewContainer extends React.Component {
         let currentView;
         let instructionDiv;
         let view = this.props.view.type;
-        console.log(view);
+        let index;
         if(this.props.user && view === null) {
             currentView = <HomeView create={ this.props.showCreateNew }/>
         } else {

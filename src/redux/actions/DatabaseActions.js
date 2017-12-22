@@ -23,7 +23,41 @@ export const fetchFail = (error) => ({
     type: FETCH_FAIL,
     error
 });
+export const CARD_FETCH_SUCCESS = 'CARD_FETCH_SUCCESS';
+export const cardFetchSuccess = (data) => ({
+    type: CARD_FETCH_SUCCESS,
+    data
+});
+export const CARD_FETCH_FAIL = 'CARD_FETCH_FAIL';
+export const cardFetchFail = (error) => ({
+    type: CARD_FETCH_FAIL,
+    error
+});
 
+export const retrieve = (id) => (dispatch, getState) => {
+    const authToken = getState().auth.authToken;
+    dispatch(fetching());
+    axios.get(API_URL + "monster/card", {
+        params: {
+            term: id
+        },
+        headers: {
+            Authorization: `Bearer ${authToken}`,
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(res => {
+        console.log(res);
+        dispatch(cardFetchSuccess(res));
+        dispatch(ViewActions.showCardView());
+        console.log("card fetch successful");
+    })
+    .catch(error => {
+        console.log(error);
+        dispatch(cardFetchFail(error));
+        dispatch(ViewActions.showErrorView(error));
+    });
+}
 export const searchDatabase = (query) => (dispatch, getState) => {
     console.log(query);
     const authToken = getState().auth.authToken;

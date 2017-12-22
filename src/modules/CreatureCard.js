@@ -103,7 +103,6 @@ class CreatureCard extends React.Component {
     }
 }
 const mapStateToProps = (state, props) => ({
-    creature: state.database.cardView,
-    resultsList: state.database.resultsList
-});
+    currentCard: state.database.currentCard.data
+})
 export default connect(mapStateToProps)(CreatureCard);
