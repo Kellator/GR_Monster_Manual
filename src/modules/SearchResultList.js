@@ -6,7 +6,7 @@ class SearchResultList extends React.Component {
     render() {
         console.log(this.props);
         const results = (this.props.data) ? this.props.data.map((result, index) => {
-            return <SearchResult key={ index } result={ result } />
+            return <SearchResult showCard={ this.props.showCard } key={ index } result={ result } />
         }) : undefined;
         return(
             <div>

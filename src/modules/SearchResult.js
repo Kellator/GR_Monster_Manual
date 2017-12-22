@@ -1,5 +1,7 @@
 import React from 'react';
+
 import {List, ListItem} from 'material-ui/List';
+
 
 class SearchResult extends React.Component {
     render() {
@@ -8,12 +10,12 @@ class SearchResult extends React.Component {
         let name = monster.name;
         let level = monster.level;
         let category = monster.category; 
-        let func = () => {
-            this.props.showCardView(monster);
-        }
+        // let func = () => {
+        //     this.props.showCardView(monster);
+        // }
         return (
             <div>
-                <ListItem onClick={ func } 
+                <ListItem onClick={ this.props.showCard }
                         primaryText={ name + " (" + level + ")"}
                         secondaryText={ category }
                 />
@@ -21,4 +23,14 @@ class SearchResult extends React.Component {
         )
     }
 }
+// const mapStateToProps = (state, props) => ({
+//     data: state.data
+// })
+// const mapDispatchToProps = (dispatch, ownProps) => {
+//     return {
+//         showCard: () => {
+//             dispatch(showCardView())
+//         }
+//     }
+// }
 export default SearchResult;

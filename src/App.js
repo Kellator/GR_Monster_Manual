@@ -9,7 +9,7 @@ import Login from './modules/Login';
 import Register from './modules/Register';
 import Dashboard from './modules/Dashboard';
 import {refreshAuthToken, clearAuth} from './redux/actions/AuthActions';
-import {showCreateView} from './redux/actions/ViewActions';
+import {showCreateView, showHomeView} from './redux/actions/ViewActions';
 import {clearAuthToken} from './local-storage';
 
 //material ui design components and imports
@@ -56,6 +56,9 @@ class App extends React.Component {
   };
   createView = () => {
     this.props.dispatch(showCreateView());
+  };
+  homeView = () => {
+    this.props.dispatch(showHomeView());
   }
   render() {
     console.log(this.props)
@@ -71,7 +74,7 @@ class App extends React.Component {
                 anchorOrigin={{horizontal: 'right', vertical: 'top'}}
                 targetOrigin={{horizontal: 'right', vertical: 'top'}}
                 >
-                <MenuItem primaryText="Search" onClick={ this.props.showHomeView } />
+                <MenuItem primaryText="Search" onClick={ () => this.homeView() } />
                 <MenuItem primaryText="Create New" onClick={ () => this.createView() } />
                 <MenuItem primaryText="Help" />
                 <MenuItem primaryText="Log out" onClick={ () => this.logOut() }/>
@@ -92,21 +95,7 @@ const mapStateToProps = (state, props) => ({
   loggedIn: state.auth.currentUser !== null
 });
 export default withRouter(connect(mapStateToProps)(App));
-// const mapDispatchToProps = (dispatch, ownProps) => {
-//   return {
-//     showLoginView : () => {
-//       console.log("login clicked");
-//       dispatch(actions.ViewActions.showLogin());
-//     },
-//     login : (values) => {
-//       console.log("logging in");
-//       console.log(values)
-//       dispatch(actions.LoginActions.checkLogin(values));
-//     },
-//     logout : () => {
-//       console.log("logging out");
-//       dispatch(actions.LoginActions.logoutUser());
-//     },
+
 //     showRegisterView : () => {
 //       console.log("registration clicked");
 //       dispatch(actions.ViewActions.showRegisterView());
@@ -128,27 +117,7 @@ export default withRouter(connect(mapStateToProps)(App));
 //       console.log("to show new card created");
 //       dispatch(actions.ViewActions.showNewCardView());
 //     },
-//     showHomeView : () => {
-//       console.log("Show the home view");
-//       dispatch(actions.ViewActions.showHomeView());
-//     },
-//     // currently handled by submit function inside component
-//     // searchDatabase : (value, token) => {
-//     //   console.log("search function initiated");
-//     //   console.log(value);
-//     //   console.log(token);
-//     //   dispatch(actions.DatabaseActions.searchDatabase(value, token));
-//     // },
-    // createNewCard : (values) => {
-    //   console.log("add new card function initiated");
-    //   console.log(values);
-    //   dispatch(actions.DatabaseActions.createNewCard(values));
-    //   dispatch(reset('wizard'));
-    // },
-//     showResultsList :() => {
-//       console.log("back button clicked");
-//       dispatch(actions.ViewActions.showResultsListView());
-//     },
+
 //     showCardView : (monster) => {
 //       console.log("show the creature card");
 //       dispatch(actions.ViewActions.showCardView(monster));
@@ -160,7 +129,4 @@ export default withRouter(connect(mapStateToProps)(App));
 //     deleteCard : (card_id) => {
 //       console.log("Card Deleted");
 //       dispatch(actions.DatabaseActions.deleteCard(card_id));
-//     },
-//   }
-// }
-// export default connect(mapStateToProps, mapDispatchToProps)(App);
+
