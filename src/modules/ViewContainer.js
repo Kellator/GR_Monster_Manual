@@ -4,6 +4,8 @@ import {reset} from 'redux-form';
 import Login from './Login.js';
 import Register from './Register.js';
 import WizardForm from './WizardForm.js';
+import { showHomeView, showCreateView } from '../redux/actions/ViewActions';
+import { createNewCard } from '../redux/actions/DatabaseActions';
 import HomeView from './homeview.js';
 import CardCreated from './cardCreated.js';
 import SearchResult from './SearchResult.js';
@@ -12,7 +14,6 @@ import SearchResultContainer from './SearchResultContainer';
 import Error from './Error';
 import '../Flex.css';
 import instructions from './InstructionText.js';
-import * as actions from '../redux/actions/index';
 
 class ViewContainer extends React.Component {
     render() {
@@ -38,7 +39,7 @@ class ViewContainer extends React.Component {
                     currentView = <CreatureCard />
                     break;
                 case "results list":
-                    currentView = <SearchResultContainer />
+                    currentView = <SearchResultContainer home={ this.props.showHomeView }/>
                     break;
                 case "error":
                     currentView = <Error />
@@ -111,7 +112,7 @@ class ViewContainer extends React.Component {
         return (
             <div className="flex-container">
                 <div className="flex-aside">
-                    <h3>Demo Tips</h3>
+                    <h3>Tips</h3>
                     { instruction }
                 </div>
                 <div className="flex-main">{ currentView }</div>
@@ -127,15 +128,15 @@ const mapStateToProps = (state, props) => ({
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         showCreateNew: () => {
-            dispatch(actions.ViewActions.showCreateView());
-            console.log("create view");
+            dispatch(showCreateView());
         },
         createNewCard : (values) => {
-            console.log("add new card function initiated");
-            console.log(values);
-            dispatch(actions.DatabaseActions.createNewCard(values));
+            dispatch(createNewCard(values));
             dispatch(reset('wizard'));
-          },
+        },
+        showHomeView: () => {
+            dispatch(showHomeView());
+        }
     }
 };
 export default connect(mapStateToProps, mapDispatchToProps)(ViewContainer);

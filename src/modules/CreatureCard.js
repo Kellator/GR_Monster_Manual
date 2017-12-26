@@ -11,12 +11,17 @@ import Treasure from './Treasure.js';
 import Notes from './Notes.js';
 import DeleteDialog from './Dialog.js';
 import { deleteCard } from '../redux/actions/DatabaseActions';
+import {  showResultsListView } from '../redux/actions/ViewActions';
 
 class CreatureCard extends React.Component {
+    // deleteCard() {
+    //     const {id} = this.props.currentCard._id
+    //     this.props.delete(id);
+    // }
     render() {
         console.log(this.props);
+        const id = this.props.currentCard._id;
 
-    //     console.log(this.props);
         let weaponComponentToRender;
         let scholarlyComponentToRender;
         let physicalDefenseComponentToRender;
@@ -24,11 +29,6 @@ class CreatureCard extends React.Component {
         let racialDefenseComponentToRender;
         let treasureComponentToRender;
         let notesComponentToRender;
-
-    //     let creature = this.props.creature;
-    //     let card_id = creature._id;
-    //     let deleteCard = this.props.deleteCard;
-    //     let editCard = this.props.editCard;
 
         let basicStats = {
             name: this.props.currentCard.name,
@@ -46,7 +46,7 @@ class CreatureCard extends React.Component {
         let racialDefenses = this.props.currentCard.racialDefenses;
         let treasure = this.props.currentCard.treasure;
         let notes = this.props.currentCard.special;
-
+// renders component in appropriate section if data exists in mongo document
         if (Object.keys(this.props.currentCard).includes("weaponSkills")) {
             weaponComponentToRender = <WeaponStats stats={ weaponStats } />
         }
@@ -95,8 +95,8 @@ class CreatureCard extends React.Component {
                     {notesComponentToRender}
                 </div>
                 {/* <RaisedButton card_id={ card_id } onClick={ this.props.editCard }>Edit</RaisedButton> */}
-                <RaisedButton >Back</RaisedButton>
-                <DeleteDialog deleteCard={ this.props.delete } card={ this.props.currentCard._id } />
+                <RaisedButton onClick={ this.props.returnToList } >BACK</RaisedButton>
+                <DeleteDialog deleteCard={ this.props.delete } id={ id } />
             </div>
         )
     }
@@ -106,12 +106,15 @@ const mapStateToProps = (state, props) => ({
 })
 const mapDispatchToProps = (dispatch, ownProps) => {
     console.log(ownProps);
-    let id;
     return {
-        delete: () => {
+        delete: (id) => {
             console.log("deleted pushed");
-            dispatch(deleteCard());
+            dispatch(deleteCard(id));
+        },
+        returnToList: () => {
+            console.log("return to list clicked");
+            dispatch(showResultsListView());
         }
-    }
-}
+    };
+};
 export default connect(mapStateToProps, mapDispatchToProps)(CreatureCard);

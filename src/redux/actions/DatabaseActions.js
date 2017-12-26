@@ -63,11 +63,8 @@ export const retrieve = (id) => (dispatch, getState) => {
     });
 }
 export const searchDatabase = (query) => (dispatch, getState) => {
-    console.log(query);
     const authToken = getState().auth.authToken;
     const searchInput = query.basic_search_input;
-    console.log(searchInput);
-    console.log(authToken);
     dispatch(fetching());
     axios.get(API_URL + "monster", {
         params: {
@@ -145,16 +142,21 @@ export const deleteFail = (error) => ({
     type: DELETE_FAIL,
     error
 });
-export const deleteCard = () => (dispatch, getState) => {
-    const authToken = getState().auth.authToken;
-    const card = getState().database.currentCard._id;
-    console.log(card);
-    return dispatch => {
+export const deleteCard = (id) => {
+    return (dispatch, getState) => {
+        const authToken = getState().auth.authToken;
+        console.log("in the delete");
+        console.log(id);
+        console.log(authToken);
         axios.delete(API_URL + "delete", {
-            data: {
-                id: card
+            params: {
+                term: id
+            },
+            headers: {
+                Authorization: `Bearer ${authToken}`,
+                'Content-Type': 'application/json'
             }
-        })       
+        })      
         .then(response => {
             dispatch(deleteSuccess());
             dispatch(ViewActions.showHomeView());

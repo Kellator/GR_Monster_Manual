@@ -14,7 +14,7 @@ class HomeView extends React.Component {
                     <BasicSearch />
                 </div>
                 <div>
-                    <RaisedButton onClick={ this.props.create }>Create New</RaisedButton>
+                    <RaisedButton onClick={ this.props.create }>CREATE NEW</RaisedButton>
                 </div>
             </div>
         )
