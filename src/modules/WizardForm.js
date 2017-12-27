@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types'
+import { setPage } from '../redux/actions/DatabaseActions';
 import WizardFormFirstPage from './WizardFormFirstPage';
 import WizardFormSecondPage from './WizardFormSecondPage';
 import WizardFormThirdPage from './WizardFormThirdPage';
@@ -17,64 +17,69 @@ class WizardForm extends Component {
     this.state = {
       page: 1
     }
-    // console.log(props);
+    console.log(props);
+    this.props.getPage(this.state.page);
   }
   nextPage() {
+    this.props.getPage(this.state.page + 1);
     this.setState({ page: this.state.page + 1 });
+    console.log("next");
   }
 
   previousPage() {
+    this.props.getPage(this.state.page -1 );
     this.setState({ page: this.state.page - 1 });
+    console.log("previous");
   }
 
   render() {
     const { onSubmit } = this.props
     const { page } = this.state
-    let instructionState = this.state;
-    // console.log(this.props);
+    let pageNumber = this.state.page;
+    console.log(this.state.page);
     return (
       <div>
-        {page === 1 && <WizardFormFirstPage onSubmit={this.nextPage} instructionState={ instructionState }/>}
+        {page === 1 && <WizardFormFirstPage onSubmit={this.nextPage} pageNumber={ pageNumber }/>}
         {page === 2 && (
           <WizardFormSecondPage
             previousPage={this.previousPage}
             onSubmit={this.nextPage}
-            instructionState={ instructionState }
+            pageNumber={ pageNumber }
           />
         )}
         {page === 3 && (
           <WizardFormThirdPage
             previousPage={this.previousPage}
             onSubmit={this.nextPage}
-            instructionState={ instructionState }
+            pageNumber={ pageNumber }
           />
         )}        
         {page === 4 && (
           <WizardFormFourthPage
             previousPage={this.previousPage}
             onSubmit={this.nextPage}
-            instructionState={ instructionState }
+            pageNumber={ pageNumber }
           />
         )}
         {page === 5 && (
           <WizardFormFifthPage
             previousPage={this.previousPage}
             onSubmit={this.nextPage}
-            instructionState={ instructionState }
+            pageNumber={ pageNumber }
           />
         )}
         {page === 6 && (
           <WizardFormSixthPage
             previousPage={this.previousPage}
             onSubmit={this.nextPage}
-            instructionState={ instructionState }
+            pageNumber={ pageNumber }
           />
         )}
         {page === 7 && (
           <WizardFormSeventhPage
             previousPage={this.previousPage}
             onSubmit={this.props.submit}
-            instructionState={ instructionState }
+            pageNumber={ pageNumber }
           />
         )}
       </div>
