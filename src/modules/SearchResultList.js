@@ -1,6 +1,7 @@
 import React from 'react';
 import SearchResult from './SearchResult.js';
 import {List, ListItem} from 'material-ui/List';
+import RaisedButton from 'material-ui/RaisedButton';
 
 class SearchResultList extends React.Component {
     render() {
@@ -13,6 +14,7 @@ class SearchResultList extends React.Component {
                 <List >
                     { results }
                 </List>
+                <RaisedButton onClick={ this.props.home } >BACK</RaisedButton>
             </div>
         )
     }

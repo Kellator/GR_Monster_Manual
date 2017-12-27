@@ -217,9 +217,9 @@ router.post('/monster', jwtAuth, (req, res) => {
 // })
 // deletes a monster card from the database
 router.delete('/delete', jwtAuth, (req, res) => {
-    let card_id = req.body.card_id;
-    console.log(req.body.card_id);
-    Monster.findByIdAndRemove(card_id, (err, monster) => {
+    console.log(req.query.term);
+    let id = req.query.term;
+    Monster.findByIdAndRemove(id, (err, monster) => {
         if (err) {
             console.log(err);
             console.error('Darn! Could not delete monster card.');

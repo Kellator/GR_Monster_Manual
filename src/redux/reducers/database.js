@@ -6,7 +6,8 @@ import {
     CARD_FETCH_FAIL,
     CREATING,
     CREATE_SUCCESS,
-    CREATE_FAIL
+    CREATE_FAIL,
+    TEST
 } from '../actions/DatabaseActions';
 
 const initialState = {
@@ -60,6 +61,10 @@ export default function reducer(state = initialState, action) {
             loading: false,
             loaded: false,
             error: action.error
+        });
+    } else if (action.type === TEST) {
+        return Object.assign({}, state, {
+            currentCard: state.data.data.find(monster => monster._id == action.id)
         });
     }
     

@@ -3,18 +3,19 @@ import SearchResultList from './SearchResultList.js'
 import NoResults from './NoResults.js';
 import { connect } from 'react-redux';
 
-
 class SearchResultContainer extends React.Component {
     render() {
         console.log(this.props);
         let data = this.props.data;
         if (data.length === 0) {
-            console.log("zero")
-            return <NoResults />
+            return <NoResults home={ this.props.home }/>
         }
         return(
             <div>
-                <SearchResultList data={ data } />
+                <SearchResultList 
+                data={ data } 
+                home={ this.props.home }
+                />
             </div>
         )
     }

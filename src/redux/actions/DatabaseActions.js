@@ -33,7 +33,11 @@ export const cardFetchFail = (error) => ({
     type: CARD_FETCH_FAIL,
     error
 });
-
+export const TEST = 'TEST';
+export const test = (id) => ({
+    type: TEST,
+    id
+});
 export const retrieve = (id) => (dispatch, getState) => {
     const authToken = getState().auth.authToken;
     dispatch(fetching());
@@ -59,11 +63,8 @@ export const retrieve = (id) => (dispatch, getState) => {
     });
 }
 export const searchDatabase = (query) => (dispatch, getState) => {
-    console.log(query);
     const authToken = getState().auth.authToken;
     const searchInput = query.basic_search_input;
-    console.log(searchInput);
-    console.log(authToken);
     dispatch(fetching());
     axios.get(API_URL + "monster", {
         params: {
@@ -141,16 +142,21 @@ export const deleteFail = (error) => ({
     type: DELETE_FAIL,
     error
 });
-export const deleteCard = (card_id) => (dispatch, getState) => {
-    console.log(card_id);
-    const authToken = getState().auth.authToken;
-    console.log(authToken);
-    return dispatch => {
+export const deleteCard = (id) => {
+    return (dispatch, getState) => {
+        const authToken = getState().auth.authToken;
+        console.log("in the delete");
+        console.log(id);
+        console.log(authToken);
         axios.delete(API_URL + "delete", {
-            data: {
-                card_id: card_id
+            params: {
+                term: id
+            },
+            headers: {
+                Authorization: `Bearer ${authToken}`,
+                'Content-Type': 'application/json'
             }
-        })       
+        })      
         .then(response => {
             dispatch(deleteSuccess());
             dispatch(ViewActions.showHomeView());

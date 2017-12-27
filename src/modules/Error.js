@@ -7,15 +7,15 @@ class Error extends React.Component {
     render() {
         console.log(this.props);
         let error;
-        if (this.props.db) {
-            error = <div>
-                        <p>Error Code: { this.props.db.error.code }</p>
-                        <p>Error Message: { this.props.db.error.message }</p>
-                    </div>
-        }
-        else {
-            error = <p>No idea what happened. Try again.</p>
-        }
+        // if (this.props.db) {
+        //     error = <div>
+        //                 <p>Error Code: { this.props.db.error.code }</p>
+        //                 <p>Error Message: { this.props.db.error.message }</p>
+        //             </div>
+        // }
+        // else {
+        //     error = <p>No idea what happened. Try again.</p>
+        // }
         let errorMessage =
             <div>
                 <h1>Sorry!  There is an unexpected error occurring.  Please try again.</h1>
