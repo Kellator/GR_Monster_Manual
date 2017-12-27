@@ -14,6 +14,7 @@ import SearchResultContainer from './SearchResultContainer';
 import Instruction from './Instruction';
 import Error from './Error';
 import '../Flex.css';
+import { setPage } from '../redux/actions/DatabaseActions';
 
 
 class ViewContainer extends React.Component {
@@ -22,6 +23,8 @@ class ViewContainer extends React.Component {
         let currentView;
         let instructionDiv;
         let view = this.props.view.type;
+        let form = this.props.form;
+        let page = this.props.page;
         let index;
         if(this.props.user && view === null) {
             currentView = <HomeView create={ this.props.showCreateNew }/>
@@ -33,8 +36,8 @@ class ViewContainer extends React.Component {
                     instructionDiv = <Instruction view={view}/>
                     break;
                 case "create":
-                    currentView = <WizardForm submit={ this.props.createNewCard }/>
-                    instructionDiv = <Instruction view={view}/>
+                    currentView = <WizardForm submit={ this.props.createNewCard } getPage={ this.props.getPage }/>
+                    instructionDiv = <Instruction view={view} form={form} page={page}/>
                     break;
                 case "new card":
                     currentView = <CardCreated />
@@ -55,58 +58,6 @@ class ViewContainer extends React.Component {
                 currentView = <div>Hello</div>
             }
         }
-
-
-        // if (homeView === true) {
-        //     currentView = <HomeView createSubmit={ createSubmit } searchSubmit={ searchSubmit } searchDatabaseSubmit={ searchDatabase } token={ token }/>
-        //     instructionDiv = 
-        //     <div>
-        //         <p>{instructions.homeView.lineOne}</p>
-        //         <p>{instructions.homeView.lineTwo}</p>
-        //         <ul >
-        //             {
-        //                 instructions.homeView.categoryList.map(function(category, i) {
-        //                     return <li key={i}>{category}</li>
-        //                 })
-        //             }
-        //         </ul>
-        //     </div>
-        // }
-        // if (createView === true) {
-        //     currentView = <WizardForm createCardSubmit={ createCardSubmit } />
-        // }
-
-        // if (newCardView === true) {
-        //     currentView = <CardCreated createSubmit={ createSubmit } showHomeView={ showHomeView } />
-        //     let texts = instructions.newCardView
-        //     let componentToRender = <p>{texts}</p>
-        //     instructionDiv = <div>{componentToRender}</div>
-        // }
-        // if (resultsListView === true) {
-        //     currentView = <SearchResultContainer  createSubmit={ createSubmit } searchDatabaseSubmit={ searchDatabase } 
-        //         showHomeView={ showHomeView } showCardView={ showCardView }/>
-        //     let texts = instructions.resultsListView;
-        //     let componentToRender = Object.keys(texts).map(function(text, index) {
-        //         return <p key={index}>{texts[text]}</p>
-        //     })
-        //     instructionDiv = <div>{ componentToRender }</div>;
-        // }
-        // if (cardView === true) {
-        //     currentView = <CreatureCard showHomeView={ showHomeView } editCard={ editCard } deleteCard={ deleteCard } showResultsList={ showResultsList }/>
-        //     let texts = instructions.cardView;
-        //     let componentToRender = Object.keys(texts).map(function(text, index) {
-        //         return <p key={index}>{texts[text]}</p>
-        //     })
-        //     instructionDiv = <div>{ componentToRender }</div>;
-        // }
-
-        
-        // determines the tool text in instruction div
-        // user state to determine instructions based on current view = switch
-        // let instruction = 
-        //     <div>
-        //         {instructionDiv}
-        //     </div>
         
         return (
             <div className="flex-container">
@@ -122,7 +73,9 @@ class ViewContainer extends React.Component {
 }
 const mapStateToProps = (state, props) => ({
     view: state.view,
-    db: state.database
+    db: state.database,
+    form: state.form,
+    page: state.database.page
   });
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
@@ -135,6 +88,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         },
         showHomeView: () => {
             dispatch(showHomeView());
+        },
+        getPage: (page) => {
+            dispatch(setPage(page));
         }
     }
 };

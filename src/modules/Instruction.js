@@ -7,8 +7,16 @@ import instructions from './InstructionText';
 class Instruction extends React.Component {
     render() {
         let view = this.props.view;
+        let form = this.props.form;
+        let page = this.props.page;
         let textToRender;
+        let formText;
+        let fields;
         console.log(view);
+        console.log(form)
+        // fields = Object.keys(form.wizard.registeredFields)
+        console.log(fields);
+
         switch(view) {
             case "home":
             textToRender = 
@@ -28,14 +36,19 @@ class Instruction extends React.Component {
                 </div>
             break;
         case "create":
-        textToRender = 
+        if(page) {
+            textToRender = 
             <div>
                 {
-                    instructions.createView.text.map(function(text, i) {
+                    instructions.createView.text[page].map(function(text, i) {
                         return <p key={i}>{text}</p>
                     })
                 }
             </div>
+        }
+        else {
+            textToRender = <div><p>Nothing to see here.</p></div>
+        }
             break;
         case "new card":
         textToRender = 

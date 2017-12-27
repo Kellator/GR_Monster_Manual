@@ -8,6 +8,11 @@ const withQuery = require('with-query');
 // let url = 'http://localhost:5252/';
 // let url = "https://hidden-hamlet-10698.herokuapp.com/";
 
+export const SET_PAGE = 'SET_PAGE';
+export const setPage = (page) => ({
+    type: SET_PAGE,
+    page
+});
 
 export const FETCHING = 'FETCHING';
 export const fetching = () => ({

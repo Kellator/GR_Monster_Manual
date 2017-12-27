@@ -7,7 +7,8 @@ import {
     CREATING,
     CREATE_SUCCESS,
     CREATE_FAIL,
-    TEST
+    TEST,
+    SET_PAGE
 } from '../actions/DatabaseActions';
 
 const initialState = {
@@ -65,6 +66,10 @@ export default function reducer(state = initialState, action) {
     } else if (action.type === TEST) {
         return Object.assign({}, state, {
             currentCard: state.data.data.find(monster => monster._id == action.id)
+        });
+    } else if (action.type === SET_PAGE) {
+        return Object.assign({}, state, {
+            page: action.page
         });
     }
     

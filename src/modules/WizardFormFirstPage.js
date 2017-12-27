@@ -3,13 +3,12 @@ import { Field, reduxForm } from 'redux-form';
 import validate from './validate';
 import { connect } from 'react-redux';
 import RaisedButton from 'material-ui/RaisedButton';
-
 import { TextField, SelectField } from 'redux-form-material-ui';
 import MenuItem from 'material-ui/MenuItem';
 
 let WizardFormFirstPage = props => {
   const { handleSubmit } = props
-//   console.log(props);
+  let pageNumber = props.pageNumber;
   return (
     <form onSubmit={handleSubmit}>
         <p>Enter Name of New Creature (required).</p>

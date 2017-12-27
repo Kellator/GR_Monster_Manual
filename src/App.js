@@ -95,38 +95,3 @@ const mapStateToProps = (state, props) => ({
   loggedIn: state.auth.currentUser !== null
 });
 export default withRouter(connect(mapStateToProps)(App));
-
-//     showRegisterView : () => {
-//       console.log("registration clicked");
-//       dispatch(actions.ViewActions.showRegisterView());
-//     },
-//     register : (values) => {
-//       console.log("new login");
-//       console.log(values)
-//       dispatch(actions.LoginActions.register(values));
-//     },
-//     showCreateView : () => {
-//       console.log("button clicked");
-//       dispatch(actions.ViewActions.showCreateView());
-//     },
-//     showSearchView : () => {
-//       console.log("other button clicked");
-//       dispatch(actions.ViewActions.showSearchView());
-//     },
-//     showNewCardView : () => {
-//       console.log("to show new card created");
-//       dispatch(actions.ViewActions.showNewCardView());
-//     },
-
-//     showCardView : (monster) => {
-//       console.log("show the creature card");
-//       dispatch(actions.ViewActions.showCardView(monster));
-//     },
-//     editCard : (card_id) => {
-//       console.log("edit the existing card");
-//       dispatch(actions.DatabaseActions.editCard(card_id));
-//     },
-//     deleteCard : (card_id) => {
-//       console.log("Card Deleted");
-//       dispatch(actions.DatabaseActions.deleteCard(card_id));
-

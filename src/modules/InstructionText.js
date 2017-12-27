@@ -12,14 +12,14 @@ let instructions = {
     createView:{
         // basic instructions
         text: {        
-            pageOne: [
+            "1": [
                 "For each new creature, the first four fields are required (Name, Category, Level, Body Points).",  
                 "Database users will be able to search for your creature using either the category or name so be sure to name your creature appropriately.",
                 "Creature creators are encouraged to include as much detail about skills, defenses, and descriptions as possible.",
                 "This helps NPCs (non-player-characters) know how to play the creature."
             ],
             // weapon skills demo instructions text
-            pageTwo: [
+            "2": [
                 "For your new creature, be sure to select basic weapon skills.  This helps NPCs choose the kind of weapon to take.",
                 "If a creature has no weapons; for example, a mage or wizard, select 'No Weapons' then click the NEXT button.",
                 "If a creature doesn't use weapons but instead has natural body weaponry, select Claws or Bite.  Claws allow for two short weapons while a bite is typically a single long weapon.",
@@ -31,7 +31,7 @@ let instructions = {
                 "When done, click NEXT to continue."
             ],
             // non-weapon skills demo instructions text
-            pageThree: [
+            "3": [
                 "Click on the checkbox next to the skill you want to add.",
                 "Alchemy is a skill that allows an individual to apply poisons to weapons and/or throw gas globes to cause damage or effects.  The number of levels corresponds to the level of substance an alchemist may use.",
                 "The main three schools of magic are Celestial, Earth, and Harmonic.  Arcane and Elemental are typically reserved for Elementals, Fae, and Magical Creatures.",
@@ -42,7 +42,7 @@ let instructions = {
                 "When finished entering any applicable non-weapon skills, click NEXT to conitnue."
             ],
             // physical defenses demo instructions text
-            pageFour: [
+            "4": [
                 "Physical Defenses allow a creature to defend against physical attacks.  To select a type of defense, click on the checkbox and enter the number of times per day the skill can be used.  This section may be skipped by clicking NEXT",
                 "Parry is a weaponskill defense that allows a creature to parry or block a physical attack, even if the attack lands on the body.  The creature must have a weapon or claw to parry.",
                 "Dodge allows a creature to avoid the attack.  The representation is that a creature moves out of the way of the attack.  No weapon or claw is necessary to dodge.",
@@ -53,7 +53,7 @@ let instructions = {
                 "When finished entering any applicable Physical Defenses, click NEXT to continue."
             ],
             // spell defenses demo instruction text
-            pageFive: [
+            "5": [
                 "Spell Defenses allow a creature to defend against magical attacks including packet delivered or spellstrike spells.  To select a type of defense, click on the checkbox and enter the number of times per day the skill can be used.  This section may be skipped by clicking NEXT.",
                 "Most Spell Defenses work just like their Physical Defense counterparts.",
                 "Bane allows a creature to avoid the damage or effect of a spell reflecting it back at the caster who must then take the effect or call a magical defense of their own.",
@@ -64,7 +64,7 @@ let instructions = {
                 "When finished entering any applicable Spell Defenses, click NEXT to continue."
             ],
             // racial defenses demo instructions text
-            pageSix: [
+            "6": [
                 "Racial Defenses represent skills specific to particular races found in the game.  For example, elves are adept at resisting charm effects.",
                 "Resist Charm allows a creature the ability to resist Charm, Enslavement, Fear, and Sleep effects.",
                 "Resist Sleep allows a creature to resist the sleep effect only.",
@@ -73,7 +73,7 @@ let instructions = {
                 "When finished entering any applicable Racial Defenses, click NEXT to continue."
             ],
             // treasure etc demo instructions text
-            pageSeven: [
+            "7": [
                 "General Treasure suggestions:  for LOW level creature - copper or silver, for MID level creatures - silver, gold, or production items, for HIGH level creatures - gold, platinum, components, and magic items.",
                 "Remember that treasure value is relative to your player base and should never be set in stone.",
                 "The Special Instructions line is available for any additional comments of instructions that should be added for this creature.  For example, maybe you want to instruct that a high level dragon should be played by multiple NPCs or that a specific NPC Bandit has a flamboyant personality.",
