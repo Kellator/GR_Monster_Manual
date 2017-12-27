@@ -11,9 +11,10 @@ import CardCreated from './cardCreated.js';
 import SearchResult from './SearchResult.js';
 import CreatureCard from './CreatureCard.js';
 import SearchResultContainer from './SearchResultContainer';
+import Instruction from './Instruction';
 import Error from './Error';
 import '../Flex.css';
-import instructions from './InstructionText.js';
+
 
 class ViewContainer extends React.Component {
     render() {
@@ -24,22 +25,28 @@ class ViewContainer extends React.Component {
         let index;
         if(this.props.user && view === null) {
             currentView = <HomeView create={ this.props.showCreateNew }/>
+            instructionDiv = <Instruction view={'home'}/>
         } else {
             switch(view) {
                 case "home":
                     currentView = <HomeView create={ this.props.showCreateNew }/>
+                    instructionDiv = <Instruction view={view}/>
                     break;
                 case "create":
                     currentView = <WizardForm submit={ this.props.createNewCard }/>
+                    instructionDiv = <Instruction view={view}/>
                     break;
                 case "new card":
                     currentView = <CardCreated />
+                    instructionDiv = <Instruction view={view}/>
                     break;
                 case "card":
                     currentView = <CreatureCard />
+                    instructionDiv = <Instruction view={view}/>
                     break;
                 case "results list":
                     currentView = <SearchResultContainer home={ this.props.showHomeView }/>
+                    instructionDiv = <Instruction view={view}/>
                     break;
                 case "error":
                     currentView = <Error />
@@ -49,15 +56,7 @@ class ViewContainer extends React.Component {
             }
         }
 
-        // if(errorView) {
-        //     currentView = <Error loginSubmit={ loginSubmit } showRegisterSubmit={ showRegisterSubmit }/>
-        // }
-        // if(loginView) {
-        //     currentView = <Login loginSubmit={ loginSubmit } showRegisterSubmit={ showRegisterSubmit }/>
-        // }
-        // if(registerView) {
-        //     currentView = <Register registerSubmit={ register } showLogin={ showLoginView }/>
-        // }
+
         // if (homeView === true) {
         //     currentView = <HomeView createSubmit={ createSubmit } searchSubmit={ searchSubmit } searchDatabaseSubmit={ searchDatabase } token={ token }/>
         //     instructionDiv = 
@@ -104,16 +103,16 @@ class ViewContainer extends React.Component {
         
         // determines the tool text in instruction div
         // user state to determine instructions based on current view = switch
-        let instruction = 
-            <div>
-                {instructionDiv}
-            </div>
+        // let instruction = 
+        //     <div>
+        //         {instructionDiv}
+        //     </div>
         
         return (
             <div className="flex-container">
                 <div className="flex-aside">
-                    <h3>Tips</h3>
-                    { instruction }
+                    <h3>What am I doing here?</h3>
+                    { instructionDiv }
                 </div>
                 <div className="flex-main">{ currentView }</div>
             </div>
