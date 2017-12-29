@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import RaisedButton from 'material-ui/RaisedButton';
 import { Checkbox, TextField } from 'redux-form-material-ui';
 import validate from './validate';
-// import renderField from './renderField';
 
 let WizardFormFourthPage = props => {
     const { 
@@ -19,7 +18,6 @@ let WizardFormFourthPage = props => {
         hasPhysicalResistValue,
         hasReturnPhysicalValue 
     } = props
-    // console.log(props)
     return (
       <form onSubmit={handleSubmit}>   
         <h3>Physical Defenses</h3>

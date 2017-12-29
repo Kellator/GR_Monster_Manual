@@ -142,7 +142,6 @@ var MonsterSchema = new mongoose.Schema({
     special: {
         type: String
     }
-
 });
 
 MonsterSchema.plugin(timestamps);

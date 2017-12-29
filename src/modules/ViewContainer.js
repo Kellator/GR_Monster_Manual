@@ -19,13 +19,10 @@ import { setPage } from '../redux/actions/DatabaseActions';
 
 class ViewContainer extends React.Component {
     render() {
-        console.log(this.props);
         let currentView;
         let instructionDiv;
         let view = this.props.view.type;
-        let form = this.props.form;
         let page = this.props.page;
-        let index;
         if(this.props.user && view === null) {
             currentView = <HomeView create={ this.props.showCreateNew }/>
             instructionDiv = <Instruction view={'home'}/>
@@ -37,10 +34,10 @@ class ViewContainer extends React.Component {
                     break;
                 case "create":
                     currentView = <WizardForm submit={ this.props.createNewCard } getPage={ this.props.getPage }/>
-                    instructionDiv = <Instruction view={view} form={form} page={page}/>
+                    instructionDiv = <Instruction view={view} page={page}/>
                     break;
                 case "new card":
-                    currentView = <CardCreated />
+                    currentView = <CardCreated create={ this.props.showCreateNew } home={ this.props.showHomeView }/>
                     instructionDiv = <Instruction view={view}/>
                     break;
                 case "card":
@@ -74,7 +71,6 @@ class ViewContainer extends React.Component {
 const mapStateToProps = (state, props) => ({
     view: state.view,
     db: state.database,
-    form: state.form,
     page: state.database.page
   });
 const mapDispatchToProps = (dispatch, ownProps) => {

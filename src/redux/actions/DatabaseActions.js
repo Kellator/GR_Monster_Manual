@@ -5,8 +5,6 @@ import {normalizeResponseErrors} from './utils';
 
 import { API_URL } from '../../config';
 const withQuery = require('with-query');
-// let url = 'http://localhost:5252/';
-// let url = "https://hidden-hamlet-10698.herokuapp.com/";
 
 export const SET_PAGE = 'SET_PAGE';
 export const setPage = (page) => ({
@@ -56,13 +54,10 @@ export const retrieve = (id) => (dispatch, getState) => {
         }
     })
     .then(res => {
-        console.log(res);
         dispatch(cardFetchSuccess(res));
         dispatch(ViewActions.showCardView());
-        console.log("card fetch successful");
     })
     .catch(error => {
-        console.log(error);
         dispatch(cardFetchFail(error));
         dispatch(ViewActions.showErrorView(error));
     });
@@ -81,13 +76,10 @@ export const searchDatabase = (query) => (dispatch, getState) => {
         }
     })
     .then(res => {
-        console.log(res);
         dispatch(fetchSuccess(res));
         dispatch(ViewActions.showResultsListView());
-        console.log("Search was successful");
     })
     .catch(error => {
-        console.log(error);
         dispatch(fetchFail(error));
         dispatch(ViewActions.showErrorView(error));
     });
@@ -109,9 +101,7 @@ export const createFail = (error) => ({
 });
 // action to dispatch to create new monster card
 export const createNewCard = (data) => (dispatch, getState) => {
-    console.log(data);
     const authToken = getState().auth.authToken;
-    console.log(authToken);
     dispatch(creating());
     return fetch(`${API_URL}monster`, {
         method: 'POST',
@@ -126,13 +116,11 @@ export const createNewCard = (data) => (dispatch, getState) => {
     .then(res => normalizeResponseErrors(res))
     .then(res => res.json())
     .then(res => {
-        console.log(res);
         let newMonster = res;
         dispatch(createSuccess(newMonster));
         dispatch(ViewActions.showNewCardView());
     })
     .catch(err => {
-        console.log(err);
         dispatch(createFail(err));
         dispatch(ViewActions.showErrorView(err));
     })
@@ -150,9 +138,6 @@ export const deleteFail = (error) => ({
 export const deleteCard = (id) => {
     return (dispatch, getState) => {
         const authToken = getState().auth.authToken;
-        console.log("in the delete");
-        console.log(id);
-        console.log(authToken);
         axios.delete(API_URL + "delete", {
             params: {
                 term: id
@@ -165,11 +150,8 @@ export const deleteCard = (id) => {
         .then(response => {
             dispatch(deleteSuccess());
             dispatch(ViewActions.showHomeView());
-            console.log("creature Card Deleted")
-            console.log(response);
         }) 
         .catch(error => {
-            console.log(error);
             dispatch(deleteFail(error));
             dispatch(ViewActions.showErrorView(error));
         });

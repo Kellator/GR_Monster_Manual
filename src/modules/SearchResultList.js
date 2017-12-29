@@ -5,7 +5,6 @@ import RaisedButton from 'material-ui/RaisedButton';
 
 class SearchResultList extends React.Component {
     render() {
-        console.log(this.props);
         const results = (this.props.data) ? this.props.data.map((result, index) => {
             return <SearchResult showCard={ this.props.showCard } key={ index } index={ index } result={ result } />
         }) : undefined;

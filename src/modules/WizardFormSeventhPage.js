@@ -3,9 +3,6 @@ import { Field, reduxForm } from 'redux-form';
 import  RaisedButton  from 'material-ui/RaisedButton';
 import { TextField } from 'redux-form-material-ui';
 import validate from './validate';
-// import renderField from './renderField';
-// import { bindActionCreators } from 'redux';
-// import { dispatch } from 'react-redux';
 
 const WizardFormSeventhPage = props => {
     const { handleSubmit, pristine, previousPage, submitting } = props

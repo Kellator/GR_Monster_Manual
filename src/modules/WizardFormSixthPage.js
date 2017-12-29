@@ -17,7 +17,6 @@ let WizardFormSixthPage = props => {
         hasResistPoisonValue,
         hasRacialDodge,
     } = props
-    // console.log(props)
     return (
       <form onSubmit={handleSubmit}>   
         <h3>Racial Defenses</h3>

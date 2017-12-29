@@ -3,27 +3,21 @@ var config = require('./config');
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
-// var session = require('express-session');
 var bodyParser = require('body-parser');
 var bcrypt = require('bcryptjs');
 var passport = require('passport');
 var cors = require('cors');
 var jwt = require('jsonwebtoken');
-// var LocalStrategy = require('passport-local').Strategy;
 var User = require('./mongoose/UserModel');
 
 router.use(bodyParser.json());
-// router.use(session(config.SESSION_KEY));
 router.use(cors());
 
 //authenticated session persistance
 passport.serializeUser((user, callback) => {
-    console.log("serialize");
-    console.log(user);
     callback(null, user._id);
 });
 passport.deserializeUser((id, callback) => {
-    console.log("deserialize");
     User.findById(id, function(err, user) {
         if (err) {
             return callback(err);
@@ -32,13 +26,10 @@ passport.deserializeUser((id, callback) => {
     });
 });
 
-// passport.use(strategy);
 router.use(passport.initialize());
-// router.use(passport.session());
 
 // creates new user credentials
 router.post('/', (request, response) => {
-    console.log(request.body);
     if(!request.body) {
         return response.status(400).json({
             message: "No Request Body"
@@ -91,15 +82,13 @@ router.post('/', (request, response) => {
         });        
     }
     bcrypt.genSalt(10, function(error, salt) {
-        if (error) {
-            console.log(error);
+        if (error) { 
             return response.status(500).json({
                 message: "Internal Server Error"
             });
         }
         bcrypt.hash(password, salt, function(error, hash) {
             if(error) {
-                console.log(error);
                 return response.status(500).json({
                     message: "Internal Server Error"
                 });
@@ -111,12 +100,10 @@ router.post('/', (request, response) => {
             });
             user.save(function(error) {
                 if(error) {
-                    console.log(error);
                     return reset.status(500).json({
                         message: "Internal Server Error"
                     });
                 }
-                console.log(user.updatedAt);
                 return response.status(201).json({
                     status: 'Registration Successful!',
                     username: user.username,

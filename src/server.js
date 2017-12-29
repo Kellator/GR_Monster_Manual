@@ -17,7 +17,6 @@ var morgan = require('morgan')
 const { router: authRouter, localStrategy, jwtStrategy } = require('./auth');
 
 app.use(bodyParser.json());
-// app.use(cors());
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
@@ -37,13 +36,11 @@ const server = http.Server(app);
 
 // coordinates the connection to the database and the running of the HTTP server
 const runServer = function(callback) {
-    // console.log(config.DATABASE_URL);
     mongoose.connect(config.DATABASE_URL, { useMongoClient: true }, function(err) {
         if (err && callback) {
             return callback(err);
         }
         app.listen(config.PORT, function() {
-            console.log('I am listening on localhost: ', + config.PORT);
             if (callback) {
                 callback();
             }
@@ -63,6 +60,5 @@ exports.app = app;
 exports.runServer = runServer;
 
 app.get('/', function(request, response) {
-    console.log('app.get fired for /');
     return response.sendStatus(200);
 });

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-
+// from Thinkful React curriculum
 export default () => Component => {
     function RequiresLogin(props) {
         const {authenticating, loggedIn, error, ...passingThroughProps} = props;

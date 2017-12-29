@@ -9,18 +9,15 @@ const jwt = require('jsonwebtoken');
 const jwtAuth = passport.authenticate('jwt', {session: false});
 
 // A protected endpoint which needs a valid JWT to access it
-router.get('/protected', jwtAuth, (req, res) => {
-    console.log("hello protected")
-    return res.json({
-      data: 'rosebud'
-    });
-  });
+// router.get('/protected', jwtAuth, (req, res) => {
+//     return res.json({
+//       data: 'rosebud'
+//     });
+//   });
 router.get('/monster/card', jwtAuth, (req, res) => {
     var id = req.query.term;
-    console.log("I made it here  " + id);
     Monster.findById(id, (err, monster) => {
         if (err) {
-            console.log(err);
             console.error('Darn! No Monster Here');
             return res.status(500).json({
                 message: 'Nuts.  Internal Server Error.'
@@ -217,17 +214,13 @@ router.post('/monster', jwtAuth, (req, res) => {
 // })
 // deletes a monster card from the database
 router.delete('/delete', jwtAuth, (req, res) => {
-    console.log(req.query.term);
     let id = req.query.term;
     Monster.findByIdAndRemove(id, (err, monster) => {
         if (err) {
-            console.log(err);
-            console.error('Darn! Could not delete monster card.');
             return res.status(500).json({
                 message: 'Nuts.  Internal Server Error.'
             });
         }
-        console.log('Monster Card Deleted');
         return res.status(204).end();
     });
 });
