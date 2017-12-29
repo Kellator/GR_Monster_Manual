@@ -19,7 +19,6 @@ let WizardFormFifthPage = props => {
         hasResistMagicValue,
         hasReturnMagicValue 
     } = props
-    // console.log(props)
     return (
       <form onSubmit={handleSubmit}>   
         <h3>Spell Defenses</h3>

@@ -14,14 +14,8 @@ import { deleteCard } from '../redux/actions/DatabaseActions';
 import {  showResultsListView } from '../redux/actions/ViewActions';
 
 class CreatureCard extends React.Component {
-    // deleteCard() {
-    //     const {id} = this.props.currentCard._id
-    //     this.props.delete(id);
-    // }
     render() {
-        console.log(this.props);
-        const id = this.props.currentCard._id;
-
+        let id = this.props.currentCard._id;
         let weaponComponentToRender;
         let scholarlyComponentToRender;
         let physicalDefenseComponentToRender;
@@ -103,16 +97,13 @@ class CreatureCard extends React.Component {
 }
 const mapStateToProps = (state, props) => ({
     currentCard: state.database.currentCard
-})
+});
 const mapDispatchToProps = (dispatch, ownProps) => {
-    console.log(ownProps);
     return {
         delete: (id) => {
-            console.log("deleted pushed");
             dispatch(deleteCard(id));
         },
         returnToList: () => {
-            console.log("return to list clicked");
             dispatch(showResultsListView());
         }
     };

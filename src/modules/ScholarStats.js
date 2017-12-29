@@ -12,7 +12,6 @@ class ScholarStats extends React.Component {
         let alchemyComponentTotRender;
         let text;
         let textComponentToRender;
-
         // determines if creature has alchemy
         if (Object.keys(stats).includes("alchemy")) {
             let levelsOfAlchemy = stats.alchemy.levelsOfAlchemy;

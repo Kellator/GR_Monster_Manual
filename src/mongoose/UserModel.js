@@ -35,7 +35,6 @@ UserSchema.statics.findByUsername = function(username, callback) {
 UserSchema.methods.validatePassword = function(password, callback) {
     bcrypt.compare(password, this.password, function(err, isValid) {
         if(err) {
-            console.log('err in comparing');
             callback(err);
             return;
         }

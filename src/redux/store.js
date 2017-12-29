@@ -2,7 +2,6 @@ import { compose, createStore, applyMiddleware } from 'redux';
 import createHistory from 'history/createBrowserHistory';
 import {loadAuthToken} from '../local-storage';
 import {setAuthToken, refreshAuthToken} from '../redux/actions/AuthActions';
-// import { routerMiddleware } from 'react-router-redux';
 import logger from 'redux-logger';
 import rootReducer from './reducers';
 import thunk from 'redux-thunk';

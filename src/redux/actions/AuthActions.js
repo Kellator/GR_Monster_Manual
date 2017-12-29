@@ -5,9 +5,6 @@ import {saveAuthToken, clearAuthToken} from '../../local-storage';
 import jwtDecode from 'jwt-decode';
 import {normalizeResponseErrors} from './utils';
 import { API_URL } from '../../config';
-// let url = 'http://localhost:5252/';
-// // let url = "https://hidden-hamlet-10698.herokuapp.com/"
-// console.log(url);
 
 export const SET_AUTH_TOKEN = 'SET_AUTH_TOKEN';
 export const setAuthToken = authToken => ({
@@ -46,7 +43,6 @@ const storeAuthInfo = (authToken, dispatch) => {
 
 export const checkLogin = (values) => {
     return dispatch => {
-        console.log("checking the user");
         dispatch(authRequest());
         fetch(`${API_URL}auth/login`, {
             method: 'POST',
@@ -63,7 +59,6 @@ export const checkLogin = (values) => {
         .then(({authToken}) => storeAuthInfo(authToken, dispatch))
         .then(dispatch(ViewActions.showHomeView()))
         .catch(error => {
-            console.log(error);
             dispatch(authError(error));
             dispatch(ViewActions.showErrorView(error));
         });
@@ -158,7 +153,6 @@ export const register = (values) => {
         .then(res => registerSuccess(res))
         .then(res => dispatch(ViewActions.showLogin()))
         .catch(error => {
-            console.log(error);
             dispatch(registerError(error));
         });
     }

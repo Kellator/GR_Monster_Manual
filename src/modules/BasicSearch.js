@@ -10,7 +10,6 @@ class BasicSearch extends React.Component {
     };
     render() {
         const {handleSubmit, pristine, reset, submitting } = this.props
-        console.log(this.props)
         return (
             <form onSubmit={ handleSubmit(this.submit.bind(this)) }>
                 <div>

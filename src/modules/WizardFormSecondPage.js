@@ -5,13 +5,11 @@ import { Checkbox, TextField, SelectField } from 'redux-form-material-ui';
 import RaisedButton from 'material-ui/RaisedButton';
 import MenuItem from 'material-ui/MenuItem';
 import validate from './validate';
-// import renderField from './renderField';
 
 let WizardFormSecondPage = props => {
   const { 
     handleSubmit, 
     previousPage,
-    // hasPlusStrengthValue,
     hasAdvancedWeaponSkillsValue,
     hasSlaysValue,
     hasAssassinatesValue
@@ -140,12 +138,10 @@ WizardFormSecondPage = reduxForm({
 
 const selector = formValueSelector('wizard');
 WizardFormSecondPage = connect(state => {
-  // const hasPlusStrengthValue = selector(state, 'has_plus_strength');
   const hasAdvancedWeaponSkillsValue = selector(state, 'has_advanced_weapon_skills');
   const hasSlaysValue = selector(state, 'has_slays');
   const hasAssassinatesValue = selector(state, 'has_assassinates');
   return {
-    // hasPlusStrengthValue,
     hasAdvancedWeaponSkillsValue,
     hasSlaysValue,
     hasAssassinatesValue

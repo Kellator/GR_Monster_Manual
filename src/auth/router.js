@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken');
 const strategies = require('./strategies');
 const config = require('../config');
 const router = express.Router();
-
+// from Thinkful JWT curriculum
 const createAuthToken = function(user) {
     return jwt.sign({user}, config.JWT_SECRET, {
       subject: user.username,
@@ -28,7 +28,6 @@ const createAuthToken = function(user) {
   });
   
   const jwtAuth = passport.authenticate('jwt', {session: false});
-  
   // The user exchanges a valid JWT for a new one with a later expiration
   router.post('/refresh', jwtAuth, (req, res) => {
     const authToken = createAuthToken(req.user);

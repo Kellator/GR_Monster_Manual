@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 
 class SearchResultContainer extends React.Component {
     render() {
-        console.log(this.props);
         let data = this.props.data;
         if (data.length === 0) {
             return <NoResults home={ this.props.home }/>

@@ -2,9 +2,7 @@ import React from 'react';
 import { Field, reduxForm, formValueSelector } from 'redux-form';
 import { connect } from 'react-redux';
 import validate from './validate';
-// import renderField from './renderField';
 import MenuItem from 'material-ui/MenuItem';
-// import { RadioButton } from 'material-ui/RadioButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import { Checkbox, SelectField, TextField } from 'redux-form-material-ui';
 

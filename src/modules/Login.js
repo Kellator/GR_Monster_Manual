@@ -7,12 +7,10 @@ import {Link, Redirect} from 'react-router-dom';
 import {showRegisterView} from '../redux/actions/ViewActions';
 
 export class Login extends React.Component {
-    // const { errorMessage, handleSubmit, pristine, reset, submitting } = props
     onSubmit = (values) => {
         return this.props.dispatch(checkLogin(values));
     };
     viewRegistration = () => {
-        console.log("hello");
         return this.props.dispatch(showRegisterView());
     }
     render() {

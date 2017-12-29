@@ -61,7 +61,6 @@ class App extends React.Component {
     this.props.dispatch(showHomeView());
   }
   render() {
-    console.log(this.props)
     return (
       <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
         <div className="App">

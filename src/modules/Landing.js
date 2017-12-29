@@ -35,13 +35,11 @@ export function Landing(props) {
                     Demonstration instructions throughout.
                 </p>
             </div>
-            {/* <RaisedButton onClick={ () => login() } primary={ true }>Log In</RaisedButton> */}
             <Login />
         </div>
     )
 }
 const mapStateToProps = state => ({
     loggedIn: state.auth.currentUser !== null,
-    // view: state.view.loginView
 });
 export default connect(mapStateToProps)(Landing);

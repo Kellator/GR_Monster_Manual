@@ -6,7 +6,6 @@ import * as actions from '../redux/actions/index';
 // div with search or enter
 class HomeView extends React.Component {
     render() {
-        console.log(this.props);
         return (
             <div>
                 <div>
@@ -19,5 +18,5 @@ class HomeView extends React.Component {
             </div>
         )
     }
-}
+};
 export default HomeView;
