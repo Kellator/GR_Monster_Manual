@@ -37,7 +37,7 @@ class ViewContainer extends React.Component {
                     instructionDiv = <Instruction view={view} page={page}/>
                     break;
                 case "new card":
-                    currentView = <CardCreated />
+                    currentView = <CardCreated create={ this.props.showCreateNew } home={ this.props.showHomeView }/>
                     instructionDiv = <Instruction view={view}/>
                     break;
                 case "card":
