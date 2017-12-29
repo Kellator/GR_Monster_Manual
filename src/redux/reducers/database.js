@@ -7,7 +7,7 @@ import {
     CREATING,
     CREATE_SUCCESS,
     CREATE_FAIL,
-    TEST,
+    SET_CARD,
     SET_PAGE
 } from '../actions/DatabaseActions';
 
@@ -63,7 +63,7 @@ export default function reducer(state = initialState, action) {
             loaded: false,
             error: action.error
         });
-    } else if (action.type === TEST) {
+    } else if (action.type === SET_CARD) {
         return Object.assign({}, state, {
             currentCard: state.data.data.find(monster => monster._id == action.id)
         });

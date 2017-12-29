@@ -1,7 +1,7 @@
 import React from 'react';
 import {List, ListItem} from 'material-ui/List';
 import { connect } from 'react-redux';
-import { test } from '../redux/actions/DatabaseActions';
+import { setCard } from '../redux/actions/DatabaseActions';
 import { showCardView } from '../redux/actions/ViewActions';
 
 class SearchResult extends React.Component {
@@ -27,7 +27,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     let id = result._id
     return {
         showCard: () => {
-            dispatch(test(id));
+            dispatch(setCard(id));
             dispatch(showCardView());
             }
     }

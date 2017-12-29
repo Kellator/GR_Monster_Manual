@@ -36,9 +36,9 @@ export const cardFetchFail = (error) => ({
     type: CARD_FETCH_FAIL,
     error
 });
-export const TEST = 'TEST';
-export const test = (id) => ({
-    type: TEST,
+export const SET_CARD = 'SET_CARD';
+export const setCard = (id) => ({
+    type: SET_CARD,
     id
 });
 export const retrieve = (id) => (dispatch, getState) => {
@@ -149,7 +149,8 @@ export const deleteCard = (id) => {
         })      
         .then(response => {
             dispatch(deleteSuccess());
-            dispatch(ViewActions.showHomeView());
+            dispatch(ViewActions.showResultsListView());
+            // dispatch(searchDatabase());  > perform initial search again to return new list results?
         }) 
         .catch(error => {
             dispatch(deleteFail(error));
