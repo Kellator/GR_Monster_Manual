@@ -60,7 +60,7 @@ class App extends React.Component {
   }
   render() {
     return (
-      <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
+      // <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
         <div className="App">
           <AppBar 
             title="IoC | Index of Creatures" 
@@ -83,7 +83,7 @@ class App extends React.Component {
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
         </div>
-      </MuiThemeProvider>
+      // </MuiThemeProvider>
     );
   }
 }
@@ -91,4 +91,4 @@ const mapStateToProps = (state, props) => ({
   hasAuthToken: state.auth.authToken !== null,
   loggedIn: state.auth.currentUser !== null
 });
-export default withRouter(connect(mapStateToProps)(App));
+export default muiThemeable()(withRouter(connect(mapStateToProps)(App)));
