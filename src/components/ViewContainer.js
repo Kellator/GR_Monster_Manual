@@ -9,7 +9,7 @@ import { createNewCard } from '../redux/actions/DatabaseActions';
 import HomeView from './homeview.js';
 import CardCreated from './cardCreated.js';
 import SearchResult from './SearchResult.js';
-import CreatureCard from './CreatureCard.js';
+import CreatureCard from './card_view/CreatureCard';
 import SearchResultContainer from './SearchResultContainer';
 import Instruction from './Instruction';
 import Error from './Error';

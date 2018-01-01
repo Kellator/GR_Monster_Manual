@@ -1,7 +1,9 @@
 import React from 'react';
+import {Card, CardHeader, CardText} from 'material-ui/Card';
 
 class ScholarStats extends React.Component {
     render() {
+        console.log(this.props);
         let stats = this.props.stats;
         let primarySchool;
         let secondarySchool;
@@ -16,17 +18,13 @@ class ScholarStats extends React.Component {
         if (Object.keys(stats).includes("alchemy")) {
             let levelsOfAlchemy = stats.alchemy.levelsOfAlchemy;
             alchemyComponentTotRender = 
-            <div>
-                <p><span>Levels of Alchemy:  {levelsOfAlchemy}</span></p>
-            </div>
+                <CardText><p><span>Levels of Alchemy:  {levelsOfAlchemy}</span></p></CardText>
         }
         // special instruction text display
         if (Object.keys(stats).includes("magicSpecialInstructions")) {
             text = stats.magicSpecialInstructions;
             textComponentToRender = 
-            <div>
-                <p><span>Special Instructions:  {text}</span></p>
-            </div>
+                <CardText><p><span>Special Instructions:  {text}</span></p></CardText>
         }
         // determines if creature has magical skills
         if (Object.keys(stats).includes("magic")) {
@@ -47,7 +45,7 @@ class ScholarStats extends React.Component {
                 else if (Object.keys(magic.primarySchool).includes("formalMagic")) {
                     let primaryFormalLevels = magic.primarySchool.formalMagic.primaryFormalLevels;
                     primaryFormalCompToRender = 
-                    <p><span>Levels of Formal:  {primaryFormalLevels}</span></p>
+                        <p><span>Levels of Formal:  {primaryFormalLevels}</span></p>
                 }
                 // sets display for primary and secondary schools of magic when both are present
                 // incorporates formal magic as applicable
@@ -56,7 +54,7 @@ class ScholarStats extends React.Component {
                 secondarySchool = magic.secondarySchool.secondarySchool;
                 let secondaryColumn = magic.secondarySchool.secondaryColumn;
                 magicCompToRender = 
-                    <div>
+                    <CardText>
                         <div>
                             <p><span>Primary School of Magic:  {primarySchool}</span></p>
                             <p><span>{primaryColumn}</span></p>
@@ -67,7 +65,7 @@ class ScholarStats extends React.Component {
                             <p><span>{secondaryColumn}</span></p>
                             {secondaryFormalCompToRender}
                         </div>
-                    </div>
+                    </CardText>
             }
             // sets display if only one school of magic is present
             // includes logic to display formal magic, if present
@@ -75,25 +73,25 @@ class ScholarStats extends React.Component {
                 if (Object.keys(magic.primarySchool).includes("formalMagic")) {
                     let primaryFormalLevels = magic.primarySchool.formalMagic.primaryFormalLevels;
                     primaryFormalCompToRender = 
-                    <p><span>Levels of Formal:  {primaryFormalLevels}</span></p>
+                        <p><span>Levels of Formal:  {primaryFormalLevels}</span></p>
                 }
                 primarySchool = magic.primarySchool.primarySchool;
                 let primaryColumn = magic.primarySchool.primaryColumn;
                 magicCompToRender = 
-                    <div>
+                    <CardText>
                         <p><span>Primary School of Magic:  {primarySchool}</span></p>
                         <p><span>{primaryColumn}</span></p>
                         {primaryFormalCompToRender}                        
-                    </div>
+                    </CardText>
             }
         }
         return(
-            <div>
-                <h3>Scholarly Skills</h3>
+            <Card>
+                <CardHeader subtitle={"Scholarly Skills"}/>
                 {alchemyComponentTotRender}
                 {magicCompToRender}
                 {textComponentToRender}
-            </div>
+            </Card>
         )
     }
 }

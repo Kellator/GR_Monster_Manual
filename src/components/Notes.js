@@ -1,13 +1,14 @@
 import React from 'react';
+import {Card, CardHeader, CardText} from 'material-ui/Card';
 
 class Notes extends React.Component {
     render() {
         let notes = this.props.notes.toUpperCase();
         return (
-            <div>
-                <h3>Creature Notes or Special Instructions</h3>
-                <p><span>{ notes }</span></p>
-            </div>
+            <Card>
+                <CardHeader subtitle={"Creature Notes or Special Instructions"} />
+                <CardText><p><span>{ notes }</span></p></CardText>
+            </Card>
         )
     }
 }

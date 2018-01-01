@@ -1,4 +1,5 @@
 import React from 'react';
+import {Card, CardHeader, CardText} from 'material-ui/Card';
 import Item from './Item.js';
 
 class Treasure extends React.Component {
@@ -11,10 +12,10 @@ class Treasure extends React.Component {
             )
         })
         return(
-            <div>
-                <h3>Treasure Options</h3>
-                { componentToRender }
-            </div>
+            <Card>
+                <CardHeader subtitle={"Treasure Options"} />
+                <CardText>{ componentToRender }</CardText>
+            </Card>
         )
     }
 }

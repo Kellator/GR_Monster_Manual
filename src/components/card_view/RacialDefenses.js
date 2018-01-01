@@ -1,4 +1,5 @@
 import React from 'react';
+import {Card, CardHeader, CardText} from 'material-ui/Card';
 import DefenseComponent from './DefenseComponent.js';
 
 class RacialDefenses extends React.Component {
@@ -11,10 +12,10 @@ class RacialDefenses extends React.Component {
             )
         });
         return(
-            <div>
-                <h3>Racial Defenses</h3>
-                {componentToRender}
-            </div>
+            <Card>
+                <CardHeader subtitle={"Racial Defenses"} />
+                <CardText>{componentToRender}</CardText>
+            </Card>
         )
     }
 }

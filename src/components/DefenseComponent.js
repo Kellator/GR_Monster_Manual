@@ -8,9 +8,7 @@ class DefenseComponent extends React.Component {
         }
         let newText = ucFirst(text);
         return(
-            <div>
                 <p><span>{newText} per day: {this.props.times}</span></p>
-            </div>
         )
     }
 };
