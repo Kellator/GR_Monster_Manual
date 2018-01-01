@@ -8,7 +8,8 @@ import {
     CREATE_SUCCESS,
     CREATE_FAIL,
     SET_CARD,
-    SET_PAGE
+    SET_PAGE,
+    NEW_LIST
 } from '../actions/DatabaseActions';
 
 const initialState = {
@@ -71,6 +72,10 @@ export default function reducer(state = initialState, action) {
         return Object.assign({}, state, {
             page: action.page
         });
+    } else if (action.type === NEW_LIST) {
+        return Object.assign({}, state, {
+            data: state.data.data.indexOf(action.id)
+        })
     }
     
     return state;

@@ -20,7 +20,9 @@ export default class DeleteDialog extends React.Component {
   };
 
   deleteApprove = () => {
+    console.log(this.props);
       this.props.deleteCard(this.props.id);
+      this.props.returnNewList(this.props.data, this.props.id);
       this.handleClose();
   };
 

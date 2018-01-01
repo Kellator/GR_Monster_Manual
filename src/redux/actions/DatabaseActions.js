@@ -150,11 +150,16 @@ export const deleteCard = (id) => {
         .then(response => {
             dispatch(deleteSuccess());
             dispatch(ViewActions.showResultsListView());
-            // dispatch(searchDatabase());  > perform initial search again to return new list results?
         }) 
         .catch(error => {
             dispatch(deleteFail(error));
             dispatch(ViewActions.showErrorView(error));
         });
     }
-}
+};
+export const NEW_LIST = 'NEW_LIST';
+export const returnNewList = (results, id) => ({
+    type: NEW_LIST,
+    results,
+    id
+});

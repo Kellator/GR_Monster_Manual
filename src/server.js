@@ -9,7 +9,6 @@ var passport = require('passport');
 var config = require('./config');
 var router = require('./router.js');
 var userRouter = require('./userRouter.js');
-// var authRouter = require('./auth/router.js');
 var Monster = require('./mongoose/MonsterModel');
 const app = express();
 var morgan = require('morgan')
