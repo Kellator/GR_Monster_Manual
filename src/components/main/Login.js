@@ -49,7 +49,7 @@ export class Login extends React.Component {
                 </div>
                 <div>
                     <h3>Not registered yet?  Register now!</h3>
-                    <RaisedButton onClick={ this.props.handleSubmit(() => this.viewRegistration()) }>Register</RaisedButton>
+                    <RaisedButton secondary={true} onClick={ this.props.handleSubmit(() => this.viewRegistration()) }>Register</RaisedButton>
                 </div>
             </div>
         )

@@ -17,7 +17,7 @@ class BasicSearch extends React.Component {
                         name="basic_search_input" 
                         component={ TextField }
                     />
-                    <RaisedButton type="submit">SUBMIT</RaisedButton>
+                    <RaisedButton type="submit" primary={true}>SUBMIT</RaisedButton>
                 </div>
             </form>
         )

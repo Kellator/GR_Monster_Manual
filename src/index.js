@@ -16,7 +16,7 @@ import { store } from './redux/store';
 import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(
-    <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
+    <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
         <Provider store={ store }>
             <Router>
                 <App />

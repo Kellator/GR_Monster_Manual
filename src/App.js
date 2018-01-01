@@ -13,6 +13,7 @@ import {showCreateView, showHomeView} from './redux/actions/ViewActions';
 import {clearAuthToken} from './local-storage';
 
 //material ui design components and imports
+import Paper from 'material-ui/Paper';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import muiThemeable from 'material-ui/styles/muiThemeable';
@@ -61,7 +62,7 @@ class App extends React.Component {
   render() {
     return (
       // <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
-        <div className="App">
+        <Paper className="App">
           <AppBar 
             title="IoC | Index of Creatures" 
             iconElementLeft={<img src={green_monster} className="App-logo" alt="logo" />}
@@ -82,7 +83,7 @@ class App extends React.Component {
           <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
-        </div>
+        </Paper>
       // </MuiThemeProvider>
     );
   }
