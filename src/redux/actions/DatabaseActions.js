@@ -158,8 +158,8 @@ export const deleteCard = (id) => {
     }
 };
 export const NEW_LIST = 'NEW_LIST';
-export const returnNewList = (results, id) => ({
+export const returnNewList = (id, list) => ({
     type: NEW_LIST,
-    results,
-    id
+    id,
+    list
 });
