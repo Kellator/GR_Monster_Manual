@@ -1,7 +1,6 @@
 import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
-import BasicSearch from './BasicSearch.js';
-import * as actions from '../redux/actions/index';
+import BasicSearch from '../card_search/BasicSearch.js';
 
 // div with search or enter
 class HomeView extends React.Component {

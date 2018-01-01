@@ -1,8 +1,8 @@
 import React from 'react';
 import {List, ListItem} from 'material-ui/List';
 import { connect } from 'react-redux';
-import { setCard } from '../redux/actions/DatabaseActions';
-import { showCardView } from '../redux/actions/ViewActions';
+import { setCard } from '../../redux/actions/DatabaseActions';
+import { showCardView } from '../../redux/actions/ViewActions';
 
 class SearchResult extends React.Component {
     render() {

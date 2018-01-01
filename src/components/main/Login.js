@@ -2,9 +2,9 @@ import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import { TextField } from 'redux-form-material-ui';
 import { Field, reduxForm } from 'redux-form';
-import {checkLogin} from '../redux/actions/AuthActions';
+import {checkLogin} from '../../redux/actions/AuthActions';
 import {Link, Redirect} from 'react-router-dom';
-import {showRegisterView} from '../redux/actions/ViewActions';
+import {showRegisterView} from '../../redux/actions/ViewActions';
 
 export class Login extends React.Component {
     onSubmit = (values) => {
