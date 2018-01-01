@@ -24,8 +24,6 @@ import MenuItem from 'material-ui/MenuItem';
 import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 
-import * as actions from './redux/actions/index';
-
 class App extends React.Component {
   componentWillReceiveProps(nextProps) {
     if(nextProps.loggedIn && !this.props.loggedIn) {
@@ -75,7 +73,7 @@ class App extends React.Component {
                 >
                 <MenuItem primaryText="Search" onClick={ () => this.homeView() } />
                 <MenuItem primaryText="Create New" onClick={ () => this.createView() } />
-                <MenuItem primaryText="Help" />
+                <MenuItem primaryText="About Us" />
                 <MenuItem primaryText="Log out" onClick={ () => this.logOut() }/>
               </IconMenu>
             }

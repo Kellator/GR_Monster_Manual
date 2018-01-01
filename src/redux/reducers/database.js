@@ -22,10 +22,11 @@ export default function reducer(state = initialState, action) {
             loading: true
         });
     } else if (action.type === FETCH_SUCCESS) {
+        console.log(action.data);
         return Object.assign({}, state, {
             loading: false,
             loaded: true,
-            data: action.data,
+            data: action.data.data,
             error: null
         });
     } else if (action.type === FETCH_FAIL) {
@@ -66,15 +67,29 @@ export default function reducer(state = initialState, action) {
         });
     } else if (action.type === SET_CARD) {
         return Object.assign({}, state, {
-            currentCard: state.data.data.find(monster => monster._id == action.id)
+            currentCard: state.data.find(monster => monster._id == action.id)
         });
     } else if (action.type === SET_PAGE) {
         return Object.assign({}, state, {
             page: action.page
         });
     } else if (action.type === NEW_LIST) {
+        // defines the list to search
+        let list = action.list;
+        // determines index of object to remove from list
+        const index = state.data.findIndex(list => list._id === action.id);
+        if(index === -1) {
+            throw new Error('Could not find entry');
+        }
+        console.log(index);
+        const before = state.data.slice(0, index);
+        const after = state.data.slice(index + 1);
+        console.log(before);
+        console.log(after);
+        const newList = before.concat(after);
+        console.log(newList);
         return Object.assign({}, state, {
-            data: state.data.data.indexOf(action.id)
+            data: newList
         })
     }
     
