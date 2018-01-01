@@ -91,4 +91,4 @@ const mapStateToProps = (state, props) => ({
   hasAuthToken: state.auth.authToken !== null,
   loggedIn: state.auth.currentUser !== null
 });
-export default muiThemeable()(withRouter(connect(mapStateToProps)(App)));
+export default withRouter(connect(mapStateToProps)(App));

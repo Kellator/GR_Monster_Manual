@@ -7,11 +7,13 @@ import {
     NEW_CARD_VIEW,
     RESULTS_LIST_VIEW,
     CARD_VIEW,
-    ERROR
+    ERROR,
+    TOGGLE_MENU
 } from '../actions/ViewActions';
 
 const initialState= {
-    type: null
+    type: null,
+    menu: false
 }
 export default function reducer(state = initialState, action) {
     if (action.type === SHOW_LOGIN) {
@@ -50,6 +52,10 @@ export default function reducer(state = initialState, action) {
     } else if (action.type === ERROR) {
         return Object.assign({}, state, {
             type: 'error'
+        });
+    } else if (action.type === TOGGLE_MENU) {
+        return Object.assign({}, state, {
+            menu: !state.menu
         });
     }
      return state;

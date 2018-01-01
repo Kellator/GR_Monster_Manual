@@ -1,4 +1,5 @@
 import React from 'react';
+import {Card, CardHeader, CardText} from 'material-ui/Card';
 import DefenseComponent from './DefenseComponent.js';
 
 class PhysicalDefenses extends React.Component {
@@ -12,10 +13,10 @@ class PhysicalDefenses extends React.Component {
 
         });
         return(
-            <div>
-                <h3>Physical Defenses</h3>
-                {componentToRender}
-            </div>
+            <Card>
+                <CardHeader subtitle={"Physical Defenses"} />
+                <CardText>{componentToRender}</CardText>
+            </Card>
         )
     }
 }
