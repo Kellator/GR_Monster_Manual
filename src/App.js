@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import {Route, withRouter} from 'react-router-dom';
 import green_monster from './green_monster.jpg';
-import './App.css';
+// import './App.css';
 import ViewContainer from './components/main/ViewContainer';
 import Landing from './components/main/Landing';
 import Login from './components/main/Login';
@@ -24,7 +24,7 @@ import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-
+import NavigationMenu from 'material-ui/svg-icons/navigation/menu';
 class App extends React.Component {
   componentWillReceiveProps(nextProps) {
     if(nextProps.loggedIn && !this.props.loggedIn) {
@@ -65,12 +65,12 @@ class App extends React.Component {
         <Paper className="App">
           <AppBar 
             title="IoC | Index of Creatures" 
-            iconElementLeft={<img src={green_monster} className="App-logo" alt="logo" />}
-            iconElementRight={
+            // iconElementLeft={<img src={green_monster} className="App-logo" alt="logo" />}
+            iconElementLeft={
               <IconMenu
-                iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
-                anchorOrigin={{horizontal: 'right', vertical: 'top'}}
-                targetOrigin={{horizontal: 'right', vertical: 'top'}}
+                iconButtonElement={<IconButton><NavigationMenu /></IconButton>}
+                anchorOrigin={{horizontal: 'left', vertical: 'top'}}
+                targetOrigin={{horizontal: 'left', vertical: 'top'}}
                 >
                 <MenuItem primaryText="Search" onClick={ () => this.homeView() } />
                 <MenuItem primaryText="Create New" onClick={ () => this.createView() } />
@@ -79,10 +79,11 @@ class App extends React.Component {
               </IconMenu>
             }
           />
-          <Route exact path="/" component={Landing} />
+          <Route exact path="/" component={Login} />
           <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
+          <Route exact path="/about" component={Landing} />
         </Paper>
       // </MuiThemeProvider>
     );

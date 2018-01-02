@@ -6,7 +6,6 @@ import {reset} from 'redux-form';
 import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
 import Login from './Login.js';
-import Register from './Register.js';
 import WizardForm from '../card_entry/WizardForm'
 import { showHomeView, showCreateView, toggleMenu } from '../../redux/actions/ViewActions';
 import { createNewCard, setPage } from '../../redux/actions/DatabaseActions';

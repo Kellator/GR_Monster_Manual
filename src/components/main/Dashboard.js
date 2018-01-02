@@ -5,6 +5,7 @@ import ViewContainer from './ViewContainer';
 
 export class Dashboard extends React.Component {
     render() {
+        console.log(this.props);
         return(
             <div>
                 <ViewContainer user={this.props.user}/>

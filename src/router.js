@@ -8,12 +8,6 @@ var Monster = require('./mongoose/MonsterModel');
 const jwt = require('jsonwebtoken');
 const jwtAuth = passport.authenticate('jwt', {session: false});
 
-// A protected endpoint which needs a valid JWT to access it
-// router.get('/protected', jwtAuth, (req, res) => {
-//     return res.json({
-//       data: 'rosebud'
-//     });
-//   });
 router.get('/monster/card', jwtAuth, (req, res) => {
     var id = req.query.term;
     Monster.findById(id, (err, monster) => {
@@ -180,8 +174,8 @@ router.post('/monster', jwtAuth, (req, res) => {
                 racialDodgePerDay: req.body.racial_dodge
             },
         },
-        treasure : req.body.standard_treasure.split(" "),
-        special : req.body.special_instructions
+        treasure: req.body.standard_treasure,
+        special: req.body.special_instructions
     };
     Monster.create(monster, (err, monster) => {
         if (err || !monster) {
