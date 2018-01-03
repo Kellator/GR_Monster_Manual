@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import RaisedButton from 'material-ui/RaisedButton';
 import { TextField } from 'redux-form-material-ui';
 import { Field, reduxForm } from 'redux-form';
-import {Link, Redirect} from 'react-router-dom';
 import { register } from '../../redux/actions/AuthActions';
 import { showLogin } from '../../redux/actions/ViewActions';
 

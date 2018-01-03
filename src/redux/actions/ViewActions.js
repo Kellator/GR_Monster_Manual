@@ -32,15 +32,23 @@ export const RESULTS_LIST_VIEW = 'RESULTS_LIST_VIEW';
 export const showResultsListView = () => ({
     type: RESULTS_LIST_VIEW
 });
+
 export const CARD_VIEW = 'CARD_VIEW';
 export const showCardView = () => ({
     type: CARD_VIEW
 });
+
 export const ERROR = 'ERROR';
 export const showErrorView = (error) => ({
     type: ERROR,
     error
 });
+
+export const ABOUT_VIEW = 'ABOUT_VIEW';
+export const showAboutView = () => ({
+    type: ABOUT_VIEW
+});
+
 export const TOGGLE_MENU = 'TOGGLE_MENU';
 export const toggleMenu = () => ({
     type: TOGGLE_MENU

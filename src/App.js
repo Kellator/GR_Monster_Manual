@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {Route, withRouter} from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 import green_monster from './green_monster.jpg';
 // import './App.css';
 import ViewContainer from './components/main/ViewContainer';
@@ -9,9 +9,9 @@ import Login from './components/main/Login';
 import Register from './components/main/Register';
 import Dashboard from './components/main/Dashboard';
 import Main from './components/main/main';
-import {refreshAuthToken, clearAuth} from './redux/actions/AuthActions';
-import {showCreateView, showHomeView} from './redux/actions/ViewActions';
-import {clearAuthToken} from './local-storage';
+import { refreshAuthToken, clearAuth } from './redux/actions/AuthActions';
+import { showCreateView, showHomeView, showAboutView } from './redux/actions/ViewActions';
+import { clearAuthToken } from './local-storage';
 
 //material ui design components and imports
 import Paper from 'material-ui/Paper';
@@ -60,6 +60,9 @@ class App extends React.Component {
   homeView = () => {
     this.props.dispatch(showHomeView());
   }
+  aboutView = () => {
+    this.props.dispatch(showAboutView());
+  }
   render() {
     return (
       // <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
@@ -75,8 +78,8 @@ class App extends React.Component {
                 >
                 <MenuItem primaryText="Search" onClick={ () => this.homeView() } />
                 <MenuItem primaryText="Create New" onClick={ () => this.createView() } />
-                <MenuItem primaryText="About Us" />
-                <MenuItem primaryText="Log out" onClick={ () => this.logOut() }/>
+                <MenuItem primaryText="About Us" onClick={ () => this.aboutView() } />
+                <MenuItem primaryText="Log out" onClick={ () => this.logOut() } />
               </IconMenu>
             }
           />

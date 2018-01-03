@@ -1,11 +1,11 @@
 import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import { connect } from 'react-redux';
+import { Link, Redirect } from 'react-router-dom';
 import Paper from 'material-ui/Paper';
 import { TextField } from 'redux-form-material-ui';
 import { Field, reduxForm } from 'redux-form';
 import { checkLogin } from '../../redux/actions/AuthActions';
-import { Link, Redirect } from 'react-router-dom';
 import { showRegisterView } from '../../redux/actions/ViewActions';
 
 export class Login extends React.Component {
@@ -19,9 +19,6 @@ export class Login extends React.Component {
         console.log(this.props);
         if(this.props.loggedIn) {
             return <Redirect to="/dashboard" />;
-        }
-        if(this.props.view === "register") {
-            return <Redirect to="/register" />;
         }
 
         let error;
