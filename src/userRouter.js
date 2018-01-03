@@ -100,7 +100,7 @@ router.post('/', (request, response) => {
             });
             user.save(function(error) {
                 if(error) {
-                    return reset.status(500).json({
+                    return response.status(500).json({
                         message: "Internal Server Error"
                     });
                 }

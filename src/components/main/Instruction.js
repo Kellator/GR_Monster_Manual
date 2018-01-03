@@ -1,9 +1,12 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import Drawer from 'material-ui/Drawer';
+import RaisedButton from 'material-ui/RaisedButton';
 import instructions from './InstructionText';
 
 class Instruction extends React.Component {
     render() {
+        console.log(this.props);
         let view = this.props.view;
         let page = this.props.page;
         let textToRender;
@@ -77,9 +80,7 @@ class Instruction extends React.Component {
         default:
         }
         return(
-            <div>
-                {textToRender}
-            </div>
+            <div>{textToRender}</div>
         );
     }
 };

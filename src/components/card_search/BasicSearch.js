@@ -2,11 +2,10 @@ import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import { TextField, MenuItem, SelectField } from 'redux-form-material-ui';
 import { Field, reduxForm } from 'redux-form';
-import * as actions from '../redux/actions/index';
-
+import {searchDatabase} from '../../redux/actions/DatabaseActions';
 class BasicSearch extends React.Component {
     submit = (value, dispatch) => {
-        dispatch(actions.DatabaseActions.searchDatabase(value));
+        dispatch(searchDatabase(value));
     };
     render() {
         const {handleSubmit, pristine, reset, submitting } = this.props
@@ -18,7 +17,7 @@ class BasicSearch extends React.Component {
                         name="basic_search_input" 
                         component={ TextField }
                     />
-                    <RaisedButton type="submit">SUBMIT</RaisedButton>
+                    <RaisedButton type="submit" primary={true}>SUBMIT</RaisedButton>
                 </div>
             </form>
         )

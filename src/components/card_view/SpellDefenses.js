@@ -1,4 +1,5 @@
 import React from 'react';
+import {Card, CardHeader, CardText} from 'material-ui/Card';
 import DefenseComponent from './DefenseComponent.js';
 
 class SpellDefenses extends React.Component {
@@ -12,10 +13,10 @@ class SpellDefenses extends React.Component {
 
         });
         return(
-            <div>
-                <h3>Spell Defenses</h3>
-                {componentToRender}
-            </div>
+            <Card>
+                <CardHeader subtitle={"Spell Defenses"} />
+                <CardText>{componentToRender}</CardText>
+            </Card>
         )
     }
 }

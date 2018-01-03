@@ -9,9 +9,7 @@ class Item extends React.Component {
         }
         let newItem = ucFirst(item);
         return (
-            <div>
-                <p><span>{ newItem }</span></p>
-            </div>
+            <p><span>{ newItem }</span></p>
         )
     }
 }

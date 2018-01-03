@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { setPage } from '../redux/actions/DatabaseActions';
+import { setPage } from '../../redux/actions/DatabaseActions';
 import WizardFormFirstPage from './WizardFormFirstPage';
 import WizardFormSecondPage from './WizardFormSecondPage';
 import WizardFormThirdPage from './WizardFormThirdPage';

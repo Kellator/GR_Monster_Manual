@@ -2,17 +2,18 @@ import React from 'react';
 import { connect } from 'react-redux';
 import {Route, withRouter} from 'react-router-dom';
 import green_monster from './green_monster.jpg';
-import './App.css';
-import ViewContainer from './components/ViewContainer';
-import Landing from './components/Landing';
-import Login from './components/Login';
-import Register from './components/Register';
-import Dashboard from './components/Dashboard';
+// import './App.css';
+import ViewContainer from './components/main/ViewContainer';
+import Landing from './components/main/Landing';
+import Login from './components/main/Login';
+import Register from './components/main/Register';
+import Dashboard from './components/main/Dashboard';
 import {refreshAuthToken, clearAuth} from './redux/actions/AuthActions';
 import {showCreateView, showHomeView} from './redux/actions/ViewActions';
 import {clearAuthToken} from './local-storage';
 
 //material ui design components and imports
+import Paper from 'material-ui/Paper';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import muiThemeable from 'material-ui/styles/muiThemeable';
@@ -23,7 +24,7 @@ import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-
+import NavigationMenu from 'material-ui/svg-icons/navigation/menu';
 class App extends React.Component {
   componentWillReceiveProps(nextProps) {
     if(nextProps.loggedIn && !this.props.loggedIn) {
@@ -61,15 +62,15 @@ class App extends React.Component {
   render() {
     return (
       // <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
-        <div className="App">
+        <Paper className="App">
           <AppBar 
             title="IoC | Index of Creatures" 
-            iconElementLeft={<img src={green_monster} className="App-logo" alt="logo" />}
-            iconElementRight={
+            // iconElementLeft={<img src={green_monster} className="App-logo" alt="logo" />}
+            iconElementLeft={
               <IconMenu
-                iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
-                anchorOrigin={{horizontal: 'right', vertical: 'top'}}
-                targetOrigin={{horizontal: 'right', vertical: 'top'}}
+                iconButtonElement={<IconButton><NavigationMenu /></IconButton>}
+                anchorOrigin={{horizontal: 'left', vertical: 'top'}}
+                targetOrigin={{horizontal: 'left', vertical: 'top'}}
                 >
                 <MenuItem primaryText="Search" onClick={ () => this.homeView() } />
                 <MenuItem primaryText="Create New" onClick={ () => this.createView() } />
@@ -78,11 +79,12 @@ class App extends React.Component {
               </IconMenu>
             }
           />
-          <Route exact path="/" component={Landing} />
+          <Route exact path="/" component={Login} />
           <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
-        </div>
+          <Route exact path="/about" component={Landing} />                  
+        </Paper>
       // </MuiThemeProvider>
     );
   }
@@ -91,4 +93,4 @@ const mapStateToProps = (state, props) => ({
   hasAuthToken: state.auth.authToken !== null,
   loggedIn: state.auth.currentUser !== null
 });
-export default muiThemeable()(withRouter(connect(mapStateToProps)(App)));
+export default withRouter(connect(mapStateToProps)(App));

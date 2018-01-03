@@ -13,7 +13,7 @@ class SearchResultList extends React.Component {
                 <List >
                     { results }
                 </List>
-                <RaisedButton onClick={ this.props.home } >BACK</RaisedButton>
+                <RaisedButton onClick={ this.props.home } primary={true}>BACK</RaisedButton>
             </div>
         )
     }

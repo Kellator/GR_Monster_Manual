@@ -2,7 +2,7 @@ import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import {connect} from 'react-redux';
 import {Link, Redirect} from 'react-router-dom';
-import { showLogin } from '../redux/actions/ViewActions';
+import { showLogin } from '../../redux/actions/ViewActions';
 import Login from './Login';
 
 export function Landing(props) {

@@ -1,4 +1,5 @@
 import React from 'react';
+import {Card, CardHeader, CardText} from 'material-ui/Card';
 
 class WeaponStats extends React.Component {
     render() {
@@ -59,12 +60,14 @@ class WeaponStats extends React.Component {
             }
         }
         return (
-            <div>
-                <h3>Weapons Stats</h3>
-                <p><span>Weapons Type:  { weaponType }</span></p>
-                {compToRender}
-                {strengthCompToRender}
-            </div>
+            <Card>
+                <CardHeader subtitle={"Weapon Skills"} />
+                <CardText>
+                    <p><span>Weapons Type:  { weaponType }</span></p>
+                    {compToRender}
+                    {strengthCompToRender}
+                </CardText>
+            </Card>
         )
     }
 };

@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import RaisedButton from 'material-ui/RaisedButton';
+import {Card, CardActions, CardHeader, CardTitle, CardText} from 'material-ui/Card';
+import Paper from 'material-ui/Paper';
 import BasicStats from './BasicStats.js';
 import WeaponStats from './WeaponStats.js';
 import ScholarStats from './ScholarStats.js';
@@ -10,14 +12,14 @@ import RacialDefenses from './RacialDefenses.js';
 import Treasure from './Treasure.js';
 import Notes from './Notes.js';
 import DeleteDialog from './Dialog.js';
-import { deleteCard, returnNewList } from '../redux/actions/DatabaseActions';
-import {  showResultsListView } from '../redux/actions/ViewActions';
+import { deleteCard, returnNewList } from '../../redux/actions/DatabaseActions';
+import {  showResultsListView } from '../../redux/actions/ViewActions';
 
 class CreatureCard extends React.Component {
     render() {
         let id = this.props.currentCard._id;
         let data = this.props.data;
-        console.log(data);
+        console.log(this.props.currentCard);
         let weaponComponentToRender;
         let scholarlyComponentToRender;
         let physicalDefenseComponentToRender;
@@ -65,35 +67,29 @@ class CreatureCard extends React.Component {
             notesComponentToRender = <Notes notes={ notes } />
         }
         return( 
-            <div>
-                <div>
-                    <BasicStats stats={ basicStats }/>
-                </div>
-                <div>
+            <Paper>
+                <CardHeader title={this.props.currentCard.name} subtitle={this.props.currentCard.level} />
+                    <Card><BasicStats stats={ basicStats }/></Card>
+                    
                     {weaponComponentToRender}
-                </div>
-                <div>
+                    
                     {scholarlyComponentToRender}
-                </div>
-                <div>
+                    
                     {physicalDefenseComponentToRender}
-                </div>
-                <div>
+                    
                     {spellDefenseComponentToRender}
-                </div>
-                <div>
+                    
                     {racialDefenseComponentToRender}
-                </div>
-                <div>
+                    
                     {treasureComponentToRender}
-                </div>
-                <div>
+                    
                     {notesComponentToRender}
-                </div>
+                    
+
                 {/* <RaisedButton card_id={ card_id } onClick={ this.props.editCard }>Edit</RaisedButton> */}
                 <RaisedButton onClick={ this.props.returnToList } >BACK</RaisedButton>
                 <DeleteDialog deleteCard={ this.props.delete } id={ id } data={ data } returnNewList={ this.props.returnNewList }/>
-            </div>
+            </Paper>
         )
     }
 }
@@ -102,7 +98,6 @@ const mapStateToProps = (state, props) => ({
     data: state.database.data.data
 });
 const mapDispatchToProps = (dispatch, ownProps) => {
-    console.log(ownProps)
     return {
         delete: (id) => {
             dispatch(deleteCard(id));
