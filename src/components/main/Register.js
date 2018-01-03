@@ -10,13 +10,9 @@ import { showLogin } from '../../redux/actions/ViewActions';
 class Register extends React.Component {
     register = (values) => {        
         this.props.dispatch(register(values));
-        console.log("registered")
-        return <Redirect to="/login" />
     }
     navToLogin = () => {
         this.props.dispatch(showLogin());
-        console.log("login")
-        return <Redirect to="/login" />
     }
     render() {
         console.log(this.props)
