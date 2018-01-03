@@ -2,17 +2,26 @@ import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import { TextField } from 'redux-form-material-ui';
 import { Field, reduxForm } from 'redux-form';
+import {Link, Redirect} from 'react-router-dom';
 import { register } from '../../redux/actions/AuthActions';
+import { showLogin } from '../../redux/actions/ViewActions';
 
 class Register extends React.Component {
-    onSubmit = (values) => {
-        return this.props.dispatch(register(values));
+    register = (values) => {        
+        this.props.dispatch(register(values));
+        console.log("registered")
+        return <Redirect to={"/login"} />
+    }
+    navToLogin = () => {
+        this.props.dispatch(showLogin());
+        console.log("login")
+        return <Redirect to={"/login"} />
     }
     render() {
         console.log(this.props)
         return (
             <div>
-                <form onSubmit={ this.props.handleSubmit(values => this.onSubmit(values))} >
+                <form onSubmit={ this.props.handleSubmit(values => this.register(values))} >
                     <Field
                         label="username"
                         placeholder="username"
@@ -37,7 +46,7 @@ class Register extends React.Component {
                 </form>
                 <div>
                     <h3>Already Registered? Go to Log In.</h3>
-                    <RaisedButton onClick={ console.log("no") }>LOGIN</RaisedButton>
+                    <RaisedButton onClick={ this.props.handleSubmit(() => this.navToLogin())}>LOGIN</RaisedButton>
                 </div>
             </div>  
         )
