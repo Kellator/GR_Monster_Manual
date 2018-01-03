@@ -1,11 +1,12 @@
 import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
+import Paper from 'material-ui/Paper';
 import { TextField } from 'redux-form-material-ui';
 import { Field, reduxForm } from 'redux-form';
-import {checkLogin} from '../../redux/actions/AuthActions';
-import {Link, Redirect} from 'react-router-dom';
-import {showRegisterView} from '../../redux/actions/ViewActions';
+import { checkLogin } from '../../redux/actions/AuthActions';
+import { Link, Redirect } from 'react-router-dom';
+import { showRegisterView } from '../../redux/actions/ViewActions';
 
 export class Login extends React.Component {
     onSubmit = (values) => {
@@ -15,6 +16,7 @@ export class Login extends React.Component {
         return this.props.dispatch(showRegisterView());
     }
     render() {
+        console.log(this.props);
         if(this.props.loggedIn) {
             return <Redirect to="/dashboard" />;
         }
@@ -31,7 +33,7 @@ export class Login extends React.Component {
             )
         }
         return (
-            <div>
+            <Paper>
                 <div>
                     <form 
                         className="login-form"
@@ -62,7 +64,7 @@ export class Login extends React.Component {
                         onClick={ this.props.handleSubmit(() => this.viewRegistration()) }>Register
                     </RaisedButton>
                 </div>
-            </div>
+            </Paper>
         )
     }
 }
@@ -71,7 +73,7 @@ Login = reduxForm({
     form: 'login'
 })(Login);
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state, props) => ({
     loggedIn: state.auth.currentUser !== null,
     view: state.view.type
 })

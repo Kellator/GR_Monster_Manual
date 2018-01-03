@@ -8,6 +8,7 @@ import Landing from './components/main/Landing';
 import Login from './components/main/Login';
 import Register from './components/main/Register';
 import Dashboard from './components/main/Dashboard';
+import Main from './components/main/main';
 import {refreshAuthToken, clearAuth} from './redux/actions/AuthActions';
 import {showCreateView, showHomeView} from './redux/actions/ViewActions';
 import {clearAuthToken} from './local-storage';
@@ -79,7 +80,7 @@ class App extends React.Component {
               </IconMenu>
             }
           />
-          <Route exact path="/" component={Login} />
+          <Route exact path="/" component={Main} />
           <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
