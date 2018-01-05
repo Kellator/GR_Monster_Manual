@@ -1,21 +1,17 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import RaisedButton from 'material-ui/RaisedButton';
 import { TextField } from 'redux-form-material-ui';
 import { Field, reduxForm } from 'redux-form';
-import {Link, Redirect} from 'react-router-dom';
 import { register } from '../../redux/actions/AuthActions';
 import { showLogin } from '../../redux/actions/ViewActions';
 
 class Register extends React.Component {
     register = (values) => {        
         this.props.dispatch(register(values));
-        console.log("registered")
-        return <Redirect to={"/login"} />
     }
     navToLogin = () => {
         this.props.dispatch(showLogin());
-        console.log("login")
-        return <Redirect to={"/login"} />
     }
     render() {
         console.log(this.props)
@@ -53,6 +49,13 @@ class Register extends React.Component {
     }
 }
 
-export default reduxForm({
+Register = reduxForm({
     form: 'register'
 })(Register);
+
+const mapStateToProps = (state, props) => ({
+    loggedIn: state.auth.currentUser !== null,
+    view: state.view.type
+});
+Register = connect(mapStateToProps)(Register);
+export default Register;

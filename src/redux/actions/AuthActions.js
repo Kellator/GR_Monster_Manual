@@ -151,7 +151,7 @@ export const register = (values) => {
         .then(res => normalizeResponseErrors(res))
         .then(res => res.json())
         .then(res => registerSuccess(res))
-        .then(res => dispatch(ViewActions.showLogin()))
+        .then(res => dispatch(checkLogin(values)))
         .catch(error => {
             dispatch(registerError(error));
         });

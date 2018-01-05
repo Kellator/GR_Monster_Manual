@@ -8,6 +8,7 @@ import {
     RESULTS_LIST_VIEW,
     CARD_VIEW,
     ERROR,
+    ABOUT_VIEW,
     TOGGLE_MENU
 } from '../actions/ViewActions';
 
@@ -56,6 +57,10 @@ export default function reducer(state = initialState, action) {
     } else if (action.type === TOGGLE_MENU) {
         return Object.assign({}, state, {
             menu: !state.menu
+        });
+    } else if (action.type === ABOUT_VIEW) {
+        return Object.assign({}, state, {
+            type: 'about'
         });
     }
      return state;
