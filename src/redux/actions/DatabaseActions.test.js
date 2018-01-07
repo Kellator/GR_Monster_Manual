@@ -125,3 +125,23 @@ describe('returnNewList', () => {
         expect(actions.returnNewList(id, list)).toEqual(expectedAction)
     })
 });
+
+describe('deleteSuccess', () => {
+    it('should create an action to show that a database document has been successfully deleted', () => {
+        const expectedAction = {
+            type: actions.DELETE_SUCCESS
+        }
+        expect(actions.deleteSuccess()).toEqual(expectedAction)
+    })
+});
+
+describe('deleteFail', () => {
+    it('should create an actions to show that a database document delete request has failed and pass the error', () => {
+        const error = "error text"
+        const expectedAction = {
+            type: actions.DELETE_FAIL,
+            error
+        }
+        expect(actions.deleteFail(error)).toEqual(expectedAction)
+    })
+}); 
