@@ -6,12 +6,6 @@ import {normalizeResponseErrors} from './utils';
 import { API_URL } from '../../config';
 const withQuery = require('with-query');
 
-export const SET_PAGE = 'SET_PAGE';
-export const setPage = (page) => ({
-    type: SET_PAGE,
-    page
-});
-
 export const FETCHING = 'FETCHING';
 export const fetching = () => ({
     type: FETCHING
@@ -36,11 +30,26 @@ export const cardFetchFail = (error) => ({
     type: CARD_FETCH_FAIL,
     error
 });
+// sets current card id
 export const SET_CARD = 'SET_CARD';
 export const setCard = (id) => ({
     type: SET_CARD,
     id
 });
+// sets current page of wizard form
+export const SET_PAGE = 'SET_PAGE';
+export const setPage = (page) => ({
+    type: SET_PAGE,
+    page
+});
+// returns new list of results minus deleted item after delete action dispatched
+export const NEW_LIST = 'NEW_LIST';
+export const returnNewList = (id, list) => ({
+    type: NEW_LIST,
+    id,
+    list
+});
+
 export const retrieve = (id) => (dispatch, getState) => {
     const authToken = getState().auth.authToken;
     dispatch(fetching());
@@ -157,9 +166,4 @@ export const deleteCard = (id) => {
         });
     }
 };
-export const NEW_LIST = 'NEW_LIST';
-export const returnNewList = (id, list) => ({
-    type: NEW_LIST,
-    id,
-    list
-});
+
