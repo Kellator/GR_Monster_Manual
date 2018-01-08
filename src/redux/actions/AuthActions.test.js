@@ -69,3 +69,13 @@ describe('registerSuccess', () => {
     })
 });
 
+describe('registerError', () => {
+    it('should create an action that shows new user registration has failed and pass error data', () => {
+        const error = "error text"
+        const expectedAction = {
+            type: actions.NEW_USER_ERROR,
+            error
+        }
+        expect(actions.registerError(error)).toEqual(expectedAction)
+    })
+});

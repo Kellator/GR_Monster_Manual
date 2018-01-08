@@ -87,27 +87,6 @@ export const refreshAuthToken = () => (dispatch, getState) => {
             clearAuthToken(authToken);
         });
 };
-export const LOGOUT_REQUEST = 'LOGOUT_REQUEST';
-export const requestLogout = () => {
-    type: LOGOUT_REQUEST
-};
-export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
-export const logoutSuccess = () => {
-    type: LOGOUT_SUCCESS
-};
-export const LOGOUT_FAILURE = 'LOGOUT_FAILURE';
-export const logoutFailure = () => {
-    type: LOGOUT_FAILURE
-};
-
-export const logoutUser = () => {
-    return dispatch => {
-        dispatch(requestLogout());
-        localStorage.removeItem('authToken');
-        dispatch(logoutSuccess());
-        dispatch(ViewActions.showLogin());
-    }
-};
 
 export const NEW_USER_REQUEST = 'NEW_USER_REQUEST';
 export const registerRequest = () => ({
