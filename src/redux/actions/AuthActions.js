@@ -107,37 +107,25 @@ export const logoutUser = () => {
         dispatch(logoutSuccess());
         dispatch(ViewActions.showLogin());
     }
-}
+};
 
 export const NEW_USER_REQUEST = 'NEW_USER_REQUEST';
+export const registerRequest = () => ({
+    type: NEW_USER_REQUEST
+});
+
 export const NEW_USER_SUCCESS = 'NEW_USER_SUCCESS';
+export const registerSuccess = (user) => ({
+    type: NEW_USER_SUCCESS,
+    user
+});
+
 export const NEW_USER_ERROR = 'NEW_USER_ERROR';
+export const registerError = (error) => ({
+    type: NEW_USER_ERROR,
+    error
+});
 
-function registerRequest() {
-    return {
-        type: NEW_USER_REQUEST,
-        isFetching: true,
-        isAuthenticated: false,
-    }
-};
-
-function registerSuccess(user) {
-    return {
-        type: NEW_USER_SUCCESS,
-        isFetching: false,
-        isAuthenticated: true,
-        user
-    }
-};
-
-function registerError(message) {
-    return {
-        type: NEW_USER_ERROR,
-        isFetching: false,
-        isAuthenticated: false,
-        message
-    }
-};
 export const register = (values) => {
     return dispatch => {
         dispatch(registerRequest())

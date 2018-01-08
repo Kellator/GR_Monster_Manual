@@ -144,4 +144,4 @@ describe('deleteFail', () => {
         }
         expect(actions.deleteFail(error)).toEqual(expectedAction)
     })
-}); 
+});
