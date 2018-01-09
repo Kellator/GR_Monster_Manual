@@ -1,5 +1,5 @@
 export const sampleCard = {
-    _id: "1a2b3c",
+    _id: "5a4a798069d34d228853b819",
     armor: 10,
     body: 30,
     category: "UNDEAD",
