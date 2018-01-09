@@ -5,6 +5,7 @@ import validate from './validate';
 import MenuItem from 'material-ui/MenuItem';
 import RaisedButton from 'material-ui/RaisedButton';
 import { Checkbox, SelectField, TextField } from 'redux-form-material-ui';
+import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
 
 
 let WizardFormThirdPage = props => {
@@ -63,37 +64,31 @@ let WizardFormThirdPage = props => {
                     <div>
                         <label>Primary School of Magic</label>
                         <div>
-                            <Field
-                                name="primary_school_of_magic"
-                                component={ SelectField }
-                                type="selectfield">
-                                    <MenuItem value={"Celestial"} primaryText="Celestial" />
-                                    <MenuItem value={"Earth"} primaryText="Earth" />
-                                    <MenuItem value={"Harmonic"} primaryText="Harmonic" />
-                                    <MenuItem value={"Elemental"} primaryText="Elemental" />
-                                    <MenuItem value={"Arcane"} primaryText="Arcane" />
-                            </Field>
+                            <RadioButtonGroup name="primary_school_of_magic" label="Primary School of Magic"> 
+                                <RadioButton value="Celestial" label="Celestial"/>
+                                <RadioButton value="Earth" label="Earth"/>
+                                <RadioButton value="Harmonic" label="Harmonic"/>
+                                <RadioButton value="Elemental" label="Elemental"/>
+                                <RadioButton value="Arcane" label="Arcane"/>
+                            </RadioButtonGroup>
                         </div>
                     </div>
                     <div>
                         <label>Column of Spells</label>
                         <p>Use the dropdown menu to select the column total for the primary school of magic.</p>
                         <div>
-                            <Field  
-                                name="primary_column"
-                                component={ SelectField }
-                                type="selectfield">
-                                <MenuItem value={"Four Column(4)"} primaryText="Four Column(4)" />
-                                <MenuItem value={"Five Column(5)"} primaryText="Five Column(5)" />
-                                <MenuItem value={"Six Column(6)"} primaryText="Six Column(6)" />
-                                <MenuItem value={"Seven Column(7)"} primaryText="Seven Column(7)" />
-                                <MenuItem value={"Eight Column(8)"} primaryText="Eight Column(8)" />
-                                <MenuItem value={"Nine Column(9)"} primaryText="Nine Column(9)" />
-                                <MenuItem value={"Ten Column(10)"} primaryText="Ten Column(10)" />
-                                <MenuItem value={"Eleven Column(11)"} primaryText="Eleven Column(11)" />
-                                <MenuItem value={"Twelve Column(12)"} primaryText="Twelve Column(12)" />
-                                <MenuItem value={"See Special Text"} primaryText="See Special Text" />    
-                            </Field>
+                            <RadioButtonGroup name="primary_column" label="Primary Magic Column"> 
+                                <RadioButton value="Four Column(4)" label="Four Column(4)"/>
+                                <RadioButton value="Five Column(5)" label="Five Column(5)"/>
+                                <RadioButton value="Six Column(6)" label="Six Column(6)"/>
+                                <RadioButton value="Seven Column(7)" label="Seven Column(7)"/>
+                                <RadioButton value="Eight Column(8)" label="Eight Column(8)"/>
+                                <RadioButton value="Nine Column(9)" label="Nine Column(9)"/>
+                                <RadioButton value="Ten Column(10)" label="Ten Column(10)"/>
+                                <RadioButton value="Eleven Column(11)" label="Eleven Column(11)"/>
+                                <RadioButton value="Twelve Column(12)" label="Twelve Column(12)"/>
+                                <RadioButton value="See Special Text" label="See Special Text"/>
+                            </RadioButtonGroup>
                         </div>
                     </div>
                     <div>
@@ -111,37 +106,31 @@ let WizardFormThirdPage = props => {
                         <div>
                             <label>Secondary School of Magic</label>
                             <div>
-                                <Field
-                                    name="secondary_school_of_magic"
-                                    component={ SelectField }
-                                    type="selectfield">
-                                        <MenuItem value={"Celestial"} primaryText="Celestial" />
-                                        <MenuItem value={"Earth"} primaryText="Earth" />
-                                        <MenuItem value={"Harmonic"} primaryText="Harmonic" />
-                                        <MenuItem value={"Elemental"} primaryText="Elemental" />
-                                        <MenuItem value={"Arcane"} primaryText="Arcane" />
-                                </Field>
+                            <RadioButtonGroup name="secondary_school_of_magic" label="Secondary School of Magic"> 
+                                <RadioButton value="Celestial" label="Celestial"/>
+                                <RadioButton value="Earth" label="Earth"/>
+                                <RadioButton value="Harmonic" label="Harmonic"/>
+                                <RadioButton value="Elemental" label="Elemental"/>
+                                <RadioButton value="Arcane" label="Arcane"/>
+                            </RadioButtonGroup>
                             </div>
                         </div>
                         <div>
                             <label>Column of Spells</label>
                             <p>Use the dropdown menu to select the column total for the secondary school of magic.</p>
                             <div>
-                                <Field  
-                                    name="secondary_column"
-                                    component={ SelectField }
-                                    type="selectfield">
-                                    <MenuItem value={"Four Column(4)"} primaryText="Four Column(4)" />
-                                    <MenuItem value={"Five Column(5)"} primaryText="Five Column(5)" />
-                                    <MenuItem value={"Six Column(6)"} primaryText="Six Column(6)" />
-                                    <MenuItem value={"Seven Column(7)"} primaryText="Seven Column(7)" />
-                                    <MenuItem value={"Eight Column(8)"} primaryText="Eight Column(8)" />
-                                    <MenuItem value={"Nine Column(9)"} primaryText="Nine Column(9)" />
-                                    <MenuItem value={"Ten Column(10)"} primaryText="Ten Column(10)" />
-                                    <MenuItem value={"Eleven Column(11)"} primaryText="Eleven Column(11)" />
-                                    <MenuItem value={"Twelve Column(12)"} primaryText="Twelve Column(12)" />
-                                    <MenuItem value={"See Special Text"} primaryText="See Special Text" />    
-                                </Field>
+                                <RadioButtonGroup name="secondary_column" label="Secondary Magic Column"> 
+                                    <RadioButton value="Four Column(4)" label="Four Column(4)"/>
+                                    <RadioButton value="Five Column(5)" label="Five Column(5)"/>
+                                    <RadioButton value="Six Column(6)" label="Six Column(6)"/>
+                                    <RadioButton value="Seven Column(7)" label="Seven Column(7)"/>
+                                    <RadioButton value="Eight Column(8)" label="Eight Column(8)"/>
+                                    <RadioButton value="Nine Column(9)" label="Nine Column(9)"/>
+                                    <RadioButton value="Ten Column(10)" label="Ten Column(10)"/>
+                                    <RadioButton value="Eleven Column(11)" label="Eleven Column(11)"/>
+                                    <RadioButton value="Twelve Column(12)" label="Twelve Column(12)"/>
+                                    <RadioButton value="See Special Text" label="See Special Text"/>
+                                </RadioButtonGroup>
                             </div>
                         </div>
                     </div>                        

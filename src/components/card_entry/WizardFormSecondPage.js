@@ -2,6 +2,7 @@ import React from 'react';
 import { Field, reduxForm, formValueSelector } from 'redux-form';
 import { connect } from 'react-redux';
 import { Checkbox, TextField, SelectField } from 'redux-form-material-ui';
+import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import MenuItem from 'material-ui/MenuItem';
 import validate from './validate';
@@ -19,36 +20,29 @@ let WizardFormSecondPage = props => {
         <h3>Weapons Skills</h3>
         <p>Click the box to view weapon skill options.  Choose basic weapon skills, if applicable.</p>
         <p>This section includes body weaponry like claws and bite.</p>
-        <p>If monster has no weaponskills, click the next button.</p>
         <div>
           <label>Basic Weapon Skills/Type</label>
           <div>
-            <Field 
-              name="weapon_type"
-              component={ SelectField }
-              type="selectfield">
-                <MenuItem value={"No Weapons"} primaryText="No Weapons" />
-                <MenuItem value={"Weapon of Choice"} primaryText="Weapon of Choice" />
-                <MenuItem value={"Claws"} primaryText="Claws" />
-                <MenuItem value={"Long Claws"} primaryText="Long Claws" />
-                <MenuItem value={"Bite"} primaryText="Bite" />      
-            </Field>
+            <RadioButtonGroup name="weapon_type" label="Weapon Type"> 
+                <RadioButton value="No Weapons" label="No Weapons"/>
+                <RadioButton value="Weapon of Choice" label="Weapon of Choice"/>
+                <RadioButton value="Claws" label="Claws"/>
+                <RadioButton value="Long Claws" label="Long Claws"/>
+                <RadioButton value="Bite" label="Bite"/>
+            </RadioButtonGroup>
           </div>
         </div>
         <div>
           <label>Plus Strength</label>
           <div>
-            <Field 
-              name="plus_strength_level"
-              component= { SelectField }
-              type="selectfield">
-                <MenuItem value={"Normal Strength (+0)"} primaryText="Normal Strength (+0)" />
-                <MenuItem value={"Plus 2 Strength (+2)"} primaryText="Plus 2 Strength (+2)" />
-                <MenuItem value={"Plus 4 Strength (+4)"} primaryText="Plus 4 Strength (+4)" />
-                <MenuItem value={"Plus 6 Strength (+6)"} primaryText="Plus 6 Strength (+6)" />
-                <MenuItem value={"Plus 8 Strength (+8)"} primaryText="Plus 8 Strength (+8)" />
-                <MenuItem value={"Plus 10 Strength (+10)"} primaryText="Plus 10 Strength (+10)" />      
-            </Field>
+            <RadioButtonGroup name="plus_strength_level" label="Plus Strength"> 
+                <RadioButton value="Normal Strength (+0)" label="Normal Strength (+0)"/>
+                <RadioButton value="Plus 2 Strength (+2)" label="Plus 2 Strength (+2)"/>
+                <RadioButton value="Plus 4 Strength (+4)" label="Plus 4 Strength (+4)"/>
+                <RadioButton value="Plus 6 Strength (+6)" label="Plus 6 Strength (+6)"/>
+                <RadioButton value="Plus 8 Strength (+8)" label="Plus 8 Strength (+8)"/>
+                <RadioButton value="Plus 10 Strength (+10)" label="Plus 10 Strength (+10)"/>
+            </RadioButtonGroup>
           </div>
         </div>
       <div>
