@@ -1,7 +1,7 @@
-// import configureMockStore from 'redux-mock-store';
-// import thunk from 'redux-thunk';
-// import * as actions from './DatabaseActions';
-// import moxios from 'moxios';
+import configureMockStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
+import * as actions from './DatabaseActions';
+import moxios from 'moxios';
 // import { sampleCard, sampleToken } from '../mock/DatabaseActionsRequest';
 // import { createAuthToken } from '../../auth/router';
 
