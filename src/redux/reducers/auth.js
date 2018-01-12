@@ -13,7 +13,8 @@ const initialState = {
     authToken: null,
     currentUser: null,
     loading: false,
-    error: null
+    error: null,
+    isAuthenticated: null
 }
 
 export default function reducer(state = initialState, action) {

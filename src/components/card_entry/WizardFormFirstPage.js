@@ -2,6 +2,7 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import validate from './validate';
 import { connect } from 'react-redux';
+import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import { TextField, SelectField } from 'redux-form-material-ui';
 import MenuItem from 'material-ui/MenuItem';
@@ -19,29 +20,23 @@ let WizardFormFirstPage = props => {
             label="Monster Name"
         />
         <p>Choose One Category of Creature (required).</p>
-            <Field 
-            name="monster_category"
-            label="Monster Category"
-            component={SelectField}>
-                <MenuItem value={"Animal"} primaryText="Animal" />
-                <MenuItem value={"Elemental"} primaryText="Elemental" />
-                <MenuItem value={"Fae"} primaryText="Fae" />
-                <MenuItem value={"Giant"} primaryText="Giant" />
-                <MenuItem value={"Goblinoid"} primaryText="Goblinoid" />
-                <MenuItem value={"Human"} primaryText="Human" />
-                <MenuItem value={"Humanoid"} primaryText="Humanoid" />
-                <MenuItem value={"Magical Creature"} primaryText="Magical Creature" />
-                <MenuItem value={"Undead"} primaryText="Undead" />
-            </Field>
+            <RadioButtonGroup name="monster_category" label="Monster Category">             
+                <RadioButton value="Animal" label="Animal"/>
+                <RadioButton value="Elemental" label="Elemental"/>
+                <RadioButton value="Fae" label="Fae"/>
+                <RadioButton value="Giant" label="Giant"/>
+                <RadioButton value="Goblinoid" label="Goblinoid"/>
+                <RadioButton value="Human" label="Human"/>
+                <RadioButton value="Humanoid" label="Humanoid"/>
+                <RadioButton value="Magical Creature" label="Magical Creature"/>
+                <RadioButton value="Undead" label="Undead"/>
+            </RadioButtonGroup>
         <p>Choose Level of Difficulty (required).</p>
-            <Field
-            name="monster_level"
-            label="Monster Level"
-            component={SelectField}>
-                <MenuItem value={"Low"} primaryText="Low" />
-                <MenuItem value={"Mid"} primaryText="Mid" />
-                <MenuItem value={"High"} primaryText="High" />
-            </Field>
+            <RadioButtonGroup name="monster_level" label="Monster Level"> 
+                <RadioButton value="Low" label="Low"/>
+                <RadioButton value="Mid" label="Mid"/>
+                <RadioButton value="High" label="High"/>
+            </RadioButtonGroup>
         <p>Enter the Body Points (required) and Armor Points for the Creature, if applicable.</p>
         <p>Use only numbers.</p>
             <label>

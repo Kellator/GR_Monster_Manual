@@ -87,57 +87,24 @@ export const refreshAuthToken = () => (dispatch, getState) => {
             clearAuthToken(authToken);
         });
 };
-export const LOGOUT_REQUEST = 'LOGOUT_REQUEST';
-export const requestLogout = () => {
-    type: LOGOUT_REQUEST
-};
-export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
-export const logoutSuccess = () => {
-    type: LOGOUT_SUCCESS
-};
-export const LOGOUT_FAILURE = 'LOGOUT_FAILURE';
-export const logoutFailure = () => {
-    type: LOGOUT_FAILURE
-};
-
-export const logoutUser = () => {
-    return dispatch => {
-        dispatch(requestLogout());
-        localStorage.removeItem('authToken');
-        dispatch(logoutSuccess());
-        dispatch(ViewActions.showLogin());
-    }
-}
 
 export const NEW_USER_REQUEST = 'NEW_USER_REQUEST';
+export const registerRequest = () => ({
+    type: NEW_USER_REQUEST
+});
+
 export const NEW_USER_SUCCESS = 'NEW_USER_SUCCESS';
+export const registerSuccess = (user) => ({
+    type: NEW_USER_SUCCESS,
+    user
+});
+
 export const NEW_USER_ERROR = 'NEW_USER_ERROR';
+export const registerError = (error) => ({
+    type: NEW_USER_ERROR,
+    error
+});
 
-function registerRequest() {
-    return {
-        type: NEW_USER_REQUEST,
-        isFetching: true,
-        isAuthenticated: false,
-    }
-};
-
-function registerSuccess(user) {
-    return {
-        type: NEW_USER_SUCCESS,
-        isFetching: false,
-        isAuthenticated: true,
-        user
-    }
-};
-
-function registerError(message) {
-    return {
-        type: NEW_USER_ERROR,
-        isFetching: false,
-        isAuthenticated: false,
-        message
-    }
-};
 export const register = (values) => {
     return dispatch => {
         dispatch(registerRequest())
