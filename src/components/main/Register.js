@@ -38,7 +38,7 @@ class Register extends React.Component {
                         component={ TextField }
                         type="password"
                     />
-                    <RaisedButton type="submit" primary={ true }>SUBMIT</RaisedButton>
+                    <RaisedButton type="submit">SUBMIT</RaisedButton>
                 </form>
                 <div>
                     <h3>Already Registered? Go to Log In.</h3>

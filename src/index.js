@@ -6,6 +6,7 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import muiThemeable from 'material-ui/styles/muiThemeable';
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
+import iocTheme from 'material-ui/styles/baseThemes/iocTheme';
 
 
 import {BrowserRouter as Router} from 'react-router-dom';
@@ -16,7 +17,7 @@ import { store } from './redux/store';
 import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(
-    <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
+    <MuiThemeProvider muiTheme={getMuiTheme(iocTheme)}>
         <Provider store={ store }>
             <Router>
                 <App />

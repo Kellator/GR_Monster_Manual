@@ -30,7 +30,7 @@ export class Login extends React.Component {
             )
         }
         return (
-            <Paper>
+            <div>
                 <div>
                     <form 
                         className="login-form"
@@ -51,17 +51,16 @@ export class Login extends React.Component {
                             component={ TextField }
                             type="password"
                         />
-                        <RaisedButton type="submit" primary={ true }>Log in</RaisedButton>
+                        <RaisedButton type="submit" primary={true}>Log in</RaisedButton>
                     </form>
                 </div>
                 <div>
                     <h3>Not registered yet?  Register now!</h3>
                     <RaisedButton 
-                        secondary={true} 
                         onClick={ this.props.handleSubmit(() => this.viewRegistration()) }>Register
                     </RaisedButton>
                 </div>
-            </Paper>
+            </div>
         )
     }
 }

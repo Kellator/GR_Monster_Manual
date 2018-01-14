@@ -58,9 +58,9 @@ class ViewContainer extends React.Component {
         }
         
         return (
-            <div >
-                <Paper >{instructionDiv}</Paper>
-                <Paper >{currentView}</Paper>
+            <div className="container">
+                <div >{instructionDiv}</div>
+                <div >{currentView}</div>
                 {/* <div className="flex-main">{ currentView }</div> */}
             </div>
                         
