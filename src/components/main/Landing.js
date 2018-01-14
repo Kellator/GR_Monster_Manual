@@ -35,7 +35,7 @@ export function Landing(props) {
                     Demonstration instructions throughout.
                 </p>
             </div>
-            <Login />
+            {/* <Login /> */}
         </div>
     )
 }

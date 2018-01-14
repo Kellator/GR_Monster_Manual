@@ -38,11 +38,14 @@ class Register extends React.Component {
                         component={ TextField }
                         type="password"
                     />
-                    <RaisedButton type="submit">SUBMIT</RaisedButton>
+                    <RaisedButton type="submit" secondary={true}>SUBMIT</RaisedButton>
                 </form>
                 <div>
                     <h3>Already Registered? Go to Log In.</h3>
-                    <RaisedButton onClick={ this.props.handleSubmit(() => this.navToLogin())}>LOGIN</RaisedButton>
+                    <RaisedButton 
+                        onClick={ this.props.handleSubmit(() => this.navToLogin())}
+                        secondary={true}
+                    >LOGIN</RaisedButton>
                 </div>
             </div>  
         )

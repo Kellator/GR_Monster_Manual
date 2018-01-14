@@ -65,11 +65,9 @@ class App extends React.Component {
   }
   render() {
     return (
-      // <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
         <div className="App">
-          <AppBar 
+          <AppBar className="App-Bar"
             title="IoC | Index of Creatures" 
-            // iconElementLeft={<img src={green_monster} className="App-logo" alt="logo" />}
             iconElementLeft={
               <IconMenu
                 iconButtonElement={<IconButton><NavigationMenu /></IconButton>}
@@ -89,7 +87,6 @@ class App extends React.Component {
           <Route exact path="/register" component={Register} />
           <Route exact path="/about" component={Landing} />                  
         </div>
-      // </MuiThemeProvider>
     );
   }
 }
