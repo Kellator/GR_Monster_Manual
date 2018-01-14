@@ -34,7 +34,7 @@ export class Login extends React.Component {
                 <div className="center-login">
                     <div className="">
                         <form 
-                            className="login-form form-center"
+                            className="login-form"
                             onSubmit={ this.props.handleSubmit(values =>
                             this.onSubmit(values))}
                             style={{
@@ -49,7 +49,8 @@ export class Login extends React.Component {
                                 name="username"
                                 component={ TextField }
                                 style={{
-                                    display: 'block'
+                                    display: 'block',
+                                    width: '100%'
                                     }}
                             />
                             <Field
@@ -59,7 +60,8 @@ export class Login extends React.Component {
                                 component={ TextField }
                                 type="password"
                                 style={{
-                                    display: 'block'
+                                    display: 'block',
+                                    width: '100%'
                                     }}
                             />
                             <RaisedButton 
@@ -69,12 +71,13 @@ export class Login extends React.Component {
                                     borderRadius: '1px',
                                     padding: '10px, 24px',
                                     fontWeight: 'bold',
+                                    width: '100%'
                                 }}
                                 >Log in</RaisedButton>
                         </form>
                     </div>
-                    <div className="form-center align-center">
-                        <h3>Not registered yet?  Register now!</h3>
+                    <div className="align-center">
+                        <p style={{color:"#FE0006", fontWeight: "bolder"}}>Not registered yet?</p>
                         <RaisedButton 
                             onClick={ this.props.handleSubmit(() => this.viewRegistration()) }
                             className="button-main"
@@ -82,7 +85,6 @@ export class Login extends React.Component {
                                 borderRadius: '1px',
                                 padding: '10px, 24px',
                                 fontWeight: 'bold',
-                                color: 'rgba(255, 255, 255, 1)' 
                             }}
                             >Register
                         </RaisedButton>

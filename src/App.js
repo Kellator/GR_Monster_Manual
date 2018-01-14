@@ -65,8 +65,8 @@ class App extends React.Component {
   }
   render() {
     return (
-        <div className="App">
-          <AppBar className="App-Bar"
+        <div className="App parallax">
+          <AppBar className="App-Bar "
             title="IoC | Index of Creatures" 
             iconElementLeft={
               <IconMenu
@@ -85,7 +85,7 @@ class App extends React.Component {
           <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
-          <Route exact path="/about" component={Landing} />                  
+          <Route exact path="/about" component={Landing} />     
         </div>
     );
   }
