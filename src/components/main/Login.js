@@ -3,6 +3,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 import Paper from 'material-ui/Paper';
+import Grid from 'material-ui-next/Grid';
 import { TextField } from 'redux-form-material-ui';
 import { Field, reduxForm } from 'redux-form';
 import { checkLogin } from '../../redux/actions/AuthActions';
@@ -30,8 +31,8 @@ export class Login extends React.Component {
             )
         }
         return (
-            <div className="div-center div-login">
-                <div className="center-login">
+            <Grid item xs={12} sm={6} md={6} lg={3} xl={3} className="div-login">
+                <Grid item>
                     <div className="">
                         <form 
                             className="login-form"
@@ -71,12 +72,13 @@ export class Login extends React.Component {
                                     borderRadius: '1px',
                                     padding: '10px, 24px',
                                     fontWeight: 'bold',
-                                    width: '100%'
+                                    width: '100%',
+                                    marginTop: '2rem'
                                 }}
                                 >Log in</RaisedButton>
                         </form>
                     </div>
-                    <div className="align-center">
+                    <div className="div-center">
                         <p style={{color:"#FE0006", fontWeight: "bolder"}}>Not registered yet?</p>
                         <RaisedButton 
                             onClick={ this.props.handleSubmit(() => this.viewRegistration()) }
@@ -89,8 +91,8 @@ export class Login extends React.Component {
                             >Register
                         </RaisedButton>
                     </div>
-                </div>
-            </div>
+                </Grid>
+            </Grid>
         )
     }
 }

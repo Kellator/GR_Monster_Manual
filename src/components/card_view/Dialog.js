@@ -42,7 +42,7 @@ export default class DeleteDialog extends React.Component {
 
     return (
       <div>
-        <RaisedButton label="Delete" primary={true} onClick={this.handleOpen} />
+        <RaisedButton label="Delete" onClick={this.handleOpen} />
         <Dialog
           title="Delete Creature Card"
           actions={actions}

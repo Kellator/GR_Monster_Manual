@@ -87,8 +87,8 @@ class CreatureCard extends React.Component {
                     
 
                 {/* <RaisedButton card_id={ card_id } onClick={ this.props.editCard }>Edit</RaisedButton> */}
-                <RaisedButton onClick={ this.props.returnToList } primary={true}>BACK</RaisedButton>
-                <DeleteDialog deleteCard={ this.props.delete } primary={true} id={ id } data={ data } returnNewList={ this.props.returnNewList }/>
+                <RaisedButton onClick={ this.props.returnToList }>BACK</RaisedButton>
+                <DeleteDialog deleteCard={ this.props.delete } id={ id } data={ data } returnNewList={ this.props.returnNewList }/>
             </div>
         )
     }
