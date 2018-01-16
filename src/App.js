@@ -65,7 +65,7 @@ class App extends React.Component {
   }
   render() {
     return (
-        <div className="App parallax">
+        <div className="App">
           <AppBar className="App-Bar "
             title="IoC | Index of Creatures" 
             iconElementLeft={
