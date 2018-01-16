@@ -29,7 +29,8 @@ class Main extends React.Component {
             }
         }
         return (
-            <div>
+            <div className="container">
+                      {/* <div ><img className="image-bar" src="https://i.pinimg.com/originals/91/81/59/918159168c17ffb04512eb27fb0a2952.jpg" /></div>              */}
                 { componentToDisplay }
             </div>
         )

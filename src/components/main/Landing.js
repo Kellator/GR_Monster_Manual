@@ -12,7 +12,7 @@ export function Landing(props) {
     }
 
     return (
-        <div>
+        <div className="div-absolute large-text div-center">
             <h1>Welcome to the Index of Creatures!</h1>
             <h2>Get into game faster.</h2>
             <div>
@@ -35,7 +35,7 @@ export function Landing(props) {
                     Demonstration instructions throughout.
                 </p>
             </div>
-            <Login />
+            {/* <Login /> */}
         </div>
     )
 }

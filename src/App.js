@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Route, withRouter } from 'react-router-dom';
 import green_monster from './green_monster.jpg';
-// import './App.css';
+import './App.css';
 import ViewContainer from './components/main/ViewContainer';
 import Landing from './components/main/Landing';
 import Login from './components/main/Login';
@@ -65,11 +65,9 @@ class App extends React.Component {
   }
   render() {
     return (
-      // <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
-        <Paper className="App">
-          <AppBar 
+        <div className="App parallax">
+          <AppBar className="App-Bar "
             title="IoC | Index of Creatures" 
-            // iconElementLeft={<img src={green_monster} className="App-logo" alt="logo" />}
             iconElementLeft={
               <IconMenu
                 iconButtonElement={<IconButton><NavigationMenu /></IconButton>}
@@ -87,9 +85,8 @@ class App extends React.Component {
           <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
-          <Route exact path="/about" component={Landing} />                  
-        </Paper>
-      // </MuiThemeProvider>
+          <Route exact path="/about" component={Landing} />     
+        </div>
     );
   }
 }

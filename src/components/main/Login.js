@@ -30,38 +30,67 @@ export class Login extends React.Component {
             )
         }
         return (
-            <Paper>
-                <div>
-                    <form 
-                        className="login-form"
-                        onSubmit={ this.props.handleSubmit(values =>
-                        this.onSubmit(values))
-                    }>
-                    {error}
-                        <Field
-                            label="username"
-                            placeholder="username"
-                            name="username"
-                            component={ TextField }
-                        />
-                        <Field
-                            label="password"
-                            placeholder="password"
-                            name="password"
-                            component={ TextField }
-                            type="password"
-                        />
-                        <RaisedButton type="submit" primary={ true }>Log in</RaisedButton>
-                    </form>
+            <div className="div-center div-login">
+                <div className="center-login">
+                    <div className="">
+                        <form 
+                            className="login-form"
+                            onSubmit={ this.props.handleSubmit(values =>
+                            this.onSubmit(values))}
+                            style={{
+                            display: 'block'
+                            }}
+                        >
+
+                        {error}
+                            <Field
+                                label="username"
+                                placeholder="username"
+                                name="username"
+                                component={ TextField }
+                                style={{
+                                    display: 'block',
+                                    width: '100%'
+                                    }}
+                            />
+                            <Field
+                                label="password"
+                                placeholder="password"
+                                name="password"
+                                component={ TextField }
+                                type="password"
+                                style={{
+                                    display: 'block',
+                                    width: '100%'
+                                    }}
+                            />
+                            <RaisedButton 
+                                type="submit" 
+                                className="button-main"
+                                style={{
+                                    borderRadius: '1px',
+                                    padding: '10px, 24px',
+                                    fontWeight: 'bold',
+                                    width: '100%'
+                                }}
+                                >Log in</RaisedButton>
+                        </form>
+                    </div>
+                    <div className="align-center">
+                        <p style={{color:"#FE0006", fontWeight: "bolder"}}>Not registered yet?</p>
+                        <RaisedButton 
+                            onClick={ this.props.handleSubmit(() => this.viewRegistration()) }
+                            className="button-main"
+                            style={{
+                                borderRadius: '1px',
+                                padding: '10px, 24px',
+                                fontWeight: 'bold',
+                            }}
+                            >Register
+                        </RaisedButton>
+                    </div>
                 </div>
-                <div>
-                    <h3>Not registered yet?  Register now!</h3>
-                    <RaisedButton 
-                        secondary={true} 
-                        onClick={ this.props.handleSubmit(() => this.viewRegistration()) }>Register
-                    </RaisedButton>
-                </div>
-            </Paper>
+            </div>
         )
     }
 }
