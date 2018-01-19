@@ -1,5 +1,6 @@
 import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
+import Grid from 'material-ui-next/Grid';
 import {connect} from 'react-redux';
 import {Link, Redirect} from 'react-router-dom';
 import { showLogin } from '../../redux/actions/ViewActions';
@@ -12,7 +13,7 @@ export function Landing(props) {
     }
 
     return (
-        <div className="div-absolute large-text div-center">
+        <Grid item xs={12} sm={12} md={10} lg={8} xl={8} className="div-absolute large-text div-center">
             <h1>Welcome to the Index of Creatures!</h1>
             <h2>Get into game faster.</h2>
             <div>
@@ -36,7 +37,7 @@ export function Landing(props) {
                 </p>
             </div>
             {/* <Login /> */}
-        </div>
+        </Grid>
     )
 }
 const mapStateToProps = state => ({

@@ -31,15 +31,17 @@ export class Login extends React.Component {
             )
         }
         return (
-            <Grid item xs={12} sm={6} md={6} lg={3} xl={3} className="div-login">
-                <Grid item>
-                    <div className="">
+
+                <Grid item xs={10} sm={8} md={4} lg={3} xl={3} 
+                    className="div-opaque-color">
+                    <Grid item className="">
                         <form 
                             className="login-form"
                             onSubmit={ this.props.handleSubmit(values =>
                             this.onSubmit(values))}
                             style={{
-                            display: 'block'
+                            display: 'block',
+                            padding: '20px'
                             }}
                         >
 
@@ -77,8 +79,12 @@ export class Login extends React.Component {
                                 }}
                                 >Log in</RaisedButton>
                         </form>
-                    </div>
-                    <div className="div-center">
+                    </Grid>
+                    <Grid item className="div-center"
+                        style={{
+                            paddingBottom: '20px'
+                        }}
+                    >
                         <p style={{color:"#FE0006", fontWeight: "bolder"}}>Not registered yet?</p>
                         <RaisedButton 
                             onClick={ this.props.handleSubmit(() => this.viewRegistration()) }
@@ -90,9 +96,9 @@ export class Login extends React.Component {
                             }}
                             >Register
                         </RaisedButton>
-                    </div>
+                    </Grid>
                 </Grid>
-            </Grid>
+            
         )
     }
 }

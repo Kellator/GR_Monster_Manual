@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import Drawer from 'material-ui/Drawer';
 import RaisedButton from 'material-ui/RaisedButton';
+import Grid from 'material-ui-next/Grid';
 import instructions from './InstructionText';
 
 class Instruction extends React.Component {
@@ -14,7 +15,7 @@ class Instruction extends React.Component {
         switch(view) {
             case "home":
             textToRender = 
-                <div>
+                <Grid item>
                     {
                         instructions.homeView.text.map(function(text, i) {
                             return <p key={i}>{text}</p>
@@ -27,18 +28,18 @@ class Instruction extends React.Component {
                             })
                         }
                     </ul>
-                </div>
+                </Grid>
                 break;
             case "create":
                 if(page) {
                     textToRender = 
-                    <div>
+                    <Grid item>
                         {
                             instructions.createView.text[page].map(function(text, i) {
                                 return <p key={i}>{text}</p>
                             })
                         }
-                    </div>
+                    </Grid>
                 }
                 else {
                     textToRender = <div><p>Nothing to see here.</p></div>
@@ -46,33 +47,33 @@ class Instruction extends React.Component {
                 break;
             case "new card":
             textToRender = 
-                <div>
+                <Grid item>
                     {
                         instructions.newCardView.text.map(function(text, i) {
                             return <p key={i}>{text}</p>
                         })
                     }
-                </div>
+                </Grid>
                 break;
             case "card":
             textToRender = 
-                <div>
+                <Grid item>
                     {
                         instructions.cardView.text.map(function(text, i) {
                             return <p key={i}>{text}</p>
                         })
                     }
-                </div>
+                </Grid>
                 break;
             case "results list":
             textToRender = 
-                <div>
+                <Grid item>
                     {
                         instructions.resultsListView.text.map(function(text, i) {
                             return <p key={i}>{text}</p>
                         })
                     }
-                </div>
+                </Grid>
                 break;
             case "error":
 
@@ -80,7 +81,7 @@ class Instruction extends React.Component {
         default:
         }
         return(
-            <div>{textToRender}</div>
+            <Grid container>{textToRender}</Grid>
         );
     }
 };
