@@ -32,7 +32,7 @@ export class Login extends React.Component {
         }
         return (
 
-                <Grid item xs={10} sm={8} md={4} lg={3} xl={3} 
+                <Grid item xs={10} sm={7} md={4} lg={3} xl={2} 
                     className="div-opaque-color">
                     <Grid item className="">
                         <form 
@@ -51,6 +51,7 @@ export class Login extends React.Component {
                                 placeholder="username"
                                 name="username"
                                 component={ TextField }
+                                underlineShow={true}
                                 style={{
                                     display: 'block',
                                     width: '100%'
@@ -61,6 +62,7 @@ export class Login extends React.Component {
                                 placeholder="password"
                                 name="password"
                                 component={ TextField }
+                                underlineShow={true}
                                 type="password"
                                 style={{
                                     display: 'block',

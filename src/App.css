@@ -87,10 +87,9 @@ body {
 }
 .div-absolute {
   max-width: 100vw;
-  padding: 20px 20px 20px 20px;
   background-color: #252525;
   opacity: 0.85;
-  height: 100vh;
+
 }
 
 .large-text {

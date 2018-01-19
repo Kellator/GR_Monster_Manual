@@ -13,7 +13,12 @@ export function Landing(props) {
     }
 
     return (
-        <Grid item xs={12} sm={12} md={10} lg={8} xl={8} className="div-absolute large-text div-center">
+        <Grid 
+            item 
+            xs={12} sm={12} md={10} lg={8} xl={8} 
+            style={{padding: '3rem'}}
+            className="div-absolute large-text div-center"
+        >
             <h1>Welcome to the Index of Creatures!</h1>
             <h2>Get into game faster.</h2>
             <div>
