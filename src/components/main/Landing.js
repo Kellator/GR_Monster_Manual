@@ -7,6 +7,7 @@ import { showLogin } from '../../redux/actions/ViewActions';
 import Login from './Login';
 
 export function Landing(props) {
+    console.log(props)
     // if already logged in, redirect to user's dashboard
     if(props.loggedIn) {
         return <Redirect to="/dashboard" />;
@@ -40,8 +41,10 @@ export function Landing(props) {
                     If you're ready to test out the IoC, click below.  Feel free to create your own user credentials or use the demo.  View existing creatures or create your own.
                     Demonstration instructions throughout.
                 </p>
+                <Link to={`/register`}
+                    style={{color:"#FE0006", fontWeight: "bolder"}}
+                >Click here to register!</Link>
             </div>
-            {/* <Login /> */}
         </Grid>
     )
 }

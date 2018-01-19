@@ -2,7 +2,7 @@ body {
   /* background-image: url("https://i.pinimg.com/originals/91/81/59/918159168c17ffb04512eb27fb0a2952.jpg");
  */
   min-width: 100%;
-  height: 100%;
+  min-height: 100%;
   color: white;
   background-image: url("./background.jpg");
   background-repeat: no-repeat;
@@ -66,7 +66,6 @@ body {
   background-color: #252525; 
   border-bottom: 3px solid #AA0004;
   margin: 0;
-  min-height: 100vhl
 }
 
 .div-center {

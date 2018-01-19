@@ -93,7 +93,8 @@ class App extends React.Component {
           <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
-          <Route exact path="/about" component={Landing} />     
+          <Route exact path="/about" component={Landing} />    
+          <Route exact path="/welcome" component={Landing} /> 
         </div>
     );
   }
