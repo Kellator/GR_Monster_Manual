@@ -6,7 +6,8 @@ import {
     CLEAR_AUTH,
     NEW_USER_REQUEST,
     NEW_USER_SUCCESS,
-    NEW_USER_ERROR
+    NEW_USER_ERROR,
+    CLEAR_ERROR_MESSAGE
 } from '../actions/AuthActions';
 
 const initialState = {
@@ -38,7 +39,7 @@ export default function reducer(state = initialState, action) {
         return Object.assign({}, state, {
             loading: false,
             isAuthenticated: false,
-            error: action.error
+            errorMessage: action.error
         });
     } else if(action.type === CLEAR_AUTH) {
         return Object.assign({}, state, {
@@ -62,6 +63,12 @@ export default function reducer(state = initialState, action) {
             isAuthenticated: false,
             errorMessage: action.error
         });
+    } else if(action.type === CLEAR_ERROR_MESSAGE) {
+        return Object.assign({}, state, {
+            loading: false,
+            isAuthenticated: false,
+            errorMessage: null
+        })
     }
     return state;
 }
