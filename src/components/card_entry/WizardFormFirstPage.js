@@ -3,6 +3,7 @@ import { Field, reduxForm } from 'redux-form';
 import validate from './validate';
 import { connect } from 'react-redux';
 import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
+import ActionFavorite from 'material-ui/svg-icons/action/favorite';
 import RaisedButton from 'material-ui/RaisedButton';
 import { TextField, SelectField } from 'redux-form-material-ui';
 import MenuItem from 'material-ui/MenuItem';

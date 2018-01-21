@@ -26,6 +26,8 @@ import MenuItem from 'material-ui/MenuItem';
 import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import NavigationMenu from 'material-ui/svg-icons/navigation/menu';
+import { withStyles } from 'material-ui/styles';
+
 class App extends React.Component {
   componentWillReceiveProps(nextProps) {
     if(nextProps.loggedIn && !this.props.loggedIn) {
@@ -64,9 +66,15 @@ class App extends React.Component {
     this.props.dispatch(showAboutView());
   }
   render() {
+    const style = {
+      backgroundColor: '#252525',
+      color: 'black',
+      height: 75,
+    }
     return (
         <div className="App">
-          <AppBar className="App-Bar "
+          <AppBar className="App-Bar"
+            style={style}
             title="IoC | Index of Creatures" 
             iconElementLeft={
               <IconMenu
@@ -85,7 +93,8 @@ class App extends React.Component {
           <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
-          <Route exact path="/about" component={Landing} />     
+          <Route exact path="/about" component={Landing} />    
+          <Route exact path="/welcome" component={Landing} /> 
         </div>
     );
   }

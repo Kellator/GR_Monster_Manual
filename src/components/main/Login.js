@@ -5,9 +5,10 @@ import { Link, Redirect } from 'react-router-dom';
 import Paper from 'material-ui/Paper';
 import Grid from 'material-ui-next/Grid';
 import { TextField } from 'redux-form-material-ui';
-import { Field, reduxForm } from 'redux-form';
+import { Field, reduxForm, focus } from 'redux-form';
 import { checkLogin } from '../../redux/actions/AuthActions';
 import { showRegisterView } from '../../redux/actions/ViewActions';
+import {required, nonEmpty} from '../validators';
 
 export class Login extends React.Component {
     onSubmit = (values) => {
@@ -31,24 +32,27 @@ export class Login extends React.Component {
             )
         }
         return (
-            <Grid item xs={12} sm={6} md={6} lg={3} xl={3} className="div-login">
-                <Grid item>
-                    <div className="">
+
+                <Grid item xs={10} sm={7} md={4} lg={3} xl={2} 
+                    className="div-opaque-color">
+                    <Grid item className="">
                         <form 
                             className="login-form"
                             onSubmit={ this.props.handleSubmit(values =>
                             this.onSubmit(values))}
                             style={{
-                            display: 'block'
+                            display: 'block',
+                            padding: '20px'
                             }}
                         >
-
                         {error}
                             <Field
                                 label="username"
                                 placeholder="username"
                                 name="username"
                                 component={ TextField }
+                                underlineShow={true}
+                                type="text"
                                 style={{
                                     display: 'block',
                                     width: '100%'
@@ -59,6 +63,7 @@ export class Login extends React.Component {
                                 placeholder="password"
                                 name="password"
                                 component={ TextField }
+                                underlineShow={true}
                                 type="password"
                                 style={{
                                     display: 'block',
@@ -77,9 +82,13 @@ export class Login extends React.Component {
                                 }}
                                 >Log in</RaisedButton>
                         </form>
-                    </div>
-                    <div className="div-center">
-                        <p style={{color:"#FE0006", fontWeight: "bolder"}}>Not registered yet?</p>
+                    </Grid>
+                    <Grid item className="div-center"
+                        style={{
+                            paddingBottom: '20px'
+                        }}
+                    >
+                        <h3 style={{color:"#FE0006", fontWeight: "bolder"}}>Not registered yet?</h3>
                         <RaisedButton 
                             onClick={ this.props.handleSubmit(() => this.viewRegistration()) }
                             className="button-main"
@@ -90,20 +99,21 @@ export class Login extends React.Component {
                             }}
                             >Register
                         </RaisedButton>
-                    </div>
-                </Grid>
-            </Grid>
+                    </Grid>
+                </Grid>            
         )
     }
 }
 
 Login = reduxForm({
-    form: 'login'
+    form: 'login',
+    onSubmitFail: (errors, dispatch) => dispatch(focus('login','username'))
 })(Login);
 
 const mapStateToProps = (state, props) => ({
     loggedIn: state.auth.currentUser !== null,
-    view: state.view.type
+    view: state.view.type,
+    error: state.auth.error
 })
 Login = connect(mapStateToProps)(Login);
 export default Login;

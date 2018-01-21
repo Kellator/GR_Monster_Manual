@@ -4,6 +4,8 @@ import {reset} from 'redux-form';
 // import Drawer from 'material-ui/Drawer';
 // import AppBar from 'material-ui/AppBar';
 import Paper from 'material-ui/Paper';
+import Grid from 'material-ui-next/Grid';
+import Hidden from 'material-ui-next/Hidden';
 import RaisedButton from 'material-ui/RaisedButton';
 import Login from './Login.js';
 import WizardForm from '../card_entry/WizardForm'
@@ -19,7 +21,10 @@ import Error from './Error';
 
 class ViewContainer extends React.Component {
     render() {
-        console.log(this.props);
+        const style = {
+            marginTop: '5rem',
+            textAlign: 'center',
+        }
         let currentView;
         let instructionDiv;
         let view = this.props.view.type;
@@ -58,11 +63,12 @@ class ViewContainer extends React.Component {
         }
         
         return (
-            <div className="container">
-                <div >{instructionDiv}</div>
-                <div >{currentView}</div>
-                {/* <div className="flex-main">{ currentView }</div> */}
-            </div>
+            <Grid container spacing={24} className="">
+                <Hidden mdDown>
+                    <Grid item >{instructionDiv}</Grid>
+                </Hidden>
+                <Grid style={style}item xs={12}>{currentView}</Grid>
+            </Grid>
                         
         )
     }

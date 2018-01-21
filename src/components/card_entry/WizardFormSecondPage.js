@@ -2,6 +2,7 @@ import React from 'react';
 import { Field, reduxForm, formValueSelector } from 'redux-form';
 import { connect } from 'react-redux';
 import { Checkbox, TextField, SelectField } from 'redux-form-material-ui';
+import ActionFavorite from 'material-ui/svg-icons/action/favorite';
 import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import MenuItem from 'material-ui/MenuItem';
@@ -24,7 +25,7 @@ let WizardFormSecondPage = props => {
           <label>Basic Weapon Skills/Type</label>
           <div>
             <RadioButtonGroup name="weapon_type" label="Weapon Type"> 
-                <RadioButton value="No Weapons" label="No Weapons"/>
+                <RadioButton checkedIcon={<ActionFavorite style={{color: '#FE0006'}} />} value="No Weapons" label="No Weapons"/>
                 <RadioButton value="Weapon of Choice" label="Weapon of Choice"/>
                 <RadioButton value="Claws" label="Claws"/>
                 <RadioButton value="Long Claws" label="Long Claws"/>

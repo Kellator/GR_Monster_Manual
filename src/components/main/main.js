@@ -5,6 +5,7 @@ import Grid from 'material-ui-next/Grid';
 import Login from './Login';
 import Register from './Register';
 import Landing from './Landing';
+import Error from './Error';
 
 class Main extends React.Component {
     render() {
@@ -25,21 +26,26 @@ class Main extends React.Component {
                 case "about":
                     componentToDisplay = <Landing />
                 break;
+                case "error":
+                    componentToDisplay = <Error />
+                break;
                 default: 
                     componentToDisplay = <Login />
             }
         }
         return (
-            <Grid 
-                container 
-                spacing={12} 
-                justify="center"
-                alignItems="center" 
-                direction="row"
-                className="container-main"
-            >
-                      {/* <div ><img className="image-bar" src="https://i.pinimg.com/originals/91/81/59/918159168c17ffb04512eb27fb0a2952.jpg" /></div>              */}
-                { componentToDisplay }
+            <Grid container styles={{flexGrow: '1'}}>
+                <Grid item xs={12}>
+                    <Grid
+                        container 
+                        justify="center"
+                        alignItems="center" 
+                        direction="row"
+                        style={{marginTop: '40px'}}
+                    >
+                        { componentToDisplay }
+                    </Grid>
+                </Grid>
             </Grid>
         )
     }
