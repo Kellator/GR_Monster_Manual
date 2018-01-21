@@ -5,9 +5,10 @@ import { Link, Redirect } from 'react-router-dom';
 import Paper from 'material-ui/Paper';
 import Grid from 'material-ui-next/Grid';
 import { TextField } from 'redux-form-material-ui';
-import { Field, reduxForm } from 'redux-form';
+import { Field, reduxForm, focus } from 'redux-form';
 import { checkLogin } from '../../redux/actions/AuthActions';
 import { showRegisterView } from '../../redux/actions/ViewActions';
+import {required, nonEmpty} from '../validators';
 
 export class Login extends React.Component {
     onSubmit = (values) => {
@@ -44,7 +45,6 @@ export class Login extends React.Component {
                             padding: '20px'
                             }}
                         >
-
                         {error}
                             <Field
                                 label="username"
@@ -52,6 +52,7 @@ export class Login extends React.Component {
                                 name="username"
                                 component={ TextField }
                                 underlineShow={true}
+                                type="text"
                                 style={{
                                     display: 'block',
                                     width: '100%'
@@ -87,7 +88,7 @@ export class Login extends React.Component {
                             paddingBottom: '20px'
                         }}
                     >
-                        <p style={{color:"#FE0006", fontWeight: "bolder"}}>Not registered yet?</p>
+                        <h3 style={{color:"#FE0006", fontWeight: "bolder"}}>Not registered yet?</h3>
                         <RaisedButton 
                             onClick={ this.props.handleSubmit(() => this.viewRegistration()) }
                             className="button-main"
@@ -99,19 +100,20 @@ export class Login extends React.Component {
                             >Register
                         </RaisedButton>
                     </Grid>
-                </Grid>
-            
+                </Grid>            
         )
     }
 }
 
 Login = reduxForm({
-    form: 'login'
+    form: 'login',
+    onSubmitFail: (errors, dispatch) => dispatch(focus('login','username'))
 })(Login);
 
 const mapStateToProps = (state, props) => ({
     loggedIn: state.auth.currentUser !== null,
-    view: state.view.type
+    view: state.view.type,
+    error: state.auth.error
 })
 Login = connect(mapStateToProps)(Login);
 export default Login;

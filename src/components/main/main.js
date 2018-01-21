@@ -5,6 +5,7 @@ import Grid from 'material-ui-next/Grid';
 import Login from './Login';
 import Register from './Register';
 import Landing from './Landing';
+import Error from './Error';
 
 class Main extends React.Component {
     render() {
@@ -24,6 +25,9 @@ class Main extends React.Component {
                 break;
                 case "about":
                     componentToDisplay = <Landing />
+                break;
+                case "error":
+                    componentToDisplay = <Error />
                 break;
                 default: 
                     componentToDisplay = <Login />
