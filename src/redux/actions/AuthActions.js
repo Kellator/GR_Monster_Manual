@@ -62,6 +62,7 @@ export const checkLogin = (values) => {
         .then(res => normalizeResponseErrors(res))
         .then(res => res.json())
         .then(({authToken}) => storeAuthInfo(authToken, dispatch))
+        .then(dispatch(ViewActions.showHomeView()))
         .catch(error => {
             const {code} = error;
             const message = 

@@ -63,13 +63,32 @@ class ViewContainer extends React.Component {
         }
         
         return (
-            <Grid container spacing={24} className="">
+            <div style={{flexGrow: 1}}>
+            <Grid 
+                container 
+                spacing={24}  
+                justify="center"
+                alignItems="center" 
+                className=""
+            >
+                
+                <Grid 
+                    item 
+                    xs={12} sm={10} md={6} lg={6} xl={6} 
+                    style={style}
+                >
+                    {currentView}
+                </Grid>
                 <Hidden mdDown>
-                    <Grid item >{instructionDiv}</Grid>
+                    <Grid 
+                        item 
+                        lg={12} xl={12}
+                    >
+                        {instructionDiv}
+                    </Grid>
                 </Hidden>
-                <Grid style={style}item xs={12}>{currentView}</Grid>
             </Grid>
-                        
+            </div>             
         )
     }
 }

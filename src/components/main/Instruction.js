@@ -15,16 +15,25 @@ class Instruction extends React.Component {
         switch(view) {
             case "home":
             textToRender = 
-                <Grid item>
+                <Grid 
+                    item
+                    xs={12}  
+                    style={{textAlign: 'center', listStyle: 'inside', webkitPaddingStart: '-40px'}}
+                >
                     {
                         instructions.homeView.text.map(function(text, i) {
-                            return <p key={i}>{text}</p>
+                            return <p style={{paddingBottom: '10px'}}key={i}>{text}</p>
                         })
                     }
                     <ul>
                         {
                             instructions.homeView.categoryList.map(function(category, i) {
-                                return <li key={i}>{category}</li>
+                                return <li 
+                                    style={{display: 'inline', paddingRight: '20px', }}
+                                    key={i}
+                                >
+                                    {category}
+                                </li>
                             })
                         }
                     </ul>
@@ -81,7 +90,15 @@ class Instruction extends React.Component {
         default:
         }
         return(
-            <Grid container>{textToRender}</Grid>
+            <Grid 
+                container 
+                spacing={24}  
+                justify="center"
+                alignItems="center" 
+                className=""
+            >
+            {textToRender}
+            </Grid>
         );
     }
 };
