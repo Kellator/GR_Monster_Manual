@@ -1,7 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import Grid from 'material-ui-next/Grid';
 import SearchResultList from './SearchResultList.js'
 import NoResults from './NoResults.js';
-import { connect } from 'react-redux';
+
 
 class SearchResultContainer extends React.Component {
     render() {
@@ -11,12 +13,18 @@ class SearchResultContainer extends React.Component {
             return <NoResults home={ this.props.home }/>
         }
         return(
-            <div>
+            <Grid 
+                container 
+                spacing={24}
+                justify="center"
+                alignItems="center" 
+                className=""
+            >
                 <SearchResultList 
                 data={ data } 
                 home={ this.props.home }
                 />
-            </div>
+            </Grid>
         )
     }
 }

@@ -7,6 +7,8 @@ import Paper from 'material-ui/Paper';
 import Grid from 'material-ui-next/Grid';
 import Hidden from 'material-ui-next/Hidden';
 import RaisedButton from 'material-ui/RaisedButton';
+import Button from 'material-ui-next/Button';
+import FloatingActionButton from 'material-ui/FloatingActionButton';
 import Login from './Login.js';
 import WizardForm from '../card_entry/WizardForm'
 import { showHomeView, showCreateView, toggleMenu } from '../../redux/actions/ViewActions';
@@ -63,13 +65,32 @@ class ViewContainer extends React.Component {
         }
         
         return (
-            <Grid container spacing={24} className="">
+            <div style={{flexGrow: 1}}>
+            <Grid 
+                container 
+                spacing={24}  
+                justify="center"
+                alignItems="center" 
+                className=""
+            >
+                
+                <Grid 
+                    item 
+                    xs={12} sm={10} md={6} lg={6} xl={6} 
+                    style={style}
+                >
+                    {currentView}
+                </Grid>
                 <Hidden mdDown>
-                    <Grid item >{instructionDiv}</Grid>
+                    <Grid 
+                        item 
+                        lg={12} xl={12}
+                    >
+                        {instructionDiv}
+                    </Grid>
                 </Hidden>
-                <Grid style={style}item xs={12}>{currentView}</Grid>
             </Grid>
-                        
+            </div>             
         )
     }
 }

@@ -13,12 +13,9 @@ class HomeView extends React.Component {
         return (
             <Grid item xs={12} className="div-opaque-color ">
                 <div>
-                    <h2>Search by name or type of creature.</h2>
+                    <h2 style={{paddingTop:'20px'}}>Search by name or type of creature.</h2>
                     <BasicSearch />
                 </div>
-                {/* <div>
-                    <RaisedButton onClick={ this.props.create } className="button-main">Create New</RaisedButton>
-                </div> */}
             </Grid>
         )
     }

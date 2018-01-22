@@ -4,7 +4,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import Grid from 'material-ui-next/Grid';
 import { TextField } from 'redux-form-material-ui';
 import { Field, reduxForm } from 'redux-form';
-import { register } from '../../redux/actions/AuthActions';
+import { register, clearErrorMessage } from '../../redux/actions/AuthActions';
 import { showLogin } from '../../redux/actions/ViewActions';
 
 class Register extends React.Component {
@@ -13,8 +13,18 @@ class Register extends React.Component {
     }
     navToLogin = () => {
         this.props.dispatch(showLogin());
+        this.props.dispatch(clearErrorMessage());
     }
     render() {
+        let error;
+        console.log(this.props.errorMessage);
+        if(this.props.errorMessage) {
+            error = (
+                <div style={{color:"#FE0006", fontWeight: "bolder"}} className="form-error">
+                    {this.props.errorMessage.message}
+                </div>
+            )
+        }
         console.log(this.props)
         return (
             <Grid
@@ -34,6 +44,7 @@ class Register extends React.Component {
                                 padding: '20px'
                                 }}
                         >
+                        {error}
                             <Field
                                 label="username"
                                 placeholder="username"
@@ -108,7 +119,8 @@ Register = reduxForm({
 
 const mapStateToProps = (state, props) => ({
     loggedIn: state.auth.currentUser !== null,
-    view: state.view.type
+    view: state.view.type,
+    errorMessage: state.auth.errorMessage
 });
 Register = connect(mapStateToProps)(Register);
 export default Register;

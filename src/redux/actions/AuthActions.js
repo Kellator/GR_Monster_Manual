@@ -34,6 +34,11 @@ export const authError = error => ({
     error
 });
 
+export const CLEAR_ERROR_MESSAGE = 'CLEAR_ERROR_MESSAGE';
+export const clearErrorMessage = () => ({
+    type: CLEAR_ERROR_MESSAGE
+});
+
 const storeAuthInfo = (authToken, dispatch) => {
     const decodedToken = jwtDecode(authToken);
     dispatch(setAuthToken(authToken));
@@ -57,22 +62,15 @@ export const checkLogin = (values) => {
         .then(res => normalizeResponseErrors(res))
         .then(res => res.json())
         .then(({authToken}) => storeAuthInfo(authToken, dispatch))
-        // .then(dispatch(ViewActions.showHomeView()))
+        .then(dispatch(ViewActions.showHomeView()))
         .catch(error => {
             const {code} = error;
             const message = 
                 code === 401
                     ? 'Incorrect username or password'
-                    : 'Unable to lging, please try again';
-            dispatch(authError(error));
-            console.log(error)
-            // could not authenticate, so return a Submission Error for Redux Form
-            // return Promise.reject(
-            //     new SubmissionError({
-            //         _error: message
-            //     })
-            // );
-            dispatch(ViewActions.showErrorView(error));
+                    : 'Unable to login, please try again';
+            dispatch(authError(message));
+            // dispatch(ViewActions.showErrorView(error));
         });
     }
 }

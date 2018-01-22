@@ -6,33 +6,33 @@ import Paper from 'material-ui/Paper';
 import Grid from 'material-ui-next/Grid';
 import { TextField } from 'redux-form-material-ui';
 import { Field, reduxForm, focus } from 'redux-form';
-import { checkLogin } from '../../redux/actions/AuthActions';
+import { checkLogin, clearErrorMessage } from '../../redux/actions/AuthActions';
 import { showRegisterView } from '../../redux/actions/ViewActions';
-import {required, nonEmpty} from '../validators';
+import { required, nonEmpty } from '../validators';
 
 export class Login extends React.Component {
     onSubmit = (values) => {
         return this.props.dispatch(checkLogin(values));
     };
     viewRegistration = () => {
-        return this.props.dispatch(showRegisterView());
+        this.props.dispatch(showRegisterView());
+        this.props.dispatch(clearErrorMessage());
     }
     render() {
-        console.log(this.props);
+        console.log(this.props.errorMessage);
         if(this.props.loggedIn) {
             return <Redirect to="/dashboard" />;
         }
 
         let error;
-        if(this.props.error) {
+        if(this.props.errorMessage) {
             error = (
-                <div className="form-error">
-                    {this.props.error}
+                <div style={{color:"#FE0006", fontWeight: "bolder"}} className="form-error">
+                    {this.props.errorMessage}
                 </div>
             )
         }
         return (
-
                 <Grid item xs={10} sm={7} md={4} lg={3} xl={2} 
                     className="div-opaque-color">
                     <Grid item className="">
@@ -107,13 +107,14 @@ export class Login extends React.Component {
 
 Login = reduxForm({
     form: 'login',
+    destroyOnUnmount: true,
     onSubmitFail: (errors, dispatch) => dispatch(focus('login','username'))
 })(Login);
 
 const mapStateToProps = (state, props) => ({
     loggedIn: state.auth.currentUser !== null,
     view: state.view.type,
-    error: state.auth.error
+    errorMessage: state.auth.errorMessage
 })
 Login = connect(mapStateToProps)(Login);
 export default Login;
