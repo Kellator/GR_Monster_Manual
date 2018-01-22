@@ -18,7 +18,7 @@ class Instruction extends React.Component {
                 <Grid 
                     item
                     xs={12}  
-                    style={{textAlign: 'center', listStyle: 'inside', webkitPaddingStart: '-40px'}}
+                    style={{textAlign: 'center', listStyle: 'inside', fontSize: '1.25rem'}}
                 >
                     {
                         instructions.homeView.text.map(function(text, i) {

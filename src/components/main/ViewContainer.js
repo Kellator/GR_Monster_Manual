@@ -7,6 +7,8 @@ import Paper from 'material-ui/Paper';
 import Grid from 'material-ui-next/Grid';
 import Hidden from 'material-ui-next/Hidden';
 import RaisedButton from 'material-ui/RaisedButton';
+import Button from 'material-ui-next/Button';
+import FloatingActionButton from 'material-ui/FloatingActionButton';
 import Login from './Login.js';
 import WizardForm from '../card_entry/WizardForm'
 import { showHomeView, showCreateView, toggleMenu } from '../../redux/actions/ViewActions';
