@@ -2,9 +2,9 @@ import axios from 'axios';
 import * as ViewActions from './ViewActions.js';
 import {fetchProtectedData} from './protected-data';
 import {normalizeResponseErrors} from './utils';
+import { API_URL } from '../../config';
 
-// import { API_URL } from '../../config';
-const API_URL = 'https://hidden-hamlet-10698.herokuapp.com';
+// const API_URL = 'https://hidden-hamlet-10698.herokuapp.com';
 const withQuery = require('with-query');
 
 export const FETCHING = 'FETCHING';

@@ -1,6 +1,6 @@
 import {normalizeResponseErrors} from './utils';
-// import { API_URL } from '../../config';
-const API_URL = 'https://hidden-hamlet-10698.herokuapp.com';
+import { API_URL } from '../../config';
+// const API_URL = 'https://hidden-hamlet-10698.herokuapp.com';
 
 export const FETCH_PROTECTED_DATA_SUCCESS = 'FETCH_PROTECTED_DATA_SUCCESS';
 export const fetchProtectedDataSuccess = data => ({
