@@ -41,7 +41,7 @@ class Main extends React.Component {
                         justify="center"
                         alignItems="center" 
                         direction="row"
-                        style={{marginTop: '40px'}}
+                        style={{marginTop: '20px'}}
                     >
                         { componentToDisplay }
                     </Grid>

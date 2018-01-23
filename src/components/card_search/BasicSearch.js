@@ -13,7 +13,9 @@ class BasicSearch extends React.Component {
     render() {
         const {handleSubmit, pristine, reset, submitting } = this.props
         return (
-            <Grid item style={{paddingBottom: '20px', paddingLeft: '20px', paddingRight: '20px', paddingTop: '20px'}}>
+            <Grid 
+            item 
+            style={{paddingBottom: '20px', paddingLeft: '20px', paddingRight: '20px', paddingTop: '20px'}}>
                 <form onSubmit={ handleSubmit(this.submit.bind(this)) } >
                     <div>
                         <Field 

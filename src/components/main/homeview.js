@@ -11,8 +11,12 @@ class HomeView extends React.Component {
             textAlign: 'center',
         }
         return (
-            <Grid item xs={12} className="div-opaque-color ">
-                <div>
+            <Grid item 
+                xs={12} sm={12} md={8} lg={8} xl={8} 
+                className="div-opaque-color "
+                style={{margin: 'auto'}}
+            >
+                <div className="div-center" > 
                     <h2 style={{paddingTop:'20px'}}>Search by name or type of creature.</h2>
                     <BasicSearch />
                 </div>

@@ -21,12 +21,12 @@ export class Landing extends React.Component {
             <Grid 
                 item 
                 xs={12} sm={12} md={10} lg={8} xl={8} 
-                style={{padding: '3rem'}}
+                style={{paddingTop: '1rem'}}
                 className="div-absolute large-text div-center"
             >
-                <h1>Welcome to the Index of Creatures!</h1>
-                <h2>Get into game faster.</h2>
-                <div>
+                <h2>Welcome to the Index of Creatures!</h2>
+                <h2 style={{color: '#FE0006'}}>Get into game faster.</h2>
+                <div style={{paddingTop: '1.25rem', paddingBottom: '1.25rem', paddingLeft: '1rem', paddingRight: '1rem'}}>
                     <p>
                         As an avid roleplayer, I'm always looking for ways to get me and my friends into game faster.  
                         One of the most time consuming things for game-masters, DMs, and plot staff can be trying to find the stats for their NPCs or non-player-characters.
@@ -45,17 +45,24 @@ export class Landing extends React.Component {
                         If you're ready to test out the IoC, click below.  Feel free to create your own user credentials or use the demo.  View existing creatures or create your own.
                         Demonstration instructions throughout.
                     </p>
-                    <RaisedButton 
-                            onClick={ () => this.viewRegistration() }
-                            className="button-main"
-                            style={{
-                                borderRadius: '1px',
-                                padding: '10px, 24px',
-                                fontWeight: 'bold',
-                            }}
-                            >Register
-                    </RaisedButton>
                 </div>
+                <Grid
+                    item 
+                    style={{padding: '1rem', margin: 'auto'}}
+                    xs={12} sm={6} md={3} lg={3} xl={3} 
+                >
+                    <RaisedButton 
+                        onClick={ () => this.viewRegistration() }
+                        className="button-main"
+                        style={{
+                            borderRadius: '1px',
+                            padding: '10px, 24px',
+                            fontWeight: 'bold',
+                            width: '100%'
+                        }}
+                        >Register
+                    </RaisedButton>
+                </Grid>
             </Grid>
         )
     }

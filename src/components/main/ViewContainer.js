@@ -19,6 +19,7 @@ import CreatureCard from '../card_view/CreatureCard';
 import SearchResultContainer from '../card_search/SearchResultContainer';
 import Instruction from './Instruction';
 import Error from './Error';
+import Landing from './Landing';
 
 
 class ViewContainer extends React.Component {
@@ -56,6 +57,8 @@ class ViewContainer extends React.Component {
                     currentView = <SearchResultContainer home={ this.props.showHomeView }/>
                     instructionDiv = <Instruction view={view} />
                     break;
+                case "about":
+                    currentView = <Landing />
                 case "error":
                     currentView = <Error />
                     break;

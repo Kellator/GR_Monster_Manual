@@ -1,9 +1,9 @@
 let instructions = {
     homeView: { 
         text: [
-            "To start using, enter the name of a creature you are looking for.",
-            "Not sure of the name?  You can view the entire database list by clicking SUBMIT.", 
-            "To view a specific category of creature enter one of the following search terms:"
+            "To start using, enter the name or category of a creature you are looking for.",
+            // "Not sure of the name?  You can view the entire database list by clicking SUBMIT.", 
+            // "To view a specific category of creature enter one of the following search terms:"
         ],
         categoryList: [
             "Animal", "Elemental", "Fae", "Giant", "Goblinoid", "Human", "Humanoid", "Magical Creature", "Undead"
