@@ -8,27 +8,6 @@ const { Strategy: JwtStrategy, ExtractJwt } = require('passport-jwt');
 const User = require('../mongoose/UserModel.js');
 const { JWT_SECRET } = require('../config');
 
-// passport authentication strategy
-// const localStrategy = new LocalStrategy((username, password, done) => {
-//         User.findByUsername(username, (err, user) => {
-//             if (err) {
-//                 return done(err);
-//             }
-//             if (!user) {
-//                 return done(null, false, {
-//                     message: 'Incorrect username.'
-//                 });
-//             }
-//             user.validatePassword(password, (err, isValid) => {
-//                 if(err || !isValid) { return done(null, false, {
-//                     message: 'Incorrect Password.'
-//                 });
-//             }
-//                 return done(null, user);
-//             });
-//         });
-//     }
-// );
 const localStrategy = new LocalStrategy((username, password, callback) => {
     let user;
     User.findOne({ username: username })
