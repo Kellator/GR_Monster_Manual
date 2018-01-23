@@ -24,7 +24,6 @@ app.use(function(req, res, next) {
         console.log("you've made the cors")
         return res.status(200).end();
     }
-    console.log("made it to cors are we there");
     next();
   });
 app.use('/', router);
