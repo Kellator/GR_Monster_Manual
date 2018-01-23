@@ -12,9 +12,10 @@ class Treasure extends React.Component {
             )
         })
         return(
-            <Card>
-                <CardHeader subtitle={"Treasure Options"} />
-                <CardText>{ componentToRender }</CardText>
+            <Card style={{background: 'inherit',marginTop: '1.5rem', marginBottom: '1.5rem'}}>
+                <p className="skill-underline">TREASURE</p>
+                {/* <CardHeader subtitle={"Treasure Options"} /> */}
+                <div>{ componentToRender }</div>
             </Card>
         )
     }

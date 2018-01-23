@@ -12,10 +12,11 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  background-color: #303030;
+  /* background-color: #303030; */
   margin: 0;
   font-family: 'Carrois Gothic SC', sans-serif;
 }
+
 .parallax { 
   /* The image used */
   background-image: url("./background.jpg");
@@ -109,3 +110,6 @@ body {
   background-color: rgb(254, 0, 6);
 }
 
+.skill-underline {
+  text-decoration: underline
+}

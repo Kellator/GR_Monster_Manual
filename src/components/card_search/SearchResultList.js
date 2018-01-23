@@ -11,7 +11,7 @@ class SearchResultList extends React.Component {
         }) : undefined;
         return(
             <Grid
-                containter
+                container
                 spacing={24}
                 justify='center'
             >

@@ -10,7 +10,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import Button from 'material-ui-next/Button';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import Login from './Login.js';
-import WizardForm from '../card_entry/WizardForm'
+import WizardForm from '../card_entry/WizardForm';
 import { showHomeView, showCreateView, toggleMenu } from '../../redux/actions/ViewActions';
 import { createNewCard, setPage } from '../../redux/actions/DatabaseActions';
 import HomeView from './homeview.js';
@@ -21,11 +21,10 @@ import Instruction from './Instruction';
 import Error from './Error';
 import Landing from './Landing';
 
-
 class ViewContainer extends React.Component {
     render() {
         const style = {
-            marginTop: '5rem',
+            marginTop: '2rem',
             textAlign: 'center',
         }
         let currentView;
@@ -75,8 +74,7 @@ class ViewContainer extends React.Component {
                 justify="center"
                 alignItems="center" 
                 className=""
-            >
-                
+            >               
                 <Grid 
                     item 
                     xs={12} sm={10} md={6} lg={6} xl={6} 
