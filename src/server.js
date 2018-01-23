@@ -16,8 +16,7 @@ var morgan = require('morgan')
 const { router: authRouter, localStrategy, jwtStrategy } = require('./auth');
 
 app.use(bodyParser.json());
-app.use(function(req, res, next) {
-    console.log("made it to cors one");
+app.use(function(req, res, next) {   
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
     res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
@@ -25,6 +24,7 @@ app.use(function(req, res, next) {
         console.log("you've made the cors")
         return res.status(200).end();
     }
+    console.log("made it to cors are we there");
     next();
   });
 app.use('/', router);
