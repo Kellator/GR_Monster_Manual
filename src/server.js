@@ -17,6 +17,7 @@ const { router: authRouter, localStrategy, jwtStrategy } = require('./auth');
 
 app.use(bodyParser.json());
 app.use(function(req, res, next) {
+    console.log("made it to cors one");
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
     res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
