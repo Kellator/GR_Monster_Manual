@@ -18,13 +18,13 @@ class ScholarStats extends React.Component {
         if (Object.keys(stats).includes("alchemy")) {
             let levelsOfAlchemy = stats.alchemy.levelsOfAlchemy;
             alchemyComponentToRender = 
-                <CardText><p><span>Levels of Alchemy:  {levelsOfAlchemy}</span></p></CardText>
+                <p><span>Levels of Alchemy:  {levelsOfAlchemy}</span></p>
         }
         // special instruction text display
         if (Object.keys(stats).includes("magicSpecialInstructions")) {
             text = stats.magicSpecialInstructions;
             textComponentToRender = 
-                <CardText><p><span>Special Instructions:  {text}</span></p></CardText>
+                <p><span>Special Instructions:  {text}</span></p>
         }
         // determines if creature has magical skills
         if (Object.keys(stats).includes("magic")) {
@@ -54,7 +54,7 @@ class ScholarStats extends React.Component {
                 secondarySchool = magic.secondarySchool.secondarySchool;
                 let secondaryColumn = magic.secondarySchool.secondaryColumn;
                 magicCompToRender = 
-                    <CardText>
+                    <div>
                         <div>
                             <p><span>Primary School of Magic:  {primarySchool}</span></p>
                             <p><span>{primaryColumn}</span></p>
@@ -65,7 +65,7 @@ class ScholarStats extends React.Component {
                             <p><span>{secondaryColumn}</span></p>
                             {secondaryFormalCompToRender}
                         </div>
-                    </CardText>
+                    </div>
             }
             // sets display if only one school of magic is present
             // includes logic to display formal magic, if present
@@ -78,15 +78,15 @@ class ScholarStats extends React.Component {
                 primarySchool = magic.primarySchool.primarySchool;
                 let primaryColumn = magic.primarySchool.primaryColumn;
                 magicCompToRender = 
-                    <CardText>
+                    <div>
                         <p><span>Primary School of Magic:  {primarySchool}</span></p>
                         <p><span>{primaryColumn}</span></p>
                         {primaryFormalCompToRender}                        
-                    </CardText>
+                    </div>
             }
         }
         return(
-            <Card>
+            <Card style={{background: 'inherit', marginBottom: '1.5rem'}}>
                 {/* <CardHeader subtitle={"Scholarly Skills"}/> */}
                 <p className="skill-underline">SCHOLARLY SKILLS</p>
                 {alchemyComponentToRender}

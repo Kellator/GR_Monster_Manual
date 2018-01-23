@@ -74,8 +74,7 @@ class ViewContainer extends React.Component {
                 justify="center"
                 alignItems="center" 
                 className=""
-            >
-                
+            >               
                 <Grid 
                     item 
                     xs={12} sm={10} md={6} lg={6} xl={6} 

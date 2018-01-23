@@ -13,10 +13,10 @@ class PhysicalDefenses extends React.Component {
 
         });
         return(
-            <Card>
+            <Card style={{background: 'inherit', marginBottom: '1.5rem'}}>
                 <p className="skill-underline">PHYSICAL DEFENSES</p>
                 {/* <CardHeader subtitle={"Physical Defenses"} /> */}
-                <CardText>{componentToRender}</CardText>
+                <div>{componentToRender}</div>
             </Card>
         )
     }

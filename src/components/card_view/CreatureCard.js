@@ -68,7 +68,9 @@ class CreatureCard extends React.Component {
             notesComponentToRender = <Notes notes={ notes } />
         }
         return( 
-            <div>
+            <Grid
+            container
+            style={{background: 'inherit'}}>
                 <div> 
                     <h2>{this.props.currentCard.name}</h2> 
                     <h4 style={{color: '#FE0006'}}>{this.props.currentCard.level}</h4> 
@@ -90,7 +92,7 @@ class CreatureCard extends React.Component {
                     data={ data } 
                     returnNewList={ this.props.returnNewList }
                 />
-            </div>
+            </Grid>
         )
     }
 }

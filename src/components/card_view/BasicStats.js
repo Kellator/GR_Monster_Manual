@@ -20,12 +20,12 @@ class BasicStats extends React.Component {
             description = this.props.stats.description;
         }
         return (
-            <CardText>
+            <div style={{marginBottom: '1.5rem', marginTop: '1.5rem'}}>
                 <p className="skill-underline">{this.props.stats.category}</p>
                 <p>Body Points: {this.props.stats.body}</p>
                 <p>Armor Points: {armor}</p>
                 <p>Physical Description: {description}</p>
-            </CardText>
+            </div>
         )
     }
 };

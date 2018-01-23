@@ -5,10 +5,10 @@ class Notes extends React.Component {
     render() {
         let notes = this.props.notes.toUpperCase();
         return (
-            <Card>
+            <Card style={{background: 'inherit', marginBottom: '1.5rem'}}>
                 <p className="skill-underline">NOTES OR SPECIAL INSTRUCTIONS</p>
                 {/* <CardHeader subtitle={"Creature Notes or Special Instructions"} /> */}
-                <CardText><p><span>{ notes }</span></p></CardText>
+                <div><p><span>{ notes }</span></p></div>
             </Card>
         )
     }
