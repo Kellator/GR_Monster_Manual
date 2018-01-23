@@ -4,7 +4,8 @@ import {SubmissionError} from 'redux-form';
 import {saveAuthToken, clearAuthToken} from '../../local-storage';
 import jwtDecode from 'jwt-decode';
 import {normalizeResponseErrors} from './utils';
-import { API_URL } from '../../config';
+// 
+let API_URL = 'https://hidden-hamlet-10698.herokuapp.com';
 
 export const SET_AUTH_TOKEN = 'SET_AUTH_TOKEN';
 export const setAuthToken = authToken => ({
