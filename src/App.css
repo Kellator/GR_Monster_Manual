@@ -109,3 +109,6 @@ body {
   background-color: rgb(254, 0, 6);
 }
 
+.skill-underline {
+  text-decoration: underline
+}

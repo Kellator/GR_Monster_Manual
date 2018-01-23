@@ -6,7 +6,8 @@ class Notes extends React.Component {
         let notes = this.props.notes.toUpperCase();
         return (
             <Card>
-                <CardHeader subtitle={"Creature Notes or Special Instructions"} />
+                <p className="skill-underline">NOTES OR SPECIAL INSTRUCTIONS</p>
+                {/* <CardHeader subtitle={"Creature Notes or Special Instructions"} /> */}
                 <CardText><p><span>{ notes }</span></p></CardText>
             </Card>
         )

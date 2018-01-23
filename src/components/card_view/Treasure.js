@@ -13,7 +13,8 @@ class Treasure extends React.Component {
         })
         return(
             <Card>
-                <CardHeader subtitle={"Treasure Options"} />
+                <p className="skill-underline">TREASURE</p>
+                {/* <CardHeader subtitle={"Treasure Options"} /> */}
                 <CardText>{ componentToRender }</CardText>
             </Card>
         )

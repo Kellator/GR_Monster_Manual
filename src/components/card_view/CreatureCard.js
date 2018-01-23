@@ -14,6 +14,7 @@ import Notes from './Notes.js';
 import DeleteDialog from './Dialog.js';
 import { deleteCard, returnNewList } from '../../redux/actions/DatabaseActions';
 import {  showResultsListView } from '../../redux/actions/ViewActions';
+import Grid from 'material-ui-next/Grid/Grid';
 
 class CreatureCard extends React.Component {
     render() {
@@ -68,27 +69,27 @@ class CreatureCard extends React.Component {
         }
         return( 
             <div>
-                <CardHeader title={this.props.currentCard.name} subtitle={this.props.currentCard.level} />
-                    <Card><BasicStats stats={ basicStats }/></Card>
-                    
-                    {weaponComponentToRender}
-                    
-                    {scholarlyComponentToRender}
-                    
-                    {physicalDefenseComponentToRender}
-                    
-                    {spellDefenseComponentToRender}
-                    
-                    {racialDefenseComponentToRender}
-                    
-                    {treasureComponentToRender}
-                    
+                <div> 
+                    <h2>{this.props.currentCard.name}</h2> 
+                    <h4 style={{color: '#FE0006'}}>{this.props.currentCard.level}</h4> 
+                </div>
+                    <BasicStats stats={ basicStats }/>                        
+                    {weaponComponentToRender}                        
+                    {scholarlyComponentToRender}                        
+                    {physicalDefenseComponentToRender}                        
+                    {spellDefenseComponentToRender}                        
+                    {racialDefenseComponentToRender}                        
+                    {treasureComponentToRender}                        
                     {notesComponentToRender}
-                    
-
                 {/* <RaisedButton card_id={ card_id } onClick={ this.props.editCard }>Edit</RaisedButton> */}
                 <RaisedButton onClick={ this.props.returnToList }>Back</RaisedButton>
-                <DeleteDialog style={{color:'black'}} deleteCard={ this.props.delete } id={ id } data={ data } returnNewList={ this.props.returnNewList }/>
+                <DeleteDialog 
+                    style={{color:'black'}} 
+                    deleteCard={ this.props.delete } 
+                    id={ id }
+                    data={ data } 
+                    returnNewList={ this.props.returnNewList }
+                />
             </div>
         )
     }

@@ -11,13 +11,13 @@ class ScholarStats extends React.Component {
         let alchemyCompToRender;
         let primaryFormalCompToRender;
         let secondaryFormalCompToRender;
-        let alchemyComponentTotRender;
+        let alchemyComponentToRender;
         let text;
         let textComponentToRender;
         // determines if creature has alchemy
         if (Object.keys(stats).includes("alchemy")) {
             let levelsOfAlchemy = stats.alchemy.levelsOfAlchemy;
-            alchemyComponentTotRender = 
+            alchemyComponentToRender = 
                 <CardText><p><span>Levels of Alchemy:  {levelsOfAlchemy}</span></p></CardText>
         }
         // special instruction text display
@@ -87,8 +87,9 @@ class ScholarStats extends React.Component {
         }
         return(
             <Card>
-                <CardHeader subtitle={"Scholarly Skills"}/>
-                {alchemyComponentTotRender}
+                {/* <CardHeader subtitle={"Scholarly Skills"}/> */}
+                <p className="skill-underline">SCHOLARLY SKILLS</p>
+                {alchemyComponentToRender}
                 {magicCompToRender}
                 {textComponentToRender}
             </Card>

@@ -61,7 +61,8 @@ class WeaponStats extends React.Component {
         }
         return (
             <Card>
-                <CardHeader subtitle={"Weapon Skills"} />
+                <p className="skill-underline">WEAPON SKILLS</p>
+                {/* <CardHeader subtitle={"Weapon Skills"} /> */}
                 <CardText>
                     <p><span>Weapons Type:  { weaponType }</span></p>
                     {compToRender}

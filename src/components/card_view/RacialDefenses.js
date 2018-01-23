@@ -13,7 +13,8 @@ class RacialDefenses extends React.Component {
         });
         return(
             <Card>
-                <CardHeader subtitle={"Racial Defenses"} />
+                <p className="skill-underline">RACIAL DEFENSES</p>
+                {/* <CardHeader subtitle={"Racial Defenses"} /> */}
                 <CardText>{componentToRender}</CardText>
             </Card>
         )

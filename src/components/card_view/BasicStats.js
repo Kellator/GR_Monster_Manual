@@ -21,7 +21,7 @@ class BasicStats extends React.Component {
         }
         return (
             <CardText>
-                <p>{this.props.stats.category}</p>
+                <p className="skill-underline">{this.props.stats.category}</p>
                 <p>Body Points: {this.props.stats.body}</p>
                 <p>Armor Points: {armor}</p>
                 <p>Physical Description: {description}</p>

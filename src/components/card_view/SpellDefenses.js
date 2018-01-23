@@ -14,8 +14,11 @@ class SpellDefenses extends React.Component {
         });
         return(
             <Card>
-                <CardHeader subtitle={"Spell Defenses"} />
-                <CardText>{componentToRender}</CardText>
+                <p className="skill-underline">SPELL DEFENSES</p>
+                {/* <CardHeader subtitle={"Spell Defenses"} /> */}
+                <CardText>
+                    {componentToRender}
+                </CardText>
             </Card>
         )
     }
