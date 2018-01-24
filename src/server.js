@@ -26,6 +26,7 @@ app.use(bodyParser.json());
 //     }
 //     next();
 //   });
+app.options('*', cors());
 app.use('/', router);
 app.use('/user', userRouter);
 app.use('/auth', authRouter);

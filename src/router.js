@@ -1,6 +1,7 @@
 'use strict';
 var config = require('./config');
 var express = require('express');
+var cors = require('cors');
 var router = express.Router();
 var passport = require('passport');
 var mongoose = require('mongoose');
