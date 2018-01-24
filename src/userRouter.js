@@ -83,12 +83,14 @@ router.post('/', (request, response) => {
     }
     bcrypt.genSalt(10, function(error, salt) {
         if (error) { 
+            console.log(error)
             return response.status(500).json({
                 message: "Internal Server Error"
             });
         }
         bcrypt.hash(password, salt, function(error, hash) {
             if(error) {
+                console.log(error)
                 return response.status(500).json({
                     message: "Internal Server Error"
                 });
@@ -100,6 +102,7 @@ router.post('/', (request, response) => {
             });
             user.save(function(error) {
                 if(error) {
+                    console.log(error)
                     return response.status(500).json({
                         message: "Internal Server Error"
                     });
