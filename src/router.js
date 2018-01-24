@@ -54,6 +54,7 @@ router.get('/monster', jwtAuth, (req, res) => {
 
 // creates new document for monster collection
 router.post('/monster', jwtAuth, (req, res) => {
+    console.log(req.body);
     let monsterName = (req.body.monster_name).toUpperCase();
     let monsterCategory = (req.body.monster_category).toUpperCase();
     let monster = {
