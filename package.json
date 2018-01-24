@@ -7,6 +7,20 @@
     "node": "8.5.0",
     "npm": "5.6.0"
   },
+  "babel": {
+    "presets": [
+      ["es2015", "react"]
+    ],
+    
+    "plugins": ["syntax-dynamic-import"],
+  
+    "env": {
+      "test": {
+        "presets": [["es2015"], "react"],
+        "plugins": ["transform-es2015-modules-commonjs"]
+      }
+    }
+  },
   "author": "Kelly Miller <k.macleod21@gmail.com>",
   "license": "UNLICENSED",
   "dependencies": {
