@@ -16,16 +16,16 @@ var morgan = require('morgan')
 const { router: authRouter, localStrategy, jwtStrategy } = require('./auth');
 app.use(cors());
 app.use(bodyParser.json());
-app.use(function(req, res, next) {   
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
-    res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
-    if (req.method === "OPTIONS") {
-        console.log("you've made the cors")
-        return res.status(200).end();
-    }
-    next();
-  });
+// app.use(function(req, res, next) {   
+//     res.header("Access-Control-Allow-Origin", "*");
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+//     res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
+//     if (req.method === "OPTIONS") {
+//         console.log("you've made the cors")
+//         return res.status(200).end();
+//     }
+//     next();
+//   });
 app.use('/', router);
 app.use('/user', userRouter);
 app.use('/auth', authRouter);
