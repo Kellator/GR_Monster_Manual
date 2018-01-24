@@ -6,6 +6,11 @@ const jwt = require('jsonwebtoken');
 const strategies = require('./strategies');
 const config = require('../config');
 const router = express.Router();
+var cors = require('cors');
+
+router.use(cors({
+  credentials: true,
+}));
 // from Thinkful JWT curriculum
 const createAuthToken = function(user) {
     return jwt.sign({user}, config.JWT_SECRET, {
