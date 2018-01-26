@@ -22,21 +22,21 @@ let WizardFormFirstPage = props => {
         />
         <p>Choose One Category of Creature (required).</p>
             <RadioButtonGroup name="monster_category" label="Monster Category">             
-                <RadioButton value="Animal" label="Animal"/>
-                <RadioButton value="Elemental" label="Elemental"/>
-                <RadioButton value="Fae" label="Fae"/>
-                <RadioButton value="Giant" label="Giant"/>
-                <RadioButton value="Goblinoid" label="Goblinoid"/>
-                <RadioButton value="Human" label="Human"/>
-                <RadioButton value="Humanoid" label="Humanoid"/>
-                <RadioButton value="Magical Creature" label="Magical Creature"/>
-                <RadioButton value="Undead" label="Undead"/>
+                <RadioButton name="monster_category" value="Animal" label="Animal"/>
+                <RadioButton name="monster_category" value="Elemental" label="Elemental"/>
+                <RadioButton name="monster_category" value="Fae" label="Fae"/>
+                <RadioButton name="monster_category" value="Giant" label="Giant"/>
+                <RadioButton name="monster_category" value="Goblinoid" label="Goblinoid"/>
+                <RadioButton name="monster_category" value="Human" label="Human"/>
+                <RadioButton name="monster_category" value="Humanoid" label="Humanoid"/>
+                <RadioButton name="monster_category" value="Magical Creature" label="Magical Creature"/>
+                <RadioButton name="monster_category" value="Undead" label="Undead"/>
             </RadioButtonGroup>
         <p>Choose Level of Difficulty (required).</p>
             <RadioButtonGroup name="monster_level" label="Monster Level"> 
-                <RadioButton value="Low" label="Low"/>
-                <RadioButton value="Mid" label="Mid"/>
-                <RadioButton value="High" label="High"/>
+                <RadioButton name="monster_level" value="Low" label="Low"/>
+                <RadioButton name="monster_level" value="Mid" label="Mid"/>
+                <RadioButton name="monster_level" value="High" label="High"/>
             </RadioButtonGroup>
         <p>Enter the Body Points (required) and Armor Points for the Creature, if applicable.</p>
         <p>Use only numbers.</p>
