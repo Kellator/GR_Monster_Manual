@@ -54,6 +54,7 @@ export const returnNewList = (id, list) => ({
 export const retrieve = (id) => (dispatch, getState) => {
     const authToken = getState().auth.authToken;
     dispatch(fetching());
+    console.log(id);
     axios.get(API_URL + "monster/card", {
         params: {
             term: id
@@ -74,7 +75,15 @@ export const retrieve = (id) => (dispatch, getState) => {
 }
 export const searchDatabase = (query) => (dispatch, getState) => {
     const authToken = getState().auth.authToken;
-    const searchInput = query.basic_search_input;
+    let searchInput;
+    if(query.basic_search_input) {
+        searchInput = query.basic_search_input;
+    }
+    else {
+        searchInput = query;
+    }
+    console.log(query);
+    console.log(searchInput)
     dispatch(fetching());
     axios.get(API_URL + "monster", {
         params: {

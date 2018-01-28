@@ -3,17 +3,20 @@ import {connect} from 'react-redux';
 import Drawer from 'material-ui/Drawer';
 import RaisedButton from 'material-ui/RaisedButton';
 import Grid from 'material-ui-next/Grid';
+import FlatButton from 'material-ui/FlatButton';
 import instructions from './InstructionText';
+import {searchDatabase} from '../../redux/actions/DatabaseActions';
 
 class Instruction extends React.Component {
     render() {
         console.log(this.props);
         let view = this.props.view;
         let page = this.props.page;
+        let categorySearch = this.props.categorySearch
         let textToRender;
         let fields;
         switch(view) {
-            case "home":
+            case "home":            
             textToRender = 
                 <Grid 
                     item
@@ -28,11 +31,25 @@ class Instruction extends React.Component {
                     <ul>
                         {
                             instructions.homeView.categoryList.map(function(category, i) {
+                                let onClick = () => {
+                                    categorySearch(category)
+                                    console.log(category);
+                                }
                                 return <li 
-                                    style={{display: 'inline', paddingRight: '20px', }}
+                                    style={{display: 'inline' }}
                                     key={i}
-                                >
+                                ><FlatButton style={{
+                                    border: 'none', 
+                                    paddingLeft: '10px', 
+                                    paddingRight: '10px', 
+                                    color: '#AA0004',
+                                    fontWeight: 'bold',
+                                    textDecoration: 'underline'
+                                    }}
+                                    onClick={onClick}
+                                    >
                                     {category}
+                                </FlatButton>
                                 </li>
                             })
                         }

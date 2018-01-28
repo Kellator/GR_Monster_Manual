@@ -12,7 +12,7 @@ import FloatingActionButton from 'material-ui/FloatingActionButton';
 import Login from './Login.js';
 import WizardForm from '../card_entry/WizardForm';
 import { showHomeView, showCreateView, toggleMenu } from '../../redux/actions/ViewActions';
-import { createNewCard, setPage } from '../../redux/actions/DatabaseActions';
+import { createNewCard, setPage, searchDatabase } from '../../redux/actions/DatabaseActions';
 import HomeView from './homeview.js';
 import CardCreated from './cardCreated.js';
 import CreatureCard from '../card_view/CreatureCard';
@@ -32,34 +32,34 @@ class ViewContainer extends React.Component {
         let view = this.props.view.type;
         let page = this.props.page;
         if(this.props.user && view === null) {
-            currentView = <HomeView create={ this.props.showCreateNew }/>
-            instructionDiv = <Instruction view={'home'} />
+            currentView = <HomeView create={ this.props.showCreateNew } />
+            instructionDiv = <Instruction view={ 'home' } categorySearch={ this.props.categorySearch }/>
         } else {
             switch(view) {
                 case "home":
-                    currentView = <HomeView create={ this.props.showCreateNew }/>
-                    instructionDiv = <Instruction view={view} />
+                    currentView = <HomeView create={ this.props.showCreateNew } />
+                    instructionDiv = <Instruction view={ view } categorySearch={ this.props.categorySearch }/>
                     break;
                 case "create":
                     currentView = <WizardForm submit={ this.props.createNewCard } getPage={ this.props.getPage }/>
-                    instructionDiv = <Instruction view={view} page={page} />
+                    instructionDiv = <Instruction view={ view } page={ page } />
                     break;
                 case "new card":
                     currentView = <CardCreated create={ this.props.showCreateNew } home={ this.props.showHomeView }/>
-                    instructionDiv = <Instruction view={view} />
+                    instructionDiv = <Instruction view={ view } />
                     break;
                 case "card":
                     currentView = <CreatureCard />
-                    instructionDiv = <Instruction view={view} />
+                    instructionDiv = <Instruction view={ view } />
                     break;
                 case "results list":
                     currentView = <SearchResultContainer home={ this.props.showHomeView }/>
-                    instructionDiv = <Instruction view={view} />
+                    instructionDiv = <Instruction view={ view } />
                     break;
                 case "about":
-                    currentView = <Landing />
+                    currentView = <Landing view={ view }/>
                 case "error":
-                    currentView = <Error />
+                    currentView = <Error view={ view }/>
                     break;
                 default:
                 currentView = <div>Hello</div>
@@ -118,6 +118,11 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         handleToggle: () => {
             console.log("toggle clicked");
             dispatch(toggleMenu());
+        },
+        categorySearch: (category) => {
+            console.log(category);
+            console.log('category search clicked');
+            dispatch(searchDatabase(category));
         }
     }
 };

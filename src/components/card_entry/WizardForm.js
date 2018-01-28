@@ -30,6 +30,7 @@ class WizardForm extends Component {
   }
 
   render() {
+    console.log(this.props);
     const { onSubmit } = this.props
     const { page } = this.state
     let pageNumber = this.state.page;

@@ -26,9 +26,22 @@ router.get('/monster', jwtAuth, (req, res) => {
     // initial search criteria (e.g. search by name of creature OR categorization of creature) 
     // available on primary search function
     var term = req.query.term;
+    console.log(req.query)
     // secondary search criteria initiated in advanced search function
     // var secondarySearchCrit = req.query.secondarySearchCrit;
-    if (typeof term === 'string' ) {
+
+    if(term == '{}') {
+        Monster.find().exec((err, monsters) => {
+            console.log(monsters);
+            if (err) {
+                return res.status(500).json({
+                    message: 'Crumbs! Internal Server Error!'
+                });
+            }
+            res.json(monsters);
+        });        
+    }
+    else if (typeof term === 'string' ) {
         var primarySearchCrit = term.toUpperCase();
         // uses specified search criteria to search in name of creature or category of creature and returns all matches
         Monster.find( { $or: [ {'name': {$regex: primarySearchCrit} }, { 'category': primarySearchCrit } ] } ).exec(function(err, monsters) {
@@ -40,8 +53,10 @@ router.get('/monster', jwtAuth, (req, res) => {
             res.json(monsters);
         });
     }
+
     else {
         Monster.find().exec((err, monsters) => {
+            console.log(monsters);
             if (err) {
                 return res.status(500).json({
                     message: 'Crumbs! Internal Server Error!'

@@ -10,6 +10,7 @@ class HomeView extends React.Component {
             marginTop: '5rem',
             textAlign: 'center',
         }
+        console.log(this.props)
         return (
             <Grid item 
                 xs={12} sm={12} md={8} lg={8} xl={8} 

@@ -9,6 +9,7 @@ let hintText;
 class BasicSearch extends React.Component {
     submit = (value, dispatch) => {
         dispatch(searchDatabase(value));
+        console.log(value);  
     };
     render() {
         const {handleSubmit, pristine, reset, submitting } = this.props
@@ -22,6 +23,7 @@ class BasicSearch extends React.Component {
                             placeholder="search" 
                             name="basic_search_input" 
                             component={ TextField }
+                            initialvalue=' '
                             style={{
                                 width: '100%'
                             }}

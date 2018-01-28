@@ -3,7 +3,8 @@ import { Field, reduxForm, formValueSelector } from 'redux-form';
 import { connect } from 'react-redux';
 import { Checkbox, TextField, SelectField } from 'redux-form-material-ui';
 import ActionFavorite from 'material-ui/svg-icons/action/favorite';
-import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
+import { RadioButton } from 'material-ui/RadioButton';
+import { RadioButtonGroup } from 'redux-form-material-ui';
 import RaisedButton from 'material-ui/RaisedButton';
 import MenuItem from 'material-ui/MenuItem';
 import validate from './validate';
@@ -24,26 +25,26 @@ let WizardFormSecondPage = props => {
         <div>
           <label>Basic Weapon Skills/Type</label>
           <div>
-            <RadioButtonGroup name="weapon_type" label="Weapon Type"> 
+            <Field component={RadioButtonGroup} name="weapon_type" label="Weapon Type"> 
                 <RadioButton checkedIcon={<ActionFavorite style={{color: '#FE0006'}} />} value="No Weapons" label="No Weapons"/>
                 <RadioButton value="Weapon of Choice" label="Weapon of Choice"/>
                 <RadioButton value="Claws" label="Claws"/>
                 <RadioButton value="Long Claws" label="Long Claws"/>
                 <RadioButton value="Bite" label="Bite"/>
-            </RadioButtonGroup>
+            </Field>
           </div>
         </div>
         <div>
           <label>Plus Strength</label>
           <div>
-            <RadioButtonGroup name="plus_strength_level" label="Plus Strength"> 
+            <Field component={RadioButtonGroup} name="plus_strength_level" label="Plus Strength"> 
                 <RadioButton value="Normal Strength (+0)" label="Normal Strength (+0)"/>
                 <RadioButton value="Plus 2 Strength (+2)" label="Plus 2 Strength (+2)"/>
                 <RadioButton value="Plus 4 Strength (+4)" label="Plus 4 Strength (+4)"/>
                 <RadioButton value="Plus 6 Strength (+6)" label="Plus 6 Strength (+6)"/>
                 <RadioButton value="Plus 8 Strength (+8)" label="Plus 8 Strength (+8)"/>
                 <RadioButton value="Plus 10 Strength (+10)" label="Plus 10 Strength (+10)"/>
-            </RadioButtonGroup>
+            </Field>
           </div>
         </div>
       <div>
