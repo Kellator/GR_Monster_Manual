@@ -29,10 +29,10 @@ router.get('/monster', jwtAuth, (req, res) => {
     console.log(req.query)
     // secondary search criteria initiated in advanced search function
     // var secondarySearchCrit = req.query.secondarySearchCrit;
-
+    // if search returns an object in a string, a full db search will be returned.  This was added after
+    // search feature to include category searches through instruction buttons
     if(term == '{}') {
         Monster.find().exec((err, monsters) => {
-            console.log(monsters);
             if (err) {
                 return res.status(500).json({
                     message: 'Crumbs! Internal Server Error!'
@@ -56,7 +56,6 @@ router.get('/monster', jwtAuth, (req, res) => {
 
     else {
         Monster.find().exec((err, monsters) => {
-            console.log(monsters);
             if (err) {
                 return res.status(500).json({
                     message: 'Crumbs! Internal Server Error!'

@@ -25,6 +25,7 @@ class SearchResult extends React.Component {
                 md={12}
                 lg={12}
                 xl={12}
+                className='grid-item-return'
             >
                 <ListItem onClick={ this.props.showCard } 
                         primaryText={ name + " (" + level + ")"}

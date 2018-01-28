@@ -33,7 +33,6 @@ class Instruction extends React.Component {
                             instructions.homeView.categoryList.map(function(category, i) {
                                 let onClick = () => {
                                     categorySearch(category)
-                                    console.log(category);
                                 }
                                 return <li 
                                     style={{display: 'inline' }}

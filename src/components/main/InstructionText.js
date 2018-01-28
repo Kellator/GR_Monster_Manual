@@ -87,8 +87,7 @@ let instructions = {
     resultsListView: {
         text: [
             "Select a creature from the list to see the full Creature Card.",
-            "Don't see the creature you're looking for in the list?  Check your spelling.  If you still don't see it, add one!",
-            "Use the menu on the right of the navigation bar to go HOME to search or CREATE NEW to create a new Creature."
+            "Don't see the creature you're looking for in the list?  Check your spelling.  If you still don't see it, add one!"
         ]
     },
     cardView: {

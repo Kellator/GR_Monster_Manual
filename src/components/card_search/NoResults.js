@@ -4,11 +4,13 @@ import RaisedButton from 'material-ui/RaisedButton';
 
 class NoResults extends React.Component {
     render() {
+        console.log(this.props);
         return(
             <div>
                 <h3>Sorry!  Your search has returned no results.  Check your spelling or try again using a different name or category.</h3>
-                <BasicSearch onSubmit={ this.props.searchDatabaseSubmit }/>
-                <RaisedButton onClick={ this.props.home }>Home</RaisedButton>
+                {/* <BasicSearch onSubmit={ this.props.searchDatabaseSubmit }/> */}
+                <RaisedButton onClick={ this.props.home }>Back</RaisedButton>
+                {/* <RaisedButton onClick={ this.props.home }>Home</RaisedButton> */}
             </div>
         )
     }

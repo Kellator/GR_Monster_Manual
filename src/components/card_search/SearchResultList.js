@@ -14,20 +14,30 @@ class SearchResultList extends React.Component {
                 container
                 spacing={24}
                 justify='center'
+                style={{
+                    display: 'block'
+                }}
             >
                 <List >
                     { results }
                 </List>
-                <RaisedButton 
-                    onClick={ this.props.home }
-                    style={{
-                        borderRadius: '1px',
-                        padding: '10px, 24px',
-                        fontWeight: 'bold',
-                        width: '100%',
-                        marginTop: '2rem'
-                    }}
-                >BACK</RaisedButton>
+                <Grid 
+                    item 
+                    xs={12} sm={8} md={8} lg={6} xl={6}
+                    className='centered-button'
+                    style={{margin: 'auto'}}
+                >
+                    <RaisedButton 
+                        onClick={ this.props.home }
+                        style={{
+                            borderRadius: '1px',
+                            padding: '10px, 24px',
+                            fontWeight: 'bold',
+                            width: '100%',
+                            marginTop: '2rem'                        
+                        }}
+                    >BACK</RaisedButton>
+                </Grid>
             </Grid>
         )
     }

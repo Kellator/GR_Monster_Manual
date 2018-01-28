@@ -32,16 +32,17 @@ class Error extends React.Component {
             >
                 { errorMessage }
                 {/* <Grid item className="div-center"> */}
-                    <RaisedButton 
-                        onClick={ () => this.navToLogin() }
-                        style={{
-                            borderRadius: '1px',
-                            fontWeight: 'bold',
-                            paddingLeft: '20px',
-                            paddingRight: '20px',
-                            backgroundColor: 'rgb(255, 255, 255)'
-                        }}
-                        >Return to Login</RaisedButton>
+                <RaisedButton onClick={ () => this.navToLogin() }>Back</RaisedButton>
+                {/* <RaisedButton 
+                    onClick={ () => this.navToLogin() }
+                    style={{
+                        borderRadius: '1px',
+                        fontWeight: 'bold',
+                        paddingLeft: '20px',
+                        paddingRight: '20px',
+                        backgroundColor: 'rgb(255, 255, 255)'
+                    }}
+                    >Return to Login</RaisedButton> */}
                     {/* </Grid> */}
             </Grid>
         )

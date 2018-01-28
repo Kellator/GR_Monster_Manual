@@ -54,7 +54,7 @@ class ViewContainer extends React.Component {
                     break;
                 case "results list":
                     currentView = <SearchResultContainer home={ this.props.showHomeView }/>
-                    instructionDiv = <Instruction view={ view } />
+                    // instructionDiv = <Instruction view={ view } />
                     break;
                 case "about":
                     currentView = <Landing view={ view }/>
@@ -68,29 +68,30 @@ class ViewContainer extends React.Component {
         
         return (
             <div style={{flexGrow: 1}}>
-            <Grid 
-                container 
-                spacing={24}  
-                justify="center"
-                alignItems="center" 
-                className=""
-            >               
                 <Grid 
-                    item 
-                    xs={12} sm={10} md={6} lg={6} xl={6} 
-                    style={style}
-                >
-                    {currentView}
-                </Grid>
-                <Hidden mdDown>
+                    container 
+                    spacing={24}  
+                    justify="center"
+                    alignItems="center" 
+                    className="view-container"
+                >               
                     <Grid 
                         item 
-                        lg={12} xl={12}
+                        xs={12} sm={10} md={6} lg={6} xl={6} 
+                        style={style}
                     >
-                        {instructionDiv}
+                        {currentView}
                     </Grid>
-                </Hidden>
-            </Grid>
+                    <Hidden mdDown>
+                        <Grid 
+                            item 
+                            lg={12} xl={12}
+                            className='hidden-div'
+                        >
+                            {instructionDiv}
+                        </Grid>
+                    </Hidden>
+                </Grid>
             </div>             
         )
     }
