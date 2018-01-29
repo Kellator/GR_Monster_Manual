@@ -41,13 +41,14 @@ export default class DeleteDialog extends React.Component {
     ];
 
     return (
-      <div>
-        <RaisedButton style={{color: 'rgb(48, 48, 48)'}} label="Delete" onClick={this.handleOpen} />
+      <div >
+        <RaisedButton className="delete-button" label="Delete" onClick={this.handleOpen} />
         <Dialog
           title="Delete Creature Card"
           actions={actions}
           modal={true}
-          open={this.state.open}
+          open={this.state.open}        
+          className="dialog-container"
         >
           WARNING:  Are you sure you want to delete this creature card?  This action cannot be undone.
         </Dialog>
