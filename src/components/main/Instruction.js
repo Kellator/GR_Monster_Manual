@@ -41,7 +41,6 @@ class Instruction extends React.Component {
                                     border: 'none', 
                                     paddingLeft: '10px', 
                                     paddingRight: '10px', 
-                                    color: '#AA0004',
                                     fontWeight: 'bold',
                                     textDecoration: 'underline'
                                     }}

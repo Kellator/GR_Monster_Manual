@@ -1,27 +1,37 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import muiThemeable from 'material-ui/styles/muiThemeable';
-import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
-import iocTheme from 'material-ui/styles/baseThemes/iocTheme';
-// import iocTheme from './iocTheme';
-
-
 import {BrowserRouter as Router} from 'react-router-dom';
-import './index.css';
 import App from './App';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
-// import registerServiceWorker from './registerServiceWorker';
+import muiThemeable from 'material-ui/styles/muiThemeable';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import { MuiThemeProvider } from 'material-ui/styles';
+import { createMuiTheme } from 'material-ui-next/styles';
+import './index.css';
 
-injectTapEventPlugin();
-
+const theme = createMuiTheme({
+    palette: {
+        accent1Color: "#e0e0e0",
+        primary2Color: "#424242",
+        primary1Color: "#b71c1c",
+        accent2Color: "#9e9e9e",
+        accent3Color: "#e0e0e0",
+        primary3Color: "#ef5350",
+        textColor: 'rgb(255, 255, 255, 1)',
+        secondaryTextColor: 'rgb(255, 255, 255, 0.7)',
+        alternateTextColor: '#303030',
+        canvasColor: '#303030',
+        borderColor: 'rgb(255 ,255, 255, 0.3)',
+        disabledColor: 'rgb(255 ,255, 255, 0.3)',
+        pickerHeaderColor: 'rgb(255 ,255, 255, 0.12)',
+        clockCircleColor: 'rgb(255 ,255, 255, 0.12)',
+        shadowColor: 'rgb(0, 0, 0, 1)'
+    }
+})
 ReactDOM.render(
-    <MuiThemeProvider muiTheme={getMuiTheme(iocTheme)}>
+    <MuiThemeProvider theme={theme}>
         <Provider store={ store }>
             <Router>
                 <App />
@@ -29,4 +39,5 @@ ReactDOM.render(
         </Provider>
     </MuiThemeProvider>, 
 document.getElementById('root'));
-// registerServiceWorker();
+
+

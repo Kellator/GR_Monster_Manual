@@ -15,11 +15,6 @@ import { clearAuthToken } from './local-storage';
 
 //material ui design components and imports
 import Paper from 'material-ui/Paper';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import muiThemeable from 'material-ui/styles/muiThemeable';
-import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import AppBar from 'material-ui/AppBar';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
@@ -66,15 +61,9 @@ class App extends React.Component {
     this.props.dispatch(showAboutView());
   }
   render() {
-    const style = {
-      backgroundColor: '#252525',
-      color: 'black',
-      height: 75,
-    }
     return (
         <div className="App">
           <AppBar className="App-Bar"
-            style={style}
             title="IoC | Index of Creatures" 
             iconElementLeft={
               <IconMenu

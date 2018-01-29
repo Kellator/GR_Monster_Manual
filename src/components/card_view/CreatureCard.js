@@ -73,7 +73,7 @@ class CreatureCard extends React.Component {
             style={{background: 'inherit'}}>
                 <div> 
                     <h2>{this.props.currentCard.name}</h2> 
-                    <h4 style={{color: '#FE0006'}}>{this.props.currentCard.level}</h4> 
+                    <h4>{this.props.currentCard.level}</h4> 
                 </div>
                     <BasicStats stats={ basicStats }/>                        
                     {weaponComponentToRender}                        
@@ -86,7 +86,6 @@ class CreatureCard extends React.Component {
                 {/* <RaisedButton card_id={ card_id } onClick={ this.props.editCard }>Edit</RaisedButton> */}
                 <RaisedButton onClick={ this.props.returnToList }>Back</RaisedButton>
                 <DeleteDialog 
-                    style={{color:'black'}} 
                     deleteCard={ this.props.delete } 
                     id={ id }
                     data={ data } 

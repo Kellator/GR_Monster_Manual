@@ -13,7 +13,7 @@ class SearchResult extends React.Component {
         let level = creature.level;
         let category = creature.category; 
         const secondaryText = 
-            <div style={{color: '#FE0006', fontWeight: 'bold', fontSize: '1.25rem', paddingTop: '8px'}}>
+            <div style={{fontWeight: 'bold', fontSize: '1.25rem', paddingTop: '8px'}}>
                 {category}
             </div>
 
