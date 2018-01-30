@@ -9,8 +9,9 @@ class Notes extends React.Component {
             <Grid 
                 item
                 xs={12} sm={12} md={6} lg={4} xl={4}
+                className="stat-div"
             >
-                <div className="stat-div light-text" style={{background: 'inherit', marginBottom: '1.5rem'}}>
+                <div className="light-text" style={{marginBottom: '1.5rem'}}>
                     <p className="skill-underline">NOTES OR SPECIAL INSTRUCTIONS</p>
                     {/* <CardHeader subtitle={"Creature Notes or Special Instructions"} /> */}
                     <div><p><span>{ notes }</span></p></div>

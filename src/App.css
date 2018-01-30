@@ -107,6 +107,11 @@ body {
 }
 .stat-div {
   font-weight: bolder;
+  min-height: 150px;
+  /* border: solid 1px black; */
+  content: center;
+  border-radius: 2px;
+  background-color: rgba(0, 0, 0, 0.45);
 }
 .full-width {
   width: '100%';

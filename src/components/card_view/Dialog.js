@@ -49,7 +49,7 @@ export default class DeleteDialog extends React.Component {
           className="red-text" 
           label="Delete" 
           onClick={this.handleOpen} 
-          style={{width: '100%'}}
+          style={{width: '75%'}}
         />
         <Dialog
           title="Delete Creature Card"

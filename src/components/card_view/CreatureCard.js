@@ -70,9 +70,9 @@ class CreatureCard extends React.Component {
         return( 
             <Grid
                 container
-                spacing={24}  
+                spacing={8}  
                 justify="center"
-                alignItems="center"
+                alignItems="stretch"
             >
                 <Grid 
                     item
@@ -84,7 +84,7 @@ class CreatureCard extends React.Component {
                     </div>
                 </Grid>
 
-                    <BasicStats stats={ basicStats }/>                        
+                    <BasicStats stats={ basicStats }/>                      
                     {weaponComponentToRender}                        
                     {scholarlyComponentToRender}                        
                     {physicalDefenseComponentToRender}                        
@@ -94,6 +94,7 @@ class CreatureCard extends React.Component {
                     {notesComponentToRender}
 
                 {/* <RaisedButton card_id={ card_id } onClick={ this.props.editCard }>Edit</RaisedButton> */}
+                <Grid container>
                 <Grid
                     item
                     xs={12}
@@ -102,7 +103,7 @@ class CreatureCard extends React.Component {
                 >
                     <RaisedButton 
                         onClick={ this.props.returnToList }
-                        style={{width: '100%'}}
+                        style={{width: '75%'}}
                     >Back</RaisedButton>
                 </Grid>
                 <Grid
@@ -118,6 +119,7 @@ class CreatureCard extends React.Component {
                         returnNewList={ this.props.returnNewList }
                         
                     />
+                </Grid>
                 </Grid>
             </Grid>
         )

@@ -16,8 +16,10 @@ class Treasure extends React.Component {
             <Grid 
                 item
                 xs={12} sm={12} md={6} lg={4} xl={4}
+                className="stat-div"
+                style={{margin: '10px'}}
             >
-                <div className="stat-div light-text" style={{background: 'inherit',marginTop: '1.5rem', marginBottom: '1.5rem'}}>
+                <div className="light-text">
                     <p className="skill-underline">TREASURE</p>
                     {/* <CardHeader subtitle={"Treasure Options"} /> */}
                     <div>{ componentToRender }</div>

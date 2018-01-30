@@ -24,8 +24,9 @@ class BasicStats extends React.Component {
             <Grid 
                 item
                 xs={12} sm={12} md={6} lg={4} xl={4}
+                className="stat-div"
             >
-                <div className="stat-div light-text" style={{marginBottom: '1.5rem', marginTop: '1.5rem'}}>
+                <div className="light-text" >
                     <p className="skill-underline">{this.props.stats.category}</p>
                     <p>Body Points: {this.props.stats.body}</p>
                     <p>Armor Points: {armor}</p>
