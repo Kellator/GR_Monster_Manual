@@ -1,6 +1,8 @@
 * {
   margin: 0;
   padding: 0;
+  text-shadow: none;
+  letter-spacing: 1px;
 }
 body {
   min-width: 100%;
@@ -57,28 +59,28 @@ body {
   to { transform: rotate(360deg); }
 }
 .App-Bar {
-  border-bottom: 3px solid;
+  border-bottom: 3px solid #252525;
   margin: 0;
+  font-weight: boldest;
 }
 
 .div-center {
   /* margin: 0 auto; */
   text-align: center;
+  margin-top: 20px
 }
 
 .container-main {
   margin-top: 4rem;
 }
 .div-opaque-color {
-  /* background-color: #252525; */
-  opacity: 0.85; 
+  background-color: rgba(255, 255, 255, 0.55) 
 }
 
 .div-absolute {
   max-width: 100vw;
-  /* background-color: #252525; */
+  background-color: #252525;
   opacity: 0.85;
-
 }
 
 .large-text {
@@ -94,4 +96,18 @@ body {
 
 .skill-underline {
   text-decoration: underline
+}
+
+.red-text {
+  color: #b71c1c;
+}
+
+.light-text {
+  color: rgba(255, 255, 255, 0.75);
+}
+.stat-div {
+  font-weight: bolder;
+}
+.full-width {
+  width: '100%';
 }

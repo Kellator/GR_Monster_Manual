@@ -37,6 +37,7 @@ class Instruction extends React.Component {
                                 return <li 
                                     style={{display: 'inline' }}
                                     key={i}
+                                    
                                 ><FlatButton style={{
                                     border: 'none', 
                                     paddingLeft: '10px', 
@@ -45,6 +46,7 @@ class Instruction extends React.Component {
                                     textDecoration: 'underline'
                                     }}
                                     onClick={onClick}
+                                    className="light-text"
                                     >
                                     {category}
                                 </FlatButton>

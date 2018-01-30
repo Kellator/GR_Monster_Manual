@@ -30,7 +30,8 @@ class SearchResult extends React.Component {
                 <ListItem onClick={ this.props.showCard } 
                         primaryText={ name + " (" + level + ")"}
                         secondaryText={ secondaryText }
-                        style={{fontSize: '2rem'}}
+                        style={{fontSize: '2rem', fontWeight: 'bolder'}}
+                        className="red-text"
                         >
                 </ListItem>
             </Grid>

@@ -31,6 +31,7 @@ class BasicSearch extends React.Component {
                         <RaisedButton 
                             type="submit" 
                             className="button-main"
+                            
                             style={{
                                 borderRadius: '1px',
                                 padding: '10px, 24px',

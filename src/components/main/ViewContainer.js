@@ -24,7 +24,7 @@ import Landing from './Landing';
 class ViewContainer extends React.Component {
     render() {
         const style = {
-            marginTop: '2rem',
+            // marginTop: '2rem',
             textAlign: 'center',
         }
         let currentView;
@@ -79,6 +79,7 @@ class ViewContainer extends React.Component {
                         item 
                         xs={12} sm={10} md={6} lg={6} xl={6} 
                         style={style}
+                        
                     >
                         {currentView}
                     </Grid>
