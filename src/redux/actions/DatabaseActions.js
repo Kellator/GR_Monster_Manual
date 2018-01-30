@@ -82,8 +82,6 @@ export const searchDatabase = (query) => (dispatch, getState) => {
     else {
         searchInput = query;
     }
-    console.log(query);
-    console.log(searchInput)
     dispatch(fetching());
     axios.get(API_URL + "monster", {
         params: {

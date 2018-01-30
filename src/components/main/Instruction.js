@@ -33,20 +33,20 @@ class Instruction extends React.Component {
                             instructions.homeView.categoryList.map(function(category, i) {
                                 let onClick = () => {
                                     categorySearch(category)
-                                    console.log(category);
                                 }
                                 return <li 
                                     style={{display: 'inline' }}
                                     key={i}
+                                    
                                 ><FlatButton style={{
                                     border: 'none', 
                                     paddingLeft: '10px', 
                                     paddingRight: '10px', 
-                                    color: '#AA0004',
                                     fontWeight: 'bold',
                                     textDecoration: 'underline'
                                     }}
                                     onClick={onClick}
+                                    className="light-text"
                                     >
                                     {category}
                                 </FlatButton>

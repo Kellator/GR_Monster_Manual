@@ -1,5 +1,6 @@
 import React from 'react';
 import {Card, CardHeader, CardText} from 'material-ui/Card';
+import Grid from 'material-ui-next/Grid/Grid';
 import DefenseComponent from './DefenseComponent.js';
 
 class SpellDefenses extends React.Component {
@@ -13,13 +14,18 @@ class SpellDefenses extends React.Component {
 
         });
         return(
-            <Card style={{background: 'inherit', marginBottom: '1.5rem'}}>
-                <p className="skill-underline">SPELL DEFENSES</p>
-                {/* <CardHeader subtitle={"Spell Defenses"} /> */}
-                <div>
-                    {componentToRender}
+            <Grid 
+                item
+                xs={12} sm={12} md={6} lg={4} xl={4}
+            >
+                <div className="stat-div light-text" style={{background: 'inherit', marginBottom: '1.5rem'}}>
+                    <p className="skill-underline">SPELL DEFENSES</p>
+                    {/* <CardHeader subtitle={"Spell Defenses"} /> */}
+                    <div>
+                        {componentToRender}
+                    </div>
                 </div>
-            </Card>
+            </Grid>
         )
     }
 }

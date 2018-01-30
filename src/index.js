@@ -1,26 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import muiThemeable from 'material-ui/styles/muiThemeable';
-import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
-// import iocTheme from './iocTheme';
-
-
 import {BrowserRouter as Router} from 'react-router-dom';
-import './index.css';
 import App from './App';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
-// import registerServiceWorker from './registerServiceWorker';
-
-injectTapEventPlugin();
+import muiThemeable from 'material-ui/styles/muiThemeable';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import  lightBaseTheme  from 'material-ui/styles/baseThemes/lightBaseTheme';
+import  darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
+import { MuiThemeProvider } from 'material-ui/styles';
+import { createMuiTheme } from 'material-ui-next/styles';
+import './index.css';
 
 ReactDOM.render(
-    <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
+    <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
         <Provider store={ store }>
             <Router>
                 <App />
@@ -28,4 +22,5 @@ ReactDOM.render(
         </Provider>
     </MuiThemeProvider>, 
 document.getElementById('root'));
-// registerServiceWorker();
+
+

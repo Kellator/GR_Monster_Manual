@@ -13,7 +13,7 @@ class SearchResult extends React.Component {
         let level = creature.level;
         let category = creature.category; 
         const secondaryText = 
-            <div style={{color: '#FE0006', fontWeight: 'bold', fontSize: '1.25rem', paddingTop: '8px'}}>
+            <div style={{fontWeight: 'bold', fontSize: '1.25rem', paddingTop: '8px'}}>
                 {category}
             </div>
 
@@ -25,11 +25,13 @@ class SearchResult extends React.Component {
                 md={12}
                 lg={12}
                 xl={12}
+                className='grid-item-return'
             >
                 <ListItem onClick={ this.props.showCard } 
                         primaryText={ name + " (" + level + ")"}
                         secondaryText={ secondaryText }
-                        style={{fontSize: '2rem'}}
+                        style={{fontSize: '2rem', fontWeight: 'bolder'}}
+                        className="red-text"
                         >
                 </ListItem>
             </Grid>

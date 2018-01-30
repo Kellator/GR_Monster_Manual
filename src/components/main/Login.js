@@ -73,6 +73,7 @@ export class Login extends React.Component {
                             <RaisedButton 
                                 type="submit" 
                                 className="button-main"
+                                
                                 style={{
                                     borderRadius: '1px',
                                     padding: '10px, 24px',
@@ -88,10 +89,11 @@ export class Login extends React.Component {
                             paddingBottom: '20px'
                         }}
                     >
-                        <h3 style={{color:"#FE0006", fontWeight: "bolder"}}>Not registered yet?</h3>
+                        <h3 style={{fontWeight: "bolder"}}>Not registered yet?</h3>
                         <RaisedButton 
                             onClick={ this.props.handleSubmit(() => this.viewRegistration()) }
                             className="button-main"
+                          
                             style={{
                                 borderRadius: '1px',
                                 padding: '10px, 24px',

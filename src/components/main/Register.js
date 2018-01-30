@@ -20,7 +20,7 @@ class Register extends React.Component {
         console.log(this.props.errorMessage);
         if(this.props.errorMessage) {
             error = (
-                <div style={{color:"#FE0006", fontWeight: "bolder"}} className="form-error">
+                <div style={{ fontWeight: "bolder"}} className="form-error">
                     {this.props.errorMessage.message}
                 </div>
             )

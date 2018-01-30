@@ -69,12 +69,21 @@ class CreatureCard extends React.Component {
         }
         return( 
             <Grid
-            container
-            style={{background: 'inherit'}}>
-                <div> 
-                    <h2>{this.props.currentCard.name}</h2> 
-                    <h4 style={{color: '#FE0006'}}>{this.props.currentCard.level}</h4> 
-                </div>
+                container
+                spacing={24}  
+                justify="center"
+                alignItems="center"
+            >
+                <Grid 
+                    item
+                    xs={12} 
+                >
+                    <div> 
+                        <h2 >{this.props.currentCard.name}</h2> 
+                        <h4 className="red-text">{this.props.currentCard.level}</h4> 
+                    </div>
+                </Grid>
+
                     <BasicStats stats={ basicStats }/>                        
                     {weaponComponentToRender}                        
                     {scholarlyComponentToRender}                        
@@ -83,15 +92,33 @@ class CreatureCard extends React.Component {
                     {racialDefenseComponentToRender}                        
                     {treasureComponentToRender}                        
                     {notesComponentToRender}
+
                 {/* <RaisedButton card_id={ card_id } onClick={ this.props.editCard }>Edit</RaisedButton> */}
-                <RaisedButton onClick={ this.props.returnToList }>Back</RaisedButton>
-                <DeleteDialog 
-                    style={{color:'black'}} 
-                    deleteCard={ this.props.delete } 
-                    id={ id }
-                    data={ data } 
-                    returnNewList={ this.props.returnNewList }
-                />
+                <Grid
+                    item
+                    xs={12}
+                    sm={12}
+                    md={6}
+                >
+                    <RaisedButton 
+                        onClick={ this.props.returnToList }
+                        style={{width: '100%'}}
+                    >Back</RaisedButton>
+                </Grid>
+                <Grid
+                    item
+                    xs={12}
+                    sm={12}
+                    md={6}
+                >
+                    <DeleteDialog 
+                        deleteCard={ this.props.delete } 
+                        id={ id }
+                        data={ data } 
+                        returnNewList={ this.props.returnNewList }
+                        
+                    />
+                </Grid>
             </Grid>
         )
     }

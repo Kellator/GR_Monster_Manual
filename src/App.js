@@ -15,11 +15,6 @@ import { clearAuthToken } from './local-storage';
 
 //material ui design components and imports
 import Paper from 'material-ui/Paper';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import muiThemeable from 'material-ui/styles/muiThemeable';
-import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import AppBar from 'material-ui/AppBar';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
@@ -66,26 +61,22 @@ class App extends React.Component {
     this.props.dispatch(showAboutView());
   }
   render() {
-    const style = {
-      backgroundColor: '#252525',
-      color: 'black',
-      height: 75,
-    }
     return (
         <div className="App">
-          <AppBar className="App-Bar"
-            style={style}
+          <AppBar className="App-Bar "
             title="IoC | Index of Creatures" 
+            style= {{backgroundColor: '#303030', textAlign: 'center', marginBottom: '20px'}}
             iconElementLeft={
               <IconMenu
-                iconButtonElement={<IconButton><NavigationMenu /></IconButton>}
+                iconButtonElement={<IconButton className="light-text"><NavigationMenu /></IconButton>}
                 anchorOrigin={{horizontal: 'left', vertical: 'top'}}
                 targetOrigin={{horizontal: 'left', vertical: 'top'}}
+                
                 >
-                <MenuItem primaryText="Search" onClick={ () => this.homeView() } />
-                <MenuItem primaryText="Create New" onClick={ () => this.createView() } />
-                <MenuItem primaryText="About Us" onClick={ () => this.aboutView() } />
-                <MenuItem primaryText="Log out" onClick={ () => this.logOut() } />
+                <MenuItem className="light-text" primaryText="Search" onClick={ () => this.homeView() } />
+                <MenuItem className="light-text" primaryText="Create New" onClick={ () => this.createView() } />
+                <MenuItem className="light-text" primaryText="About Us" onClick={ () => this.aboutView() } />
+                <MenuItem className="light-text" primaryText="Log out" onClick={ () => this.logOut() } />
               </IconMenu>
             }
           />
@@ -104,3 +95,4 @@ const mapStateToProps = (state, props) => ({
   loggedIn: state.auth.currentUser !== null
 });
 export default withRouter(connect(mapStateToProps)(App));
+// 

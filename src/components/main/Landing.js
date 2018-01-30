@@ -25,7 +25,7 @@ export class Landing extends React.Component {
                 className="div-absolute large-text div-center"
             >
                 <h2>Welcome to the Index of Creatures!</h2>
-                <h2 style={{color: '#FE0006'}}>Get into game faster.</h2>
+                <h2>Get into game faster.</h2>
                 <div style={{paddingTop: '1.25rem', paddingBottom: '1.25rem', paddingLeft: '1rem', paddingRight: '1rem'}}>
                     <p>
                         As an avid roleplayer, I'm always looking for ways to get me and my friends into game faster.  

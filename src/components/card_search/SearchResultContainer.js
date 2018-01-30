@@ -18,7 +18,8 @@ class SearchResultContainer extends React.Component {
                 spacing={24}
                 justify="center"
                 alignItems="center" 
-                className=""
+                className="light-text"
+                style={{paddingLeft: '20px', paddingRight: '20px', height: '100vh'}}
             >
                 <SearchResultList 
                 data={ data } 

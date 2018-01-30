@@ -1,7 +1,7 @@
 let instructions = {
     homeView: { 
         text: [
-            "To start using, enter the name or category of a creature you are looking for.",
+            // "To start using, enter the name or category of a creature you are looking for.",
             // "Not sure of the name?  You can view the entire database list by clicking SUBMIT.", 
             // "To view a specific category of creature enter one of the following search terms:"
         ],
@@ -87,8 +87,7 @@ let instructions = {
     resultsListView: {
         text: [
             "Select a creature from the list to see the full Creature Card.",
-            "Don't see the creature you're looking for in the list?  Check your spelling.  If you still don't see it, add one!",
-            "Use the menu on the right of the navigation bar to go HOME to search or CREATE NEW to create a new Creature."
+            "Don't see the creature you're looking for in the list?  Check your spelling.  If you still don't see it, add one!"
         ]
     },
     cardView: {

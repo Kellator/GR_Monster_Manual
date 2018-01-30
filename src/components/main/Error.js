@@ -17,9 +17,12 @@ class Error extends React.Component {
         let errorMessage =
             <Grid item 
                 xs={10} sm={10} md={8} lg={6} xl={6}
-                className="div-center"
+                className="div-center div-opaque-color"
             >
-                <h1 style={{fontWeight: "bolder"}}>Sorry!  There is an unexpected error occurring.  Please try again.</h1>
+                <h1 
+                    style={{fontWeight: "bolder"}}
+                    className="red-text "
+                >Sorry!  There is an unexpected error occurring.  Please try again.</h1>
                 {error}
             </Grid>;
         return (
@@ -32,16 +35,17 @@ class Error extends React.Component {
             >
                 { errorMessage }
                 {/* <Grid item className="div-center"> */}
-                    <RaisedButton 
-                        onClick={ () => this.navToLogin() }
-                        style={{
-                            borderRadius: '1px',
-                            fontWeight: 'bold',
-                            paddingLeft: '20px',
-                            paddingRight: '20px',
-                            backgroundColor: 'rgb(255, 255, 255)'
-                        }}
-                        >Return to Login</RaisedButton>
+                <RaisedButton onClick={ () => this.navToLogin() }>Back</RaisedButton>
+                {/* <RaisedButton 
+                    onClick={ () => this.navToLogin() }
+                    style={{
+                        borderRadius: '1px',
+                        fontWeight: 'bold',
+                        paddingLeft: '20px',
+                        paddingRight: '20px',
+                        backgroundColor: 'rgb(255, 255, 255)'
+                    }}
+                    >Return to Login</RaisedButton> */}
                     {/* </Grid> */}
             </Grid>
         )
