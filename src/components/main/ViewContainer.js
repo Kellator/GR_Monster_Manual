@@ -49,7 +49,9 @@ class ViewContainer extends React.Component {
                     instructionDiv = <Instruction view={ view } />
                     break;
                 case "card":
-                    currentView = <CreatureCard />
+                    currentView = 
+                        <CreatureCard />
+                    
                     instructionDiv = <Instruction view={ view } />
                     break;
                 case "results list":
@@ -67,32 +69,18 @@ class ViewContainer extends React.Component {
         }
         
         return (
-            <div style={{flexGrow: 1}}>
-                <Grid 
-                    container 
-                    spacing={24}  
-                    justify="center"
-                    alignItems="center" 
-                    className="view-container"
-                >               
-                    <Grid 
-                        item 
-                        xs={12} sm={10} md={6} lg={6} xl={6} 
-                        style={style}
-                        
-                    >
-                        {currentView}
-                    </Grid>
+            <div >
+                {currentView}
                     <Hidden mdDown>
                         <Grid 
                             item 
                             lg={12} xl={12}
                             className='hidden-div'
+                            style={{marginTop: '20px'}}
                         >
                             {instructionDiv}
                         </Grid>
                     </Hidden>
-                </Grid>
             </div>             
         )
     }

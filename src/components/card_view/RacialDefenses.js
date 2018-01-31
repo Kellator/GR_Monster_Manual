@@ -13,13 +13,18 @@ class RacialDefenses extends React.Component {
             )
         });
         return(
-            <Grid 
+            <Grid
                 item
-                xs={12} sm={12} md={5} lg={3} xl={3}
-                className="stat-div"
-                style={{margin: '10px'}}
+                xs={12}
+                sm={12}
+                md={6}
+                lg={4}
+                xl={4}
+                style={{margin: 'auto'}}
+                id='racial-def-container'
+                className="stat-container"
             >
-                <div className="light-text">
+                <div className="light-text stat-div">
                     <p className="skill-underline">RACIAL DEFENSES</p>
                     {/* <CardHeader subtitle={"Racial Defenses"} /> */}
                     <div>{componentToRender}</div>

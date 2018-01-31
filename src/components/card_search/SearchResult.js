@@ -18,23 +18,23 @@ class SearchResult extends React.Component {
             </div>
 
         return (
-            <Grid 
-                item
-                xs={12}
-                sm={12}
-                md={12}
-                lg={12}
-                xl={12}
-                className='grid-item-return'
-            >
+            // <Grid 
+            //     item
+            //     xs={12}
+            //     sm={12}
+            //     md={12}
+            //     lg={12}
+            //     xl={12}
+            //     className='grid-item-return'
+            // >
                 <ListItem onClick={ this.props.showCard } 
                         primaryText={ name + " (" + level + ")"}
                         secondaryText={ secondaryText }
                         style={{fontSize: '2rem', fontWeight: 'bolder'}}
-                        className="red-text"
+                        className="red-text list-item"
                         >
                 </ListItem>
-            </Grid>
+            // </Grid>
         )
     }
 }

@@ -13,19 +13,21 @@ class SearchResultContainer extends React.Component {
             return <NoResults home={ this.props.home }/>
         }
         return(
-            <Grid 
-                container 
-                spacing={24}
-                justify="center"
-                alignItems="center" 
-                className="light-text"
-                style={{paddingLeft: '20px', paddingRight: '20px', height: '100vh'}}
-            >
+            // <Grid 
+            //     container 
+            //     spacing={24}
+            //     justify="center"
+            //     alignItems="center" 
+            //     className="light-text"
+            //     style={{paddingLeft: '20px', paddingRight: '20px', height: '100vh'}}
+            // >
                 <SearchResultList 
                 data={ data } 
                 home={ this.props.home }
+                className="light-text"
+                style={{height: '100vh'}}
                 />
-            </Grid>
+            // </Grid>
         )
     }
 }

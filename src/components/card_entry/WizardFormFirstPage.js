@@ -13,13 +13,14 @@ let WizardFormFirstPage = props => {
   const { handleSubmit } = props
   let pageNumber = props.pageNumber;
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className='stat-container'>
         <p>Enter Name of New Creature (required).</p>
         <Field
             name="monster_name"
             type="text"
             component={TextField}
             label="Monster Name"
+            
         />
         <p>Choose One Category of Creature (required).</p>
             <Field name="monster_category"  component={RadioButtonGroup} label="Monster Category" defaultSelected="Animal">             

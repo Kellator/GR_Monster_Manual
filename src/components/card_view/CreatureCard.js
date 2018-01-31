@@ -14,7 +14,7 @@ import Notes from './Notes.js';
 import DeleteDialog from './Dialog.js';
 import { deleteCard, returnNewList } from '../../redux/actions/DatabaseActions';
 import {  showResultsListView } from '../../redux/actions/ViewActions';
-import Grid from 'material-ui-next/Grid/Grid';
+import Grid from 'material-ui-next/Grid';
 
 class CreatureCard extends React.Component {
     render() {
@@ -68,60 +68,46 @@ class CreatureCard extends React.Component {
             notesComponentToRender = <Notes notes={ notes } />
         }
         return( 
-            <Grid
-                container
-                spacing={8}  
-                justify="center"
-                alignItems="stretch"
-            >
-                <Grid 
-                    item
-                    xs={12} 
-                >
-                    <div> 
-                        <h2 >{this.props.currentCard.name}</h2> 
-                        <h4 className="red-text">{this.props.currentCard.level}</h4> 
-                    </div>
-                </Grid>
+            <div id='card-container'>
+                <Grid container spacing={2} justify='center'>
+                    <Grid item xs={12}>
+                        <h2 style={{textAlign: 'center'}} 
+                        >{this.props.currentCard.name}</h2> 
+                        <h4 style={{textAlign: 'center'}} 
+                            className="red-text"
+                        >{this.props.currentCard.level}</h4> 
+                    </Grid>
+                    
+                        <BasicStats stats={ basicStats }/>                      
+                        {weaponComponentToRender}                        
+                        {scholarlyComponentToRender}                        
+                        {physicalDefenseComponentToRender}                        
+                        {spellDefenseComponentToRender}                        
+                        {racialDefenseComponentToRender}                        
+                        {treasureComponentToRender}                        
+                        {notesComponentToRender}
 
-                    <BasicStats stats={ basicStats }/>                      
-                    {weaponComponentToRender}                        
-                    {scholarlyComponentToRender}                        
-                    {physicalDefenseComponentToRender}                        
-                    {spellDefenseComponentToRender}                        
-                    {racialDefenseComponentToRender}                        
-                    {treasureComponentToRender}                        
-                    {notesComponentToRender}
-
-                {/* <RaisedButton card_id={ card_id } onClick={ this.props.editCard }>Edit</RaisedButton> */}
-                <Grid container>
-                <Grid
-                    item
-                    xs={12}
-                    sm={12}
-                    md={6}
-                >
-                    <RaisedButton 
-                        onClick={ this.props.returnToList }
-                        style={{width: '75%'}}
-                    >Back</RaisedButton>
+                <Grid container spacing={8} justify='center' alignItems='center'>
+                    <Grid item xs={10} sm={10} md={4} >
+                            <RaisedButton 
+                                onClick={ this.props.returnToList }
+                                style={{ margin: 'auto'}}
+                                className="back-button"
+                                fullWidth='true'
+                            >Back</RaisedButton>
+                        </Grid>
+                        <Grid item xs={10} sm={10} md={4} >
+                            <DeleteDialog
+                                deleteCard={ this.props.delete } 
+                                id={ id }
+                                data={ data } 
+                                returnNewList={ this.props.returnNewList }    
+                                                
+                            >Delete</DeleteDialog>
+                        </Grid>
+                    </Grid>
                 </Grid>
-                <Grid
-                    item
-                    xs={12}
-                    sm={12}
-                    md={6}
-                >
-                    <DeleteDialog 
-                        deleteCard={ this.props.delete } 
-                        id={ id }
-                        data={ data } 
-                        returnNewList={ this.props.returnNewList }
-                        
-                    />
-                </Grid>
-                </Grid>
-            </Grid>
+            </div>
         )
     }
 }

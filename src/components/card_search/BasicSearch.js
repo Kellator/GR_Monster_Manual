@@ -15,7 +15,7 @@ class BasicSearch extends React.Component {
         const {handleSubmit, pristine, reset, submitting } = this.props
         return (
             <Grid 
-            item 
+            item             
             style={{paddingBottom: '20px', paddingLeft: '20px', paddingRight: '20px', paddingTop: '20px'}}>
                 <form onSubmit={ handleSubmit(this.submit.bind(this)) } >
                     <div>
@@ -30,8 +30,7 @@ class BasicSearch extends React.Component {
                         />
                         <RaisedButton 
                             type="submit" 
-                            className="button-main"
-                            
+                            className="button-main"                            
                             style={{
                                 borderRadius: '1px',
                                 padding: '10px, 24px',

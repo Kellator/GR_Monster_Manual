@@ -1,6 +1,6 @@
 import React from 'react';
 import {Card, CardHeader, CardText} from 'material-ui/Card';
-import Grid from 'material-ui-next/Grid/Grid';
+import Grid from 'material-ui-next/Grid';
 
 class ScholarStats extends React.Component {
     render() {
@@ -87,13 +87,18 @@ class ScholarStats extends React.Component {
             }
         }
         return(
-            <Grid 
+            <Grid
                 item
-                xs={12} sm={12} md={6} lg={4} xl={4}
-                className="stat-div"
-                style={{margin: '10px'}}
+                xs={12}
+                sm={12}
+                md={6}
+                lg={4}
+                xl={4}
+                style={{margin: 'auto'}}
+                id='scholar-stats-container'
+                className="stat-container"
             >
-                <div className="light-text" >
+                <div className="light-text stat-div" >
                     {/* <CardHeader subtitle={"Scholarly Skills"}/> */}
                     <p className="skill-underline">SCHOLARLY SKILLS</p>
                     {alchemyComponentToRender}
