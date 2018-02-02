@@ -14,7 +14,7 @@ let WizardFormFirstPage = props => {
   const { handleSubmit } = props
   let pageNumber = props.pageNumber;
   return (
-    <form onSubmit={handleSubmit} className='stat-container'>
+    <form onSubmit={handleSubmit} className='stat-container' id="basic-stats-entry">
         <p>Enter Name of New Creature (required).</p>
         <Field
             name="monster_name"

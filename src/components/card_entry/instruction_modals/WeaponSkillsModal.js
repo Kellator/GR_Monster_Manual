@@ -21,14 +21,23 @@ class WeaponSkillsModal extends React.Component {
         const actions = [
           <FlatButton
             label="Got it!"
-            primary={true}
+            // primary={true}
             keyboardFocused={true}
             onClick={this.handleClose}
+            labelStyle={{fontSize:"1.2rem", textAlign: "center", fontWeight: "boldest"}}
           />,
         ];
         return(
             <div>
-                <FlatButton onClick={this.handleOpen} size="large" label="help"></FlatButton>
+                <FlatButton 
+                    onClick={this.handleOpen} 
+                    size="large" 
+                    label="What do I do here?" 
+                    id="instruction-modal" 
+                    // fullWidth="true"
+                    
+                    labelStyle={{fontSize:"1.2rem", textAlign: "center"}}
+                ></FlatButton>
                 <Dialog
                     title="Weapon Skills"
                     actions={actions}
@@ -36,10 +45,14 @@ class WeaponSkillsModal extends React.Component {
                     open={this.state.open}
                     onRequestClose={this.handleClose}
                     style={{color: "rgba(255, 255, 255, 0.75)"}}
+                    
                 >
                     <div style={{color: "rgba(255, 255, 255, 0.75)"}}>
-                        <p>Choose basic weaponskills including body weaponry.</p>
-                        <p>Advanced Weaponskills include Slays and Assassinates.  Insert times per day skill may be used.</p>
+                        <p>This section allows you to select basic and advanced weapon skills.
+                            Basic Weapon skills are the type of weapon a creature uses including body weaponry like claws.
+                        </p>
+                        <p>Advanced Weaponskills include Slays and Assassinates.
+                            Click the box for the selected skill and then enter times per day skill may be used.</p>
                     </div>
                 </Dialog>
             </div>

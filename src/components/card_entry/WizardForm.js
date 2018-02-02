@@ -35,7 +35,7 @@ class WizardForm extends Component {
     const { page } = this.state
     let pageNumber = this.state.page;
     return (
-      <div className='div-opaque-color stat-container' >
+      <div className="div-opaque-color stat-container" id="creature-entry-form">
         {page === 1 && <WizardFormFirstPage onSubmit={this.nextPage} pageNumber={ pageNumber }/>}
         {page === 2 && (
           <WizardFormSecondPage

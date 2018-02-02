@@ -69,9 +69,9 @@ class ViewContainer extends React.Component {
         }
         
         return (
-            <div >
+            <div id="view-container" style={{width: "100%"}}>
                 {currentView}
-                    <Hidden mdDown>
+                    {/* <Hidden mdDown>
                         <Grid 
                             item 
                             lg={12} xl={12}
@@ -80,7 +80,7 @@ class ViewContainer extends React.Component {
                         >
                             {instructionDiv}
                         </Grid>
-                    </Hidden>
+                    </Hidden> */}
             </div>             
         )
     }

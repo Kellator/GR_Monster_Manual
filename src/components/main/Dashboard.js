@@ -16,7 +16,7 @@ export class Dashboard extends React.Component {
                     alignItems="flex-start" 
                     id="dashboard"
                 >
-                    <ViewContainer id="view-container" user={this.props.user}/>
+                    <ViewContainer id="view-container" user={this.props.user} />
                 </Grid>
             </div>
         );
