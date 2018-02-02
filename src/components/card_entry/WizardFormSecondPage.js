@@ -8,6 +8,7 @@ import { RadioButtonGroup } from 'redux-form-material-ui';
 import RaisedButton from 'material-ui/RaisedButton';
 import MenuItem from 'material-ui/MenuItem';
 import validate from './validate';
+import WeaponSkillsModal from './instruction_modals/WeaponSkillsModal'
 
 let WizardFormSecondPage = props => {
   const { 
@@ -18,10 +19,10 @@ let WizardFormSecondPage = props => {
     hasAssassinatesValue
   } = props
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="form-container">
         <h3>Weapons Skills</h3>
-        <p>Click the box to view weapon skill options.  Choose basic weapon skills, if applicable.</p>
-        <p>This section includes body weaponry like claws and bite.</p>
+        {/* <p>Click the box to view weapon skill options.  Choose basic weapon skills, if applicable.</p>
+        <p>This section includes body weaponry like claws and bite.</p> */}
         <div>
           <label>Basic Weapon Skills/Type</label>
           <div>
@@ -49,9 +50,9 @@ let WizardFormSecondPage = props => {
         </div>
       <div>
         <h3>Advanced Weapons Skills</h3>
-        <p>Click the box to view advanced weapon skills.</p>
+        {/* <p>Click the box to view advanced weapon skills.</p>
         <p>This section includes slay and assassinate.</p>
-        <p>If monster has no weaponskills or advanced weaponskills, click the next button.</p>
+        <p>If monster has no weaponskills or advanced weaponskills, click the next button.</p> */}
         <div>
           <label>Advanced Weapon Skills</label>
           <div>
@@ -121,6 +122,7 @@ let WizardFormSecondPage = props => {
             Next
           </RaisedButton>
         </div>
+        <WeaponSkillsModal />
     </form>
   )
 }

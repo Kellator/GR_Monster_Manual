@@ -21,15 +21,15 @@ let WizardFormFirstPage = props => {
             type="text"
             component={TextField}
             label="Monster Name"
-            className='form-container'
-            placeholder='creature name'
+            className="form-container"
+            placeholder="creature name"
         />
         <p>Choose One Category of Creature (required).</p>
             <Field name="monster_category"  
                 component={RadioButtonGroup} 
                 label="Monster Category" 
                 defaultSelected="Animal"
-                className='form-container'
+                className="form-container"
             >             
                 <RadioButton value="Animal" label="Animal"/>
                 <RadioButton value="Elemental" label="Elemental"/>
@@ -47,7 +47,7 @@ let WizardFormFirstPage = props => {
                 component={RadioButtonGroup} 
                 label="Monster Level" 
                 defaultSelected="Low"
-                className='form-container'
+                className="form-container"
             > 
                 <RadioButton value="Low" label="Low"/>
                 <RadioButton value="Mid" label="Mid"/>
@@ -62,8 +62,8 @@ let WizardFormFirstPage = props => {
                 name="monster_body_points"
                 type="number"
                 component={TextField}
-                className='form-container'
-                placeholder='#'
+                className="form-container"
+                placeholder="#"
                 >
             </Field>
             </label><br/>
@@ -74,8 +74,8 @@ let WizardFormFirstPage = props => {
                 type="number"
                 component={TextField}
                 label="Armor Points"
-                className='form-container'
-                placeholder='#'
+                className="form-container"
+                placeholder="#"
             />           
             </label>
             {/* <p>Include a Physical Description.</p>
@@ -90,10 +90,10 @@ let WizardFormFirstPage = props => {
                 component={TextField}
                 label="Physical Description"
                 maxLength="200"
-                className='form-container'
-                placeholder='limit to 200 characters'
+                className="form-container"
+                placeholder="limit to 200 characters"
             />
-        <div className='form-container'>
+        <div className="form-container">
             <RaisedButton type="submit" className="next">
             Next
             </RaisedButton>
