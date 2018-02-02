@@ -3,6 +3,7 @@ import { Field, reduxForm } from 'redux-form';
 import validate from './validate';
 import { connect } from 'react-redux';
 import {RadioButton } from 'material-ui/RadioButton';
+import FlatButton from 'material-ui/FlatButton';
 import { RadioButtonGroup } from 'redux-form-material-ui';
 import ActionFavorite from 'material-ui/svg-icons/action/favorite';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -20,10 +21,16 @@ let WizardFormFirstPage = props => {
             type="text"
             component={TextField}
             label="Monster Name"
-            
+            className='form-container'
+            placeholder='creature name'
         />
         <p>Choose One Category of Creature (required).</p>
-            <Field name="monster_category"  component={RadioButtonGroup} label="Monster Category" defaultSelected="Animal">             
+            <Field name="monster_category"  
+                component={RadioButtonGroup} 
+                label="Monster Category" 
+                defaultSelected="Animal"
+                className='form-container'
+            >             
                 <RadioButton value="Animal" label="Animal"/>
                 <RadioButton value="Elemental" label="Elemental"/>
                 <RadioButton value="Fae" label="Fae"/>
@@ -35,19 +42,28 @@ let WizardFormFirstPage = props => {
                 <RadioButton value="Undead" label="Undead"/>
             </Field>
         <p>Choose Level of Difficulty (required).</p>
-            <Field name="monster_level" component={RadioButtonGroup} label="Monster Level" defaultSelected="Low"> 
+            <Field 
+                name="monster_level" 
+                component={RadioButtonGroup} 
+                label="Monster Level" 
+                defaultSelected="Low"
+                className='form-container'
+            > 
                 <RadioButton value="Low" label="Low"/>
                 <RadioButton value="Mid" label="Mid"/>
                 <RadioButton value="High" label="High"/>
             </Field>
-        <p>Enter the Body Points (required) and Armor Points for the Creature, if applicable.</p>
-        <p>Use only numbers.</p>
+        {/* <p>Enter the Body Points (required) and Armor Points for the Creature, if applicable.</p>
+        <p>Use only numbers.</p> */}
+
             <label>
             Body Points {' '}
             <Field
                 name="monster_body_points"
                 type="number"
                 component={TextField}
+                className='form-container'
+                placeholder='#'
                 >
             </Field>
             </label><br/>
@@ -58,20 +74,26 @@ let WizardFormFirstPage = props => {
                 type="number"
                 component={TextField}
                 label="Armor Points"
+                className='form-container'
+                placeholder='#'
             />           
             </label>
-            <p>Include a Physical Description.</p>
+            {/* <p>Include a Physical Description.</p>
             <p>This description should include the visible appearance of the monster.</p>
-            <p>Include brief makeup and costuming instructions if applicable.</p>
-            <p>Limit of 200 characters.</p>
+            <p>Include brief makeup and costuming instructions if applicable.</p> */}
+            <p>Physical Description</p>
+            <p>Should include costume and makeup instructions if applicable.</p>
+            {/* <p>Limit of 200 characters.</p> */}
             <Field
                 name="monster_description"
                 type="TextArea"
                 component={TextField}
                 label="Physical Description"
                 maxLength="200"
+                className='form-container'
+                placeholder='limit to 200 characters'
             />
-        <div>
+        <div className='form-container'>
             <RaisedButton type="submit" className="next">
             Next
             </RaisedButton>
