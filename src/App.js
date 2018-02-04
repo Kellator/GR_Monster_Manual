@@ -80,7 +80,7 @@ class App extends React.Component {
     return (
         <div className="App">
           <AppBar className="App-Bar "
-            title="IoC | Index of Creatures" 
+            title="Codex Creatura" 
             style= {{backgroundColor: '#303030', textAlign: 'center', marginBottom: '20px'}}
             iconElementLeft={
               <IconMenu
