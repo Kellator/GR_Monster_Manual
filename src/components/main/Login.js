@@ -90,7 +90,7 @@ export class Login extends React.Component {
                             paddingBottom: '20px'
                         }}
                     >
-                        <h3 style={{display: "inline"}}>Not registered yet?</h3>
+                        <h4 style={{display: "inline"}}>Not registered yet?</h4>
                         <FlatButton 
                             onClick={ this.props.handleSubmit(() => this.viewRegistration()) }
                             className="button-main"                          
