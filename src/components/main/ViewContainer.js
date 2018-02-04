@@ -32,31 +32,31 @@ class ViewContainer extends React.Component {
         let view = this.props.view.type;
         let page = this.props.page;
         if(this.props.user && view === null) {
-            currentView = <HomeView create={ this.props.showCreateNew } />
-            instructionDiv = <Instruction view={ 'home' } categorySearch={ this.props.categorySearch }/>
+            currentView = <HomeView create={ this.props.showCreateNew }categorySearch={ this.props.categorySearch } />
+            // instructionDiv = <Instruction view={ 'home' } categorySearch={ this.props.categorySearch }/>
         } else {
             switch(view) {
                 case "home":
-                    currentView = <HomeView create={ this.props.showCreateNew } />
-                    instructionDiv = <Instruction view={ view } categorySearch={ this.props.categorySearch }/>
+                    currentView = <HomeView create={ this.props.showCreateNew } categorySearch={ this.props.categorySearch }/>
+                    // instructionDiv = <Instruction view={ view } categorySearch={ this.props.categorySearch }/>
                     break;
                 case "create":
                     currentView = <WizardForm submit={ this.props.createNewCard } getPage={ this.props.getPage }/>
-                    instructionDiv = <Instruction view={ view } page={ page } />
+                    // instructionDiv = <Instruction view={ view } page={ page } />
                     break;
                 case "new card":
                     currentView = <CardCreated create={ this.props.showCreateNew } home={ this.props.showHomeView }/>
-                    instructionDiv = <Instruction view={ view } />
+                    // instructionDiv = <Instruction view={ view } />
                     break;
                 case "card":
                     currentView = 
                         <CreatureCard />
                     
-                    instructionDiv = <Instruction view={ view } />
+                    // instructionDiv = <Instruction view={ view } />
                     break;
                 case "results list":
                     currentView = <SearchResultContainer home={ this.props.showHomeView }/>
-                    // instructionDiv = <Instruction view={ view } />
+                    instructionDiv = <Instruction view={ view } />
                     break;
                 case "about":
                     currentView = <Landing view={ view }/>
@@ -71,6 +71,7 @@ class ViewContainer extends React.Component {
         return (
             <div id="view-container" style={{width: "100%"}}>
                 {currentView}
+                {/* {instructionDiv} */}
             </div>             
         )
     }
@@ -99,10 +100,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
             console.log("toggle clicked");
             dispatch(toggleMenu());
         },
-        categorySearch: (category) => {
-            console.log(category);
-            console.log('category search clicked');
-            dispatch(searchDatabase(category));
+        categorySearch: (value) => {
+            dispatch(searchDatabase(value));
         }
     }
 };

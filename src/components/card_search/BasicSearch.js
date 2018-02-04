@@ -1,6 +1,7 @@
 import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
-import { TextField, MenuItem, SelectField } from 'redux-form-material-ui';
+import { TextField, SelectField } from 'redux-form-material-ui';
+import MenuItem from 'material-ui/MenuItem';
 import Grid from 'material-ui-next/Grid';
 // import Tooltip from 'material-ui-next/Tooltip';
 import { Field, reduxForm } from 'redux-form';
@@ -27,6 +28,22 @@ class BasicSearch extends React.Component {
                                 width: '100%'
                             }}
                         />
+                        <Field
+                            name="basic_search_input"
+                            id="category_search" 
+                            hintText="Creature Type"
+                            component={SelectField}
+                        >
+                            <MenuItem value="Animal" primaryText="Animal" className="light-text" /> 
+                            <MenuItem value="Elemental" primaryText="Elemental" className="light-text" />
+                            <MenuItem value="Fae" primaryText="Fae" className="light-text" />
+                            <MenuItem value="Giant" primaryText="Giant" className="light-text" />
+                            <MenuItem value="Goblinoid" primaryText="Goblinoid" className="light-text" />                   
+                            <MenuItem value="Human" primaryText="Human" className="light-text" />
+                            <MenuItem value="Humanoid" primaryText="Humanoid" className="light-text" />
+                            <MenuItem value="Magical Creature" primaryText="Magical Creature" className="light-text" />
+                            <MenuItem value="Undead" primaryText="Undead" className="light-text" />
+                        </Field>
                         <RaisedButton 
                             type="submit" 
                             className="button-main"                            

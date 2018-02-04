@@ -76,6 +76,7 @@ export const retrieve = (id) => (dispatch, getState) => {
 export const searchDatabase = (query) => (dispatch, getState) => {
     const authToken = getState().auth.authToken;
     let searchInput;
+    console.log(query)
     if(query.basic_search_input) {
         searchInput = query.basic_search_input;
     }
