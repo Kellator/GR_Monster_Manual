@@ -71,16 +71,6 @@ class ViewContainer extends React.Component {
         return (
             <div id="view-container" style={{width: "100%"}}>
                 {currentView}
-                    {/* <Hidden mdDown>
-                        <Grid 
-                            item 
-                            lg={12} xl={12}
-                            className='hidden-div'
-                            style={{marginTop: '20px'}}
-                        >
-                            {instructionDiv}
-                        </Grid>
-                    </Hidden> */}
             </div>             
         )
     }

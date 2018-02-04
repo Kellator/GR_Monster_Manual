@@ -1,5 +1,6 @@
 import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
+import FlatButton from 'material-ui/FlatButton';
 import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 import Paper from 'material-ui/Paper';
@@ -89,18 +90,19 @@ export class Login extends React.Component {
                             paddingBottom: '20px'
                         }}
                     >
-                        <h3 style={{fontWeight: "bolder"}}>Not registered yet?</h3>
-                        <RaisedButton 
+                        <h3 style={{display: "inline"}}>Not registered yet?</h3>
+                        <FlatButton 
                             onClick={ this.props.handleSubmit(() => this.viewRegistration()) }
-                            className="button-main"
-                          
+                            className="button-main"                          
                             style={{
                                 borderRadius: '1px',
                                 padding: '10px, 24px',
                                 fontWeight: 'bold',
+                                color: '#AA0004',
+                                textDecoration: 'underline'
                             }}
                             >Register
-                        </RaisedButton>
+                        </FlatButton>
                     </Grid>
                 </Grid>            
         )

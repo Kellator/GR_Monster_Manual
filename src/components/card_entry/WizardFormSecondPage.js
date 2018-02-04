@@ -9,7 +9,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import Grid from 'material-ui-next/Grid';
 import MenuItem from 'material-ui/MenuItem';
 import validate from './validate';
-import WeaponSkillsModal from './instruction_modals/WeaponSkillsModal'
+import InstructionDialog from './instruction_modals/InstructionDialog'
 
 let WizardFormSecondPage = props => {
   const { 
@@ -20,18 +20,8 @@ let WizardFormSecondPage = props => {
     hasAssassinatesValue
   } = props
   return (
-    // <Grid 
-    //   item
-    //   xs={12}
-    //   sm={12}
-    //   md={8}
-    //   lg={8}
-    //   xl={8}
-    // >
       <form onSubmit={handleSubmit} className="form-container stat-container" id="weapon-stats-entry">
           <h3>Weapons Skills</h3>
-          {/* <p>Click the box to view weapon skill options.  Choose basic weapon skills, if applicable.</p>
-          <p>This section includes body weaponry like claws and bite.</p> */}
           <div>
             <label>Basic Weapon Skills/Type</label>
             <div>
@@ -59,9 +49,7 @@ let WizardFormSecondPage = props => {
           </div>
         <div>
           <h3>Advanced Weapons Skills</h3>
-          {/* <p>Click the box to view advanced weapon skills.</p>
-          <p>This section includes slay and assassinate.</p>
-          <p>If monster has no weaponskills or advanced weaponskills, click the next button.</p> */}
+          //
           <div>
             <label>Advanced Weapon Skills</label>
             <div>
@@ -129,12 +117,12 @@ let WizardFormSecondPage = props => {
           </div>
         )}        
           <Grid container justify="space-between">
-          <Grid item xs={6}>
+          <Grid item xs={6} sm={4} md={2}>
             <RaisedButton type="button" className="previous full-size-button" onClick={previousPage}>
                 Previous
             </RaisedButton>
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={6} sm={4} md={2}>
               <RaisedButton type="submit" className="next full-size-button">
                 Next
               </RaisedButton>
@@ -142,9 +130,9 @@ let WizardFormSecondPage = props => {
           </Grid>
           <Grid container justify="center" >
             <Grid item xs={12}>
-              <WeaponSkillsModal />
+              <InstructionDialog />
             </Grid>
-            </Grid>
+          </Grid>
       </form>
   )
 }

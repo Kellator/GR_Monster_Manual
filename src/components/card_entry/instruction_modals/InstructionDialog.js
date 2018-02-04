@@ -3,7 +3,7 @@ import Dialog from 'material-ui/Dialog';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import FlatButton from 'material-ui/FlatButton';
 
-class WeaponSkillsModal extends React.Component {
+class InstructionDialog extends React.Component {
     state = {
         open: false,
       };
@@ -33,7 +33,7 @@ class WeaponSkillsModal extends React.Component {
                     onClick={this.handleOpen} 
                     size="large" 
                     label="What do I do here?" 
-                    id="instruction-modal" 
+                    id="instruction-dialog" 
                     // fullWidth="true"
                     
                     labelStyle={{fontSize:"1.2rem", textAlign: "center"}}
@@ -59,4 +59,4 @@ class WeaponSkillsModal extends React.Component {
         )
     }
 }
-export default WeaponSkillsModal;
+export default InstructionDialog;
