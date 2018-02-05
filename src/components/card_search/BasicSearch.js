@@ -20,7 +20,7 @@ class BasicSearch extends React.Component {
                 <form onSubmit={ handleSubmit(this.submit.bind(this)) } >
                     <div>
                         <Field 
-                            placeholder="search" 
+                            placeholder="name or creature type" 
                             name="basic_search_input" 
                             component={ TextField }
                             initialvalue=' '
@@ -28,6 +28,7 @@ class BasicSearch extends React.Component {
                                 width: '100%'
                             }}
                         />
+                        <h4 style={{paddingTop:'20px'}}>Search by Creature Category</h4>
                         <Field
                             name="basic_search_input"
                             id="category_search" 
@@ -54,7 +55,7 @@ class BasicSearch extends React.Component {
                                 width: '100%',
                                 marginTop: '2rem'
                             }}
-                        >Submit</RaisedButton>
+                        >Search the Codex</RaisedButton>
                     </div>
                 </form>
             </Grid>

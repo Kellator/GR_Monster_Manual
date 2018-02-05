@@ -19,7 +19,7 @@ import CreatureCard from '../card_view/CreatureCard';
 import SearchResultContainer from '../card_search/SearchResultContainer';
 import Instruction from './Instruction';
 import Error from './Error';
-import Landing from './Landing';
+import About from './About';
 
 class ViewContainer extends React.Component {
     render() {
@@ -31,8 +31,9 @@ class ViewContainer extends React.Component {
         let instructionDiv;
         let view = this.props.view.type;
         let page = this.props.page;
+        console.log(this.props.view);
         if(this.props.user && view === null) {
-            currentView = <HomeView create={ this.props.showCreateNew }categorySearch={ this.props.categorySearch } />
+            currentView = <HomeView create={ this.props.showCreateNew } categorySearch={ this.props.categorySearch } />
             // instructionDiv = <Instruction view={ 'home' } categorySearch={ this.props.categorySearch }/>
         } else {
             switch(view) {
@@ -59,7 +60,8 @@ class ViewContainer extends React.Component {
                     instructionDiv = <Instruction view={ view } />
                     break;
                 case "about":
-                    currentView = <Landing view={ view }/>
+                    currentView = <About view={ view } create={ this.props.showCreateNew } home={ this.props.showHomeView }/>
+                    break;
                 case "error":
                     currentView = <Error view={ view }/>
                     break;

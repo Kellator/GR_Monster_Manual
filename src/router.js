@@ -44,7 +44,10 @@ router.get('/monster', jwtAuth, (req, res) => {
     else if (typeof term === 'string' ) {
         var primarySearchCrit = term.toUpperCase();
         // uses specified search criteria to search in name of creature or category of creature and returns all matches
-        Monster.find( { $or: [ {'name': {$regex: primarySearchCrit} }, { 'category': primarySearchCrit } ] } ).exec(function(err, monsters) {
+        Monster
+            .find( { $or: [ {'name': {$regex: primarySearchCrit} }, { 'category': primarySearchCrit } ] } )
+            .sort({'name': +1})
+            .exec(function(err, monsters) {
             if (err) {
                 return res.status(500).json({
                     message: 'Criminey! Internal Server Error!' 
