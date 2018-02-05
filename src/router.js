@@ -32,7 +32,12 @@ router.get('/monster', jwtAuth, (req, res) => {
     // if search returns an object in a string, a full db search will be returned.  This was added after
     // search feature to include category searches through instruction buttons
     if(term == '{}') {
-        Monster.find().exec((err, monsters) => {
+        Monster
+            .find()
+            .sort({'category': +1})
+            .sort({'name': +1})
+            .exec((err, monsters) => {
+            console.log(monsters)
             if (err) {
                 return res.status(500).json({
                     message: 'Crumbs! Internal Server Error!'
@@ -58,7 +63,10 @@ router.get('/monster', jwtAuth, (req, res) => {
     }
 
     else {
-        Monster.find().exec((err, monsters) => {
+        Monster
+        .find()
+        .sort({'name': +1})
+        .exec((err, monsters) => {
             if (err) {
                 return res.status(500).json({
                     message: 'Crumbs! Internal Server Error!'
