@@ -98,10 +98,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         getPage: (page) => {
             dispatch(setPage(page));
         },
-        handleToggle: () => {
-            console.log("toggle clicked");
-            dispatch(toggleMenu());
-        },
+        // handleToggle: () => {
+        //     dispatch(toggleMenu());
+        // },
         categorySearch: (value) => {
             dispatch(searchDatabase(value));
         }

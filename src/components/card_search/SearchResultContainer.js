@@ -17,7 +17,7 @@ class SearchResultContainer extends React.Component {
                     data={ data } 
                     home={ this.props.home }
                     className="light-text"
-                    style={{height: '100vh'}}
+                    style={{height: "100vh"}}
                 />
         )
     }

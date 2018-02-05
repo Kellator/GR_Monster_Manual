@@ -20,13 +20,12 @@ class RacialDefenses extends React.Component {
                 md={6}
                 lg={4}
                 xl={4}
-                style={{margin: 'auto'}}
-                id='racial-def-container'
+                style={{margin: "auto"}}
+                id="racial-def-container"
                 className="stat-container"
             >
                 <div className="light-text stat-div">
                     <p className="skill-underline">RACIAL DEFENSES</p>
-                    {/* <CardHeader subtitle={"Racial Defenses"} /> */}
                     <div>{componentToRender}</div>
                 </div>
             </Grid>

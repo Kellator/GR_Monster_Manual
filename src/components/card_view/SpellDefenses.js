@@ -21,13 +21,12 @@ class SpellDefenses extends React.Component {
                 md={6}
                 lg={4}
                 xl={4}
-                style={{margin: 'auto'}}
-                id='spell-def-container'
+                style={{margin: "auto"}}
+                id="spell-def-container"
                 className="stat-container"
             >
                 <div className="light-text stat-div" >
                     <p className="skill-underline">SPELL DEFENSES</p>
-                    {/* <CardHeader subtitle={"Spell Defenses"} /> */}
                     <div>
                         {componentToRender}
                     </div>

@@ -13,8 +13,8 @@ class Notes extends React.Component {
                 md={6}
                 lg={4}
                 xl={4}
-                style={{margin: 'auto'}}
-                id='notes-container'
+                style={{margin: "auto"}}
+                id="notes-container"
                 className="stat-container"
             >
                 <div className="light-text stat-div" >

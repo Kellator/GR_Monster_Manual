@@ -5,17 +5,21 @@ import {connect} from 'react-redux';
 
 class About extends React.Component {
     render() {
-        console.log(this.props)
         return(
             <Grid 
                 item 
                 xs={12} sm={12} md={10} lg={8} xl={8} 
-                style={{paddingTop: '1rem', margin: 'auto'}}
+                style={{paddingTop: "1rem", margin: "auto"}}
                 className="large-text div-center div-opaque-color"
             >
                 <h2>Welcome to the Codex Creatura</h2>
                 <h2>Get into game faster.</h2>
-                <div style={{paddingTop: '1.25rem', paddingBottom: '1.25rem', paddingLeft: '1rem', paddingRight: '1rem'}}>
+                <div style={{
+                    paddingTop: "1.25rem", 
+                    paddingBottom: "1.25rem", 
+                    paddingLeft: "1rem", 
+                    paddingRight: "1rem"
+                    }}>
                     <p>
                         As an avid roleplayer, I'm always looking for ways to get me and my friends into game faster.  
                         One of the most time consuming things for game-masters, DMs,
@@ -42,34 +46,34 @@ class About extends React.Component {
                 <Grid container justify="space-around">
                     <Grid
                         item 
-                        style={{padding: '1rem'}}
+                        style={{padding: "1rem"}}
                         xs={12} sm={6} md={4} lg={4} xl={4} 
                     >
                         <RaisedButton 
                             onClick={ this.props.home }
                             className="button-main"
                             style={{
-                                borderRadius: '1px',
-                                padding: '10px, 24px',
-                                fontWeight: 'bold',
-                                width: '100%'
+                                borderRadius: "1px",
+                                padding: "10px, 24px",
+                                fontWeight: "bold",
+                                width: "100%"
                             }}
                             >Search the Codex
                         </RaisedButton>
                     </Grid>
                     <Grid
                         item 
-                        style={{padding: '1rem'}}
+                        style={{padding: "1rem"}}
                         xs={12} sm={6} md={4} lg={4} xl={4} 
                     >
                         <RaisedButton 
                             onClick={ this.props.create }
                             className="button-main"
                             style={{
-                                borderRadius: '1px',
-                                padding: '10px, 24px',
-                                fontWeight: 'bold',
-                                width: '100%'
+                                borderRadius: "1px",
+                                padding: "10px, 24px",
+                                fontWeight: "bold",
+                                width: "100%"
                             }}
                             >Create a New Creature
                         </RaisedButton>

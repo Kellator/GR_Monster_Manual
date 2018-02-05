@@ -68,12 +68,12 @@ class CreatureCard extends React.Component {
             notesComponentToRender = <Notes notes={ notes } />
         }
         return( 
-            <div id='card-container'>
-                <Grid container spacing={2} justify='center'>
-                    <Grid item xs={12} style={{marginBottom: '20px'}}>
-                        <h1 style={{textAlign: 'center', fontWeight: 'bolder'}} 
+            <div id="card-container" >
+                <Grid container spacing={2} justify="center" >
+                    <Grid item xs={12} style={{marginBottom: "20px" }}>
+                        <h1 style={{textAlign: "center" , fontWeight: "bolder"}} 
                         >{this.props.currentCard.name}</h1> 
-                        <h2 style={{textAlign: 'center', fontWeight: 'bolder'}} 
+                        <h2 style={{textAlign: "center" , fontWeight: "bolder" }} 
                             className="red-text"
                         >{this.props.currentCard.level}</h2> 
                     </Grid>
@@ -92,7 +92,7 @@ class CreatureCard extends React.Component {
                     <Grid item >
                         <RaisedButton 
                             onClick={ this.props.returnToList }
-                            style={{ margin: 'auto', fontSize: '1.2rem' }}
+                            style={{ margin: "auto", fontSize: "1.2rem" }}
                             className="back-button"
                             // fullWidth='true'
                         >Back</RaisedButton>

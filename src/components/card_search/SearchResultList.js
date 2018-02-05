@@ -13,7 +13,7 @@ class SearchResultList extends React.Component {
             <div>
                 <Grid container justify="center">
                     <Grid item>
-                        <List style={{textAlign: 'center'}}>
+                        <List style={{textAlign: "center"}}>
                             { results }
                         </List>
                     </Grid>
@@ -23,10 +23,10 @@ class SearchResultList extends React.Component {
                         <RaisedButton 
                             onClick={ this.props.home }
                             style={{
-                                borderRadius: '1px',
-                                fontWeight: 'bold',
-                                display: 'block',
-                                fontSize: '1.5rem'                   
+                                borderRadius: "1px",
+                                fontWeight: "bold",
+                                display: "block",
+                                fontSize: "1.5rem"                   
                             }}
                         >BACK</RaisedButton>
                     </Grid>

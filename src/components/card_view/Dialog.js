@@ -32,7 +32,7 @@ export default class DeleteDialog extends React.Component {
         label="Cancel"
         primary={true}
         onClick={this.handleClose}
-        style={{color: 'white', letterSpacing: '2px'}}
+        style={{color: "white", letterSpacing: "2px"}}
       />,
       <FlatButton
         label="Delete"

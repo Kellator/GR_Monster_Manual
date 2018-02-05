@@ -21,13 +21,12 @@ class PhysicalDefenses extends React.Component {
                 md={6}
                 lg={4}
                 xl={4}
-                style={{margin: 'auto'}}
-                id='phys-def-container'
+                style={{margin: "auto"}}
+                id="phys-def-container"
                 className="stat-container"
             >
                 <div className="light-text stat-div" >
                     <p className="skill-underline">PHYSICAL DEFENSES</p>
-                    {/* <CardHeader subtitle={"Physical Defenses"} /> */}
                     <div>{componentToRender}</div>
                 </div>
             </Grid>

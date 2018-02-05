@@ -3,7 +3,6 @@ import RaisedButton from 'material-ui/RaisedButton';
 import { TextField, SelectField } from 'redux-form-material-ui';
 import MenuItem from 'material-ui/MenuItem';
 import Grid from 'material-ui-next/Grid';
-// import Tooltip from 'material-ui-next/Tooltip';
 import { Field, reduxForm } from 'redux-form';
 import {searchDatabase} from '../../redux/actions/DatabaseActions';
 let hintText;
@@ -16,19 +15,19 @@ class BasicSearch extends React.Component {
         const {handleSubmit, pristine, reset, submitting } = this.props
         return (
             <Grid item  
-            style={{paddingBottom: '20px', paddingLeft: '20px', paddingRight: '20px', paddingTop: '20px'}}>
+            style={{paddingBottom: "20px", paddingLeft: "20px", paddingRight: "20px", paddingTop: "20px"}}>
                 <form onSubmit={ handleSubmit(this.submit.bind(this)) } >
                     <div>
                         <Field 
                             placeholder="name or creature type" 
                             name="basic_search_input" 
                             component={ TextField }
-                            initialvalue=' '
+                            initialvalue=" "
                             style={{
-                                width: '100%'
+                                width: "100%"
                             }}
                         />
-                        <h4 style={{paddingTop:'20px'}}>Search by Creature Category</h4>
+                        <h4 style={{paddingTop:"20px"}}>Search by Creature Category</h4>
                         <Field
                             name="basic_search_input"
                             id="category_search" 
@@ -49,11 +48,11 @@ class BasicSearch extends React.Component {
                             type="submit" 
                             className="button-main"                            
                             style={{
-                                borderRadius: '1px',
-                                padding: '10px, 24px',
-                                fontWeight: 'bold',
-                                width: '100%',
-                                marginTop: '2rem'
+                                borderRadius: "1px",
+                                padding: "10px, 24px",
+                                fontWeight: "bold",
+                                width: "100%",
+                                marginTop: "2rem"
                             }}
                         >Search the Codex</RaisedButton>
                     </div>

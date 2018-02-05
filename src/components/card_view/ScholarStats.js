@@ -94,8 +94,8 @@ class ScholarStats extends React.Component {
                 md={6}
                 lg={4}
                 xl={4}
-                style={{margin: 'auto'}}
-                id='scholar-stats-container'
+                style={{margin: "auto"}}
+                id="scholar-stats-container"
                 className="stat-container"
             >
                 <div className="light-text stat-div" >

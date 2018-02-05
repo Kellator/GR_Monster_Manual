@@ -21,12 +21,17 @@ export class Landing extends React.Component {
             <Grid 
                 item 
                 xs={12} sm={12} md={10} lg={8} xl={8} 
-                style={{paddingTop: '1rem'}}
+                style={{paddingTop: "1rem"}}
                 className="large-text div-center div-opaque-color"
             >
                 <h2>Welcome to the Codex Creatura</h2>
                 <h2>Get into game faster.</h2>
-                <div style={{paddingTop: '1.25rem', paddingBottom: '1.25rem', paddingLeft: '1rem', paddingRight: '1rem'}}>
+                <div style={{
+                    paddingTop: "1.25rem", 
+                    paddingBottom: "1.25rem", 
+                    paddingLeft: "1rem", 
+                    paddingRight: "1rem"
+                    }}>
                     <p>
                         As an avid roleplayer, I'm always looking for ways to get me and my friends into game faster.  
                         One of the most time consuming things for game-masters, DMs, and plot staff can be trying to find the stats for their NPCs or non-player-characters.
@@ -47,17 +52,17 @@ export class Landing extends React.Component {
                 </div>
                 <Grid
                     item 
-                    style={{padding: '1rem', margin: 'auto'}}
+                    style={{padding: "1rem", margin: "auto"}}
                     xs={12} sm={6} md={3} lg={3} xl={3} 
                 >
                     <RaisedButton 
                         onClick={ () => this.viewRegistration() }
                         className="button-main"
                         style={{
-                            borderRadius: '1px',
-                            padding: '10px, 24px',
-                            fontWeight: 'bold',
-                            width: '100%'
+                            borderRadius: "1px",
+                            padding: "10px, 24px",
+                            fontWeight: "bold",
+                            width: "100%"
                         }}
                         >Register
                     </RaisedButton>

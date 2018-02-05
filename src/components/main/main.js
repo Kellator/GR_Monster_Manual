@@ -34,14 +34,14 @@ class Main extends React.Component {
             }
         }
         return (
-            <Grid container styles={{flexGrow: '1'}}>
+            <Grid container styles={{flexGrow: "1"}}>
                 <Grid item xs={12}>
                     <Grid
                         container 
                         justify="center"
                         alignItems="center" 
                         direction="row"
-                        style={{marginTop: '20px'}}
+                        style={{marginTop: "20px"}}
                     >
                         { componentToDisplay }
                     </Grid>

@@ -42,8 +42,8 @@ export class Login extends React.Component {
                             onSubmit={ this.props.handleSubmit(values =>
                             this.onSubmit(values))}
                             style={{
-                            display: 'block',
-                            padding: '20px'
+                            display: "block",
+                            padding: "20px"
                             }}
                         >
                         {error}
@@ -55,8 +55,8 @@ export class Login extends React.Component {
                                 underlineShow={true}
                                 type="text"
                                 style={{
-                                    display: 'block',
-                                    width: '100%'
+                                    display: "block",
+                                    width: "100%"
                                     }}
                             />
                             <Field
@@ -67,8 +67,8 @@ export class Login extends React.Component {
                                 underlineShow={true}
                                 type="password"
                                 style={{
-                                    display: 'block',
-                                    width: '100%'
+                                    display: "block",
+                                    width: "100%"
                                     }}
                             />
                             <RaisedButton 
@@ -76,18 +76,18 @@ export class Login extends React.Component {
                                 className="button-main"
                                 
                                 style={{
-                                    borderRadius: '1px',
-                                    padding: '10px, 24px',
-                                    fontWeight: 'bold',
-                                    width: '100%',
-                                    marginTop: '2rem'
+                                    borderRadius: "1px",
+                                    padding: "10px, 24px",
+                                    fontWeight: "bold",
+                                    width: "100%",
+                                    marginTop: "2rem"
                                 }}
                                 >Log in</RaisedButton>
                         </form>
                     </Grid>
                     <Grid item className="div-center"
                         style={{
-                            paddingBottom: '20px'
+                            paddingBottom: "20px"
                         }}
                     >
                         <h4 style={{display: "inline"}}>Not registered yet?</h4>
@@ -95,11 +95,11 @@ export class Login extends React.Component {
                             onClick={ this.props.handleSubmit(() => this.viewRegistration()) }
                             className="button-main"                          
                             style={{
-                                borderRadius: '1px',
-                                padding: '10px, 24px',
-                                fontWeight: 'bold',
-                                color: '#AA0004',
-                                textDecoration: 'underline'
+                                borderRadius: "1px",
+                                padding: "10px, 24px",
+                                fontWeight: "bold",
+                                color: "#AA0004",
+                                textDecoration: "underline"
                             }}
                             >Register
                         </FlatButton>

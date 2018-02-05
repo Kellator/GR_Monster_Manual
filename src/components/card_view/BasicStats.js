@@ -28,8 +28,8 @@ class BasicStats extends React.Component {
                 md={6}
                 lg={4}
                 xl={4}
-                style={{margin: 'auto'}}
-                className='stat-container'
+                style={{margin: "auto"}}
+                className="stat-container"
             >
                 <div className="light-text stat-div" >
                     <p className="skill-underline">{this.props.stats.category}</p>

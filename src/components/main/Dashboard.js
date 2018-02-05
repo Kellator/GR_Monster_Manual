@@ -11,9 +11,8 @@ export class Dashboard extends React.Component {
             <div>
                 <Grid 
                     container 
-                    spacing={8}  
+                    spacing={24}  
                     justify="center"
-                    // alignItems="flex-start" 
                     id="dashboard"
                 >
                     <ViewContainer id="view-container" user={this.props.user} />
