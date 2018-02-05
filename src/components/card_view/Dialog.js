@@ -36,19 +36,17 @@ export default class DeleteDialog extends React.Component {
       />,
       <FlatButton
         label="Delete"
-        // secondary="true"
-        // style={{color: 'white', letterSpacing: '2px'}}
         onClick={this.deleteApprove}
         
       />,
     ];
 
     return (
-      <div >
+      <div  >
         <RaisedButton 
           label="Delete" 
           onClick={this.handleOpen}            
-          fullWidth='true'         
+          // fullWidth='true'        
         />
         <Dialog
           title="Delete Creature Card"

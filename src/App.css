@@ -88,9 +88,9 @@ body {
 }
 .stat-div {
   font-weight: bolder;
-  min-height: 200px;
+  min-height: 100px;
   /* border: solid 1px black; */
-  content: center;
+  /* content: center; */
   border-radius: 2px;
   padding: 20px;
   background-color: rgba(0, 0, 0, 0.45);
@@ -110,4 +110,9 @@ body {
 }
 .full-size-button {
   width: 100%;
+}
+@media (min-width: 1289px) {
+  .stat-div {
+    min-height: 200px;
+  }
 }

@@ -70,41 +70,40 @@ class CreatureCard extends React.Component {
         return( 
             <div id='card-container'>
                 <Grid container spacing={2} justify='center'>
-                    <Grid item xs={12}>
-                        <h2 style={{textAlign: 'center'}} 
-                        >{this.props.currentCard.name}</h2> 
-                        <h4 style={{textAlign: 'center'}} 
+                    <Grid item xs={12} style={{marginBottom: '20px'}}>
+                        <h1 style={{textAlign: 'center', fontWeight: 'bolder'}} 
+                        >{this.props.currentCard.name}</h1> 
+                        <h2 style={{textAlign: 'center', fontWeight: 'bolder'}} 
                             className="red-text"
-                        >{this.props.currentCard.level}</h4> 
+                        >{this.props.currentCard.level}</h2> 
                     </Grid>
-                    
-                        <BasicStats stats={ basicStats }/>                      
-                        {weaponComponentToRender}                        
-                        {scholarlyComponentToRender}                        
-                        {physicalDefenseComponentToRender}                        
-                        {spellDefenseComponentToRender}                        
-                        {racialDefenseComponentToRender}                        
-                        {treasureComponentToRender}                        
-                        {notesComponentToRender}
-
-                <Grid container spacing={8} justify='center' alignItems='center'>
-                    <Grid item xs={10} sm={10} md={4} >
-                            <RaisedButton 
-                                onClick={ this.props.returnToList }
-                                style={{ margin: 'auto'}}
-                                className="back-button"
-                                fullWidth='true'
-                            >Back</RaisedButton>
-                        </Grid>
-                        <Grid item xs={10} sm={10} md={4} >
-                            <DeleteDialog
-                                deleteCard={ this.props.delete } 
-                                id={ id }
-                                data={ data } 
-                                returnNewList={ this.props.returnNewList }    
-                                                
-                            >Delete</DeleteDialog>
-                        </Grid>
+                </Grid>
+                <Grid container alignItems="flex-start">
+                    <BasicStats stats={ basicStats }/>                     
+                    {weaponComponentToRender}                      
+                    {scholarlyComponentToRender}                       
+                    {physicalDefenseComponentToRender}                        
+                    {spellDefenseComponentToRender}                       
+                    {racialDefenseComponentToRender}                        
+                    {treasureComponentToRender}                      
+                    {notesComponentToRender}
+                </Grid>
+                <Grid container spacing={24} alignItems="flex-end" justify="center" >
+                    <Grid item >
+                        <RaisedButton 
+                            onClick={ this.props.returnToList }
+                            style={{ margin: 'auto', fontSize: '1.2rem' }}
+                            className="back-button"
+                            // fullWidth='true'
+                        >Back</RaisedButton>
+                    </Grid>
+                    <Grid item >
+                        <DeleteDialog
+                            deleteCard={ this.props.delete } 
+                            id={ id }
+                            data={ data } 
+                            returnNewList={ this.props.returnNewList }                                                
+                        >Delete</DeleteDialog>
                     </Grid>
                 </Grid>
             </div>

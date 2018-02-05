@@ -57,7 +57,7 @@ class ViewContainer extends React.Component {
                     break;
                 case "results list":
                     currentView = <SearchResultContainer home={ this.props.showHomeView }/>
-                    instructionDiv = <Instruction view={ view } />
+                    // instructionDiv = <Instruction view={ view } />
                     break;
                 case "about":
                     currentView = <About view={ view } create={ this.props.showCreateNew } home={ this.props.showHomeView }/>

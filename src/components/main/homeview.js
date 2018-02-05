@@ -14,7 +14,7 @@ class HomeView extends React.Component {
         }
         return (
             <Grid item 
-                sm={4} 
+                sm={8} md={6} lg={3}
                 className="div-opaque-color "
                 style={{margin: 'auto'}}
             >
