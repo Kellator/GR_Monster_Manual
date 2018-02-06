@@ -111,6 +111,9 @@ body {
 .full-size-button {
   width: 100%;
 }
+.card-entry {
+  padding: 30px;
+}
 @media (min-width: 1289px) {
   .stat-div {
     min-height: 200px;

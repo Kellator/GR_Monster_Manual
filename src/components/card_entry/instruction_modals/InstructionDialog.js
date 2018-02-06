@@ -34,7 +34,7 @@ class InstructionDialog extends React.Component {
                     size="large" 
                     label="What do I do here?" 
                     id="instruction-dialog" 
-                    // fullWidth="true"
+                    style={{color: "#AA0004"}}
                     
                     labelStyle={{fontSize:"1.2rem", textAlign: "center"}}
                 ></FlatButton>

@@ -19,49 +19,40 @@ let WizardFormSecondPage = props => {
     hasSlaysValue,
     hasAssassinatesValue
   } = props
-  return (
-      <form onSubmit={handleSubmit} className="form-container stat-container" id="weapon-stats-entry">
+  return ( 
+    <Grid item xs={12} sm={8} md={6} > 
+      <form onSubmit={handleSubmit} className="card-entry div-opaque-color" id="weapon-stats-entry">
+        
           <h3>Weapons Skills</h3>
-          <div>
-            <label>Basic Weapon Skills/Type</label>
-            <div>
-              <Field component={RadioButtonGroup} name="weapon_type" label="Weapon Type" className="form-container"> 
-                  <RadioButton checkedIcon={<ActionFavorite style={{color: '#FE0006'}} />} value="No Weapons" label="No Weapons"/>
-                  <RadioButton value="Weapon of Choice" label="Weapon of Choice"/>
-                  <RadioButton value="Claws" label="Claws"/>
-                  <RadioButton value="Long Claws" label="Long Claws"/>
-                  <RadioButton value="Bite" label="Bite"/>
-              </Field>
-            </div>
-          </div>
-          <div>
-            <label>Plus Strength</label>
-            <div>
-              <Field component={RadioButtonGroup} name="plus_strength_level" label="Plus Strength" className="form-container"> 
-                  <RadioButton value="Normal Strength (+0)" label="Normal Strength (+0)"/>
-                  <RadioButton value="Plus 2 Strength (+2)" label="Plus 2 Strength (+2)"/>
-                  <RadioButton value="Plus 4 Strength (+4)" label="Plus 4 Strength (+4)"/>
-                  <RadioButton value="Plus 6 Strength (+6)" label="Plus 6 Strength (+6)"/>
-                  <RadioButton value="Plus 8 Strength (+8)" label="Plus 8 Strength (+8)"/>
-                  <RadioButton value="Plus 10 Strength (+10)" label="Plus 10 Strength (+10)"/>
-              </Field>
-            </div>
-          </div>
-        <div>
+          <p>Basic Weapon Skills/Type</p>
+          <Field component={RadioButtonGroup} name="weapon_type" label="Weapon Type" className="form-container"> 
+              <RadioButton checkedIcon={<ActionFavorite style={{color: '#FE0006'}} />} value="No Weapons" label="No Weapons"/>
+              <RadioButton value="Weapon of Choice" label="Weapon of Choice"/>
+              <RadioButton value="Claws" label="Claws"/>
+              <RadioButton value="Long Claws" label="Long Claws"/>
+              <RadioButton value="Bite" label="Bite"/>
+          </Field>
+                  
+        
+          <p>Plus Strength</p>
+          <Field component={RadioButtonGroup} name="plus_strength_level" label="Plus Strength" className="form-container"> 
+              <RadioButton value="Normal Strength (+0)" label="Normal Strength (+0)"/>
+              <RadioButton value="Plus 2 Strength (+2)" label="Plus 2 Strength (+2)"/>
+              <RadioButton value="Plus 4 Strength (+4)" label="Plus 4 Strength (+4)"/>
+              <RadioButton value="Plus 6 Strength (+6)" label="Plus 6 Strength (+6)"/>
+              <RadioButton value="Plus 8 Strength (+8)" label="Plus 8 Strength (+8)"/>
+              <RadioButton value="Plus 10 Strength (+10)" label="Plus 10 Strength (+10)"/>
+          </Field>
+       
           <h3>Advanced Weapons Skills</h3>
-          //
-          <div>
-            <label>Advanced Weapon Skills</label>
-            <div>
-              <Field
-                name="has_advanced_weapon_skills"
-                component= { Checkbox }
-                type="checkbox"
-                className="form-container"
-              />
-            </div>
-          </div>
-        </div>
+          <p>Advanced Weapon Skills</p>
+          <Field
+            name="has_advanced_weapon_skills"
+            component= { Checkbox }
+            type="checkbox"
+            className="form-container"
+          />
+        
         {hasAdvancedWeaponSkillsValue && (
           <div>
             <div>
@@ -114,16 +105,36 @@ let WizardFormSecondPage = props => {
               </div>
             </div>
             )}
-          </div>
-        )}        
+          </div>          
+        )}   
+            
           <Grid container justify="space-between">
           <Grid item xs={6} sm={4} md={2}>
-            <RaisedButton type="button" className="previous full-size-button" onClick={previousPage}>
-                Previous
+            <RaisedButton 
+              type="button" 
+              className="previous" 
+              onClick={previousPage}
+              style={{
+                borderRadius: "1px",
+                fontWeight: "bold",
+                display: "block",
+                fontSize: "1.5rem"                   
+              }}
+            >
+                Back
             </RaisedButton>
             </Grid>
             <Grid item xs={6} sm={4} md={2}>
-              <RaisedButton type="submit" className="next full-size-button">
+              <RaisedButton 
+                type="submit" 
+                className="next"
+                style={{
+                  borderRadius: "1px",
+                  fontWeight: "bold",
+                  display: "block",
+                  fontSize: "1.5rem"                   
+                }}
+              >
                 Next
               </RaisedButton>
             </Grid>
@@ -133,7 +144,8 @@ let WizardFormSecondPage = props => {
               <InstructionDialog />
             </Grid>
           </Grid>
-      </form>
+      </form> 
+      </Grid>
   )
 }
 

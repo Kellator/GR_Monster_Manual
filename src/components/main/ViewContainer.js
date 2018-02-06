@@ -1,8 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {reset} from 'redux-form';
-// import Drawer from 'material-ui/Drawer';
-// import AppBar from 'material-ui/AppBar';
 import Paper from 'material-ui/Paper';
 import Grid from 'material-ui-next/Grid';
 import Hidden from 'material-ui-next/Hidden';

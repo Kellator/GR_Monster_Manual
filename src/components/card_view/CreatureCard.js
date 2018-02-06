@@ -69,7 +69,7 @@ class CreatureCard extends React.Component {
         }
         return( 
             <div id="card-container" >
-                <Grid container spacing={2} justify="center" >
+                <Grid container spacing={24} justify="center" >
                     <Grid item xs={12} style={{marginBottom: "20px" }}>
                         <h1 style={{textAlign: "center" , fontWeight: "bolder"}} 
                         >{this.props.currentCard.name}</h1> 
@@ -89,15 +89,20 @@ class CreatureCard extends React.Component {
                     {notesComponentToRender}
                 </Grid>
                 <Grid container spacing={24} alignItems="flex-end" justify="center" >
-                    <Grid item >
+                    <Grid item xs={6} sm={2} md={2}>
                         <RaisedButton 
                             onClick={ this.props.returnToList }
-                            style={{ margin: "auto", fontSize: "1.2rem" }}
+                            style={{
+                                borderRadius: "1px",
+                                fontWeight: "bold",
+                                display: "block",
+                                fontSize: "1.5rem"                   
+                            }}
                             className="back-button"
                             // fullWidth='true'
                         >Back</RaisedButton>
                     </Grid>
-                    <Grid item >
+                    <Grid item xs={6} sm={2} md={2}>
                         <DeleteDialog
                             deleteCard={ this.props.delete } 
                             id={ id }

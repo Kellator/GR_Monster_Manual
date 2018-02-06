@@ -16,10 +16,8 @@ let WizardFormFirstPage = props => {
   const { handleSubmit } = props
   let pageNumber = props.pageNumber;
   return (
-        <form onSubmit={handleSubmit} className='stat-container' id="basic-stats-entry" >
-            <Grid item
-                md={6}   
-            >
+      <Grid item xs={12} sm={8} md={8} lg={6} >
+        <form onSubmit={handleSubmit} className="card-entry div-opaque-color" id="basic-stats-entry" >
                 <p>Enter Name of New Creature (required).</p>
                 <Field
                     name="monster_name"
@@ -29,31 +27,34 @@ let WizardFormFirstPage = props => {
                     className="form-container"
                     placeholder="creature name"
                 />
-            </Grid>
-            <Grid item
-                md={6}     
-            >
-            <p>Choose One Category of Creature (required).</p>
-                <Field name="monster_category"  
-                    component={RadioButtonGroup} 
-                    label="Monster Category" 
-                    defaultSelected="Animal"
-                    className="form-container"
-                >             
-                    <RadioButton value="Animal" label="Animal"/>
-                    <RadioButton value="Elemental" label="Elemental"/>
-                    <RadioButton value="Fae" label="Fae"/>
-                    <RadioButton value="Giant" label="Giant"/>
-                    <RadioButton value="Goblinoid" label="Goblinoid"/>
-                    <RadioButton value="Human" label="Human"/>
-                    <RadioButton value="Humanoid" label="Humanoid"/>
-                    <RadioButton value="Magical Creature" label="Magical Creature"/>
-                    <RadioButton value="Undead" label="Undead"/>
-                </Field>
-            </Grid>
-            <Grid item
-                md={6}  
-            >
+                <p>Choose One Category of Creature (required).</p>
+                    {/* <Field name="monster_category"  
+                        component={RadioButtonGroup} 
+                        label="Monster Category" 
+                        defaultSelected="Animal"
+                        className="form-container"
+                    >             
+                        <RadioButton value="Animal" label="Animal"/>
+                        <RadioButton value="Elemental" label="Elemental"/>
+                        <RadioButton value="Fae" label="Fae"/>
+                        <RadioButton value="Giant" label="Giant"/>
+                        <RadioButton value="Goblinoid" label="Goblinoid"/>
+                        <RadioButton value="Human" label="Human"/>
+                        <RadioButton value="Humanoid" label="Humanoid"/>
+                        <RadioButton value="Magical Creature" label="Magical Creature"/>
+                        <RadioButton value="Undead" label="Undead"/>
+                    </Field> */}
+                    <Field component={SelectField} label="Monster Category" name="monster_category" >
+                        <MenuItem value="Animal" primaryText="Animal" className="light-text" /> 
+                        <MenuItem value="Elemental" primaryText="Elemental" className="light-text" />
+                        <MenuItem value="Fae" primaryText="Fae" className="light-text" />
+                        <MenuItem value="Giant" primaryText="Giant" className="light-text" />
+                        <MenuItem value="Goblinoid" primaryText="Goblinoid" className="light-text" />                   
+                        <MenuItem value="Human" primaryText="Human" className="light-text" />
+                        <MenuItem value="Humanoid" primaryText="Humanoid" className="light-text" />
+                        <MenuItem value="Magical Creature" primaryText="Magical Creature" className="light-text" />
+                        <MenuItem value="Undead" primaryText="Undead" className="light-text" />
+                    </Field>
             <p>Choose Level of Difficulty (required).</p>
                 <Field 
                     name="monster_level" 
@@ -66,12 +67,8 @@ let WizardFormFirstPage = props => {
                     <RadioButton value="Mid" label="Mid"/>
                     <RadioButton value="High" label="High"/>
                 </Field>
-                </Grid>
             {/* <p>Enter the Body Points (required) and Armor Points for the Creature, if applicable.</p>
             <p>Use only numbers.</p> */}
-            <Grid item
-                md={6}  
-            >
                 <label>
                 Body Points {' '}
                 <Field
@@ -94,16 +91,8 @@ let WizardFormFirstPage = props => {
                     placeholder="#"
                 />           
                 </label>
-                </Grid>
-                {/* <p>Include a Physical Description.</p>
-                <p>This description should include the visible appearance of the monster.</p>
-                <p>Include brief makeup and costuming instructions if applicable.</p> */}
-                <Grid item
-                    md={6}   
-                    >
                 <p>Physical Description</p>
                 <p>Should include costume and makeup instructions if applicable.</p>
-                {/* <p>Limit of 200 characters.</p> */}
                 <Field
                     name="monster_description"
                     type="TextArea"
@@ -113,20 +102,29 @@ let WizardFormFirstPage = props => {
                     className="form-container"
                     placeholder="limit to 200 characters"
                 />
-                </Grid>
                 <Grid container justify="center">
-                    <Grid item xs={12} md={4}>
-                        <div className="">
-                            <RaisedButton type="submit" className="next full-size-button">
-                            Next
-                            </RaisedButton>
-                        </div>
+                    <Grid item xs={6} sm={2} md={2}>
+                        
+                        <RaisedButton 
+                            type="submit" 
+                            className="next full-size-button"
+                            style={{
+                                borderRadius: "1px",
+                                fontWeight: "bold",
+                                display: "block",
+                                fontSize: "1.5rem"                   
+                            }}
+                        >
+                        Next
+                        </RaisedButton>
+                        
                     </Grid>
                     <Grid item xs={12}>
                         <InstructionDialog />
                     </Grid>
                 </Grid>
         </form>
+    </Grid>
   )
 }
 
