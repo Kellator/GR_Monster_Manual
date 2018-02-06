@@ -36,7 +36,7 @@ class WizardForm extends Component {
     const { page } = this.state
     let pageNumber = this.state.page;
     return (
-      <Grid container justify="center" 
+      <Grid container justify="center" alignItems="stretch"
         className="" id="creature-entry-form"
       >
         {/* <div className="div-opaque-color stat-container" id="creature-entry-form"> */}

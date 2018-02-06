@@ -21,7 +21,7 @@ let WizardFormSecondPage = props => {
   } = props
   return ( 
     <Grid item xs={12} sm={8} md={6} > 
-      <form onSubmit={handleSubmit} className="card-entry div-opaque-color" id="weapon-stats-entry">
+      <form onSubmit={handleSubmit} className="card-entry div-opaque-color align-center " id="weapon-stats-entry">
         
           <h3>Weapons Skills</h3>
           <p>Basic Weapon Skills/Type</p>
