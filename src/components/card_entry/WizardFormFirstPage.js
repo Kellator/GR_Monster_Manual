@@ -90,9 +90,6 @@ let WizardFormFirstPage = props => {
                     placeholder="limit to 200 characters"
                 />
                 <Grid container justify="center">
-                    <Grid item xs={12} style={{textAlign: "center"}} >
-                        <InstructionDialog />
-                    </Grid>
                     <Grid item xs={6} sm={2} md={2}>                        
                         <RaisedButton 
                             type="submit" 
@@ -106,6 +103,9 @@ let WizardFormFirstPage = props => {
                         >
                         Next
                         </RaisedButton>                        
+                    </Grid>
+                    <Grid item xs={12} style={{textAlign: "center"}} >
+                        <InstructionDialog />
                     </Grid>                    
                 </Grid>
         </form>

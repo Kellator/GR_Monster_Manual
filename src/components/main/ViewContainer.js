@@ -40,7 +40,7 @@ class ViewContainer extends React.Component {
                     // instructionDiv = <Instruction view={ view } categorySearch={ this.props.categorySearch }/>
                     break;
                 case "create":
-                    currentView = <WizardForm submit={ this.props.createNewCard } getPage={ this.props.getPage }/>
+                    currentView = <WizardForm submit={ this.props.createNewCard } getPage={ this.props.getPage } reset={ this.props.reset } />
                     // instructionDiv = <Instruction view={ view } page={ page } />
                     break;
                 case "new card":
@@ -96,9 +96,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         getPage: (page) => {
             dispatch(setPage(page));
         },
-        // handleToggle: () => {
-        //     dispatch(toggleMenu());
-        // },
+        reset: () => {
+            dispatch(reset('wizard'));
+        },
         categorySearch: (value) => {
             dispatch(searchDatabase(value));
         }

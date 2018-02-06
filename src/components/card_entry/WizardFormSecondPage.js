@@ -22,7 +22,7 @@ let WizardFormSecondPage = props => {
   return ( 
     <Grid item xs={12} sm={8} md={6} > 
       <form onSubmit={handleSubmit} className="card-entry div-opaque-color align-center " id="weapon-stats-entry">      
-          <h3>Weapons Skills</h3>
+          <h2 className="form-container" >Weapons Skills</h2>
           <p>Basic Weapon Skills/Type <span className="red-text" >(required)</span></p>
           <Field component={SelectField} name="weapon_type" label="Weapon Type" className="form-container" required> 
               <MenuItem value="No Weapons" 
@@ -36,8 +36,6 @@ let WizardFormSecondPage = props => {
               <MenuItem value="Bite" 
                 primaryText="Bite" label="Bite" className="light-text"/>
           </Field>
-                  
-        
           <p>Plus Strength <span className="red-text" >(required)</span></p>
           <Field component={SelectField} name="plus_strength_level" label="Plus Strength" className="form-container" required> 
               <MenuItem value="Normal Strength (+0)" 
@@ -54,25 +52,26 @@ let WizardFormSecondPage = props => {
                 primaryText="Plus 10 Strength (+10)" label="Plus 10 Strength (+10)" className="light-text"/>
           </Field>
        
-          <h3>Advanced Weapons Skills</h3>
-          <p>Advanced Weapon Skills</p>
+          <h3 className="form-container" >Advanced Weapons Skills</h3>
+
           <Field
+            label="Advanced Weapon Skills"
             name="has_advanced_weapon_skills"
             component= { Checkbox }
             type="checkbox"
-            className="form-container"
+            className="form-container align-center"
           />
-        
+
         {hasAdvancedWeaponSkillsValue && (
           <div>
             <div>
-              <label>Slays</label>
               <div>
                 <Field
                   name="has_slays"
                   component={ Checkbox }
                   type="checkbox"
                   className="form-container"
+                  label="Slays"
                 />
               </div>
             </div>
@@ -91,13 +90,13 @@ let WizardFormSecondPage = props => {
             </div>
             )}
             <div>
-              <label>Assassinates</label>
               <div>
                 <Field
                   name="has_assassinates"
                   component={ Checkbox }
                   type="checkbox"
                   className="form-container"
+                  label="Assassinates"
                 />
               </div>
             </div>
@@ -118,8 +117,8 @@ let WizardFormSecondPage = props => {
           </div>          
         )}   
             
-          <Grid container justify="space-between">
-          <Grid item xs={6} sm={4} md={2}>
+          <Grid container justify="space-around">
+          <Grid item xs={6} sm={4} md={3}>
             <RaisedButton 
               type="button" 
               className="previous" 
@@ -131,10 +130,10 @@ let WizardFormSecondPage = props => {
                 fontSize: "1.5rem"                   
               }}
             >
-                Back
+                Previous
             </RaisedButton>
             </Grid>
-            <Grid item xs={6} sm={4} md={2}>
+            <Grid item xs={6} sm={4} md={3}>
               <RaisedButton 
                 type="submit" 
                 className="next"
