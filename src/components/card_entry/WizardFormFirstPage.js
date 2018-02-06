@@ -19,7 +19,7 @@ let WizardFormFirstPage = props => {
       <Grid item xs={12} sm={8} md={8} lg={6} >
         <form onSubmit={handleSubmit} className="card-entry div-opaque-color align-center " id="basic-stats-entry" >
             <div>
-                <p>Enter Name of New Creature (required).</p>
+                <p>Enter Name of New Creature <span className="red-text" >(required)</span></p>
                 <Field
                     name="monster_name"
                     type="text"
@@ -30,7 +30,7 @@ let WizardFormFirstPage = props => {
                 />
             </div>
             <div>
-                <p>Choose One Category of Creature (required).</p>
+                <p>Type of Creature<span className="red-text" >(required)</span></p>
                 <Field component={SelectField} label="Monster Category" name="monster_category" className="form-container" >
                     <MenuItem value="Animal" primaryText="Animal" className="light-text" /> 
                     <MenuItem value="Elemental" primaryText="Elemental" className="light-text" />
@@ -44,7 +44,7 @@ let WizardFormFirstPage = props => {
                 </Field>
             </div>
             <div>
-                <p>Choose Level of Difficulty (required).</p>
+                <p>Level of Difficulty <span className="red-text" >(required)</span></p>
                 <Field 
                     name="monster_level" 
                     component={SelectField} 
@@ -57,7 +57,7 @@ let WizardFormFirstPage = props => {
                 </Field>
             </div>    
                 <label>
-                Body Points {' '}
+                Body Points {' '} <span className="red-text" >(required) </span>
                 <Field
                     name="monster_body_points"
                     type="number"
