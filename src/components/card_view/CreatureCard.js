@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import RaisedButton from 'material-ui/RaisedButton';
+import Grid from 'material-ui-next/Grid';
 import {Card, CardActions, CardHeader, CardTitle, CardText} from 'material-ui/Card';
 import Paper from 'material-ui/Paper';
 import BasicStats from './BasicStats.js';
@@ -14,10 +15,13 @@ import Notes from './Notes.js';
 import DeleteDialog from './Dialog.js';
 import { deleteCard, returnNewList } from '../../redux/actions/DatabaseActions';
 import {  showResultsListView } from '../../redux/actions/ViewActions';
-import Grid from 'material-ui-next/Grid';
+import InstructionDialog from '../card_entry/instruction_modals/InstructionDialog';
+import instructions from '../main/InstructionText';
+
 
 class CreatureCard extends React.Component {
     render() {
+        let text = instructions.cardView.text;
         let id = this.props.currentCard._id;
         let data = this.props.data;
         console.log(this.props.currentCard);
@@ -109,6 +113,11 @@ class CreatureCard extends React.Component {
                             data={ data } 
                             returnNewList={ this.props.returnNewList }                                                
                         >Delete</DeleteDialog>
+                    </Grid>
+                </Grid>
+                <Grid container justify="center" >
+                    <Grid item xs={12} className="div-center"  >
+                        <InstructionDialog view={this.props.view} text={text}/>
                     </Grid>
                 </Grid>
             </div>

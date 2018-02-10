@@ -32,34 +32,49 @@ class ViewContainer extends React.Component {
         let page = this.props.page;
         console.log(this.props.view);
         if(this.props.user && view === null) {
-            currentView = <HomeView create={ this.props.showCreateNew } categorySearch={ this.props.categorySearch } />
-            // instructionDiv = <Instruction view={ 'home' } categorySearch={ this.props.categorySearch }/>
+            currentView = <HomeView 
+                create={ this.props.showCreateNew }
+                categorySearch={ this.props.categorySearch }
+                view={ view } 
+            />
         } else {
             switch(view) {
                 case "home":
-                    currentView = <HomeView create={ this.props.showCreateNew } categorySearch={ this.props.categorySearch }/>
-                    // instructionDiv = <Instruction view={ view } categorySearch={ this.props.categorySearch }/>
+                    currentView = <HomeView 
+                        create={ this.props.showCreateNew } 
+                        categorySearch={ this.props.categorySearch }
+                        view={ view }
+                    />
                     break;
                 case "create":
-                    currentView = <WizardForm submit={ this.props.createNewCard } page={ page } getPage={ this.props.getPage } reset={ this.props.reset } />
-                    // instructionDiv = <Instruction view={ view } page={ page } />
+                    currentView = <WizardForm submit={ this.props.createNewCard } 
+                        page={ page } 
+                        getPage={ this.props.getPage } 
+                        reset={ this.props.reset } 
+                        view={ view }
+                    />
                     break;
                 case "new card":
-                    currentView = <CardCreated create={ this.props.showCreateNew } home={ this.props.showHomeView }/>
-                    // instructionDiv = <Instruction view={ view } />
+                    currentView = <CardCreated 
+                        create={ this.props.showCreateNew } 
+                        home={ this.props.showHomeView }
+                        view={ view }
+                    />
                     break;
                 case "card":
                     currentView = 
-                        <CreatureCard />
-                    
-                    // instructionDiv = <Instruction view={ view } />
+                        <CreatureCard view={ view }/>
                     break;
                 case "results list":
-                    currentView = <SearchResultContainer home={ this.props.showHomeView }/>
-                    // instructionDiv = <Instruction view={ view } />
+                    currentView = <SearchResultContainer home={ this.props.showHomeView }
+                        view={ view }
+                    />
                     break;
                 case "about":
-                    currentView = <About view={ view } create={ this.props.showCreateNew } home={ this.props.showHomeView }/>
+                    currentView = <About view={ view } 
+                        create={ this.props.showCreateNew } 
+                        home={ this.props.showHomeView }
+                    />
                     break;
                 case "error":
                     currentView = <Error view={ view }/>

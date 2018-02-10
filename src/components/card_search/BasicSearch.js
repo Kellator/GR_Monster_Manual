@@ -5,7 +5,6 @@ import MenuItem from 'material-ui/MenuItem';
 import Grid from 'material-ui-next/Grid';
 import { Field, reduxForm } from 'redux-form';
 import {searchDatabase} from '../../redux/actions/DatabaseActions';
-import InstructionDialog from '../card_entry/instruction_modals/InstructionDialog';
 
 let hintText;
 class BasicSearch extends React.Component {
@@ -60,11 +59,6 @@ class BasicSearch extends React.Component {
                         >Search the Codex</RaisedButton>
                     </div>
                 </form>
-                <Grid container justify="center" >
-                    <Grid item xs={12} style={{textAlign: "center"}} >
-                        <InstructionDialog   />
-                    </Grid> 
-                </Grid>
             </Grid>
         )
     }
