@@ -163,9 +163,9 @@ let WizardFormSecondPage = props => {
             </Grid>
           </Grid>
           <Grid container justify="center" className="align-center" >
-            <Grid item xs={12}>
-              <InstructionDialog />
-            </Grid>
+            <Grid item xs={12} style={{textAlign: "center"}} >
+              <InstructionDialog pageNumber={props.pageNumber}  />
+            </Grid> 
           </Grid>
       </form> 
       </Grid>

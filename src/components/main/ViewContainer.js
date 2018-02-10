@@ -16,6 +16,7 @@ import CardCreated from './cardCreated.js';
 import CreatureCard from '../card_view/CreatureCard';
 import SearchResultContainer from '../card_search/SearchResultContainer';
 import Instruction from './Instruction';
+import InstructionDialog from '../card_entry/instruction_modals/InstructionDialog';
 import Error from './Error';
 import About from './About';
 
@@ -40,7 +41,7 @@ class ViewContainer extends React.Component {
                     // instructionDiv = <Instruction view={ view } categorySearch={ this.props.categorySearch }/>
                     break;
                 case "create":
-                    currentView = <WizardForm submit={ this.props.createNewCard } getPage={ this.props.getPage } reset={ this.props.reset } />
+                    currentView = <WizardForm submit={ this.props.createNewCard } page={ page } getPage={ this.props.getPage } reset={ this.props.reset } />
                     // instructionDiv = <Instruction view={ view } page={ page } />
                     break;
                 case "new card":
@@ -72,6 +73,12 @@ class ViewContainer extends React.Component {
             <div id="view-container" style={{width: "100%"}}>
                 {currentView}
                 {/* {instructionDiv} */}
+                {/* <Grid container justify="center"  >
+                    <Grid item sm={8} md={6} lg={3} className="div-center"
+                    style={{padding: "0px"}}  >
+                        <InstructionDialog page={page} view={view} />
+                    </Grid>
+                </Grid> */}
             </div>             
         )
     }

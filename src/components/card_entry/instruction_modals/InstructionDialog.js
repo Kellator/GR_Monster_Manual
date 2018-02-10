@@ -18,6 +18,7 @@ class InstructionDialog extends React.Component {
       };
     
       render() {
+        console.log(this.props);
         const actions = [
           <FlatButton
             label="Got it!"
@@ -34,7 +35,7 @@ class InstructionDialog extends React.Component {
                     size="large" 
                     label="What do I do here?" 
                     id="instruction-dialog" 
-                    style={{color: "#AA0004"}}                    
+                    style={{color: "#AA0004" }}                    
                     labelStyle={{fontSize:"1rem", textAlign: "center", textDecoration: "underline" }}
                 ></FlatButton>
                 <Dialog

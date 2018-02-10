@@ -15,6 +15,7 @@ import InstructionDialog from './instruction_modals/InstructionDialog'
 let WizardFormFirstPage = props => {
   const { handleSubmit } = props
   let pageNumber = props.pageNumber;
+  console.log(props);
   return (
       <Grid item xs={12} sm={8} md={8} lg={6} >
         <form onSubmit={handleSubmit} className="card-entry div-opaque-color" id="basic-stats-entry" >
@@ -111,7 +112,7 @@ let WizardFormFirstPage = props => {
                         </RaisedButton>                        
                     </Grid>
                     <Grid item xs={12} style={{textAlign: "center"}} >
-                        <InstructionDialog />
+                        <InstructionDialog pageNumber={props.pageNumber}  />
                     </Grid>                    
                 </Grid>
         </form>

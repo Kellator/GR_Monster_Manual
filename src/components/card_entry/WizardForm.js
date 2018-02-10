@@ -8,6 +8,7 @@ import WizardFormFourthPage from './WizardFormFourthPage';
 import WizardFormFifthPage from './WizardFormFifthPage';
 import WizardFormSixthPage from './WizardFormSixthPage';
 import WizardFormSeventhPage from './WizardFormSeventhPage';
+import InstructionDialog from './instruction_modals/InstructionDialog'
 
 
 class WizardForm extends Component {
@@ -82,6 +83,7 @@ class WizardForm extends Component {
               onSubmit={this.props.submit}
               pageNumber={ pageNumber }
             />
+            
           )}
         {/* </div> */}
       </Grid>
