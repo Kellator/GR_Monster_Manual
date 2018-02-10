@@ -61,13 +61,19 @@ class WeaponStats extends React.Component {
             }
         }
         return (
-            <Grid 
+            <Grid
                 item
-                xs={12} sm={12} md={6} lg={4} xl={4}
+                xs={12}
+                sm={6}
+                md={6}
+                lg={4}
+                xl={4}
+                style={{margin: "auto"}}
+                id="weapon-stat-container"
+                className="stat-container"
             >
-                <div className="stat-div light-text" style={{background: 'inherit', marginBottom: '1.5rem'}}>
+                <div className="light-text stat-div" >
                     <p className="skill-underline">WEAPON SKILLS</p>
-                    {/* <CardHeader subtitle={"Weapon Skills"} /> */}
                     <div>
                         <p><span>Weapons Type:  { weaponType }</span></p>
                         {compToRender}

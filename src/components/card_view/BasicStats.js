@@ -2,7 +2,7 @@
 // except armor, which will render as 0 if entry not present and description.
 import React from 'react';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
-import Grid from 'material-ui-next/Grid/Grid';
+import Grid from 'material-ui-next/Grid';
 
 class BasicStats extends React.Component {
     render() {
@@ -21,11 +21,17 @@ class BasicStats extends React.Component {
             description = this.props.stats.description;
         }
         return (
-            <Grid 
+            <Grid
                 item
-                xs={12} sm={12} md={6} lg={4} xl={4}
+                xs={12}
+                sm={6}
+                md={6}
+                lg={4}
+                xl={4}
+                style={{margin: "auto"}}
+                className="stat-container"
             >
-                <div className="stat-div light-text" style={{marginBottom: '1.5rem', marginTop: '1.5rem'}}>
+                <div className="light-text stat-div" >
                     <p className="skill-underline">{this.props.stats.category}</p>
                     <p>Body Points: {this.props.stats.body}</p>
                     <p>Armor Points: {armor}</p>

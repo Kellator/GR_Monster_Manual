@@ -1,8 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {reset} from 'redux-form';
-// import Drawer from 'material-ui/Drawer';
-// import AppBar from 'material-ui/AppBar';
 import Paper from 'material-ui/Paper';
 import Grid from 'material-ui-next/Grid';
 import Hidden from 'material-ui-next/Hidden';
@@ -18,8 +16,9 @@ import CardCreated from './cardCreated.js';
 import CreatureCard from '../card_view/CreatureCard';
 import SearchResultContainer from '../card_search/SearchResultContainer';
 import Instruction from './Instruction';
+import InstructionDialog from '../card_entry/instruction_modals/InstructionDialog';
 import Error from './Error';
-import Landing from './Landing';
+import About from './About';
 
 class ViewContainer extends React.Component {
     render() {
@@ -31,33 +30,52 @@ class ViewContainer extends React.Component {
         let instructionDiv;
         let view = this.props.view.type;
         let page = this.props.page;
+        console.log(this.props.view);
         if(this.props.user && view === null) {
-            currentView = <HomeView create={ this.props.showCreateNew } />
-            instructionDiv = <Instruction view={ 'home' } categorySearch={ this.props.categorySearch }/>
+            currentView = <HomeView 
+                create={ this.props.showCreateNew }
+                categorySearch={ this.props.categorySearch }
+                view={ view } 
+            />
         } else {
             switch(view) {
                 case "home":
-                    currentView = <HomeView create={ this.props.showCreateNew } />
-                    instructionDiv = <Instruction view={ view } categorySearch={ this.props.categorySearch }/>
+                    currentView = <HomeView 
+                        create={ this.props.showCreateNew } 
+                        categorySearch={ this.props.categorySearch }
+                        view={ view }
+                    />
                     break;
                 case "create":
-                    currentView = <WizardForm submit={ this.props.createNewCard } getPage={ this.props.getPage }/>
-                    instructionDiv = <Instruction view={ view } page={ page } />
+                    currentView = <WizardForm submit={ this.props.createNewCard } 
+                        page={ page } 
+                        getPage={ this.props.getPage } 
+                        reset={ this.props.reset } 
+                        view={ view }
+                    />
                     break;
                 case "new card":
-                    currentView = <CardCreated create={ this.props.showCreateNew } home={ this.props.showHomeView }/>
-                    instructionDiv = <Instruction view={ view } />
+                    currentView = <CardCreated 
+                        create={ this.props.showCreateNew } 
+                        home={ this.props.showHomeView }
+                        view={ view }
+                    />
                     break;
                 case "card":
-                    currentView = <CreatureCard />
-                    instructionDiv = <Instruction view={ view } />
+                    currentView = 
+                        <CreatureCard view={ view }/>
                     break;
                 case "results list":
-                    currentView = <SearchResultContainer home={ this.props.showHomeView }/>
-                    // instructionDiv = <Instruction view={ view } />
+                    currentView = <SearchResultContainer home={ this.props.showHomeView }
+                        view={ view }
+                    />
                     break;
                 case "about":
-                    currentView = <Landing view={ view }/>
+                    currentView = <About view={ view } 
+                        create={ this.props.showCreateNew } 
+                        home={ this.props.showHomeView }
+                    />
+                    break;
                 case "error":
                     currentView = <Error view={ view }/>
                     break;
@@ -67,32 +85,15 @@ class ViewContainer extends React.Component {
         }
         
         return (
-            <div style={{flexGrow: 1}}>
-                <Grid 
-                    container 
-                    spacing={24}  
-                    justify="center"
-                    alignItems="center" 
-                    className="view-container"
-                >               
-                    <Grid 
-                        item 
-                        xs={12} sm={10} md={6} lg={6} xl={6} 
-                        style={style}
-                        
-                    >
-                        {currentView}
+            <div id="view-container" style={{width: "100%"}}>
+                {currentView}
+                {/* {instructionDiv} */}
+                {/* <Grid container justify="center"  >
+                    <Grid item sm={8} md={6} lg={3} className="div-center"
+                    style={{padding: "0px"}}  >
+                        <InstructionDialog page={page} view={view} />
                     </Grid>
-                    <Hidden mdDown>
-                        <Grid 
-                            item 
-                            lg={12} xl={12}
-                            className='hidden-div'
-                        >
-                            {instructionDiv}
-                        </Grid>
-                    </Hidden>
-                </Grid>
+                </Grid> */}
             </div>             
         )
     }
@@ -117,14 +118,11 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         getPage: (page) => {
             dispatch(setPage(page));
         },
-        handleToggle: () => {
-            console.log("toggle clicked");
-            dispatch(toggleMenu());
+        reset: () => {
+            dispatch(reset('wizard'));
         },
-        categorySearch: (category) => {
-            console.log(category);
-            console.log('category search clicked');
-            dispatch(searchDatabase(category));
+        categorySearch: (value) => {
+            dispatch(searchDatabase(value));
         }
     }
 };

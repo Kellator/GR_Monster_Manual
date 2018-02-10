@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import RaisedButton from 'material-ui/RaisedButton';
+import FlatButton from 'material-ui/FlatButton';
 import Grid from 'material-ui-next/Grid';
 import { TextField } from 'redux-form-material-ui';
 import { Field, reduxForm } from 'redux-form';
@@ -32,7 +33,7 @@ class Register extends React.Component {
                     justify="center"
                     alignItems="center" 
                     direction="row"
-                    style={{marginTop: '40px'}}
+                    style={{marginTop: "40px"}}
                 >
                 <Grid item xs={10} sm={7} md={4} lg={3} xl={2} 
                     className="div-opaque-color">
@@ -40,8 +41,8 @@ class Register extends React.Component {
                         <form onSubmit={ this.props.handleSubmit(values => this.register(values))} 
                             className="login-form"
                             style={{
-                                display: 'block',
-                                padding: '20px'
+                                display: "block",
+                                padding: "20px"
                                 }}
                         >
                         {error}
@@ -53,8 +54,8 @@ class Register extends React.Component {
                                 underlineShow={true}
                                 type="text"
                                 style={{
-                                    display: 'block',
-                                    width: '100%'
+                                    display: "block",
+                                    width: "100%"
                                     }}
                             />
                             <Field
@@ -65,8 +66,8 @@ class Register extends React.Component {
                                 underlineShow={true}
                                 type="email"
                                 style={{
-                                    display: 'block',
-                                    width: '100%'
+                                    display: "block",
+                                    width: "100%"
                                     }}
                             />
                             <Field
@@ -77,35 +78,38 @@ class Register extends React.Component {
                                 underlineShow={true}
                                 type="password"
                                 style={{
-                                    display: 'block',
-                                    width: '100%'
+                                    display: "block",
+                                    width: "100%"
                                     }}
                             />
                             <RaisedButton type="submit" 
                                 style={{
-                                    borderRadius: '1px',
-                                    padding: '10px, 24px',
-                                    fontWeight: 'bold',
-                                    width: '100%',
-                                    marginTop: '2rem'
+                                    borderRadius: "1px",
+                                    padding: "10px, 24px",
+                                    fontWeight: "bold",
+                                    width: "100%",
+                                    marginTop: "2rem"
                                 }}
                             >Submit</RaisedButton>
                         </form>
                     </Grid>
                     <Grid item className="div-center"
                         style={{
-                            paddingBottom: '20px'
+                            paddingBottom: "20px",
+                            
                         }}
                     >
-                        <h3>Already Registered? Go to Log In.</h3>
-                        <RaisedButton 
+                        <h4 style={{display: "inline"}}>Already Registered? </h4>
+                        <FlatButton 
                             onClick={ this.props.handleSubmit(() => this.navToLogin())}
                             style={{
-                                borderRadius: '1px',
-                                padding: '10px, 24px',
-                                fontWeight: 'bold',
+                                borderRadius: "1px",
+                                padding: "10px, 24px",
+                                fontWeight: "bold",
+                                color: "#AA0004",
+                                textDecoration: "underline"
                             }}
-                        >Login</RaisedButton>
+                        >Login</FlatButton>
                     </Grid>
                 </Grid>  
             </Grid>

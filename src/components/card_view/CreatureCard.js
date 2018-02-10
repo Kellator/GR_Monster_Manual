@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import RaisedButton from 'material-ui/RaisedButton';
+import Grid from 'material-ui-next/Grid';
 import {Card, CardActions, CardHeader, CardTitle, CardText} from 'material-ui/Card';
 import Paper from 'material-ui/Paper';
 import BasicStats from './BasicStats.js';
@@ -14,10 +15,13 @@ import Notes from './Notes.js';
 import DeleteDialog from './Dialog.js';
 import { deleteCard, returnNewList } from '../../redux/actions/DatabaseActions';
 import {  showResultsListView } from '../../redux/actions/ViewActions';
-import Grid from 'material-ui-next/Grid/Grid';
+import InstructionDialog from '../card_entry/instruction_modals/InstructionDialog';
+import instructions from '../main/InstructionText';
+
 
 class CreatureCard extends React.Component {
     render() {
+        let text = instructions.cardView.text;
         let id = this.props.currentCard._id;
         let data = this.props.data;
         console.log(this.props.currentCard);
@@ -68,58 +72,55 @@ class CreatureCard extends React.Component {
             notesComponentToRender = <Notes notes={ notes } />
         }
         return( 
-            <Grid
-                container
-                spacing={24}  
-                justify="center"
-                alignItems="center"
-            >
-                <Grid 
-                    item
-                    xs={12} 
-                >
-                    <div> 
-                        <h2 >{this.props.currentCard.name}</h2> 
-                        <h4 className="red-text">{this.props.currentCard.level}</h4> 
-                    </div>
+            <div id="card-container" >
+                <Grid container spacing={24} justify="center" >
+                    <Grid item xs={12} style={{marginBottom: "20px" }}>
+                        <h1 style={{textAlign: "center" , fontWeight: "bolder"}} 
+                        >{this.props.currentCard.name}</h1> 
+                        <h2 style={{textAlign: "center" , fontWeight: "bolder" }} 
+                            className="red-text"
+                        >{this.props.currentCard.level}</h2> 
+                    </Grid>
                 </Grid>
-
-                    <BasicStats stats={ basicStats }/>                        
-                    {weaponComponentToRender}                        
-                    {scholarlyComponentToRender}                        
+                <Grid container alignItems="flex-start">
+                    <BasicStats stats={ basicStats }/>                     
+                    {weaponComponentToRender}                      
+                    {scholarlyComponentToRender}                       
                     {physicalDefenseComponentToRender}                        
-                    {spellDefenseComponentToRender}                        
+                    {spellDefenseComponentToRender}                       
                     {racialDefenseComponentToRender}                        
-                    {treasureComponentToRender}                        
+                    {treasureComponentToRender}                      
                     {notesComponentToRender}
-
-                {/* <RaisedButton card_id={ card_id } onClick={ this.props.editCard }>Edit</RaisedButton> */}
-                <Grid
-                    item
-                    xs={12}
-                    sm={12}
-                    md={6}
-                >
-                    <RaisedButton 
-                        onClick={ this.props.returnToList }
-                        style={{width: '100%'}}
-                    >Back</RaisedButton>
                 </Grid>
-                <Grid
-                    item
-                    xs={12}
-                    sm={12}
-                    md={6}
-                >
-                    <DeleteDialog 
-                        deleteCard={ this.props.delete } 
-                        id={ id }
-                        data={ data } 
-                        returnNewList={ this.props.returnNewList }
-                        
-                    />
+                <Grid container spacing={24} alignItems="flex-end" justify="center" >
+                    <Grid item xs={6} sm={2} md={2}>
+                        <RaisedButton 
+                            onClick={ this.props.returnToList }
+                            style={{
+                                borderRadius: "1px",
+                                fontWeight: "bold",
+                                display: "block",
+                                fontSize: "1.5rem"                   
+                            }}
+                            className="back-button"
+                            // fullWidth='true'
+                        >Back</RaisedButton>
+                    </Grid>
+                    <Grid item xs={6} sm={2} md={2}>
+                        <DeleteDialog
+                            deleteCard={ this.props.delete } 
+                            id={ id }
+                            data={ data } 
+                            returnNewList={ this.props.returnNewList }                                                
+                        >Delete</DeleteDialog>
+                    </Grid>
                 </Grid>
-            </Grid>
+                <Grid container justify="center" >
+                    <Grid item xs={12} className="div-center"  >
+                        <InstructionDialog view={this.props.view} text={text}/>
+                    </Grid>
+                </Grid>
+            </div>
         )
     }
 }

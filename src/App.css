@@ -15,25 +15,6 @@ body {
   font-family: 'Carrois Gothic SC', sans-serif;
 }
 
-.parallax { 
-  /* The image used */
-  background-image: url("./background.jpg");
-
-  /* Full height */
-  height: 100%; 
-
-  /* Create the parallax scrolling effect */
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-.image-bar {
-  width: 100vw;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
 
 .App-logo {
   /* animation: App-logo-spin infinite 20s linear; */
@@ -99,7 +80,7 @@ body {
 }
 
 .red-text {
-  color: #b71c1c;
+  color: #AA0004;
 }
 
 .light-text {
@@ -107,7 +88,34 @@ body {
 }
 .stat-div {
   font-weight: bolder;
+  min-height: 100px;
+  /* border: solid 1px black; */
+  /* content: center; */
+  border-radius: 2px;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.45);
+  margin: auto;
+  font-size: 1.1rem;
+
 }
 .full-width {
   width: '100%';
+}
+.stat-container {
+  padding: 10px;
+}
+
+.form-container {
+  margin-bottom: 10px;
+}
+.full-size-button {
+  width: 100%;
+}
+.card-entry {
+  padding: 30px;
+}
+@media (min-width: 1289px) {
+  .stat-div {
+    min-height: 200px;
+  }
 }

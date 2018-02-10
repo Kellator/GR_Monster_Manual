@@ -10,7 +10,7 @@ import Register from './components/main/Register';
 import Dashboard from './components/main/Dashboard';
 import Main from './components/main/main';
 import { refreshAuthToken, clearAuth } from './redux/actions/AuthActions';
-import { showCreateView, showHomeView, showAboutView } from './redux/actions/ViewActions';
+import { showCreateView, showHomeView, showAboutView, showLogin } from './redux/actions/ViewActions';
 import { clearAuthToken } from './local-storage';
 
 //material ui design components and imports
@@ -51,6 +51,9 @@ class App extends React.Component {
     this.props.dispatch(clearAuth());
     clearAuthToken();
   };
+  loginView = () => {
+    this.props.dispatch(showLogin());
+  }
   createView = () => {
     this.props.dispatch(showCreateView());
   };
@@ -60,11 +63,24 @@ class App extends React.Component {
   aboutView = () => {
     this.props.dispatch(showAboutView());
   }
+  
   render() {
+    console.log(this.props.loggedIn)
+    let menuLogState = this.props.loggedIn;
+    let menuLogText;
+    let menuLogOnClick;
+    if(menuLogState === false) {
+      menuLogText = "Login"
+      menuLogOnClick = () => this.loginView()
+    }
+    else {
+      menuLogText = "Log Out"
+      menuLogOnClick = () => this.logOut() 
+    }
     return (
         <div className="App">
           <AppBar className="App-Bar "
-            title="IoC | Index of Creatures" 
+            title="Codex Creatura" 
             style= {{backgroundColor: '#303030', textAlign: 'center', marginBottom: '20px'}}
             iconElementLeft={
               <IconMenu
@@ -76,7 +92,7 @@ class App extends React.Component {
                 <MenuItem className="light-text" primaryText="Search" onClick={ () => this.homeView() } />
                 <MenuItem className="light-text" primaryText="Create New" onClick={ () => this.createView() } />
                 <MenuItem className="light-text" primaryText="About Us" onClick={ () => this.aboutView() } />
-                <MenuItem className="light-text" primaryText="Log out" onClick={ () => this.logOut() } />
+                <MenuItem className="light-text" primaryText={menuLogText} onClick={ menuLogOnClick } />
               </IconMenu>
             }
           />

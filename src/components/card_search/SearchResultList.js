@@ -2,7 +2,7 @@ import React from 'react';
 import SearchResult from './SearchResult.js';
 import {List, ListItem} from 'material-ui/List';
 import RaisedButton from 'material-ui/RaisedButton';
-import Grid from 'material-ui-next/Grid/Grid';
+import Grid from 'material-ui-next/Grid';
 
 class SearchResultList extends React.Component {
     render() {
@@ -10,35 +10,28 @@ class SearchResultList extends React.Component {
             return <SearchResult showCard={ this.props.showCard } key={ index } index={ index } result={ result } />
         }) : undefined;
         return(
-            <Grid
-                container
-                spacing={24}
-                justify='center'
-                style={{
-                    display: 'block'
-                }}
-            >
-                <List >
-                    { results }
-                </List>
-                <Grid 
-                    item 
-                    xs={12} sm={8} md={8} lg={6} xl={6}
-                    className='centered-button'
-                    style={{margin: 'auto'}}
-                >
-                    <RaisedButton 
-                        onClick={ this.props.home }
-                        style={{
-                            borderRadius: '1px',
-                            padding: '10px, 24px',
-                            fontWeight: 'bold',
-                            width: '100%',
-                            marginTop: '2rem'                        
-                        }}
-                    >BACK</RaisedButton>
+            <div>
+                <Grid container justify="center">
+                    <Grid item>
+                        <List style={{textAlign: "center"}}>
+                            { results }
+                        </List>
+                    </Grid>
                 </Grid>
-            </Grid>
+                <Grid container justify="center">
+                    <Grid item xs={6} sm={2} md={2} >
+                        <RaisedButton 
+                            onClick={ this.props.home }
+                            style={{
+                                borderRadius: "1px",
+                                fontWeight: "bold",
+                                display: "block",
+                                fontSize: "1.5rem"                   
+                            }}
+                        >BACK</RaisedButton>
+                    </Grid>
+                </Grid>
+            </div>
         )
     }
 }

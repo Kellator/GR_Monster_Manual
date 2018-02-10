@@ -32,25 +32,26 @@ export default class DeleteDialog extends React.Component {
         label="Cancel"
         primary={true}
         onClick={this.handleClose}
-        style={{color: 'white', letterSpacing: '2px'}}
+        style={{color: "white", letterSpacing: "2px"}}
       />,
       <FlatButton
         label="Delete"
-        // secondary="true"
-        // style={{color: 'white', letterSpacing: '2px'}}
         onClick={this.deleteApprove}
         
       />,
     ];
 
     return (
-      <div >
+      <div  >
         <RaisedButton 
-          className="red-text" 
-          label="Delete" 
-          onClick={this.handleOpen} 
-          style={{width: '100%'}}
-        />
+          onClick={this.handleOpen}            
+          style={{
+            borderRadius: "1px",
+            fontWeight: "bold",
+            display: "block",
+            fontSize: "1.5rem"                   
+        }}       
+        >Delete</RaisedButton>
         <Dialog
           title="Delete Creature Card"
           actions={actions}
