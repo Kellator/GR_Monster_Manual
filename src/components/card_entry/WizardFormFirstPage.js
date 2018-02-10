@@ -10,11 +10,14 @@ import ActionFavorite from 'material-ui/svg-icons/action/favorite';
 import RaisedButton from 'material-ui/RaisedButton';
 import { TextField, SelectField } from 'redux-form-material-ui';
 import MenuItem from 'material-ui/MenuItem';
-import InstructionDialog from './instruction_modals/InstructionDialog'
+import InstructionDialog from './instruction_modals/InstructionDialog';
+import instructions from '../main/InstructionText';
 
 let WizardFormFirstPage = props => {
   const { handleSubmit } = props
   let pageNumber = props.pageNumber;
+  let text = instructions.createView.text.one;
+  console.log(text)
   console.log(props);
   return (
       <Grid item xs={12} sm={8} md={8} lg={6} >
@@ -112,7 +115,7 @@ let WizardFormFirstPage = props => {
                         </RaisedButton>                        
                     </Grid>
                     <Grid item xs={12} style={{textAlign: "center"}} >
-                        <InstructionDialog pageNumber={props.pageNumber}  />
+                        <InstructionDialog pageNumber={props.pageNumber} text={text} />
                     </Grid>                    
                 </Grid>
         </form>

@@ -7,6 +7,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import { Checkbox, SelectField, TextField } from 'redux-form-material-ui';
 import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
 import InstructionDialog from './instruction_modals/InstructionDialog';
+import instructions from '../main/InstructionText';
 import validate from './validate';
 
 let WizardFormThirdPage = props => {
@@ -21,6 +22,7 @@ let WizardFormThirdPage = props => {
         hasFormalMagicValue,
         hasSecondaryFormalMagicValue 
     } = props
+    let text = instructions.createView.text.three;
     return (
         <Grid item xs={12} sm={8} md={6} className="align-center" > 
             <form onSubmit={handleSubmit} 
@@ -291,7 +293,7 @@ let WizardFormThirdPage = props => {
                     </div>
                     <Grid container justify="center" className="align-center" >
                         <Grid item xs={12} style={{textAlign: "center"}} >
-                            <InstructionDialog pageNumber={props.pageNumber}  />
+                            <InstructionDialog pageNumber={props.pageNumber} text={text} />
                         </Grid> 
                     </Grid>
                 </form>

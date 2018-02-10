@@ -51,6 +51,7 @@ class InstructionDialog extends React.Component {
                     open={this.state.open}
                     onRequestClose={this.handleClose}
                     style={{color: "rgba(255, 255, 255, 0.75)"}}
+                    labelStyle={{color: "#AA0004"}}
                     
                 >
                     <div style={{color: "rgba(255, 255, 255, 0.75)"}}>

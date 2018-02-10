@@ -5,6 +5,7 @@ import Grid from 'material-ui-next/Grid';
 import RaisedButton from 'material-ui/RaisedButton';
 import { Checkbox, TextField } from 'redux-form-material-ui';
 import InstructionDialog from './instruction_modals/InstructionDialog';
+import instructions from '../main/InstructionText';
 import validate from './validate';
 
 let WizardFormFifthPage = props => {
@@ -20,6 +21,7 @@ let WizardFormFifthPage = props => {
         hasResistMagicValue,
         hasReturnMagicValue 
     } = props
+    let text = instructions.createView.text.five;
     return (
         <Grid item xs={12} sm={8} md={8} lg={6} className="align-center">
             <form onSubmit={handleSubmit} className="card-entry div-opaque-color" id="spell-defenses-entry"  >   
@@ -193,7 +195,7 @@ let WizardFormFifthPage = props => {
                 </div>
                 <Grid container justify="center" className="align-center" >
                     <Grid item xs={12} style={{textAlign: "center"}} >
-                        <InstructionDialog pageNumber={props.pageNumber}  />
+                        <InstructionDialog pageNumber={props.pageNumber} text={text} />
                     </Grid> 
                 </Grid>
             </form>

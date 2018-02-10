@@ -9,7 +9,8 @@ import RaisedButton from 'material-ui/RaisedButton';
 import Grid from 'material-ui-next/Grid';
 import MenuItem from 'material-ui/MenuItem';
 import validate from './validate';
-import InstructionDialog from './instruction_modals/InstructionDialog'
+import InstructionDialog from './instruction_modals/InstructionDialog';
+import instructions from '../main/InstructionText';
 
 let WizardFormSecondPage = props => {
   const { 
@@ -19,6 +20,7 @@ let WizardFormSecondPage = props => {
     hasSlaysValue,
     hasAssassinatesValue
   } = props
+  let text = instructions.createView.text.two;
   return ( 
     <Grid item xs={12} sm={8} md={6}> 
       <form onSubmit={handleSubmit} className="card-entry div-opaque-color" id="weapon-stats-entry">    
@@ -164,7 +166,7 @@ let WizardFormSecondPage = props => {
           </Grid>
           <Grid container justify="center" className="align-center" >
             <Grid item xs={12} style={{textAlign: "center"}} >
-              <InstructionDialog pageNumber={props.pageNumber}  />
+              <InstructionDialog pageNumber={props.pageNumber} text={text} />
             </Grid> 
           </Grid>
       </form> 
