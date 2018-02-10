@@ -1,10 +1,11 @@
 import React from 'react';
 import { Field, reduxForm, formValueSelector } from 'redux-form';
 import { connect } from 'react-redux';
+import Grid from 'material-ui-next/Grid';
 import RaisedButton from 'material-ui/RaisedButton';
 import { Checkbox, TextField } from 'redux-form-material-ui';
+import InstructionDialog from './instruction_modals/InstructionDialog';
 import validate from './validate';
-// import renderField from './renderField';
 
 let WizardFormFifthPage = props => {
     const { 
@@ -20,159 +21,185 @@ let WizardFormFifthPage = props => {
         hasReturnMagicValue 
     } = props
     return (
-      <form onSubmit={handleSubmit}>   
-        <h3>Spell Defenses</h3>
-        <p>Check the box for applicable spell defenses, if any.</p>
-        <p>Add number of times the defense may be used to input field.</p>
-        <div>
-            <label>Bane Magic</label>
-            <div>
-                <Field
-                    name="has_bane_magic"
-                    component={ Checkbox }
-                    type="checkbox"
-                />
-            </div>
-        </div>
-            {hasBaneMagicValue && (
-                <div>
-                    <p>Enter number of times per day that skill may be used.</p>
-                    <label>Times per day</label>
+        <Grid item xs={12} sm={8} md={8} lg={6} className="align-center">
+            <form onSubmit={handleSubmit} className="card-entry div-opaque-color" id="spell-defenses-entry"  >   
+                <h3 className="form-container">Spell Defenses</h3>
+                <p>Check the box for applicable spell defenses, if any.</p>
+                <p className="form-container">Add number of times the defense may be used to input field.</p>
+                <div className="form-container">
                     <div>
                         <Field
-                            name="bane_magic"
-                            component={ TextField }
-                            type="number"
+                            name="has_bane_magic"
+                            component={ Checkbox }
+                            type="checkbox"
+                            label="Bane Magic"
                         />
                     </div>
                 </div>
-            )}
-        <div>
-            <label>Cloak Magic</label>    
-            <div>
-                <Field
-                    name="has_cloak_magic"
-                    component={ Checkbox }
-                    type="checkbox"
-                />
-            </div>
-        </div>
-            {hasCloakMagicValue && (
-                <div>
-                    <p>Enter number of times per day that skill may be used.</p>
-                    <label>Times per day</label>
+                    {hasBaneMagicValue && (
+                        <div>
+                            <label>Times per day</label>
+                            <div>
+                                <Field
+                                    name="bane_magic"
+                                    component={ TextField }
+                                    type="number"
+                                />
+                            </div>
+                        </div>
+                    )}
+                <div className="form-container">   
                     <div>
                         <Field
-                            name="cloak_magic"
-                            component={ TextField }
-                            type="number"
+                            name="has_cloak_magic"
+                            component={ Checkbox }
+                            type="checkbox"
+                            label="Cloak Magic"
                         />
-                    </div>                       
+                    </div>
                 </div>
-            )}
-        <div>
-            <label>Reflect Magic</label>
-            <div>
-                <Field
-                    name="has_reflect_magic"
-                    component={ Checkbox }
-                    type="checkbox"
-                />
-            </div>
-        </div>
-            {hasReflectMagicValue && (
-                <div>
-                    <p>Enter number of times per day that skill may be used.</p>
-                    <label>Times per day</label>
+                    {hasCloakMagicValue && (
+                        <div>
+                            <label>Times per day</label>
+                            <div>
+                                <Field
+                                    name="cloak_magic"
+                                    component={ TextField }
+                                    type="number"
+                                />
+                            </div>                       
+                        </div>
+                    )}
+                <div className="form-container" >
                     <div>
                         <Field
-                            name="reflect_magic"
-                            component={ TextField }
-                            type="number"
+                            name="has_reflect_magic"
+                            component={ Checkbox }
+                            type="checkbox"
+                            label="Reflect Magic"
                         />
-                    </div>                       
+                    </div>
                 </div>
-            )}
-        <div>
-            <label>Phase Magic</label>
-            <div>
-                <Field
-                    name="has_phase_magic"
-                    component={ Checkbox }
-                    type="checkbox"
-                />
-            </div>
-        </div>
-            {hasPhaseMagicValue && (
-                <div>
-                    <p>Enter number of times per day that skill may be used.</p>
-                    <label>Times per day</label>
+                    {hasReflectMagicValue && (
+                        <div>
+                            <label>Times per day</label>
+                            <div>
+                                <Field
+                                    name="reflect_magic"
+                                    component={ TextField }
+                                    type="number"
+                                />
+                            </div>                       
+                        </div>
+                    )}
+                <div className="form-container">
                     <div>
                         <Field
-                            name="phase_magic"
-                            component={ TextField }
-                            type="number"
+                            name="has_phase_magic"
+                            component={ Checkbox }
+                            type="checkbox"
+                            label="Phase Magic"
                         />
-                    </div>                       
+                    </div>
                 </div>
-            )}
-        <div>
-            <label>Resist Magic</label>
-            <div>             
-                <Field
-                    name="has_resist_magic"
-                    component={ Checkbox }
-                    type="checkbox"
-                />
-            </div>
-        </div>
-            {hasResistMagicValue && (
-                <div>
-                    <p>Enter number of times per day that skill may be used.</p>
-                    <label>Times per day</label>
-                    <div>
+                    {hasPhaseMagicValue && (
+                        <div>
+                            <label>Times per day</label>
+                            <div>
+                                <Field
+                                    name="phase_magic"
+                                    component={ TextField }
+                                    type="number"
+                                />
+                            </div>                       
+                        </div>
+                    )}
+                <div className="form-container">
+                    <div>             
                         <Field
-                        name="resist_magic"
-                        component={ TextField }
-                        type="number"
+                            name="has_resist_magic"
+                            component={ Checkbox }
+                            type="checkbox"
+                            label="Resist Magic"
                         />
-                    </div>                       
+                    </div>
                 </div>
-            )}
-        <div>
-            <label>Return Magic</label>
-            <div>             
-                <Field
-                    name="has_return_magic"
-                    component={ Checkbox }
-                    type="checkbox"
-                />
-            </div>
-        </div>
-            {hasReturnMagicValue && (
-                <div>
-                    <p>Enter number of times per day that skill may be used.</p>
-                    <label>Times per day</label>
-                    <div>
+                    {hasResistMagicValue && (
+                        <div>
+                            <label>Times per day</label>
+                            <div>
+                                <Field
+                                name="resist_magic"
+                                component={ TextField }
+                                type="number"
+                                />
+                            </div>                       
+                        </div>
+                    )}
+                <div className="form-container">
+                    <div>             
                         <Field
-                        name="return_magic"
-                        component={ TextField }
-                        type="number"
+                            name="has_return_magic"
+                            component={ Checkbox }
+                            type="checkbox"
+                            label="Return Magic"
                         />
-                    </div>                       
+                    </div>
                 </div>
-            )}
-        <div>
-            <RaisedButton type="button" className="previous" onClick={previousPage}>
-                Previous
-            </RaisedButton>
-            <RaisedButton type="submit" className="next">
-                Next
-            </RaisedButton>
-        </div>
-      </form>
+                    {hasReturnMagicValue && (
+                        <div>
+                            <label>Times per day</label>
+                            <div>
+                                <Field
+                                name="return_magic"
+                                component={ TextField }
+                                type="number"
+                                />
+                            </div>                       
+                        </div>
+                    )}
+                <div className="form-container">
+                    <Grid container justify="space-around" >
+                        <Grid item xs={6} sm={4} md={3} >
+                            <RaisedButton 
+                                type="button" 
+                                className="previous" 
+                                onClick={previousPage}
+                                style={{
+                                    borderRadius: "1px",
+                                    fontWeight: "bold",
+                                    display: "block",
+                                    fontSize: "1.5rem"                   
+                                }}
+                            >
+                                Previous
+                            </RaisedButton>
+                        </Grid>
+                        <Grid item xs={6} sm={4} md={3} >
+                            <RaisedButton 
+                                type="submit" 
+                                className="next"
+                                style={{
+                                    borderRadius: "1px",
+                                    fontWeight: "bold",
+                                    display: "block",
+                                    fontSize: "1.5rem"                   
+                                }}
+                            >
+                                Next
+                            </RaisedButton>
+                        </Grid>
+                    </Grid>
+                </div>
+                <Grid container justify="center" className="align-center" >
+                    <Grid item xs={12}>
+                        <InstructionDialog />
+                    </Grid>
+                </Grid>
+            </form>
+        </Grid>
     )
-  }
+}
   WizardFormFifthPage = reduxForm({
     form: 'wizard', //Form name is same
     destroyOnUnmount: false,

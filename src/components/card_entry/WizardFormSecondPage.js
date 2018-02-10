@@ -20,11 +20,17 @@ let WizardFormSecondPage = props => {
     hasAssassinatesValue
   } = props
   return ( 
-    <Grid item xs={12} sm={8} md={6} > 
-      <form onSubmit={handleSubmit} className="card-entry div-opaque-color align-center " id="weapon-stats-entry">      
+    <Grid item xs={12} sm={8} md={6}> 
+      <form onSubmit={handleSubmit} className="card-entry div-opaque-color" id="weapon-stats-entry">    
+      <div className="align-center">  
           <h2 className="form-container" >Weapons Skills</h2>
           <p>Basic Weapon Skills/Type <span className="red-text" >(required)</span></p>
-          <Field component={SelectField} name="weapon_type" label="Weapon Type" className="form-container" required> 
+          <Field component={SelectField} 
+            name="weapon_type" 
+            label="Weapon Type" 
+            className="form-container" 
+            required="true" 
+          > 
               <MenuItem value="No Weapons" 
                 primaryText="No Weapons" label="No Weapons"className="light-text"/>
               <MenuItem value="Weapon of Choice" 
@@ -36,8 +42,15 @@ let WizardFormSecondPage = props => {
               <MenuItem value="Bite" 
                 primaryText="Bite" label="Bite" className="light-text"/>
           </Field>
+        </div>
+        <div className="align-center">
           <p>Plus Strength <span className="red-text" >(required)</span></p>
-          <Field component={SelectField} name="plus_strength_level" label="Plus Strength" className="form-container" required> 
+          <Field component={SelectField} 
+            name="plus_strength_level" 
+            label="Plus Strength" 
+            className="form-container " 
+            required="true" 
+          > 
               <MenuItem value="Normal Strength (+0)" 
                 primaryText="Normal Strength (+0)" label="Normal Strength (+0)" className="light-text"/>
               <MenuItem value="Plus 2 Strength (+2)"
@@ -51,15 +64,16 @@ let WizardFormSecondPage = props => {
               <MenuItem value="Plus 10 Strength (+10)" 
                 primaryText="Plus 10 Strength (+10)" label="Plus 10 Strength (+10)" className="light-text"/>
           </Field>
-       
+        </div>
+        <div className="align-center" >
           <h3 className="form-container" >Advanced Weapons Skills</h3>
-
           <Field
             label="Advanced Weapon Skills"
             name="has_advanced_weapon_skills"
             component= { Checkbox }
             type="checkbox"
             className="form-container align-center"
+            
           />
 
         {hasAdvancedWeaponSkillsValue && (
@@ -116,8 +130,8 @@ let WizardFormSecondPage = props => {
             )}
           </div>          
         )}   
-            
-          <Grid container justify="space-around">
+        </div>    
+          <Grid container justify="space-around"  style={{marginTop: "40px"}}>
           <Grid item xs={6} sm={4} md={3}>
             <RaisedButton 
               type="button" 
@@ -148,7 +162,7 @@ let WizardFormSecondPage = props => {
               </RaisedButton>
             </Grid>
           </Grid>
-          <Grid container justify="center" >
+          <Grid container justify="center" className="align-center" >
             <Grid item xs={12}>
               <InstructionDialog />
             </Grid>

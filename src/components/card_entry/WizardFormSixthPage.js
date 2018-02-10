@@ -1,10 +1,12 @@
 import React from 'react';
 import { Field, reduxForm, formValueSelector } from 'redux-form';
 import { connect } from 'react-redux';
+import Grid from 'material-ui-next/Grid';
 import RaisedButton from 'material-ui/RaisedButton';
 import { Checkbox, TextField } from 'redux-form-material-ui';
+import InstructionDialog from './instruction_modals/InstructionDialog';
 import validate from './validate';
-// import renderField from './renderField';
+
 
 let WizardFormSixthPage = props => {
     const { 
@@ -18,111 +20,141 @@ let WizardFormSixthPage = props => {
         hasRacialDodge,
     } = props
     return (
-      <form onSubmit={handleSubmit}>   
-        <h3>Racial Defenses</h3>
-        <p>Check the box for applicable racial defenses, if any.</p>
-        <p>Add number of times the defense may be used to input field.</p>
-        <div>
-            <label>Resist Charm</label>
-            <div>
-                <Field
-                    name="has_resist_charm"
-                    component={ Checkbox }
-                    type="checkbox"
-                />
-            </div>
-        </div>
-            {hasResistCharmValue && (
-                <div>
-                    <p>Enter number of times per day that skill may be used.</p>
-                    <label>Times per day</label>
+        <Grid item xs={12} sm={8} md={6} className="align-center" > 
+            <form onSubmit={handleSubmit}
+                className="card-entry div-opaque-color" 
+                id="racial-defense-entry"
+            >   
+                <h3>Racial Defenses</h3>
+                <p>Check the box for applicable racial defenses, if any.</p>
+                <p className="form-container">Add number of times the defense may be used to input field.</p>
+                <div className="form-container">
                     <div>
                         <Field
-                            name="resist_charm"
-                            component={ TextField }
-                            type="number"
+                            name="has_resist_charm"
+                            component={ Checkbox }
+                            type="checkbox"
+                            label="Resist Charm"
                         />
                     </div>
                 </div>
-            )}
-        <div>
-            <label>Resist Sleep</label>    
-            <div>
-                <Field
-                    name="has_resist_sleep"
-                    component={ Checkbox }
-                    type="checkbox"
-                />
-            </div>
-        </div>
-            {hasResistSleepValue && (
-                <div>
-                    <p>Enter number of times per day that skill may be used.</p>
-                    <label>Times per day</label>
+                    {hasResistCharmValue && (
+                        <div>
+                            <label>Times per day</label>
+                            <div>
+                                <Field
+                                    name="resist_charm"
+                                    component={ TextField }
+                                    type="number"
+                                />
+                            </div>
+                        </div>
+                    )}
+                <div className="form-container">
                     <div>
                         <Field
-                            name="resist_sleep"
-                            component={ TextField }
-                            type="number"
+                            name="has_resist_sleep"
+                            component={ Checkbox }
+                            type="checkbox"
+                            label="Resist Sleep"
                         />
-                    </div>                       
+                    </div>
                 </div>
-            )}
-        <div>
-            <label>Resist Poison</label>
-            <div>
-                <Field
-                    name="has_resist_poison"
-                    component={ Checkbox }
-                    type="checkbox"
-                />
-            </div>
-        </div>
-            {hasResistPoisonValue && (
-                <div>
-                    <p>Enter number of times per day that skill may be used.</p>
-                    <label>Times per day</label>
+                    {hasResistSleepValue && (
+                        <div>
+                            <label>Times per day</label>
+                            <div>
+                                <Field
+                                    name="resist_sleep"
+                                    component={ TextField }
+                                    type="number"
+                                />
+                            </div>                       
+                        </div>
+                    )}
+                <div className="form-container">
                     <div>
                         <Field
-                            name="resist_poison"
-                            component={ TextField }
-                            type="number"
+                            name="has_resist_poison"
+                            component={ Checkbox }
+                            type="checkbox"
+                            label="Resist Poison"
                         />
-                    </div>                       
+                    </div>
                 </div>
-            )}
-        <div>
-            <label>Racial Dodge</label>
-            <div>
-                <Field
-                    name="has_racial_dodge"
-                    component={ Checkbox }
-                    type="checkbox"
-                />
-            </div>
-        </div>
-            {hasRacialDodge && (
-                <div>
-                    <p>Enter number of times per day that skill may be used.</p>
-                    <label>Times per day</label>
+                    {hasResistPoisonValue && (
+                        <div>
+                            <label>Times per day</label>
+                            <div>
+                                <Field
+                                    name="resist_poison"
+                                    component={ TextField }
+                                    type="number"
+                                />
+                            </div>                       
+                        </div>
+                    )}
+                <div className="form-container">
                     <div>
                         <Field
-                            name="racial_dodge"
-                            component={ TextField }
-                            type="number"
+                            name="has_racial_dodge"
+                            component={ Checkbox }
+                            type="checkbox"
+                            label="Racial Dodge"
                         />
-                    </div>                       
+                    </div>
                 </div>
-            )}
-         <div>
-            <RaisedButton type="button" className="previous" onClick={previousPage}>
-                Previous
-            </RaisedButton>
-            <RaisedButton type="submit" className="next">
-                Next
-            </RaisedButton>
-        </div>
-      </form>
+                    {hasRacialDodge && (
+                        <div>
+                            <label>Times per day</label>
+                            <div>
+                                <Field
+                                    name="racial_dodge"
+                                    component={ TextField }
+                                    type="number"
+                                />
+                            </div>                       
+                        </div>
+                    )}
+                    <Grid container justify="space-around">
+                        <Grid item xs={6} sm={4} md={3}>
+                            <RaisedButton 
+                                type="button" 
+                                className="previous" 
+                                onClick={previousPage}
+                                style={{
+                                    borderRadius: "1px",
+                                    fontWeight: "bold",
+                                    display: "block",
+                                    fontSize: "1.5rem"                   
+                                }}
+                            >
+                                Previous
+                            </RaisedButton>
+                        </Grid>
+                        <Grid item xs={6} sm={4} md={3}>
+                            <RaisedButton 
+                                type="submit" 
+                                className="next"
+                                style={{
+                                    borderRadius: "1px",
+                                    fontWeight: "bold",
+                                    display: "block",
+                                    fontSize: "1.5rem"                   
+                                }}
+                            >
+                                Next
+                            </RaisedButton>
+                        </Grid>
+                    </Grid>
+                
+                    <Grid container justify="center" className="align-center" >
+                        <Grid item xs={12}>
+                            <InstructionDialog />
+                        </Grid>
+                    </Grid>
+            </form>
+        </Grid>
     )
   }
   WizardFormSixthPage = reduxForm({

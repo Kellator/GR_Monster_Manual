@@ -1,5 +1,6 @@
 import axios from 'axios';
 import * as ViewActions from './ViewActions.js';
+import { refreshAuthToken } from './AuthActions.js';
 import {fetchProtectedData} from './protected-data';
 import {normalizeResponseErrors} from './utils';
 import { API_URL } from '../../config';
@@ -84,6 +85,7 @@ export const searchDatabase = (query) => (dispatch, getState) => {
         searchInput = query;
     }
     dispatch(fetching());
+    dispatch(refreshAuthToken());
     axios.get(API_URL + "monster", {
         params: {
             term: searchInput
